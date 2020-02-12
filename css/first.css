@@ -920,14 +920,16 @@ table{
 #to_top{
 	display:none;
 	position:fixed;
-	bottom:2vw;
-	right:1vw;
-	width:10vw;
-	height:10vw;
+	bottom:4vw;
+	right:2vw;
+	width:14vw;
+	height:14vw;
 	border-radius:50%;
 	box-shadow:1px 1px 3px rgba(60,60,60,0.5);
 	border:0.5vw solid #fafafa;
 	background:#f17766;
+	z-index:23;
+
 }
 
 
