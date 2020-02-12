@@ -273,10 +273,10 @@ mysqli_query($mysqli,$sql);
 <div class="main">
 <div style="height:0.5vw">　</div>
 	<div class="index_info">
-	<p class="p_toi">名刺データ作成・印刷は<a href="./note_index.php">HELP</a>をご参照下さい</p>
-	<p class="p_toi">お問い合わせ、不具合報告は<a href="./inpost.php">ご意見メール</a>よりお願いします</p>
-	
+		<p class="p_toi">名刺データ作成・印刷は<a href="./note_index.php">HELP</a>をご参照下さい</p>
+		<p class="p_toi">お問い合わせ、不具合報告は<a href="./inpost.php">ご意見メール</a>よりお願いします</p>
 	</div>
+
 	<h1 class="h1">
 		<span class="h1_title">みんなの名刺</span>
 		<span class="h1_main_slide"></span>

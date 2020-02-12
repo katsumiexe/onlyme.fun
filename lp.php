@@ -7,140 +7,104 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <meta name="description" content="PC不要、住所不要、スマホで作成、コンビニで印刷。手軽で簡単な写真名刺制作サイトです。">
 <meta name="keywords" content="写真名刺,コスプレ,画像修正,onlyme,名刺作成,無料,簡単">
+
 <link rel="stylesheet" href="./css/set_icon.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/first.css?_<?=date("YmdHi")?>">
+<link rel="stylesheet" href="./css/index.css?_<?=date("YmdHi")?>">
+<link rel="stylesheet" href="./css/onlyme.css?_<?=date("YmdHi")?>">
 
 <script src="./js/jquery-3.4.1.min.js"></script>
-<script src="./js/jquery-ui.min.js"></script>
-<script src="./js/jquery.ui.touch-punch.min.js"></script>
-<script src="./js/first.js?_<?=date("YmdHi")?>"></script>
-<script src="./js/index.js?_<?=date("YmdHi")?>"></script>
-<script src="./js/mydata.js?_<?=date("YmdHi")?>"></script>
+<script src="./js/jquery-ui.min.js" defer></script>
+<script src="./js/jquery.ui.touch-punch.min.js" defer></script>
+<script src="./js/first.js?_<?=date("YmdHi")?>" defer></script>
+<script src="./js/index.js?_<?=date("YmdHi")?>" defer></script>
 <script>
 $(function(){ 
+	var Tmp_1=$('#beacon').offset().top;
+	var Tmp_2=Tmp_1+$(window).width() * 24 /100;
+	var Tmp_3=Tmp_2+$(window).width() * 35 /100;
+	var Tmp_4=Tmp_3+$(window).width() * 24 /100;
+	var Tmp_5=Tmp_4+$(window).width() * 35 /100;
+	var Tmp_6=Tmp_5+$(window).width() * 24 /100;
+	var Tmp_7=Tmp_6+$(window).width() * 35 /100;
+	var Tmp_8=Tmp_7+$(window).width() * 24 /100;
+
+	console.log("▲"+Tmp_1);
+	console.log("▲"+Tmp_2);
+	console.log("▲"+Tmp_3);
+	console.log("▲"+Tmp_4);
+	console.log("▲"+Tmp_5);
+	console.log("▲"+Tmp_6);
+	console.log("▲"+Tmp_7);
+	console.log("▲"+Tmp_8);
+
+	$(window).scroll(function () {
+	console.log("●"+$(this).scrollTop());
+
+		if ($(this).scrollTop() >Tmp_1 && $('#tl1').css('display') == 'none') {
+			$('#tl1').show().animate({'top':'2vw'},200).animate({'top':'4vw'},200);
+		}
+
+		if ($(this).scrollTop() >Tmp_2 && $('#tl2').css('display') == 'none') {
+			$('#tl2').show().animate({'top':'26vw'},200).animate({'top':'28vw'},200);
+		}
+
+		if ($(this).scrollTop() >Tmp_3 && $('#tl3').css('display') == 'none') {
+			$('#tl3').show().animate({'top':'65vw'},200).animate({'top':'67vw'},200);
+		}
+
+		if ($(this).scrollTop() >Tmp_4 && $('#tl4').css('display') == 'none') {
+			$('#tl4').show().animate({'top':'89vw'},200).animate({'top':'91vw'},200);
+		}
+
+		if ($(this).scrollTop() >Tmp_5 && $('#tl5').css('display') == 'none') {
+			$('#tl5').show().animate({'top':'128vw'},200).animate({'top':'130vw'},200);
+		}
+
+		if ($(this).scrollTop() >Tmp_6 && $('#tl6').css('display') == 'none') {
+			$('#tl6').show().animate({'top':'152vw'},200).animate({'top':'154vw'},200);
+		}
+
+		if ($(this).scrollTop() >Tmp_7 && $('#tl7').css('display') == 'none') {
+			$('#tl7').show().animate({'top':'191vw'},200).animate({'top':'193vw'},200);
+		}
+
+		if ($(this).scrollTop() >Tmp_8 && $('#tl8').css('display') == 'none') {
+			$('#tl8').show().animate({'top':'215vw'},200).animate({'top':'217vw'},200);
+		}
+	});
+});
 
 </script>
-<style>
-.flex_q{
-	display		:block;
-	position	:relative;
-	width		:99vw;
-	height		:22vw;
-	margin		:2vw auto;
-	text-align	:left;	
-}
-
-.flex_a{
-	display		:block;
-	position	:relative;
-	width		:99vw;
-	height		:33vw;
-	margin		:2vw auto 5vw auto;
-	text-align	:right;
-}
-
-.q1{
-	display		:inline-block;
-	position	:absolute;
-	top			:1vw;
-	left		:2vw;
-	width		:16vw;
-	height		:16vw;
-	background	:#ff6060;
-	border-radius:50%;
-}
-
-.q2{
-	display		:inline-block;
-	position	:absolute;
-	top			:5vw;
-	left		:16vw;
-	width		:5vw;
-	height		:5vw;
-	font-size	:5vw;
-	color		:#8de055;
-}
-
-.q3{
-	display		:inline-block;
-	background	:#fafafa;
-	color		:#666666;
-	box-shadow	:1px 1px 0.5vw rgba(60,60,60,0.5);
-	width		:65vw;
-	font-size	:3.8vw;
-	line-height	:6vw;
-	border-radius:3vw;
-	min-height	:17vw;
-
-	margin-left	:22vw;
-	padding		:2vw;
-}
-
-.q4{
-	position	:absolute;
-	right		:-2vw;
-	font-size	:5vw;
-	color		:#fafafa;
-	transform	:rotate(-80deg);
-}
-
-.a1{
-	display		:inline-block;
-	position	:absolute;
-	top			:1vw;
-	right		:2vw;
-	width		:16vw;
-	height		:16vw;
-	background	:#606060;
-	border-radius:50%;
-}
-
-.a2{
-	display		:inline-block;
-	position	:absolute;
-	top			:5vw;
-	right		:16vw;
-	width		:5vw;
-	height		:5vw;
-	color		:#fafafa;
-	font-size	:5vw;
-}
-
-.a3{
-	display		:inline-block;
-	background	:#8de055;
-	color		:#303030;
-	box-shadow	:1px 1px 0.5vw rgba(60,60,60,0.5);
-	width		:65vw;
-	height		:30vw;
-	font-size	:3.8vw;
-	line-height	:6vw;
-	border-radius:3vw;
-	text-align	:left;
-	padding		:2vw;
-	margin-right:22vw;
-}
-
-.a4{
-	position	:absolute;
-	left		:-2vw;
-	font-size	:5vw;
-	color		:#8de055;
-	transform	:rotate(80deg);
-}
-
-.tl_box{
-	background	:#7494c0;
-	height		:245vw;
-}
-</style>
 </head>
 <body class="body">
-<?include_once("./x_head.php")?>
 <div class="main">
-<div style="height:100vh;"></div>
-<div class="tl_box">
 
+<?include_once("./x_irr.php")?>
+<div class="main">
+	<H1 class="h1"><span class="h1_title">写真名刺作成サイト★OnlyMe</span></h1>
+	<div class="top_img">
+		<img src="./img/top.png" style="width:100%;" alt="onlyme_top">
+		<div class="top_login">
+			<form id="user_login" action="./index.php" method="post">
+				<input type="text" name="log_in" placeholder="ID or ADDRESS" class="top_input"><br>
+				<input type="password" name="log_pass" placeholder="PASSWORD" class="top_input"><br>
+				<span class="btn_login">LOGIN</span>
+			</form>
+		</div>
+		<a href="https://twitter.com/onlyme_staff" class="link_twitter"></a>
+		<a href="https://instagram.com/onlyme_staff" class="link_insta"></a>
+		<a href="./outpost.php" class="link_mail"></a>
+	</div>
+	<div class="top_msg">
+スマホで作成<br>
+コンビニで印刷<br>
+手軽で簡単な写真名刺制作サイトです<br>
+		<span class="err_msg"><?=$msg?></span>
+	</div>
+<div id="beacon" style="height:90vh"></div>
+
+<div class="tl_box">
 <div id="tl1" class="flex_q">
 <div class="q1"></div>
 <div class="q2"><span class="q4">▲</span></div>
@@ -202,7 +166,4 @@ $(function(){
 向き、位置、サイズ、明るさを調整できます。
 
 コンビニでプリントアウト
-
 <?include_once("./x_foot.php")?>
-</body>
-</html>
