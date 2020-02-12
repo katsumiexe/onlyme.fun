@@ -1,0 +1,83 @@
+@font-face {
+	font-family: at_icon;
+	src: url(../font/font_01/fonts/icomoon.ttf) format('truetype');
+}
+
+.icon_img{
+	font-family:at_icon;
+	display:inline-block;
+}
+
+
+.icon_3{
+	height:3vw;
+	width:3vw;
+	margin:0.5vw;
+	font-size:2.5vw;
+	line-height:3vw;
+}
+
+.icon_4{
+	height:4vw;
+	width:4vw;
+	margin:0 0 0 0.5vw;
+	font-size:3.5vw;
+	line-height:4vw;
+}
+
+.icon_4s{
+	height:4vw;
+	width:4vw;
+	margin:0;
+	padding:0;
+	font-size:4vw;
+	line-height:4vw;
+}
+
+.icon_5{
+	height:5vw;
+	width:5vw;
+	margin:0.5vw;
+	font-size:4.5vw;
+	line-height:5vw;
+}
+
+.icon_5s{
+	height:5vw;
+	width:5vw;
+	margin:0;
+	padding:0;
+	font-size:5vw;
+	line-height:5vw;
+}
+
+.icon_6{
+	height:6vw;
+	width:6vw;
+	font-size:5.5vw;
+	line-height:6vw;
+
+}
+.icon_6s{
+	height:6vw;
+	width:5vw;
+	font-size:4.5vw;
+	line-height:6vw;
+
+}
+
+.icon_7{
+	height:7vw;
+	width:7vw;
+	margin:0.5vw;
+	font-size:6.5vw;
+	line-height:7vw;
+}
+
+.icon_8{
+	height:8vw;
+	width:8vw;
+	margin:0.5vw;
+	font-size:7.5vw;
+	line-height:8vw;
+}

@@ -1,0 +1,119 @@
+.link{
+	width:80%;
+	font-size:20px:
+	color:#00d0f0;
+	text-align:center;
+	padding:5px;
+	margin:5px auto;
+	border:3px solid #00d0f0;
+	background:#ffffff;
+	border-radius:5px;
+	display:inline-block;
+	text-decoration:none;
+}
+
+.box_1{
+	padding:5px;
+	margin:15px auto;
+	border:3px solid #f17766;
+	background:#ffffff;
+	text-align:left;
+	font-size:14px;
+	width:80%;
+	line-height:1.3;
+	border-radius:5px;
+}
+
+.box_2{
+	padding:5px;
+	margin:15px auto;
+	border:3px solid #f17766;
+	font-size:13px;
+	width:80vw;
+	height:115vw;
+	line-height:1.1;
+	border-radius:5px;
+	position:relative;
+	background-size:cover;
+}
+
+.h1{
+	background-image:url('../img/howto/howto1.png');
+}
+.h2{
+	background-image:url('../img/howto/howto2.png');
+}
+.h3{
+	background-image:url('../img/howto/howto3.png');
+}
+.h4{
+	background-image:url('../img/howto/howto4.png');
+}
+
+.c1{
+	display:inline-block;
+	position:absolute;
+	top:33vw;
+	right:5vw;
+	background: rgba(255,255,255,1);
+	width:31vw;
+	padding:5px;
+	border:1px solid #0000d0;
+}
+.c2{
+	display:inline-block;
+	position:absolute;
+	top:68vw;
+	right:13vw;
+	background: rgba(255,255,255,1);
+	width:50vw;
+	padding:5px;
+	border:1px solid #0000d0;
+}
+
+.c3{
+	display:inline-block;
+	position:absolute;
+	bottom:3vw;
+	right:15vw;
+	background: rgba(255,255,255,1);
+	width:50vw;
+	padding:5px;
+	border:1px solid #0000d0;
+}
+
+.c4{
+	display:inline-block;
+	position:absolute;
+	bottom:15vw;
+	right:8vw;
+	background: rgba(255,255,255,1);
+	width:60vw;
+	padding:5px;
+	border:1px solid #0000d0;
+}
+
+
+.ok1{
+	color:#6000ff;
+	font-weight:600;
+}
+
+.ok2{
+	color:#00a000;
+}
+
+.ok3{
+	color:#0000d0;
+	font-weight:600;
+}
+.ng1{
+	color:#d00000;
+	font-weight:600;
+}
+.title{
+	font-weight:800;
+	color:#f17766;
+	font-szie:15px;
+}
+
