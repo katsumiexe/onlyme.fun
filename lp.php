@@ -17,11 +17,9 @@
 <script src="./js/index.js?_<?=date("YmdHi")?>"></script>
 <script src="./js/mydata.js?_<?=date("YmdHi")?>"></script>
 <script>
+
 </script>
-
 <style>
-
-
 .flex_q{
 	display		:block;
 	position	:relative;
@@ -48,12 +46,13 @@
 	width		:16vw;
 	height		:16vw;
 	background	:#ff6060;
+	border-radius:50%;
 }
 
 .q2{
 	display		:inline-block;
 	position	:absolute;
-	top			:4vw;
+	top			:5vw;
 	left		:16vw;
 	width		:5vw;
 	height		:5vw;
@@ -92,12 +91,13 @@
 	width		:16vw;
 	height		:16vw;
 	background	:#606060;
+	border-radius:50%;
 }
 
 .a2{
 	display		:inline-block;
 	position	:absolute;
-	top			:4vw;
+	top			:5vw;
 	right		:16vw;
 	width		:5vw;
 	height		:5vw;
@@ -132,13 +132,12 @@
 	background	:#7494c0;
 	height		:245vw;
 }
-
 </style>
 </head>
 <body class="body">
 <?include_once("./x_head.php")?>
 <div class="main">
-
+<div style="height:100vh;"></div>
 <div class="tl_box">
 
 <div id="tl1" class="flex_q">

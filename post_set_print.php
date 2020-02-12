@@ -19,8 +19,6 @@ $ck_msg[0]="<span class=\"ck_mes c_wt\"><span class=\"ck_icon\"></span><span 
 $ck_msg[1]="<span class=\"ck_mes c_ok\"><span class=\"ck_icon\"></span><span class=\"ck_text\">印刷可能</span></span>";
 $ck_msg[2]="<span class=\"ck_mes c_ng\"><span class=\"ck_icon\"></span><span class=\"ck_text\">転送失敗</span></span>";
 
-
-
 $cnt=0;
 $now=date("Y-m-d H:i:s");
 $cont_font	="./font/RobotoCondensed-Regular.ttf";

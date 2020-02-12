@@ -57,12 +57,26 @@ $(function(){
 	});
 
 	$('.tuto').on('click',function(){
-	if($('#tuto_pg2').css('display')=='none'){
-		$('#tuto_pg1').fadeOut(100);
-		$('#tuto_pg2').fadeIn(500);
-	}else{
-		$('.tuto').hide();
+		if($('#tuto_pg2').css('display')=='none'){
+			$('#tuto_pg1').fadeOut(100);
+			$('#tuto_pg2').fadeIn(500);
+		}else{
+			$('.tuto').hide();
+		}
+	});
+
+	$(window).scroll(function () {
+		console.log($(this).scrollTop());
+		if ($(this).scrollTop() > 100) {
+			$('#to_top').fadeIn();
+	} else {
+			$('#to_top').fadeOut();
 	}
 
+	$('#to_top').on('click',function () {
+		$('body,html').animate({scrollTop: 0}, 500);
 	});
+
 });
+
+
