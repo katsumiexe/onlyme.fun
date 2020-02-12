@@ -159,7 +159,6 @@ if($j_token = file_get_contents($url, false, stream_context_create($dat2))){
 					$cnt++;
 			}
 		}
-
 	}else{//■アクセストークンが作成できなかった
 		$sql ="INSERT INTO `me_print_error`(e_date,user_id,code,me_error)";
 		$sql .="VALUES('{$now}','{$user["id"]}','{$dat_token["result"]}','1')";
