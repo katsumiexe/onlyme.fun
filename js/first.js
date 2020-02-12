@@ -69,14 +69,13 @@ $(function(){
 		console.log($(this).scrollTop());
 		if ($(this).scrollTop() > 100) {
 			$('#to_top').fadeIn();
-	} else {
+		} else {
 			$('#to_top').fadeOut();
-	}
+		}
+	});
 
 	$('#to_top').on('click',function () {
 		$('body,html').animate({scrollTop: 0}, 500);
 	});
 
 });
-
-

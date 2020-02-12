@@ -17,6 +17,7 @@
 <script src="./js/index.js?_<?=date("YmdHi")?>"></script>
 <script src="./js/mydata.js?_<?=date("YmdHi")?>"></script>
 <script>
+$(function(){ 
 
 </script>
 <style>
