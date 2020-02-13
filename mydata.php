@@ -245,14 +245,14 @@ $(function(){
 		使用期限：<span id="limit_date"></span><br>
 		</div>
 		<div class="print_code_text">
-			名刺データ右上の『<span class="icon_img"></span>』をタップすることで、プリントリストに追加できます（最大10個）。<br>
+			名刺データ右上の『<span class="icon_img"></span>』をタップすることで、印刷リストに追加できます（最大10個）。<br>
 		</div>
 		<div class="print_code_print"><span class="print_icon"></span>プリント方法</div>
 		<div id="id_code_del" class="print_code_del"><span class="print_icon"></span>リストの削除</div>
 		<div id="print_in" class="index_box"></div>
 		<div class="print_list">
 			<span class="print_icon"></span>
-			<div class="print_list_id">プリントリストを作成する</div>
+			<div class="print_list_id">印刷リスト作成</div>
 			<span class="list_count">0</span>
 		</div>
 		<br><br><br>

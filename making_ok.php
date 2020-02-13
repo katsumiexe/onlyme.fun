@@ -29,8 +29,8 @@ $base_zoom	=$_POST["base_zoom"];
 $vw_set		=$_POST["vw_set"];
 $id_top2	=$_POST["id_top"];
 $id_left2	=$_POST["id_left"];
-$id_height	=$_POST["id_height"];
-$id_width	=$_POST["id_width"];
+$id_height	=$_POST["id_height"]+0;
+$id_width	=$_POST["id_width"]+0;
 
 $id_wturn	=$_POST["id_wturn"];
 $id_vturn	=$_POST["id_vturn"];
@@ -53,25 +53,43 @@ $img_url2	=$dir2.$_POST["img_url2"];
 $img_url1	=$dir.$_POST["img_url1"];
 
 $img_tmp	= getimagesize($img_url1);
+
 if($img_tmp){
 	list($width0, $height0, $type0, $attr0) = $img_tmp;
-
+/*
 	$base_img_w=ceil($base_y*($height0/$base_y)*100/$id_zoom);
 	$base_img_h=ceil($base_y*($height0/$base_y)*100/$id_zoom);
-
+	$id_top=ceil($id_top2*(-100)/$id_zoom);
+	$id_left=ceil($id_left2*(-100)/$id_zoom);
+*/
 	$base_img_h=ceil(127.4/$base_zoom*(100/$id_zoom));
 	$base_img_w=ceil(77/$base_zoom*(100/$id_zoom));
 
+	if($id_height==0){
+		$id_top=0;
+	}else{
+		$id_top	=ceil($id_top2*$vw_set*$height0/$id_height)*(-1);
+	}
 
-//$id_top=ceil($id_top2*(-100)/$id_zoom);
-//$id_left=ceil($id_left2*(-100)/$id_zoom);
-
-	$id_top=ceil($id_top2*$vw_set*$height0/$id_height)*(-1);
-	$id_left=ceil($id_left2*$vw_set*$width0/$id_width)*(-1);
+	if($id_width==0){
+		$id_left=0;
+	}else{
+		$id_left=ceil($id_left2*$vw_set*$width0/$id_width)*(-1);
+	}
 }
+
+/*
+print("h□".$height0."<br>\n");
+print("w□".$width0."<br>\n");
+*/
+
+
 
 $img_url 	= imagecreatefromjpeg($img_url1);
 $qr_center	= imagecreatefrompng("./img/qr_twitter_30.png");
+
+//imagejpeg($img_url,$dir."test.jpg",100);
+
 
 $sql ="SELECT * FROM me_tmpl";
 $sql.=" WHERE tmpl_id='{$tmpl}'";
@@ -135,12 +153,14 @@ $icon_font	="./font/font_01/fonts/icomoon.ttf";
 $lay[1]=$dat_tmpl["name_z"];
 $lay[2]=$dat_tmpl["orgin_z"];
 $lay[3]=$dat_tmpl["contact_z"];
+
 $lay[4]=$dat_tmpl["wall0_z"];
 $lay[5]=$dat_tmpl["wall1_z"];
 $lay[6]=$dat_tmpl["wall2_z"];
 $lay[7]=$dat_tmpl["wall3_z"];
 $lay[8]=$dat_tmpl["frame0_z"];
 $lay[9]=$dat_tmpl["frame1_z"];
+
 
 asort($lay);
 
@@ -199,6 +219,16 @@ if($id_gray>0){
 if($id_bright !=0){
 	imagefilter($img_url, IMG_FILTER_BRIGHTNESS,$id_bright);
 }
+/*
+print("id_left□".$id_left."<br>\n");
+print("id_top□".$id_top."<br>\n");
+
+print("base_x□".$base_x."<br>\n");
+print("base_y□".$base_y."<br>\n");
+
+print("base_img_w□".$base_img_w."<br>\n");
+print("base_img_h□".$base_img_h."<br>\n");
+*/
 
 ImageCopyResampled($tmp2, $img_url, 0, 0, $id_left, $id_top, $base_x, $base_y, $base_img_w, $base_img_h);
 ImageCopyResampled($tmpn, $img_url, 0, 0, $id_left, $id_top, $base_x, $base_y, $base_img_w, $base_img_h);
@@ -352,6 +382,7 @@ if($dat_tmpl['contact_p']==1 ||$dat_tmpl['contact_p']==4){
 foreach($lay as $a1 => $a2){
 	include_once("./inc/inc_{$a1}.php");
 }
+
 
 if($qr !=2){
 	include_once("./qr_img.php");

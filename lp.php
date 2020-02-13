@@ -78,31 +78,30 @@ $(function(){
 </script>
 </head>
 <body class="body">
-<div class="main">
+<div>
+<H1 class="h1"><span class="h1_title">写真名刺作成サイト★OnlyMe</span></h1>
+<div class="top_img">
+	<img src="./img/top.png" style="width:100%;" alt="onlyme_top">
+	<div class="top_login">
+		<form id="user_login" action="./index.php" method="post">
+			<input type="text" name="log_in" placeholder="ID or ADDRESS" class="top_input"><br>
+			<input type="password" name="log_pass" placeholder="PASSWORD" class="top_input"><br>
+			<span class="btn_login">LOGIN</span>
+		</form>
+	</div>
+	<a href="https://twitter.com/onlyme_staff" class="link_twitter"></a>
+	<a href="https://instagram.com/onlyme_staff" class="link_insta"></a>
+	<a href="./outpost.php" class="link_mail"></a>
+</div>
 
-<?include_once("./x_irr.php")?>
-<div class="main">
-	<H1 class="h1"><span class="h1_title">写真名刺作成サイト★OnlyMe</span></h1>
-	<div class="top_img">
-		<img src="./img/top.png" style="width:100%;" alt="onlyme_top">
-		<div class="top_login">
-			<form id="user_login" action="./index.php" method="post">
-				<input type="text" name="log_in" placeholder="ID or ADDRESS" class="top_input"><br>
-				<input type="password" name="log_pass" placeholder="PASSWORD" class="top_input"><br>
-				<span class="btn_login">LOGIN</span>
-			</form>
-		</div>
-		<a href="https://twitter.com/onlyme_staff" class="link_twitter"></a>
-		<a href="https://instagram.com/onlyme_staff" class="link_insta"></a>
-		<a href="./outpost.php" class="link_mail"></a>
-	</div>
-	<div class="top_msg">
-スマホで作成<br>
-コンビニで印刷<br>
-手軽で簡単な写真名刺制作サイトです<br>
-		<span class="err_msg"><?=$msg?></span>
-	</div>
-<div id="beacon" style="height:90vh"></div>
+<div class="top_msg">
+	スマホで作成<br>
+	コンビニで印刷<br>
+	手軽で簡単な写真名刺制作サイトです<br>
+	<span class="err_msg"><?=$msg?></span>
+</div>
+
+<div id="beacon" style="height:80vh;background:#fafafa"></div>
 
 <div class="tl_box">
 <div id="tl1" class="flex_q">
@@ -138,7 +137,7 @@ $(function(){
 <div id="tl6" class="flex_a">
 <div class="a1"></div>
 <div class="a2"><span class="a4">▲</span></div>
-<div class="a3">プリントは3枚80円。用紙は写真用の厚手光沢紙が使われます。<br>データ作成は無料ですので、複数デザインし、使い分けることも可能です。<br></div>
+<div class="a3">プリントは3枚80円。用紙は写真用の厚手光沢紙が使われます。<br>データの作成は無料ですので、複数デザインすることも可能です。<br></div>
 </div>
 
 <div id="tl7" class="flex_q">
@@ -150,7 +149,7 @@ $(function(){
 <div id="tl8" class="flex_a">
 <div class="a1"></div>
 <div class="a2"><span class="a4">▲</span></div>
-<div class="a3">サイトでみんなの名刺を見ることができ、自分の名刺も見てもらえます。<br>評価もつけられますので、素敵な縁が生まれるかもしれません。<br></div>
+<div class="a3">他の人の名刺を見ることができ、自分の名刺も見てもらえます。<br>評価もつけられますので、素敵な縁が生まれるかもしれません。<br></div>
 </div>
 <br> 
 </div>
