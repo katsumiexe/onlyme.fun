@@ -83,8 +83,6 @@ print("h□".$height0."<br>\n");
 print("w□".$width0."<br>\n");
 */
 
-
-
 $img_url 	= imagecreatefromjpeg($img_url1);
 $qr_center	= imagecreatefrompng("./img/qr_twitter_30.png");
 
