@@ -1055,7 +1055,7 @@ table{
 
 
 .ft_box{
-	margin:2vw auto 4vh auto;
+	margin:2vw auto;
 	padding:1vw;
 	width:86vw;
 	border:1px solid #909090;
@@ -1068,7 +1068,6 @@ table{
 	text-align:left;
 	color:#303030;
 	background:#fafafa;
-	font-size:4vw;
 	height:7vw;
 	line-height:7vw;
 	padding-left:1vw;	
@@ -1082,7 +1081,7 @@ table{
 	width:8vw;
 	height:7vw;
 	line-height:7vw;
-	font-size:5vw;
+	font-size:4vw;
 	text-align:center;
 
 }
@@ -1090,7 +1089,7 @@ table{
 	display:inline-block;
 	height:7vw;
 	line-height:7vw;
-	font-size:5vw;
+	font-size:4vw;
 	text-align:left;
 
 }
