@@ -206,43 +206,6 @@
 }
 
 
-.ft_box{
-	margin:2vw auto;
-	width:80vw;
-	
-}
-.ft{
-	display:inline-block;
-	width:80vw;
-	text-align:left;
-	color:#303030;
-	background:#fafafa;
-	font-size:4vw;
-	height:7vw;
-	line-height:7vw;
-	padding-left:1vw;	
-	text-decoration:none;
-	border-bottom:1px solid #303030;
-	margin-top:0.5vw;
-}
-
-.ft_ar{
-	display:inline-block;
-	width:8vw;
-	height:7vw;
-	line-height:7vw;
-	font-size:5vw;
-	text-align:center;
-
-}
-.ft_txt{
-	display:inline-block;
-	height:7vw;
-	line-height:7vw;
-	font-size:5vw;
-	text-align:left;
-
-}
 .kiyaku{
 	color:#666666;
 	font-size:4vw;
