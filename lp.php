@@ -89,9 +89,6 @@ $(function(){
 			<span class="btn_login">LOGIN</span>
 		</form>
 	</div>
-	<a href="https://twitter.com/onlyme_staff" class="link_twitter"></a>
-	<a href="https://instagram.com/onlyme_staff" class="link_insta"></a>
-	<a href="./outpost.php" class="link_mail"></a>
 </div>
 
 <div class="top_msg">
@@ -165,6 +162,12 @@ $(function(){
 向き、位置、サイズ、明るさを調整できます。
 
 コンビニでプリントアウト
+<br>
+<div class="sns_box">
+<a href="https://twitter.com/onlyme_staff" class="link_twitter"></a>
+<a href="https://instagram.com/onlyme_staff" class="link_insta"></a>
+<a href="./outpost.php" class="link_mail"></a>
+</div>
 
 
 <div class="ft_box">

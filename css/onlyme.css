@@ -10,7 +10,7 @@
 	display		:inline-block;
 	top			:0;
 	bottom		:0;
-	right:		:10vw;
+	right		:10vw;
 	margin		:auto;
 	width		:12vw;
 	height		:12vw;
@@ -31,7 +31,7 @@
 	display		:inline-block;
 	top			:0;
 	bottom		:0;
-	left:		:10vw;
+	left		:10vw;
 	margin		:auto;
 	width		:12vw;
 	height		:12vw;
@@ -52,8 +52,8 @@
 	display		:inline-block;
 	top			:0;
 	bottom		:0;
-	left:		:0;
-	right:		:0;
+	left		:0;
+	right		:0;
 	margin		:auto;
 	width		:12vw;
 	height		:12vw;
@@ -73,9 +73,9 @@
 	position	:relative;
 	display		:inline-block;
 	margin		:1vw auto;
-	width		:70vw;
+	width		:80vw;
 	height		:18vw;
-	border-radius:50%;
+	border-radius:8vw;
 	border:0.5vw solid #f17766;
 	background:#fff8fa;
 }
