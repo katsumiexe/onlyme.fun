@@ -6,58 +6,80 @@
 }
 
 .link_mail{
-	position:absolute;
-	display:inline-block;
-	bottom:2vw;
-	left:2vw;
-	width:10vw;
-	height:10vw;
-	line-height:10vw;
-	font-family:at_icon;
-	text-align:center;
-	font-size:6vw;
-	color:#ffffff;
+	position	:absolute;
+	display		:inline-block;
+	top			:0;
+	bottom		:0;
+	right:		:10vw;
+	margin		:auto;
+	width		:12vw;
+	height		:12vw;
+	line-height	:12vw;
+	font-family	:at_icon;
+	text-align	:center;
+	font-size	:6vw;
+	color		:#ffffff;
 	border-radius:50%;
+	text-decoration:none;
+
 	border:0.5vw solid #008000;
 	background:linear-gradient(#00c040,#00a020);
-	text-decoration:none;
 }
 
 .link_twitter{
-	position:absolute;
-	display:inline-block;
-	bottom:28vw;
-	left:2vw;
-	width:10vw;
-	height:10vw;
-	line-height:10vw;
-	font-family:at_icon;
-	text-align:center;
-	font-size:6vw;
-	color:#ffffff;
+	position	:absolute;
+	display		:inline-block;
+	top			:0;
+	bottom		:0;
+	left:		:10vw;
+	margin		:auto;
+	width		:12vw;
+	height		:12vw;
+	line-height	:12vw;
+	font-family	:at_icon;
+	text-align	:center;
+	font-size	:6vw;
+	color		:#ffffff;
 	border-radius:50%;
+	text-decoration:none;
 	border:0.5vw solid #4090EE;
 	background:linear-gradient(#70b0ff,#55ACEE);
 	text-decoration:none;
 }
 
 .link_insta{
-	position:absolute;
-	display:inline-block;
-	bottom:15vw;
-	left:2vw;
-	width:10vw;
-	height:10vw;	
-	line-height:10vw;
-	font-family:at_icon;
-	text-align:center;
-	font-size:6vw;
-	color:#ffffff;
+	position	:absolute;
+	display		:inline-block;
+	top			:0;
+	bottom		:0;
+	left:		:0;
+	right:		:0;
+	margin		:auto;
+	width		:12vw;
+	height		:12vw;
+	line-height	:12vw;
+	font-family	:at_icon;
+	text-align	:center;
+	font-size	:6vw;
+	color		:#ffffff;
 	border-radius:50%;
+	text-decoration:none;
 	border:0.5vw solid #ff6030;
 	background:linear-gradient(#ff7f50,#ff9060);
 	text-decoration:none;
 }
+
+.sns_box{
+	position	:relative;
+	display		:inline-block;
+	margin		:1vw auto;
+	width		:70vw;
+	height		:18vw;
+	border-radius:50%;
+	border:0.5vw solid #f17766;
+	background:#fff8fa;
+}
+
 
 .top_msg{
 	margin:1.5vw auto;;

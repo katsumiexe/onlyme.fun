@@ -964,8 +964,9 @@ table{
 	left		:2vw;
 	width		:16vw;
 	height		:16vw;
-	background	:#ff6060;
+	background	:#fafafa;
 	border-radius:50%;
+	overflow:hidden;
 }
 
 .q2{
@@ -1009,8 +1010,9 @@ table{
 	right		:2vw;
 	width		:16vw;
 	height		:16vw;
-	background	:#606060;
+	background	:#fafafa;
 	border-radius:50%;
+	overflow:hidden;
 }
 
 .a2{
