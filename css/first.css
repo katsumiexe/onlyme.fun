@@ -1047,6 +1047,11 @@ table{
 	transform	:rotate(80deg);
 }
 
+.tl_face{
+	width:16vw;
+	height:16vw;
+}
+
 .tl_box{
 	position:relative;
 	background	:#7494c0;

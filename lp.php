@@ -105,49 +105,49 @@ $(function(){
 
 <div class="tl_box">
 <div id="tl1" class="flex_q">
-<div class="q1"></div>
+<div class="q1"><img src="./mg/lp/q1.png" class="tl_face"></div>
 <div class="q2"><span class="q4">▲</span></div>
 <div class="q3">パソコン持っていない。あっても難しいソフトは使えない</div>
 </div>
 
 <div id="tl2" class="flex_a">
-<div class="a1"></div>
+<div class="a1"><img src="./mg/lp/a1.png" class="tl_face"></div>
 <div class="a2"><span class="a4">▲</span></div>
 <div class="a3">名刺データはスマホから作成でき、操作もとても簡単です。簡単な画像調整も可能ですので、パソコンや難しい知識は全く必要はありません。<br></div>
 </div>
 
 <div id="tl3" class="flex_q">
-<div class="q1"></div>
+<div class="q1"><img src="./mg/lp/q1.png" class="tl_face"></div>
 <div class="q2"><span class="q4">▲</span></div>
 <div class="q3">印刷所に頼むと時間がかかる。自宅に送られてくるのも嫌</div>
 </div>
 
 <div id="tl4" class="flex_a">
-<div class="a1"></div>
+<div class="a1"><img src="./mg/lp/q1.png" class="tl_face"></div>
 <div class="a2"><span class="a4">▲</span></div>
 <div class="a3">作成された名刺データは、そのままコンビニのマルチコピー機でプリントできますので、印刷所から送られてくることもありません。もちろん住所登録も必要ありません。<br></div>
 </div>
 
 <div id="tl5" class="flex_q">
-<div class="q1"></div>
+<div class="q1"><img src="./mg/lp/q2.png" class="tl_face"></div>
 <div class="q2"><span class="q4">▲</span></div>
 <div class="q3">衣装毎に作りたいので少ない枚数で安く、それでいて高品質の物を作りたい</div>
 </div>
 
 <div id="tl6" class="flex_a">
-<div class="a1"></div>
+<div class="a1"><img src="./mg/lp/a1.png" class="tl_face"></div>
 <div class="a2"><span class="a4">▲</span></div>
 <div class="a3">プリントは3枚80円。用紙は写真用の厚手光沢紙が使われます。<br>データの作成は無料ですので、複数デザインすることも可能です。<br></div>
 </div>
 
 <div id="tl7" class="flex_q">
-<div class="q1"></div>
+<div class="q1"><img src="./mg/lp/q3.png" class="tl_face"></div>
 <div class="q2"><span class="q4">▲</span></div>
 <div class="q3">宅コスレイヤーなので、名刺を渡す相手がいないです（泣）</div>
 </div>
 
 <div id="tl8" class="flex_a">
-<div class="a1"></div>
+<div class="a1"><img src="./mg/lp/a2.png" class="tl_face"></div>
 <div class="a2"><span class="a4">▲</span></div>
 <div class="a3">他の人の名刺を見ることができ、自分の名刺も見てもらえます。<br>評価もつけられますので、素敵な縁が生まれるかもしれません。<br></div>
 </div>
