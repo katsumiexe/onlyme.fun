@@ -7,11 +7,14 @@ $nowpage=1;
 $ex=8;
 $d=0;
 
+
 if($_POST["img_url1"] && $_POST["img_url2"]){
 	unlink($dir.'print.php');
 	unlink($dir.$_POST["img_url1"]);
 	unlink($dir2.$_POST["img_url2"]);
+
 }
+
 
 if($user["tuto"] == 0){
 	$tuto=1;

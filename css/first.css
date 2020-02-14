@@ -924,6 +924,12 @@ table{
 	right:2vw;
 	width:12vw;
 	height:12vw;
+	line-height:12vw;
+	text-align:centrer;
+	font-weight:700;
+	color:#fafafa;
+	font-size:6vw;
+	font-family:at_icon;
 	border-radius:50%;
 	box-shadow:1px 1px 3px rgba(60,60,60,0.5);
 	border:1vw solid #fafafa;
@@ -964,7 +970,7 @@ table{
 	left		:2vw;
 	width		:16vw;
 	height		:16vw;
-	background	:#ff6060;
+	background	:#fafafa;
 	border-radius:50%;
 	overflow:hidden;
 }
@@ -1099,6 +1105,29 @@ table{
 	font-size:4vw;
 	text-align:left;
 
+}
+
+
+.div_lp_roll{
+	position:relative;
+	display:inline-block;
+	height:107vw;
+	width:94vw;
+	overflow:hidden;
+	background:#f0f0ff;
+	margin:0 auto;
+}
+
+.lp_roll{
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+	width:55vw;
+	height:91vw;
+//	transform: rotate(-31deg);
 }
 
 

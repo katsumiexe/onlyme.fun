@@ -10,9 +10,6 @@
 				<span class="btn_login">LOGIN</span>
 			</form>
 		</div>
-		<a href="https://twitter.com/onlyme_staff" class="link_twitter"></a>
-		<a href="https://instagram.com/onlyme_staff" class="link_insta"></a>
-		<a href="./outpost.php" class="link_mail"></a>
 	</div>
 	<div class="top_msg">
 スマホで作成<br>

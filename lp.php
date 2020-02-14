@@ -1,3 +1,24 @@
+<?
+include_once("./library/lib.php");
+include_once("./library/lib_me.php");
+include_once("./library/session.php");
+
+	$sql ="SELECT user_id, img2 FROM me_making";
+	$sql .=" WHERE del=0";
+	$sql .=" ORDER BY making_id DESC";
+	$sql .=" LIMIT 5";
+	$result = mysqli_query($mysqli,$sql);
+	while($dat2 = mysqli_fetch_assoc($result)){
+
+		for($n=0;$n<4;$n++){
+			$tmp_key=substr($dat2["user_id"],$n*2,2);
+			$tmp_enc[$n]=$enc[$tmp_key];
+		}
+		$user_enc_id=$tmp_enc[0].$tmp_enc[3].$tmp_enc[1].$tmp_enc[2].$tmp_enc[3].$tmp_enc[2];
+		$roll_img[]="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[1]}{$tmp_enc[3]}/".$dat2["img2"];		
+	}
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -28,6 +49,19 @@ $(function(){
 	var Tmp_6=Tmp_5+$(window).width() * 24 /100;
 	var Tmp_7=Tmp_6+$(window).width() * 35 /100;
 	var Tmp_8=Tmp_7+$(window).width() * 24 /100;
+
+	var N=0;
+
+	var Roll=
+	[
+	'<?=$roll_img[0]?>',
+	'<?=$roll_img[1]?>',
+	'<?=$roll_img[2]?>',
+	'<?=$roll_img[3]?>',
+	'<?=$roll_img[4]?>'
+	];
+
+
 
 	console.log("▲"+Tmp_1);
 	console.log("▲"+Tmp_2);
@@ -73,6 +107,25 @@ $(function(){
 			$('#tl8').show().animate({'top':'215vw'},200).animate({'top':'217vw'},200);
 		}
 	});
+
+
+	setInterval(function(){
+		$('.lp_roll')
+		
+		.animate({'width':'55vw'},500)
+		.delay(3000)
+		.animate({'width':'0vw'},500,function(){
+			N++;
+			if(N>4) N=0;
+			$('.lp_roll').attr('src',Roll[N])
+		});
+    },300);
+
+
+
+//	$('.lp_roll').animate({'width':'0'},500).animate({'width':'55vw'},500).delay(2000);
+
+
 });
 
 </script>
@@ -98,7 +151,13 @@ $(function(){
 	<span class="err_msg"><?=$msg?></span>
 </div>
 
-<div id="beacon" style="height:80vh;background:#fafafa"></div>
+<div id="beacon" style="height:80vh;background:#fafafa">
+<div class="div_lp_roll">
+<img src="https://onlyme.fun/myalbum/tw/amtwagaltwal/agtw/mfaiastxcw.jpg" class="lp_roll">
+</div>
+</div>
+
+
 
 <div class="tl_box">
 <div id="tl1" class="flex_q">
