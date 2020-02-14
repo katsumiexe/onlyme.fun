@@ -121,13 +121,7 @@ $(function(){
 		});
     },300);
 
-
-
-//	$('.lp_roll').animate({'width':'0'},500).animate({'width':'55vw'},500).delay(2000);
-
-
 });
-
 </script>
 </head>
 <body class="body">
@@ -151,7 +145,7 @@ $(function(){
 	<span class="err_msg"><?=$msg?></span>
 </div>
 
-<div id="beacon" style="height:80vh;background:#fafafa">
+<div id="beacon" style="height:72vh;background:#fafafa">
 <div class="div_lp_roll">
 <img src="https://onlyme.fun/myalbum/tw/amtwagaltwal/agtw/mfaiastxcw.jpg" class="lp_roll">
 </div>
