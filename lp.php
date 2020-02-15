@@ -42,7 +42,7 @@ include_once("./library/session.php");
 <script>
 $(function(){ 
 	var Tmp_1=$('#beacon').offset().top;
-	var Tmp_2=Tmp_1+$(window).width() * 24 /100;
+	var Tmp_2=Tmp_1+$(window).width() * 20 /100;
 	var Tmp_3=Tmp_2+$(window).width() * 35 /100;
 	var Tmp_4=Tmp_3+$(window).width() * 24 /100;
 	var Tmp_5=Tmp_4+$(window).width() * 35 /100;
