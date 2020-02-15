@@ -1,5 +1,5 @@
 <?php
-//■wall3-------------
+//■wall3-_TEST_------------
 if($dat_tmpl['wall3']){
 	if(strpos($wall3, "png")){
 		$tmp_wall = imagecreatefrompng("./img/wall/{$dat_tmpl['wall3']}");
