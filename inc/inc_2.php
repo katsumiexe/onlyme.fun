@@ -1,12 +1,8 @@
 <?php
-
 //■contact-------------------------------------
-
 if(mb_strlen($insta)>250){
 	$insta=substr($insta,0,25)."…";
 }
-
-
 if($cont1>0){	
 	if(strpos($dat_tmpl['contact'], "png")){
 		$cont_img = imagecreatetruecolor($cont_width,$cont_height);
