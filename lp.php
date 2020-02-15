@@ -41,14 +41,14 @@ include_once("./library/session.php");
 <script src="./js/index.js?_<?=date("YmdHi")?>" defer></script>
 <script>
 $(function(){ 
-	var Tmp_1=$('#beacon').offset().top;
-	var Tmp_2=Tmp_1+$(window).width() * 20 /100;
-	var Tmp_3=Tmp_2+$(window).width() * 35 /100;
-	var Tmp_4=Tmp_3+$(window).width() * 24 /100;
-	var Tmp_5=Tmp_4+$(window).width() * 35 /100;
-	var Tmp_6=Tmp_5+$(window).width() * 24 /100;
-	var Tmp_7=Tmp_6+$(window).width() * 35 /100;
-	var Tmp_8=Tmp_7+$(window).width() * 24 /100;
+	var Tmp_1=$('#beacon').offset().top+10;
+	var Tmp_2=Tmp_1+$(window).width() * 26 /100;
+	var Tmp_3=Tmp_2+$(window).width() * 37 /100;
+	var Tmp_4=Tmp_3+$(window).width() * 26 /100;
+	var Tmp_5=Tmp_4+$(window).width() * 37 /100;
+	var Tmp_6=Tmp_5+$(window).width() * 26 /100;
+	var Tmp_7=Tmp_6+$(window).width() * 37 /100;
+	var Tmp_8=Tmp_7+$(window).width() * 26 /100;
 
 	var N=0;
 
@@ -125,7 +125,7 @@ $(function(){
 </script>
 </head>
 <body class="body">
-<div>
+<div style="background:#fafafa">
 <H1 class="h1"><span class="h1_title">写真名刺作成サイト★OnlyMe</span></h1>
 <div class="top_img">
 	<img src="./img/top.png" style="width:100%;" alt="onlyme_top">
@@ -137,21 +137,27 @@ $(function(){
 		</form>
 	</div>
 </div>
-<a href="./regist.php" class="resist_in">新規登録</a>
+<a href="./regist.php" class="resist_in" id="beacon">新規登録</a>
 
 
 <span class="err_msg"><?=$msg?></span>
-<div class="top_msg">
-<span class="icon_img"></span>スマホで作成<br>
-<span class="icon_img"></span>コンビニで印刷<br>
-<span class="icon_img"></span>写真名刺を簡単作成<br>
+<div class="top_msg check2">
+<span class="icon_img check"></span> スマホで作成<br>
+<span class="icon_img check"></span> コンビニで印刷<br>
+<span class="icon_img check"></span> 写真名刺を簡単作成<br>
 </div>
 
-<div id="beacon" style="height:72vh;background:#fafafa">
 <div class="div_lp_roll">
 <img src="https://onlyme.fun/myalbum/tw/amtwagaltwal/agtw/mfaiastxcw.jpg" class="lp_roll">
+
+<div class="div_lp_roll_txt">
+パソコンがなくても
+SNS入り・QRコード入りの
+写真名刺を作成できます
 </div>
+
 </div>
+
 
 <h2 class="h2">名刺作りのお悩みもスッキリ解決！</h2>
 <div class="tl_box">
@@ -205,18 +211,6 @@ $(function(){
 <br> 
 </div>
 
-名刺情報を入力
-名前、作品名、SNSアカウント（Twitter／instagram／CosplayerArchive）が使えます。
-
-テンプレートを選択
-
-使う写真をアップロード
-
-写真の微調整
-向き、位置、サイズ、明るさを調整できます。
-
-コンビニでプリントアウト
-<br>
 <div class="sns_box">
 <a href="https://twitter.com/onlyme_staff" class="link_twitter"></a>
 <a href="https://instagram.com/onlyme_staff" class="link_insta"></a>
