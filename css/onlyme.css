@@ -82,15 +82,16 @@
 
 
 .top_msg{
-	margin:1.5vw auto;;
+	margin:1.5vw auto;
 	width:94vw;
 	min-height:20vw;
-	line-height:5vw;
+	line-height:7vw;
 	font-size:4.2vw;
 	border:0.5vw solid #f17766;
 	background:#ffffff;
 	text-align:left;
-	padding:1vw;
+	padding:1.5vw;
+	border-radius:1.5vw;
 }
 .err_msg{
 	color:#d00000;
