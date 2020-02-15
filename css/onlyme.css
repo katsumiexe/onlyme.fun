@@ -34,6 +34,7 @@
 	width:100%;
 	position:relative;
 	border:none;
+	background:#fff0f9;
 }
 
 .link_mail{
@@ -397,25 +398,27 @@
 
 }
 
-div_lp_roll_txt{
-	background:linear-gradient(#90a0ff;#6090ff);
+.div_lp_roll_txt{
+	background:linear-gradient(#00a000,#008800);
 	color:#fafafa;
 	font-size:4vw;
 	font-weight:600;
-	text-align:left:
+	text-align:left;
 	line-height:7vw;
 	border-radius:3vw;
-	display:inlne-block;
+	display:inline-block;
 	margin:1vw auto;
+	width:85vw;
+	padding:2vw;
 }
 
 .div_lp_roll{
 	position:relative;
 	display:inline-block;
-	height:107vw;
-	width:94vw;
+	height:93vw;
+	width:98vw;
 	overflow:hidden;
-	background:#f0f0ff;
+	background:#fafafa;
 	margin:0 auto;
 }
 

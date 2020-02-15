@@ -149,15 +149,13 @@ $(function(){
 
 <div class="div_lp_roll">
 <img src="https://onlyme.fun/myalbum/tw/amtwagaltwal/agtw/mfaiastxcw.jpg" class="lp_roll">
+</div>
 
 <div class="div_lp_roll_txt">
 パソコンがなくても
 SNS入り・QRコード入りの
 写真名刺を作成できます
 </div>
-
-</div>
-
 
 <h2 class="h2">名刺作りのお悩みもスッキリ解決！</h2>
 <div class="tl_box">
