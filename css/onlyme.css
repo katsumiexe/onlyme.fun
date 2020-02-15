@@ -35,6 +35,7 @@
 	position:relative;
 	border:none;
 	background:#fff0f9;
+	font-weight:600;
 }
 
 .link_mail{
@@ -115,15 +116,15 @@
 
 .top_msg{
 	margin:1.5vw auto;
-	width:94vw;
-	min-height:20vw;
-	line-height:7vw;
-	font-size:4.2vw;
+	width:80vw;
+	line-height:8vw;
+	font-size:5vw;
 	border:0.5vw solid #f17766;
-	background:#ffffff;
 	text-align:left;
 	padding:1.5vw;
 	border-radius:1.5vw;
+	background	:#fff0f5;
+	font-weight:600;
 }
 .err_msg{
 	color:#d00000;
@@ -358,45 +359,6 @@
 }
 
 
-.ft_box{
-	margin:2vw auto;
-	padding:1vw;
-	width:86vw;
-	border:1px solid #909090;
-	background:#fafafa;
-}
-
-.ft{
-	display:inline-block;
-	width:80vw;
-	text-align:left;
-	color:#303030;
-	background:#fafafa;
-	height:7vw;
-	line-height:7vw;
-	padding-left:1vw;	
-	text-decoration:none;
-	border-bottom:1px solid #303030;
-	margin-top:0.5vw;
-}
-
-.ft_ar{
-	display:inline-block;
-	width:8vw;
-	height:7vw;
-	line-height:7vw;
-	font-size:4vw;
-	text-align:center;
-
-}
-.ft_txt{
-	display:inline-block;
-	height:7vw;
-	line-height:7vw;
-	font-size:4vw;
-	text-align:left;
-
-}
 
 .div_lp_roll_txt{
 	background:linear-gradient(#00a000,#008800);
@@ -407,7 +369,7 @@
 	line-height:7vw;
 	border-radius:3vw;
 	display:inline-block;
-	margin:1vw auto;
+	margin:1vw auto 5vw auto;
 	width:85vw;
 	padding:2vw;
 }

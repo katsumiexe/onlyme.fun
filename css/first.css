@@ -843,6 +843,45 @@ table{
 	line-height:10vw;
 	text-align:center;
 }
+.ft_box{
+	margin:2vw auto;
+	padding:1vw;
+	width:86vw;
+	border:1px solid #909090;
+	background:#fafafa;
+}
+
+.ft{
+	display:inline-block;
+	width:80vw;
+	text-align:left;
+	color:#303030;
+	background:#fafafa;
+	height:7vw;
+	line-height:7vw;
+	padding-left:1vw;	
+	text-decoration:none;
+	border-bottom:1px solid #303030;
+	margin-top:0.5vw;
+}
+
+.ft_ar{
+	display:inline-block;
+	width:8vw;
+	height:7vw;
+	line-height:7vw;
+	font-size:4vw;
+	text-align:center;
+
+}
+.ft_txt{
+	display:inline-block;
+	height:7vw;
+	line-height:7vw;
+	font-size:4vw;
+	text-align:left;
+
+}
 
 .tuto{
 	position:fixed;
