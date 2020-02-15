@@ -137,12 +137,14 @@ $(function(){
 		</form>
 	</div>
 </div>
+<a href="./regist.php" class="resist_in">新規登録</a>
 
+
+<span class="err_msg"><?=$msg?></span>
 <div class="top_msg">
-	スマホで作成<br>
-	コンビニで印刷<br>
-	手軽で簡単な写真名刺制作サイトです<br>
-	<span class="err_msg"><?=$msg?></span>
+<span class="icon_img"></span>スマホで作成<br>
+<span class="icon_img"></span>コンビニで印刷<br>
+<span class="icon_img"></span>写真名刺を簡単作成<br>
 </div>
 
 <div id="beacon" style="height:72vh;background:#fafafa">
@@ -151,8 +153,7 @@ $(function(){
 </div>
 </div>
 
-
-
+<h2 class="h2">名刺作りのお悩みもスッキリ解決！</h2>
 <div class="tl_box">
 <div id="tl1" class="flex_q">
 <div class="q1"><img src="./img/lp/lp_q1.png" class="tl_face"></div>

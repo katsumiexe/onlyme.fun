@@ -1,4 +1,25 @@
 
+.h2{
+	background	:#1030ff;
+	color		:#fafafa;
+	font-size	:5vw;
+	padding		:2vw;
+	text-align	:left;
+	font-weight	:700;
+	margin		:0;
+}
+
+.resist_in{
+	display		:inline-block;
+	margin		:2vw auto;
+	width		:60vw;
+	height		:12vw;
+	line-height	:12vw;
+	background	:linear-gradient(#f05040,#f17766);
+	text-decoration:none;
+	font-size:5vw;
+}
+
 .top_img{
 	width:100%;
 	position:relative;
@@ -196,4 +217,195 @@
 	padding:1.5vw;
 	width:frex;
 	font-size:3.2vw;
+}
+#tl1{top:5vw;}
+#tl2{top:29vw;}
+#tl3{top:64vw;}
+#tl4{top:88vw;}
+#tl5{top:125vw;}
+#tl6{top:149vw;}
+#tl7{top:184vw;}
+#tl8{top:208vw;}
+
+.flex_q{
+	position	:absolute;
+	display		:none;
+	width		:99vw;
+	height		:22vw;
+	text-align	:left;	
+}
+
+.flex_a{
+	position	:absolute;
+	display		:none;
+	width		:99vw;
+	height		:33vw;
+	text-align	:right;
+}
+
+.q1{
+	display		:inline-block;
+	position	:absolute;
+	top			:1vw;
+	left		:2vw;
+	width		:16vw;
+	height		:16vw;
+	background	:#fafafa;
+	border-radius:50%;
+	overflow:hidden;
+}
+
+.q2{
+	display		:inline-block;
+	position	:absolute;
+	top			:5vw;
+	left		:16vw;
+	width		:5vw;
+	height		:5vw;
+	font-size	:5vw;
+	color		:#8de055;
+}
+
+.q3{
+	display		:inline-block;
+	background	:#fafafa;
+	color		:#666666;
+	box-shadow	:1px 1px 0.5vw rgba(60,60,60,0.5);
+	width		:65vw;
+	font-size	:3.8vw;
+	line-height	:6vw;
+	border-radius:3vw;
+	min-height	:17vw;
+
+	margin-left	:22vw;
+	padding		:2vw;
+}
+
+.q4{
+	position	:absolute;
+	right		:-2vw;
+	font-size	:5vw;
+	color		:#fafafa;
+	transform	:rotate(-80deg);
+}
+
+.a1{
+	display		:inline-block;
+	position	:absolute;
+	top			:1vw;
+	right		:2vw;
+	width		:16vw;
+	height		:16vw;
+	background	:#fafafa;
+	border-radius:50%;
+	overflow:hidden;
+}
+
+.a2{
+	display		:inline-block;
+	position	:absolute;
+	top			:5vw;
+	right		:16vw;
+	width		:5vw;
+	height		:5vw;
+	color		:#fafafa;
+	font-size	:5vw;
+}
+
+.a3{
+	display		:inline-block;
+	background	:#8de055;
+	color		:#303030;
+	box-shadow	:1px 1px 0.5vw rgba(60,60,60,0.5);
+	width		:65vw;
+	height		:30vw;
+	font-size	:3.8vw;
+	line-height	:6vw;
+	border-radius:3vw;
+	text-align	:left;
+	padding		:2vw;
+	margin-right:22vw;
+}
+
+.a4{
+	position	:absolute;
+	left		:-2vw;
+	font-size	:5vw;
+	color		:#8de055;
+	transform	:rotate(80deg);
+}
+
+.tl_face{
+	width:16vw;
+	height:16vw;
+}
+
+.tl_box{
+	position:relative;
+	background	:#7494c0;
+	height		:255vw;
+}
+
+
+.ft_box{
+	margin:2vw auto;
+	padding:1vw;
+	width:86vw;
+	border:1px solid #909090;
+	background:#fafafa;
+}
+
+.ft{
+	display:inline-block;
+	width:80vw;
+	text-align:left;
+	color:#303030;
+	background:#fafafa;
+	height:7vw;
+	line-height:7vw;
+	padding-left:1vw;	
+	text-decoration:none;
+	border-bottom:1px solid #303030;
+	margin-top:0.5vw;
+}
+
+.ft_ar{
+	display:inline-block;
+	width:8vw;
+	height:7vw;
+	line-height:7vw;
+	font-size:4vw;
+	text-align:center;
+
+}
+.ft_txt{
+	display:inline-block;
+	height:7vw;
+	line-height:7vw;
+	font-size:4vw;
+	text-align:left;
+
+}
+
+
+.div_lp_roll{
+	position:relative;
+	display:inline-block;
+	height:107vw;
+	width:94vw;
+	overflow:hidden;
+	background:#f0f0ff;
+	margin:0 auto;
+}
+
+.lp_roll{
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+	width:55vw;
+	height:91vw;
+//	transform: rotate(-31deg);
 }
