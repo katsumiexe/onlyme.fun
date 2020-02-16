@@ -854,13 +854,13 @@ table{
 .ft_box{
 	margin:2vw auto;
 	padding:1vw;
-	width:86vw;
+	width:80vw;
 	border:1px solid #909090;
 	background:#fafafa;
 }
 
 .ft{
-	position:absolute;
+	position:relative;
 	display:inline-block;
 	width:80vw;
 	text-align:left;
