@@ -37,20 +37,7 @@ $(function(){
 	'<?=$roll_img[4]?>'
 	];
 
-
-
-	console.log("▲"+Tmp_1);
-	console.log("▲"+Tmp_2);
-	console.log("▲"+Tmp_3);
-	console.log("▲"+Tmp_4);
-	console.log("▲"+Tmp_5);
-	console.log("▲"+Tmp_6);
-	console.log("▲"+Tmp_7);
-	console.log("▲"+Tmp_8);
-
 	$(window).scroll(function () {
-	console.log("●"+$(this).scrollTop());
-
 		if ($(this).scrollTop() >Tmp_1 && $('#tl1').css('display') == 'none') {
 			$('#tl1').show().animate({'top':'2vw'},200).animate({'top':'4vw'},200);
 		}
@@ -83,8 +70,6 @@ $(function(){
 			$('#tl8').show().animate({'top':'215vw'},200).animate({'top':'217vw'},200);
 		}
 	});
-
-
 	setInterval(function(){
 		$('.lp_roll')
 		
@@ -96,7 +81,6 @@ $(function(){
 			$('.lp_roll').attr('src',Roll[N])
 		});
     },300);
-
 });
 </script>
 <div style="background:#fafafa">
@@ -112,7 +96,6 @@ $(function(){
 	</div>
 </div>
 <a href="./regist.php" class="resist_in" id="beacon">新規登録</a><br>
-
 
 <div class="top_msg check2">
 <span class="icon_img check"></span> スマホで作成<br>
