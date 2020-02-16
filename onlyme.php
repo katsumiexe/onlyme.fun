@@ -121,7 +121,7 @@ $(function(){
 </div>
 
 <div class="div_lp_roll">
-<img src="https://onlyme.fun/myalbum/tw/amtwagaltwal/agtw/mfaiastxcw.jpg" class="lp_roll">
+<img src="<?=$roll_img[0]?>" class="lp_roll">
 </div>
 
 <div class="div_lp_roll_txt">
