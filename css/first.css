@@ -850,6 +850,7 @@ table{
 	line-height:10vw;
 	text-align:center;
 }
+
 .ft_box{
 	margin:2vw auto;
 	padding:1vw;
@@ -859,6 +860,7 @@ table{
 }
 
 .ft{
+	position:absolute;
 	display:inline-block;
 	width:80vw;
 	text-align:left;
@@ -873,20 +875,29 @@ table{
 }
 
 .ft_ar{
-	display:inline-block;
-	width:8vw;
-	height:7vw;
-	line-height:7vw;
-	font-size:4vw;
-	text-align:center;
-
+	position	:absolute;
+	top			:0;
+	bottom		:0;
+	left		:0;
+	margin		:auto;
+	display		:inline-block;
+	width		:9vw;
+	height		:7vw;
+	line-height	:7vw;
+	font-size	:6vw;
+	text-align	:center;
 }
 .ft_txt{
-	display:inline-block;
-	height:7vw;
-	line-height:7vw;
-	font-size:4vw;
-	text-align:left;
+	position	:absolute;
+	top			:0;
+	bottom		:0;
+	left		:9vw;
+	margin		:auto;
+	display		:inline-block;
+	height		:7vw;
+	line-height	:7vw;
+	font-size	:5vw;
+	text-align	:left;
 
 }
 

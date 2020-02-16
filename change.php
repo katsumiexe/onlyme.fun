@@ -9,8 +9,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <link rel="stylesheet" href="./css/first.css?_<?=date("YmdHi")?>">
 <body class="body">
-<?include_once("./x_irr.php")?>
-<div class="main2">
+<div class="main_irr">
 <div class="box_01">
 確認メールが送信されました<br>
 メールからログインを行ってください。<br>

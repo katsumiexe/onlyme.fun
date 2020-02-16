@@ -35,8 +35,7 @@ session_destroy();
 <link rel="stylesheet" href="./css/first.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/regist.css?_<?=date("YmdHi")?>">
 <body class="body">
-<?include_once("./x_irr.php")?>
-<div class="main">
+<div class="main_irr">
 <div class="box_01">
 確認メールが送信されました<br>
 メールからログインを行ってください。<br>
