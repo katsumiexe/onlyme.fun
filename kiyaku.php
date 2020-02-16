@@ -26,8 +26,7 @@ $d=0;
 </head>
 <body class="body">
 <?if(!$_SESSION["id"]){?>
-<?include_once("./x_irr.php")?>
-<div class="main">
+<div class="main_irr">
 <?}else{?>
 <?include_once("./x_head.php")?>
 <div class="main">

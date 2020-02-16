@@ -89,7 +89,6 @@ $(function(){
 });
 </script>
 <style>
-
 .box_01{
 	width:90vw;
 	background:#fff0e0;
@@ -143,8 +142,7 @@ $(function(){
 </style>
 </head>
 <body class="body">
-<?include_once("./x_irr.php")?>
-<div class="main">
+<div class="main_irr">
 <h1 class="h1"><span class="h1_title">ご意見メール</span></h1>
 <form id="forms" action="./outpost.php" method="post">
 <div id="err" style="color:#ff0000; font-weight:600; margin:3px auto; width:90%;height:20px;">　</div>

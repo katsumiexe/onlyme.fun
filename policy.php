@@ -25,8 +25,7 @@ $d=0;
 </style>
 </head>
 <body class="body">
-<?include_once("./x_irr.php")?>
-<div class="main">
+<div class="main_irr">
 
 <h1 class="h1"><span class="h1_title">Privacy Policy</span></h1>
 <div class="policy2">

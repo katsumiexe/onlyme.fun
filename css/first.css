@@ -221,6 +221,13 @@ table{
 	background:#fafafa;
 	min-height:90vh;
 }
+.main_irr{
+	width:99vw;
+	position:relative;
+	margin:0 auto 3.5vh auto;
+	background:#fafafa;
+	min-height:100vh;
+}
 
 .main_fix{
 	width:99vw;
