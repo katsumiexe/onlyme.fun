@@ -353,7 +353,8 @@ $(function(){
 		$.post("post_set_kiyaku.php",{
 			'user_id':User_id,
 		},
-		function(){
+		function(data){
+			console.log(data);
 			$('#kiyaku_ck').text('');
 			$('.pop09').delay(500).fadeOut(500,function(){$('#kiyaku_ck').text('')});
 		});
