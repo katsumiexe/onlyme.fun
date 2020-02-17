@@ -83,6 +83,8 @@ print("h□".$height0."<br>\n");
 print("w□".$width0."<br>\n");
 */
 
+
+
 $img_url 	= imagecreatefromjpeg($img_url1);
 $qr_center	= imagecreatefrompng("./img/qr_twitter_30.png");
 
@@ -217,6 +219,16 @@ if($id_gray>0){
 if($id_bright !=0){
 	imagefilter($img_url, IMG_FILTER_BRIGHTNESS,$id_bright);
 }
+/*
+print("id_left□".$id_left."<br>\n");
+print("id_top□".$id_top."<br>\n");
+
+print("base_x□".$base_x."<br>\n");
+print("base_y□".$base_y."<br>\n");
+
+print("base_img_w□".$base_img_w."<br>\n");
+print("base_img_h□".$base_img_h."<br>\n");
+*/
 
 ImageCopyResampled($tmp2, $img_url, 0, 0, $id_left, $id_top, $base_x, $base_y, $base_img_w, $base_img_h);
 ImageCopyResampled($tmpn, $img_url, 0, 0, $id_left, $id_top, $base_x, $base_y, $base_img_w, $base_img_h);
@@ -263,6 +275,16 @@ if($dat_tmpl['name_p']==2 ||$dat_tmpl['name_p']==5){
 	$name_x		+=$dat_tmpl['name_shadow_size']+$dat_tmpl['name_line_size'];
 }
 
+/*
+print("name_y□".$name_y."<br>\n");
+print("name_h□".$name_h."<br>\n");
+print("name_1□".$name_h1."<br>\n");
+
+print("1□".$name_size_tmp[1]."<br>\n");
+print("3□".$name_size_tmp[3]."<br>\n");
+print("5□".$name_size_tmp[5]."<br>\n");
+print("7□".$name_size_tmp[7]."<br>\n");
+*/
 
 //■orgin-------------------------------
 for($n=0;$n<mb_strlen($orgin);$n++){
@@ -305,6 +327,12 @@ if($dat_tmpl['orgin_p']==2 ||$dat_tmpl['orgin_p']==5){
 	$orgin_x		+=$name_x;
 	$orgin_y		+=$name_y;
 }
+
+/*
+print("orgin_x".$orgin_x."<br>\n");
+print("orgin_y".$orgin_y."<br>\n");
+print("orgin".$orgin."<br>\n");
+*/
 
 //■contact-------------------------------
 $cont1=0;
@@ -355,12 +383,54 @@ foreach($lay as $a1 => $a2){
 	include_once("./inc/inc_{$a1}.php");
 }
 
+
 if($qr !=2){
 	include_once("./qr_img.php");
 }
 
+
+$tmp3 =imagecreatetruecolor($print_x0,$print_y0);
+$bk=ImageColorAllocate($tmp3,0,0,0);
+$wh3=ImageColorAllocate($tmp3,255,255,255);
+
+imagefill($tmp3, 0, 0, $wh3);
+
+$base_x	-= 10;
+$base_y	-= 15;
+
+//■縦軸--------------
+for($n=0;$n<4;$n++){	
+	imageline($tmp3, $base_x*$n+50+$n, 50, $base_x*$n+90+$n, 50, $bk);
+	imageline($tmp3, $base_x*$n+70+$n, 50, $base_x*$n+70+$n, 70, $bk);
+
+	imageline($tmp3, $base_x*$n+50+$n, $base_y+140, $base_x*$n+90+$n, $base_y+140, $bk);
+	imageline($tmp3, $base_x*$n+70+$n, $base_y+120, $base_x*$n+70+$n, $base_y+140, $bk);
+}
+
+//■横軸左--------------
+imageline($tmp3, 30, 89, 50, 89, $bk);
+imageline($tmp3, 30, 70, 30, 110, $bk);
+
+imageline($tmp3, 30, $base_y+90, 50, $base_y+90, $bk);
+imageline($tmp3, 30, $base_y+70, 30, $base_y+110, $bk);
+
+imageline($tmp3, $base_x*3+60+30, 89, $base_x*3+60+50, 89, $bk);
+imageline($tmp3, $base_x*3+60+50, 70, $base_x*3+60+50, 110, $bk);
+
+imageline($tmp3, $base_x*3+60+30, $base_y+90, $base_x*3+60+50, $base_y+90, $bk);
+imageline($tmp3, $base_x*3+60+50, $base_y+70, $base_x*3+60+50, $base_y+110, $bk);
+
+//■main--------------
+ImageCopyResampled($tmp3, $tmp2, ($base_x+1)*0+71, 90, 0, 0, $base_x, $base_y, $base_x+10, $base_y+15);
+ImageCopyResampled($tmp3, $tmp2, ($base_x+1)*1+71, 90, 0, 0, $base_x, $base_y, $base_x+10, $base_y+15);
+ImageCopyResampled($tmp3, $tmp2, ($base_x+1)*2+71, 90, 0, 0, $base_x, $base_y, $base_x+10, $base_y+15);
+
+$rd=ImageColorAllocate($tmp3,255,0,0);
+imagettftext($tmp3, 30, 0, 200, 1150, $rd, $cont_font, $now);
+
 imagejpeg($tmpn,$img_url2,100);
 imagejpeg($tmp2,$img_url1,100);
+imagejpeg($tmp3,$dir."print.jpg",100);
 
 }
 

@@ -158,15 +158,14 @@ if($result = mysqli_query($mysqli,$sql)){
 <?foreach($thanks as $a1 =>$a2){?>
 <div class="thanks_box">
 	<span class="thanks_box_name"><?=$thanks[$a1]["name"]?></span>
-
 	<span class="thanks_box_link">
-		<?if($thanks[$a1]["url"]){?><a href="<?$thanks[$a1]["url"]?>" class="thanks_icon p_url"></a><?}?>
-		<?if($thanks[$a1]["twitter"]){?><a href="https://twitter.com/<?$thanks[$a1]["twitter"]?>" class="thanks_icon p_twitter"></a><?}?>
-		<?if($thanks[$a1]["insta"]){?><a href="https://instagram.com/<?$thanks[$a1]["insta"]?>" class="thanks_icon p_insta"></a><?}?>
-		<?if($thanks[$a1]["facebook"]){?><a href="https://facebook.com/<?$thanks[$a1]["facebook"]?>" class="thanks_icon p_facebook">■</a><?}?>
-		<?if($thanks[$a1]["photo"]){?><a href="<?$thanks[$a1]["photo"]?>" class="thanks_icon p_photo"></a><?}?>
-		<?if($thanks[$a1]["cosp"]){?><a href="https://sp.cosp.jp/prof.aspx?id=<?$thanks[$a1]["cosp"]?>" class="thanks_icon p_cosp"></a><?}?>
-		<?if($thanks[$a1]["github"]){?><a href="https://github.com/<?$thanks[$a1]["github"]?>" class="thanks_icon p_github">■</a><?}?>
+		<?if($thanks[$a1]["url"]){?><a href="<?=$thanks[$a1]["url"]?>" class="thanks_icon p_url"></a><?}?>
+		<?if($thanks[$a1]["twitter"]){?><a href="https://twitter.com/<?=$thanks[$a1]["twitter"]?>" class="thanks_icon p_twitter"></a><?}?>
+		<?if($thanks[$a1]["insta"]){?><a href="https://instagram.com/<?=$thanks[$a1]["insta"]?>" class="thanks_icon p_insta"></a><?}?>
+		<?if($thanks[$a1]["facebook"]){?><a href="https://facebook.com/<?=$thanks[$a1]["facebook"]?>" class="thanks_icon p_facebook">■</a><?}?>
+		<?if($thanks[$a1]["photo"]){?><a href="<?=$thanks[$a1]["photo"]?>" class="thanks_icon p_photo"></a><?}?>
+		<?if($thanks[$a1]["cosp"]){?><a href="https://sp.cosp.jp/prof.aspx?id=<?=$thanks[$a1]["cosp"]?>" class="thanks_icon p_cosp"></a><?}?>
+		<?if($thanks[$a1]["github"]){?><a href="https://github.com/<?=$thanks[$a1]["github"]?>" class="thanks_icon p_github">■</a><?}?>
 	</span>
 
 	<img src="<?=$thanks[$a1]["img"]?>" class="thanks_box_img">
