@@ -129,6 +129,7 @@ if($result = mysqli_query($mysqli,$sql)){
 	border:0.5vw solid #008000;
 	background:linear-gradient(#40c050,#00a000);
 }
+https://twitter.com/serra_geddon/photo
 
 .p_fb{
 	border:0.5vw solid #3D5A99;
