@@ -181,6 +181,10 @@ $(function(){
 <?}?>
 </script>
 <style>
+<?if($prof['net_kiyaku']!='0000-00-00 00:00:00'){?>
+
+<?}?>
+
 </style>
 </head>
 <body class="body">
