@@ -45,11 +45,20 @@ if($result = mysqli_query($mysqli,$sql)){
 	position	:absolute;
 	top			:1vw;
 	left		:1vw;
-	font-size	:4vw;
-	color		:#0020a0;
+	font-size	:4.5vw;
+	height		:9vw;
+	line-height	:9vw;
+	border-bottom:0.5vw solid #000080;
+	color		:#fafafa;
+	text-shadow:1px 1px 0px #000080;
 	font-weight	:600;
 	text-align	:left;
+	background:rgba(40,60,250,0.8);
+	padding-left:3vw;
+	width:91vw;
 }
+
+
 
 .thanks_box_link{
 	position	:absolute;
@@ -60,19 +69,20 @@ if($result = mysqli_query($mysqli,$sql)){
 
 .thanks_box_comm{
 	position	:absolute;
-	top			:8vw;
+	top			:11vw;
 	left		:22vw;
-	font-size	:4vw;
-	color		:#909090;
+	font-size	:3.4vw;
+	line-height	:6vw;
+	color		:#404040;
 	text-align	:left;
 }
 
 .thanks_box_img{
 	position	:absolute;
-	top			:9vw;
-	left		:4.5vw;
-	width		:10vw;
-	height		:10vw;
+	bottom		:2vw;
+	left		:3vw;
+	width		:11vw;
+	height		:11vw;
 	color		:#303030;
 }
 
@@ -80,21 +90,57 @@ if($result = mysqli_query($mysqli,$sql)){
 	position	:relative;
 	display		:inline-block;
 	margin		:2vw auto;
-	height		:20vw;
+	height		:26vw;
 	width		:96vw;
 	border		:0.5vw solid #f17766;
-	background	:linear-gradient(to right, #f17766 20%, #f0f0ff 20% 100%);
+	background	:linear-gradient(to right, #f17766 18vw, #f0f0ff 18vw 100%);
 }
 
-.thanks_twitter{
+.thanks_icon{
 	display		:inline-block;
 	margin		:1vw;
-	width		:10vw;
-	height		:10vw;
-	line-height	:10vw;
+	width		:6vw;
+	height		:6vw;	
+	line-height	:6vw;
+	font-size	:4.5vw;
+	text-align	:center;
+	color		:#fafafa;
+	font-family	:at_icon;
+	text-decoration:none;
+	border-radius:50%;
 }
-</style>
 
+.p_twitter{
+	border:0.5vw solid #55ACEE;
+	background:linear-gradient(#70b0ff,#55ACEE);
+}
+
+.p_insta{
+	border:0.5vw solid #ff7f50;
+	background:linear-gradient(#ff7f50,#ff9060);
+}
+
+.p_cosp{
+	border:0.5vw solid #ff0000;
+	background:linear-gradient(#ff9090,#ff0000);
+}
+
+.p_url{
+	border:0.5vw solid #008000;
+	background:linear-gradient(#40c050,#00a000);
+}
+
+.p_fb{
+	border:0.5vw solid #3D5A99;
+	background:linear-gradient(#5972A7,#3D5A99);
+}
+
+.p_photo{
+	border:0.5vw solid #c000c0;
+	background:linear-gradient(#e060e0,#c000c0);
+}
+
+</style>
 </head>
 <body class="body">
 <div class="main_irr">
@@ -109,13 +155,13 @@ if($result = mysqli_query($mysqli,$sql)){
 	<span class="thanks_box_name"><?=$thanks[$a1]["name"]?></span>
 
 	<span class="thanks_box_link">
-		<?if($thanks[$a1]["url"]){?><a href="<?$thanks[$a1]["url"]?>" class="thanks_url"></a><?}?>
-		<?if($thanks[$a1]["twitter"]){?><a href="https://twitter.com/<?$thanks[$a1]["twitter"]?>" class="thanks_twitter"></a><?}?>
-		<?if($thanks[$a1]["insta"]){?><a href="https://instagram.com/<?$thanks[$a1]["insta]?>" class="thanks_insta"></a><?}?>
-		<?if($thanks[$a1]["facebook"]){?><a href="" class="thanks_facebook"></a><?}?>
-		<?if($thanks[$a1]["photo"]){?><a href="" class="thanks_photo"></a><?}?>
-		<?if($thanks[$a1]["cosp"]){?><a href="" class="thanks_cosp"></a><?}?>
-		<?if($thanks[$a1]["github"]){?><a href="" class="thanks_github"></a><?}?>
+		<?if($thanks[$a1]["url"]){?><a href="<?$thanks[$a1]["url"]?>" class="thanks_icon p_url"></a><?}?>
+		<?if($thanks[$a1]["twitter"]){?><a href="https://twitter.com/<?$thanks[$a1]["twitter"]?>" class="thanks_icon p_twitter"></a><?}?>
+		<?if($thanks[$a1]["insta"]){?><a href="https://instagram.com/<?$thanks[$a1]["insta"]?>" class="thanks_icon p_insta"></a><?}?>
+		<?if($thanks[$a1]["facebook"]){?><a href="" class="thanks_icon p_facebook"></a><?}?>
+		<?if($thanks[$a1]["photo"]){?><a href="" class="thanks_icon p_photo"></a><?}?>
+		<?if($thanks[$a1]["cosp"]){?><a href="" class="thanks_icon p_cosp"></a><?}?>
+		<?if($thanks[$a1]["github"]){?><a href="" class="thanks_icon p_github"></a><?}?>
 	</span>
 
 	<img src="<?=$thanks[$a1]["img"]?>" class="thanks_box_img">
