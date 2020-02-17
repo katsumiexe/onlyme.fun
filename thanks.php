@@ -7,12 +7,11 @@ $sql ="SELECT * FROM me_thanks";
 $sql .=" WHERE del=0";
 $sql .=" ORDER BY sort ASC";
 
-$result = mysqli_query($mysqli,$sql);
-while($dat2 = mysqli_fetch_assoc($result)){
-	$thanks[$dat2["sort"]]=$dat2;
+if($result = mysqli_query($mysqli,$sql)){
+	while($dat2 = mysqli_fetch_assoc($result)){
+		$thanks[$dat2["sort"]]=$dat2;
+	}
 }
-
-
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -28,6 +27,47 @@ while($dat2 = mysqli_fetch_assoc($result)){
 <script src="./js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 </script>
+<style>
+.thanks_top{
+	
+}
+
+.thanks_box_name{
+	position	:absolute;
+	top			:1vw;
+	left		:1vw;
+	font-size	:4vw;
+	color		:#90a0ff;
+	font-weight	:600;
+}
+
+.thanks_box_comm{
+	position	:absolute;
+	top			:8vw;
+	left		:22vw;
+	font-size	:4vw;
+	color		:#90a0ff;
+}
+
+.thanks_box_img{
+	position	:absolute;
+	top			:9vw;
+	left		:4.5vw;
+	width		:10vw;
+	height		:10vw;
+	color		:#303030;
+}
+
+.thanks_box{
+	position	:relative;
+	display		:inline-block;
+	margin		:2vw auto;
+	width		:96vw;
+	border		:0.5vw solid #f17766;
+	background	:linear-gradient(#f17766 20vw, #fafafa 20vw 100%);
+}
+</style>
+
 </head>
 <body class="body">
 <div class="main_irr">
@@ -48,43 +88,3 @@ OnlyMe作成にあたり、ご協力いただいた方々です。<br>
 <?include_once("./x_foot.php")?>
 </body>
 </html>
-
-
-.thanks_top{
-	
-}
-
-.thanks_box_name{
-	position:absolute;
-	top:1vw;
-	left:1vw;
-	font-size:4vw;
-	color:#90a0ff;
-}
-
-.thanks_box_comm{
-	position:absolute;
-	top:8vw;
-	left:22vw;
-	font-size:4vw;
-	color:#90a0ff;
-}
-
-.thanks_box_img{
-	position:absolute;
-	top:9vw;
-	left:4.5vw;
-	width:10vw;
-	height:10vw;
-	color:#303030;
-}
-
-.thanks_box{
-	position:relative;
-	display:inline-block;
-	margin:2vw auto;
-	width:96vw;
-	border:0.5vw solid #f17766;
-	background:linear-gradient(#f17766 20vw, #fafafa 20vw 100%);
-}
-
