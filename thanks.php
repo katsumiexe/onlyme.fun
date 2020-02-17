@@ -29,7 +29,15 @@ if($result = mysqli_query($mysqli,$sql)){
 </script>
 <style>
 .thanks_top{
-	
+	display		:inline-block;
+	width		:90vw;
+	padding		:2vw;
+	margin		:1vw auto;
+	border		:0.5vw solid #f17766;
+	box-shadow	:0.5vw 0.5vw 0.5vw rgba(60,60,60,0.5);
+	color		:#606060;
+	font-size	:3.6vw;
+	background	:#fafaff;
 }
 
 .thanks_box_name{
@@ -64,7 +72,7 @@ if($result = mysqli_query($mysqli,$sql)){
 	margin		:2vw auto;
 	width		:96vw;
 	border		:0.5vw solid #f17766;
-	background	:linear-gradient(#f17766 20vw, #fafafa 20vw 100%);
+	background	:linear-gradient(#f17766 20vw, #f0f0ff 20vw 100%);
 }
 </style>
 
