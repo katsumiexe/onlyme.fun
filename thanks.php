@@ -142,15 +142,15 @@ https://twitter.com/serra_geddon/photo
 }
 
 .p_github{
-	border:0.5vw solid #a0a0a0;
-	background:linear-gradient(#c0c0c0,#a0a0a0);
+	border:0.5vw solid #666666;
+	background:linear-gradient(#999999,#666666);
 }
 
 </style>
 </head>
 <body class="body">
 <div class="main_irr">
-<h1 class="h1"><span class="h1_title">Spetial Thanks</span></h1>
+<h1 class="h1"><span class="h1_title">Special Thanks</span></h1>
 
 <div class="thanks_top">
 	OnlyMe作成にあたり、ご協力いただいた方々です。<br>
@@ -163,10 +163,10 @@ https://twitter.com/serra_geddon/photo
 		<?if($thanks[$a1]["url"]){?><a href="<?=$thanks[$a1]["url"]?>" class="thanks_icon p_url"></a><?}?>
 		<?if($thanks[$a1]["twitter"]){?><a href="https://twitter.com/<?=$thanks[$a1]["twitter"]?>" class="thanks_icon p_twitter"></a><?}?>
 		<?if($thanks[$a1]["insta"]){?><a href="https://instagram.com/<?=$thanks[$a1]["insta"]?>" class="thanks_icon p_insta"></a><?}?>
-		<?if($thanks[$a1]["facebook"]){?><a href="https://facebook.com/<?=$thanks[$a1]["facebook"]?>" class="thanks_icon p_facebook">■</a><?}?>
+		<?if($thanks[$a1]["facebook"]){?><a href="https://facebook.com/<?=$thanks[$a1]["facebook"]?>" class="thanks_icon p_facebook"></a><?}?>
 		<?if($thanks[$a1]["photo"]){?><a href="<?=$thanks[$a1]["photo"]?>" class="thanks_icon p_photo"></a><?}?>
 		<?if($thanks[$a1]["cosp"]){?><a href="https://sp.cosp.jp/prof.aspx?id=<?=$thanks[$a1]["cosp"]?>" class="thanks_icon p_cosp"></a><?}?>
-		<?if($thanks[$a1]["github"]){?><a href="https://github.com/<?=$thanks[$a1]["github"]?>" class="thanks_icon p_github">■</a><?}?>
+		<?if($thanks[$a1]["github"]){?><a href="https://github.com/<?=$thanks[$a1]["github"]?>" class="thanks_icon p_github"></a><?}?>
 	</span>
 
 	<img src="<?=$thanks[$a1]["img"]?>" class="thanks_box_img">
