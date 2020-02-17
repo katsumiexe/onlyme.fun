@@ -350,9 +350,13 @@ $(function(){
 
 
 	$('.pop09_b').on('click',function(){
-		$('#kiyaku_ck').text('');
-		$('.pop09').delay(500).fadeOut(500,function(){$('#kiyaku_ck').text('')});
-
+		$.post("post_set_kiyaku.php",{
+			'user_id':User_id,
+		},
+		function(){
+			$('#kiyaku_ck').text('');
+			$('.pop09').delay(500).fadeOut(500,function(){$('#kiyaku_ck').text('')});
+		});
 	});
 
 	$('#p_page_del').on('click',function(){
