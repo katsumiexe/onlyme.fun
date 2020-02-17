@@ -86,6 +86,13 @@ if($result = mysqli_query($mysqli,$sql)){
 	background	:linear-gradient(to right, #f17766 20%, #f0f0ff 20% 100%);
 }
 
+.thanks_twitter{
+	display		:inline-block;
+	margin		:1vw;
+	width		:10vw;
+	height		:10vw;
+	line-height	:10vw;
+}
 </style>
 
 </head>
@@ -102,12 +109,12 @@ if($result = mysqli_query($mysqli,$sql)){
 	<span class="thanks_box_name"><?=$thanks[$a1]["name"]?></span>
 
 	<span class="thanks_box_link">
-		<?if($thanks[$a1]["url"]){?><a href="" class="thanks_url"></a><?}?>
-		<?if($thanks[$a1]["twitter"]){?><a href="" class="thanks_twitter"></a><?}?>
-		<?if($thanks[$a1]["insta"]){?><a href="" class="thanks_insta"></a><?}?>
+		<?if($thanks[$a1]["url"]){?><a href="<?$thanks[$a1]["url"]?>" class="thanks_url"></a><?}?>
+		<?if($thanks[$a1]["twitter"]){?><a href="https://twitter.com/<?$thanks[$a1]["twitter"]?>" class="thanks_twitter"></a><?}?>
+		<?if($thanks[$a1]["insta"]){?><a href="https://instagram.com/<?$thanks[$a1]["insta]?>" class="thanks_insta"></a><?}?>
 		<?if($thanks[$a1]["facebook"]){?><a href="" class="thanks_facebook"></a><?}?>
-		<?if($thanks[$a1]["photo"]){?><a href="" class="thanks_photo"></a><?}?>
-		<?if($thanks[$a1]["cosp"]){?><a href="" class="thanks_cosp"></a><?}?>
+		<?if($thanks[$a1]["photo"]){?><a href="" class="thanks_photo"></a><?}?>
+		<?if($thanks[$a1]["cosp"]){?><a href="" class="thanks_cosp"></a><?}?>
 		<?if($thanks[$a1]["github"]){?><a href="" class="thanks_github"></a><?}?>
 	</span>
 
