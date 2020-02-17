@@ -38,6 +38,7 @@ if($result = mysqli_query($mysqli,$sql)){
 	color		:#606060;
 	font-size	:3.6vw;
 	background	:#fafaff;
+	text-align	:left;
 }
 
 .thanks_box_name{
@@ -45,8 +46,16 @@ if($result = mysqli_query($mysqli,$sql)){
 	top			:1vw;
 	left		:1vw;
 	font-size	:4vw;
-	color		:#90a0ff;
+	color		:#0020a0;
 	font-weight	:600;
+	text-align	:left;
+}
+
+.thanks_box_link{
+	position	:absolute;
+	top			:1vw;
+	right		:1vw;
+	text-align	:right;
 }
 
 .thanks_box_comm{
@@ -54,7 +63,8 @@ if($result = mysqli_query($mysqli,$sql)){
 	top			:8vw;
 	left		:22vw;
 	font-size	:4vw;
-	color		:#90a0ff;
+	color		:#909090;
+	text-align	:left;
 }
 
 .thanks_box_img{
@@ -70,10 +80,12 @@ if($result = mysqli_query($mysqli,$sql)){
 	position	:relative;
 	display		:inline-block;
 	margin		:2vw auto;
+	height		:20vw;
 	width		:96vw;
 	border		:0.5vw solid #f17766;
-	background	:linear-gradient(#f17766 20vw, #f0f0ff 20vw 100%);
+	background	:linear-gradient(to right, #f17766 20%, #f0f0ff 20% 100%);
 }
+
 </style>
 
 </head>
@@ -82,16 +94,27 @@ if($result = mysqli_query($mysqli,$sql)){
 <h1 class="h1"><span class="h1_title">Spetial Thanks</span></h1>
 
 <div class="thanks_top">
-OnlyMe作成にあたり、ご協力いただいた方々です。<br>
+	OnlyMe作成にあたり、ご協力いただいた方々です。<br>
 </div>
 
+<?foreach($thanks as $a1 =>$a2){?>
 <div class="thanks_box">
-<span class="thanks_box_name"></span>
-<span class="thanks_box_comm"></span>
-<img src="" class="thanks_box_img">
-<span class="thanks_twitter"></span>
-<span class="thanks_url"></span>
+	<span class="thanks_box_name"><?=$thanks[$a1]["name"]?></span>
+
+	<span class="thanks_box_link">
+		<?if($thanks[$a1]["url"]){?><a href="" class="thanks_url"></a><?}?>
+		<?if($thanks[$a1]["twitter"]){?><a href="" class="thanks_twitter"></a><?}?>
+		<?if($thanks[$a1]["insta"]){?><a href="" class="thanks_insta"></a><?}?>
+		<?if($thanks[$a1]["facebook"]){?><a href="" class="thanks_facebook"></a><?}?>
+		<?if($thanks[$a1]["photo"]){?><a href="" class="thanks_photo"></a><?}?>
+		<?if($thanks[$a1]["cosp"]){?><a href="" class="thanks_cosp"></a><?}?>
+		<?if($thanks[$a1]["github"]){?><a href="" class="thanks_github"></a><?}?>
+	</span>
+
+	<img src="<?=$thanks[$a1]["img"]?>" class="thanks_box_img">
+	<span class="thanks_box_comm"><?=$thanks[$a1]["comm"]?></span>
 </div>
+<?}?>
 
 <?include_once("./x_foot.php")?>
 </body>
