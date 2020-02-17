@@ -9,4 +9,5 @@ $date=date("Y-m-d H:i:s");
 $sql="UPDATE me_prof SET net_kiyaku='{$date}'";
 $sql.=" WHERE prof_id='{$user_id}'";
 mysqli_query($mysqli,$sql);
+echo $sql;
 ?>

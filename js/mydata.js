@@ -347,8 +347,6 @@ $(function(){
 		$('#f_jump').submit();
 	});
 
-
-
 	$('.pop09_b').on('click',function(){
 		$.post("post_set_kiyaku.php",{
 			'user_id':User_id,
