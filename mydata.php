@@ -99,7 +99,6 @@ $er_msg[1]="ただ今ネットワークプリントはメンテナンス中の�
 $er_msg[2]="ただ今ネットワークプリントはメンテナンス中のため、ご利用いただけません。<br><span style=\"font-weight:600\">終了予定:{$met2["maintenanceTime"]["to"]}</span><br>";
 $er_msg[3]="ネットワークプリントは下記の予定でメンテナンスが行われます。<br>一時的にプリントサービスがご利用できなくなることがございます。ご了承ください。<br>メンテナンス期間<br>開始予定：{$met2["maintenanceTime"]["from"]}<br>終了予定：{$met2["maintenanceTime"]["to"]}<br>"
 
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -180,6 +179,7 @@ $(function(){
 
 <?}?>
 </script>
+
 <style>
 <?if($prof['net_kiyaku']!='0000-00-00 00:00:00'){?>
 
