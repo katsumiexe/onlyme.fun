@@ -442,7 +442,7 @@ $(function(){
 			</div>
 		<?}?>
 		<input type="hidden" id="qr" value="<?=$prof["qr"]?>" name="qr">
-	
+	 
 		<div class="item1"><span class="icon_img icon_9" style="margin:0 1.5vw"></span>ハンドル</div><div class="item3">10字まで</div>
 		<div class="item2"><input id="ck_name" type="text" name="name" value="<?=$prof["name"]?>" class="item2_box" maxlength="10"></div>
 
@@ -464,12 +464,10 @@ $(function(){
 <div class="fsample_md_com">
 TP0001 男子　女子　季節<br>
 用紙：縦<br>
-名前：横<br>
-作品：横<br>
+名前：横書<br>
+作品：横書<br>
 <br>
-利用数（自身）<br>
-利用数（全体）<br>
-制作者：<br>
+利用数<br>
 </div>
 <div class="fsample_md_btn">
 <div class="fsample_ok btn c2">使用</div>
