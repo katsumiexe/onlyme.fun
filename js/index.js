@@ -313,7 +313,6 @@ $(function(){
 		}
 	});
 
-
 	$('#p_page_comment2').on('click',function () {
 		if($(this).hasClass('p_page_comment_on2')){
 			$(this).removeClass('p_page_comment_on2');
