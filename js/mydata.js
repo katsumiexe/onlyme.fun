@@ -180,6 +180,7 @@ $(function(){
 			$('#print_in').html(data.list);				
 			$('.print_code_id').text(data.code);				
 			$('#limit_date').text(data.limit);				
+			$('.list_count').text("0");
 
 		}).fail(function(jqXHR, textStatus, errorThrown){
 			$('#wait').hide();
@@ -405,8 +406,8 @@ $(function(){
 
 	$('.print_box').on('click','.del_on',function(){
 		$('.pop08, .pop08_a').fadeIn(300);
-		$('.pop01_d1, .pop01_d2').show();
-		$('.pop01_d3, .pop01_d4').hide();
+		$('.pop08_d1, .pop08_d2').show();
+		$('.pop08_d3, .pop08_d4').hide();
 	});
 
 	$('#del_no2').on('click',function(){
