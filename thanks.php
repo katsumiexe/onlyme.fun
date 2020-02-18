@@ -13,6 +13,8 @@ if($result = mysqli_query($mysqli,$sql)){
 	}
 }
 
+/*https://syncer.jp/Web/API/Twitter/REST_API/GET/users/lookup/*/
+
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ja">
@@ -129,7 +131,6 @@ if($result = mysqli_query($mysqli,$sql)){
 	border:0.5vw solid #008000;
 	background:linear-gradient(#40c050,#00a000);
 }
-https://twitter.com/serra_geddon/photo
 
 .p_fb{
 	border:0.5vw solid #3D5A99;
