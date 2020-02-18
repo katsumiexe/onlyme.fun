@@ -80,7 +80,7 @@ $d=0;
 <div class="ft_box">
 <a href="inpolicy.php" class="ft"><span class="ft_ar icon_img"></span><span class="ft_txt">プライバシーポリシー</span></a>
 <a href="inkiyaku.php" class="ft"><span class="ft_ar icon_img"></span><span class="ft_txt">利用規約(OnlyMe)</span></a>
-<a href="inkiyaku_sharp.php" class="ft"><span class="ft_ar icon_img"></span><span class="ft_txt">利用規約(ネットプリント)</span></a>
+<a href="inkiyaku_sharp.php" class="ft"><span class="ft_ar icon_img"></span><span class="ft_txt">利用規約(ネットワークプリント)</span></a>
 </div>
 
 <div class="page">

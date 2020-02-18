@@ -507,7 +507,7 @@
 .print_list{
 	display:inline-block;
 	position:fixed;
-	bottom:4vh;
+	bottom:4.5vh;
 	left:0;
 	right:0;
 	margin:auto;
@@ -522,7 +522,7 @@
 }
 
 .print_list_on{
-	background:#1d468f;
+	background:rgba(20,50,180,0.8);
 	color:#fafafa;
 }
 

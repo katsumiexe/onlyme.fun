@@ -291,7 +291,7 @@
 .ft_box{
 	border:1px solid #303030;
 	margin: auto;
-	width:80vw;
+	width:90vw;
 	position:fixed;
 	bottom:4.5vh;	
 	left:0;
@@ -325,7 +325,7 @@
 	display:inline-block;
 	height:7vw;
 	line-height:7vw;
-	font-size:5vw;
+	font-size:4vw;
 	text-align:left;
 
 }

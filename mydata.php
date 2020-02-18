@@ -194,7 +194,7 @@ $(function(){
 	<div id="id_album" class="album_tag">アルバム</div>
 	<div id="fav_b" class="album_tag">フォロー</div>
 	<div id="fav_c" class="album_tag">フォロワー</div>
-<?if($user["id"] < "10002014"){?>
+<?if($user["id"] < "10002016"){?>
 	<div id="id_print" class="album_tag">プリント</div>
 <? } ?>
 
@@ -207,6 +207,7 @@ $(function(){
 					$n_next=$notice[$n]['no tice_id'];	
 					break;
 				}?>
+
 				<div class="notice_list_1 <?=$notice[$n]['notice_yet']?>">
 					<img src="<?=$notice[$n]['face']?>" class="notice_list_2">
 					<div class="notice_list_3"><?=$notice[$n]['date']?></div>
@@ -251,8 +252,11 @@ $(function(){
 		<div class="print_code_text">
 			名刺データ右上の『<span class="icon_img"></span>』をタップすることで、印刷リストに追加できます（最大10個）。<br>
 		</div>
+
 		<div class="print_code_print"><span class="print_icon"></span>プリント方法</div>
+
 		<div id="id_code_del" class="print_code_del"><span class="print_icon"></span>リストの削除</div>
+
 		<div id="print_in" class="index_box"></div>
 		<div class="print_list">
 			<span class="print_icon"></span>
@@ -311,6 +315,7 @@ $(function(){
 	</div>
 </div>
 </div>
+
 <div class="pop07">
 	<div class="pop07_a">
 		<div class="pop01_d1">
