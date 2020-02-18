@@ -5,6 +5,18 @@ include_once("./library/session.php");
 $nowpage=1;
 $ex=8;
 $d=0;
+
+$base_d=date("Y-m-d 23:59:00",time()-518400);
+$sql="SELECT p_api_code FROM me_plist_main";
+$sql.=" WHERE p_user_id='{$user["id"]}'";
+$sql.=" AND p_del=0";
+$sql.=" AND p_date>'{$base_d}'";
+$sql.=" LIMIT 1";
+$result = mysqli_query($mysqli,$sql);
+if($dat = mysqli_fetch_assoc($result)){	
+	$code=$dat["p_api_code"];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -31,31 +43,20 @@ $d=0;
 <?}else{?>
 <?include_once("./x_head.php")?>
 <?}?>
-<div class="page_main">
-<?
-$base_d=date("Y-m-d 23:59:00",time()-518400);
-$sql="SELECT p_api_code FROM me_plist_main";
-$sql.=" WHERE p_user_id='{$user["id"]}'";
-$sql.=" AND p_del=0";
-$sql.=" AND p_date>'{$base_d}'";
-$sql.=" LIMIT 1";
-$result = mysqli_query($mysqli,$sql);
-if($dat = mysqli_fetch_assoc($result)){	
-$code=$dat["p_api_code"];
-}
-
-?>
+<div class="main">
 <h2 class="h2">印刷可能なコンビニ</h2>
 <div class="exp_box1">
 <img src="./img/print_logo.jpg" class="note_img"><br>
-<span class="ok1">ファミリーマート</span>と<span class="ok1">ローソン</span>のコピー機で印刷可能です。<br>
-<span class="ng1">セイコーマートのマルチコピー機、セブンイレブンのネットプリントはご利用いただけません。</span>。ご注意ください。<br>
+<span class="ok1">ファミリーマート</span>と<span class="ok1">ローソン</span>のマルチコピー機で印刷可能です。<br>
+<span class="ng1">セイコーマートのマルチコピー機、セブンイレブンのネットプリントはご利用いただけません。</span>ご注意ください。<br>
+※一部対応していない店舗もございます。詳細は各店舗にご確認下さい。<br>
+
 </div>
 
 <h2 class="h2">プリントリスト作成</h2>
 <div class="exp_box1">
-<span class="ok2">Album</span>⇒<span class="ok2">「プリント」</span>を選択してください。<br>
-プリントしたい名刺データの右上の<>をタップしますと、プリントリストに追加できます。<br>
+<span class="ok2"><span class="icon_img"></span>Album</span>⇒<span class="ok2">「プリント」</span>を選択してください。<br>
+プリントしたい名刺データの右上の『<span class="icon_img"></span>』をタップしますと、プリントリストに追加できます。<br>
 プリントリストには最大10枚までの名刺データを追加できます。<br>
 プリントリストは一つしか作成できません。新たに作成する場合は、既存のプリントリストを削除する必要があります。<br>
 プリントリストの使用期限は作成日含め、7日間です。<br>

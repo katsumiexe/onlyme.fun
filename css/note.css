@@ -171,8 +171,8 @@
 .exp_box1_1{
 	display:flex;
 	margin:3vw auto;
-	width:86vw;
-	height:20vw;
+	width:88vw;
+	height:24vw;
 	border:2vw outset #c0c0c0;
 	background:#fffff0;
 }
@@ -180,21 +180,22 @@
 .exp_box1_1_1{
 	display:inline-block;
 	margin:0;
-	flex-basis:24vw;
-	height:20vw;
+	flex-basis:32vw;
+	height:24vw;
 	background:#e0e0e0;
 }
 
 .exp_box1_1_2{
-	display:inline-block;
-	margin:0;
-	flex:1;
-	height:20vw;
-	padding:1.5vw;
-	font-size:3.5vw;
-	line-height:5vw;
-	box-sizing:border-box;	
-	color:#606060;
+	display		:inline-block;
+	margin		:0;
+	flex		:1;
+	height		:24vw;
+	padding		:1.5vw;
+	font-size	:3.5vw;
+	line-height	:5vw;
+	text-align	:left;
+	color		:#606060;
+	box-sizing	:border-box;	
 }
 
 .exp_code{
@@ -256,7 +257,7 @@
 	border-radius:2vw;
 	text-align:left;
 	font-size:3.8vw;
-	line-height:5.5vw;
+	line-height:6vw;
 }
 
 .exp_box2{
