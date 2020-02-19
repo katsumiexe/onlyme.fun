@@ -62,13 +62,14 @@ if($dat = mysqli_fetch_assoc($result)){
 プリントリストの使用期限は作成日含め、7日間です。<br>
 </div>
 <h2 class="h2">プリント手順</h2>
+
 <div class="exp_box1">
 ファミリーマート・ローソンのマルチコピー機での操作方法です。<br>
 </div>
 
 <div class="exp_box1_1">
 	<div class="exp_box1_1_1">
-
+		<img src="./img/tuto/print_01.png" class="exp_box_img">
 	</div>
 	<div class="exp_box1_1_2">
 		・【プリントサービス】を選択。
@@ -77,6 +78,7 @@ if($dat = mysqli_fetch_assoc($result)){
 
 <div class="exp_box1_1">
 	<div class="exp_box1_1_1">
+<img src="./img/tuto/print_02.png" class="exp_box_img">
 
 	</div>
 	<div class="exp_box1_1_2">
@@ -86,13 +88,12 @@ if($dat = mysqli_fetch_assoc($result)){
 
 <div class="exp_box1_1">
 	<div class="exp_box1_1_1">
-
+<img src="./img/tuto/print_03.png" class="exp_box_img">
 	</div>
 	<div class="exp_box1_1_2">
 		・「ユーザー番号」を入力。<br>
 <?if($code){?>
-		※ユーザー番号は<span class="exp_code">【<?=$code?>】</span>です。
-
+		※ユーザー番号<br><span class="exp_code">[<?=$code?>]</span>
 <?}else{?>		
 		※ユーザー番号は<a href="./mydata.php?tag=print"><span class="exp_code">プリントリスト作成</span></a>のページに表示されます。
 <?}?>
@@ -102,6 +103,7 @@ if($dat = mysqli_fetch_assoc($result)){
 
 <div class="exp_box1_1">
 	<div class="exp_box1_1_1">
+<img src="./img/tuto/print_04.png" class="exp_box_img">
 
 	</div>
 	<div class="exp_box1_1_2">
@@ -111,6 +113,7 @@ if($dat = mysqli_fetch_assoc($result)){
 
 <div class="exp_box1_1">
 	<div class="exp_box1_1_1">
+<img src="./img/tuto/print_05.png" class="exp_box_img">
 
 	</div>
 	<div class="exp_box1_1_2">
@@ -120,19 +123,22 @@ if($dat = mysqli_fetch_assoc($result)){
 
 <div class="exp_box1_1">
 	<div class="exp_box1_1_1">
+<img src="./img/tuto/print_06.png" class="exp_box_img">
 
 	</div>
 	<div class="exp_box1_1_2">
-		・印刷したい名刺デザインと、枚数を選択し、表示された金額をコインベンダーに投入。
+		・印刷したい名刺デザインと枚数を選択し、表示された金額をコインベンダーに投入。
 	</div>
 </div>
 
 <div class="exp_box1_1">
 	<div class="exp_box1_1_1">
+<img src="./img/tuto/print_07.png" class="exp_box_img">
 
 	</div>
 	<div class="exp_box1_1_2">
-		・詳細設定は変更せず、そのままコピーしてください。
+		・詳細設定は変更せず、「プリント開始」を押してください。<br>
+		※1枚の印刷時間は約1分30秒です。
 	</div>
 </div>
 <br>

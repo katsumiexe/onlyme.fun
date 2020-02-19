@@ -171,31 +171,45 @@
 .exp_box1_1{
 	display:flex;
 	margin:3vw auto;
-	width:88vw;
-	height:24vw;
+	width:74vw;
+	height:84vw;
 	border:2vw outset #c0c0c0;
 	background:#fffff0;
+	flex-wrap:wrap;
+	text-align:center;
 }
 
 .exp_box1_1_1{
-	display:inline-block;
-	margin:0;
-	flex-basis:32vw;
-	height:24vw;
-	background:#e0e0e0;
+
+	display		:inline-block;
+	margin		:0;
+	flex-basis	:74vw;
+	height		:54vw;
+	line-height	:54vw;
+	background	:#fafafa;
+	text-align	:center;
 }
+
+.exp_box_img{
+	margin:2vw auto;
+	width:68vw;
+	height:51vw;
+}
+
 
 .exp_box1_1_2{
 	display		:inline-block;
-	margin		:0;
-	flex		:1;
+	margin		:3vw auto;
+	flex-basis	:68vw;
 	height		:24vw;
 	padding		:1.5vw;
 	font-size	:3.5vw;
-	line-height	:5vw;
+	line-height	:6vw;
 	text-align	:left;
 	color		:#606060;
 	box-sizing	:border-box;	
+	border:0.5vw solid #fafaff;
+	background	:#f0f0ff;
 }
 
 .exp_code{
