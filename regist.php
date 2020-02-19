@@ -26,19 +26,11 @@ if($me_pass && $me_mail){
 	mb_language("Japanese");
 	mb_internal_encoding("UTF-8");
 
-
-
-
 	$to      = $me_mail;
 	$subject = "写真名刺作成サイト★OnlyMe";
 	$message = "下記リンクよりアクセスし、無料登録を完了させてください\n\nhttps://onlyme.fun/regist2.php?target=".$date_code."\n\n※登録後30分以上経過しますと、登録は無効となります。";
 	$headers = 'From:register@onlyme.fun' . "\r\n";
 	mb_send_mail($to, $subject, $msg, $headers);
-
-
-
-
-
 }
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
