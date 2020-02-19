@@ -1,7 +1,7 @@
 <h2 class="h2">印刷可能なコンビニ</h2>
 <div class="exp_box1">
 <img src="./img/print_logo.jpg" class="note_img"><br>
-<span class="ok1">ファミリーマート</span>と<span class="ok1">ローソン</span>のコピー機で印刷可能です。<br>
+<span class="ok1">ファミリーマート</span>と<span class="ok1">ローソン</span>のマルチコピー機で印刷可能です。<br>
 <span class="ng1">セブンイレブンのマルチコピー機ではご利用いただけません</span>。ご注意ください。<br>
 </div>
 

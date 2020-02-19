@@ -100,7 +100,7 @@
 }
 
 
-.page{
+.page,.pop10{
 	position: fixed;
 	top: 8vh;
 	left: 105vw;
@@ -112,7 +112,12 @@
 	width:100vw;
 	z-index:10;
 	background:#f17766;
+
 }
+.pop10{
+	background:#fafafa !important;
+}
+
 
 .page_top{
 	position:absolute;

@@ -42,12 +42,12 @@ $d=0;
 		</div>
 	</div>
 	<div id="menu_b1" class="exp_box0_b">
-		<span id="menu_b11" class="exp_box0_c"><span class="note_item">デザインする</span><span class="icon_img exp_box0_d"></span></span>
-		<?if($user["id"] == "10002015"){?>
-			<span id="menu_b42" class="exp_box0_c"><span class="note_item">印刷する</span><span class="icon_img exp_box0_d"></span></span>
-		<?}else{?>
-			<span id="menu_b12" class="exp_box0_c"><span class="note_item">印刷する</span><span class="icon_img exp_box0_d"></span></span>
-		<?}?>
+	<span id="menu_b11" class="exp_box0_c"><span class="note_item">デザインする</span><span class="icon_img exp_box0_d"></span></span>
+	<?if($user["id"] == "10002015"){?>
+	<span id="menu_b42" class="exp_box0_c"><span class="note_item">印刷する</span><span class="icon_img exp_box0_d"></span></span>
+	<?}else{?>
+	<span id="menu_b12" class="exp_box0_c"><span class="note_item">印刷する</span><span class="icon_img exp_box0_d"></span></span>
+	<?}?>
 	</div>
 
 	<div id="menu_a2" class="exp_box0_a">
@@ -89,11 +89,8 @@ $d=0;
 
 
 <div class="page">
-<div class="page_top">
-<span class="page_back icon_img"></span>
-<span class="page_title"></span>
-</div>
-<div class="page_main"></div>	
+	<div class="page_top"><span class="page_back icon_img"></span><span class="page_title"></span></div>
+	<div class="page_main"></div>	
 </div>
 
 <?include_once("./x_foot.php")?>
