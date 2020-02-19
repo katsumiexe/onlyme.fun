@@ -97,7 +97,23 @@ if($met2["status"] == "emergency"){
 $er_msg[0]="メンテナンス情報はありません。";
 $er_msg[1]="ただ今ネットワークプリントはメンテナンス中のため、ご利用いただけません。<br><span style=\"font-weight:600\">終了予定:未定</span>";
 $er_msg[2]="ただ今ネットワークプリントはメンテナンス中のため、ご利用いただけません。<br><span style=\"font-weight:600\">終了予定:{$met2["maintenanceTime"]["to"]}</span><br>";
-$er_msg[3]="ネットワークプリントは下記の予定でメンテナンスが行われます。<br>一時的にプリントサービスがご利用できなくなることがございます。ご了承ください。<br>メンテナンス期間<br>開始予定：{$met2["maintenanceTime"]["from"]}<br>終了予定：{$met2["maintenanceTime"]["to"]}<br>"
+$er_msg[3]="ネットワークプリントは下記の予定でメンテナンスが行われます。<br>一時的にプリントサービスがご利用できなくなることがございます。ご了承ください。<br>メンテナンス期間<br>開始予定：{$met2["maintenanceTime"]["from"]}<br>終了予定：{$met2["maintenanceTime"]["to"]}<br>";
+
+
+$base_d=date("Y-m-d 23:59:00",time()-518400);
+$sql="SELECT p_api_code FROM me_plist_main";
+$sql.=" WHERE p_user_id='{$user["id"]}'";
+$sql.=" AND p_del=0";
+$sql.=" AND p_date>'{$base_d}'";
+$sql.=" LIMIT 1";
+
+$result = mysqli_query($mysqli,$sql);
+
+if($dat_list = mysqli_fetch_assoc($result)){	
+	$code=$dat_list["p_api_code"];
+}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -376,7 +392,7 @@ $(function(){
 
 
 <div class="pop10">
-<div class="page_top"><span class="page_back icon_img"></span><span class="page_title">コンビニでの印刷方法について</span></div>
+<div class="page_top"><span class="print_return icon_img"></span><span class="page_title">コンビニでの印刷方法について</span></div>
 <div class="page_main">
 <h2 class="h2">印刷可能なコンビニ</h2>
 <div class="exp_box1">
@@ -398,6 +414,7 @@ $(function(){
 
 <div class="exp_box1">
 マルチコピー機での操作方法です。<br>
+※写真はファミリーマートのものです。
 </div>
 
 <div class="exp_box1_1">

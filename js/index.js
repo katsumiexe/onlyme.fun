@@ -163,7 +163,7 @@ $(function(){
 	});
 
 
-	$('.pop10').draggable({
+	$('.pop11').draggable({
 		axis: 'x',
 		start: function( event, ui ) {
 			startPosition = ui.position.left;

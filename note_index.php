@@ -5,6 +5,21 @@ include_once("./library/session.php");
 $nowpage=1;
 $ex=8;
 $d=0;
+
+$base_d=date("Y-m-d 23:59:00",time()-518400);
+$sql="SELECT p_api_code FROM me_plist_main";
+$sql.=" WHERE p_user_id='{$user["id"]}'";
+$sql.=" AND p_del=0";
+$sql.=" AND p_date>'{$base_d}'";
+$sql.=" LIMIT 1";
+
+$result = mysqli_query($mysqli,$sql);
+
+if($dat_list = mysqli_fetch_assoc($result)){	
+	$code=$dat_list["p_api_code"];
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -43,7 +58,7 @@ $d=0;
 	</div>
 	<div id="menu_b1" class="exp_box0_b">
 	<span id="menu_b11" class="exp_box0_c"><span class="note_item">デザインする</span><span class="icon_img exp_box0_d"></span></span>
-	<?if($user["id"] == "10002015"){?>
+	<?if($user["id"] <= "10002015"){?>
 	<span id="menu_b42" class="exp_box0_c"><span class="note_item">印刷する</span><span class="icon_img exp_box0_d"></span></span>
 	<?}else{?>
 	<span id="menu_b12" class="exp_box0_c"><span class="note_item">印刷する</span><span class="icon_img exp_box0_d"></span></span>
