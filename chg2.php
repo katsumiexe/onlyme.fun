@@ -49,8 +49,7 @@ if(!$msg){
 <script src="./js/jquery-3.2.1.min.js"></script>
 </head>
 <body class="body">
-<?include_once("./x_irr.php")?>
-<div class="main">
+<div class="main_irr">
 	<?if($msg){?>
 		<div class="box_01">
 			<?=$msg?>

@@ -161,7 +161,7 @@ SNS入り・QRコード入りの
 <div id="tl8" class="flex_a">
 <div class="a1"><img src="./img/lp/lp_a1.png" class="tl_face"></div>
 <div class="a2"><span class="a4">▲</span></div>
-<div class="a3">他の人の名刺を見ることができ、自分の名刺も見てもらえます。<br>評価もつけられますので、素敵な縁が生まれるかもしれません。<br></div>
+<div class="a3">他の人の名刺を見ることができ、自分の名刺も見てもらえます。<br>評価もつけられますので、素敵な縁が生まれるかもしれませんよ♪<br></div>
 </div>
 <br> 
 </div>

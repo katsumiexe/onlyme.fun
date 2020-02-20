@@ -116,6 +116,7 @@
 }
 .pop10{
 	background:#fafafa !important;
+	z-index:31 !important;
 }
 
 
