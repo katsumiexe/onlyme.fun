@@ -91,7 +91,6 @@ $(function(){
 <body class="body">
 <div class="main_irr">
 <h1 class="h1"><span class="h1_title">再登録</span></h1>
-
 <?if($mode == 3){?>
 <div class="box_01">
 	<span style="font-weight:600;width:100%;text-align:center;">再登録受付完了</span><br>
@@ -101,8 +100,6 @@ $(function(){
 		※30分を過ぎますと再登録手続きは無効となります。その際は再度申請を行ってください。<br>
 	</div>
 </div>
-
-
 <?}elseif($mode == 2){?>
 <div class="box_01">
 	<span style="font-weight:600;width:100%;text-align:center;">エラーが発生しました</span><br>

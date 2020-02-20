@@ -392,14 +392,11 @@ $(function(){
 
 <H2 class="h1"><span class=h1_title>退会</span></h2>
 <div style="padding-bottom:5vw;text-align:center;">
-
 	<div id="set3" class="set_btn">退会する</div>
-
 	<div class="remove_comm">
 		※退会されますとアルバムは全て削除されます<br>
 		退会後、24時間以内の再開はできません。ご注意ください<br>	
 	</div>
-
 </div>
 
 <div class="pop00"></div>
