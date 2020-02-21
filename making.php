@@ -77,6 +77,9 @@ if($prof["qr"] ==0) $prof["qr"]=1;
 <script src="./js/first.js"></script>
 
 <script>
+var VwBase =$(window).width()/100;
+$('#vw_set').val(VwBase);
+
 var Zoom 	= 100;
 var Top 	= 0;
 var Left 	= 0;
@@ -92,18 +95,16 @@ var mid_h 	= 0;
 var Quality	= <?=$quality[$prof["quality"]+0]?>;
 var orientation=0;
 var Pg 	= 0;
+var data	= [];
+var CvImg	= '';
+var Rote	= '';
 
-var VwBase =$(window).width()/100;
-$('#vw_set').val(VwBase);
+var Clr1=0;
+var Clr2=1;
 
 
 $(function(){ 
-	var data	= {};
-	var CvImg	= '';
-	var Rote	= '';
 
-	var Clr1=0;
-	var Clr2=1;
 	$('#p<?=$tmpl_id[0]?>').css({'border-color':'#ee0000'});
 
 	<?if($exp>=100){?>
@@ -371,6 +372,8 @@ $(function(){
 		$('#qr_option').slideUp(150);
 	});
 });
+
+
 </script>
 <style>
 </style>
