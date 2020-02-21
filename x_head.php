@@ -51,11 +51,9 @@ ERROR!
 			<span class="mypage_sex sex<?=$user["reg_sex"]?>"><?=$sex_mark[$user["reg_sex"]]?></span>
 			<?=$user["reg_name"]?>
 			</span><br>
-
 			<span class="user_level">LV：<span class="mypage_level"><?=$lv?></span></span>　
 			<span class="user_level">Exp：<span class="mypage_exp"><?=$exp?></span><br>
 		</div>
-
 		<div class="mypage_prof2">	
 			<a href="./mydata.php" class="mypage_prof_in">フォロー数<span class="mypage_prof_p"><?=$user["s_fav"]+0?></span></a><br>
 			<a href="./mydata.php" class="mypage_prof_in">フォロワー数<span class="mypage_prof_p"><?=$user["s_favd"]+0?></span></a><br>
