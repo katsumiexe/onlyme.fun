@@ -424,6 +424,7 @@ $(function(){
 	</div>
 	<a href="https://twitter.com/intent/tweet?text=<?=$text?>&url=https://onlyme.fun/pg.php?es=<?=$e_code?>&related=onlyme_staff&hashtags=<?=$hash?>" target="_BLANK" class="ok_twitter"></a>
 </div>
+<!--a href="./mydata.php?tag=print"-->
 <?include_once("./x_foot.php")?>
 </body>
 </html>

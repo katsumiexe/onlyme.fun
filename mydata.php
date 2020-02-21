@@ -7,7 +7,6 @@ $cheer	=$_POST["cheer"];
 $n_cheer=$_POST["n_cheer"];
 $t_tag=$_REQUEST["tag"];
 
-
 $nowpage=2;
 $ex=8;
 $d=0;
@@ -99,7 +98,6 @@ $er_msg[1]="ただ今ネットワークプリントはメンテナンス中の�
 $er_msg[2]="ただ今ネットワークプリントはメンテナンス中のため、ご利用いただけません。<br><span style=\"font-weight:600\">終了予定:{$met2["maintenanceTime"]["to"]}</span><br>";
 $er_msg[3]="ネットワークプリントは下記の予定でメンテナンスが行われます。<br>一時的にプリントサービスがご利用できなくなることがございます。ご了承ください。<br>メンテナンス期間<br>開始予定：{$met2["maintenanceTime"]["from"]}<br>終了予定：{$met2["maintenanceTime"]["to"]}<br>";
 
-
 $base_d=date("Y-m-d 23:59:00",time()-518400);
 $sql="SELECT p_api_code FROM me_plist_main";
 $sql.=" WHERE p_user_id='{$user["id"]}'";
@@ -125,6 +123,7 @@ if($dat_list = mysqli_fetch_assoc($result)){
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <meta name="description" content="PC不要、住所不要、スマホで作成、コンビニで印刷。手軽で簡単な写真名刺制作サイトです。">
 <meta name="keywords" content="写真名刺,コスプレ,画像修正,onlyme,名刺作成,無料,簡単">
+
 <link rel="stylesheet" href="./css/set_icon.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/first.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/index.css?_<?=date("YmdHi")?>">
@@ -428,8 +427,7 @@ $(function(){
 
 <div class="exp_box1_1">
 	<div class="exp_box1_1_1">
-<img src="./img/tuto/print_02.png" class="exp_box_img">
-
+		<img src="./img/tuto/print_02.png" class="exp_box_img">
 	</div>
 	<div class="exp_box1_1_2">
 		・<span style="font-weight:600">【ネットワークプリント】</span>を選択。
@@ -438,7 +436,7 @@ $(function(){
 
 <div class="exp_box1_1">
 	<div class="exp_box1_1_1">
-<img src="./img/tuto/print_03.png" class="exp_box_img">
+		<img src="./img/tuto/print_03.png" class="exp_box_img">
 	</div>
 	<div class="exp_box1_1_2">
 		・<span style="font-weight:600">【ユーザー番号】</span>を入力。<br>
@@ -453,8 +451,7 @@ $(function(){
 
 <div class="exp_box1_1">
 	<div class="exp_box1_1_1">
-<img src="./img/tuto/print_04.png" class="exp_box_img">
-
+		<img src="./img/tuto/print_04.png" class="exp_box_img">
 	</div>
 	<div class="exp_box1_1_2">
 		・<span style="font-weight:600">【L版写真プリント】</span>を選択。
@@ -463,8 +460,7 @@ $(function(){
 
 <div class="exp_box1_1">
 	<div class="exp_box1_1_1">
-<img src="./img/tuto/print_05.png" class="exp_box_img">
-
+		<img src="./img/tuto/print_05.png" class="exp_box_img">
 	</div>
 	<div class="exp_box1_1_2">
 		・<span style="font-weight:600">【2L】</span>を選択。
