@@ -278,11 +278,9 @@ $(function(){
 					if(img_W > img_H && img_W > Quality){
 						img_W3=Quality;
 						img_H3=img_H*(Quality/ img_W);
-
 					}else if(img_H > img_W && img_H >Quality){
 						img_H3=Quality;
 						img_W3=img_W*(Quality/img_H);
-
 					}else {
 						img_H3=img_H;
 						img_W3=img_W;
@@ -472,8 +470,10 @@ TP0001 男子　女子　季節<br>
 <div class="fsample_md_btn">
 <div class="fsample_ok btn c2">使用</div>
 <div class="fsample_ng btn c1">取消</div>
-<!--div class="fsample_if btn icon_img"></div-->
+<?if($user["id"]<10002014){?>
+<div class="fsample_if btn icon_img"></div>
 </div>
+<?}?>
 </div>
 </form>
 </div>
@@ -482,4 +482,3 @@ TP0001 男子　女子　季節<br>
 <?include_once("./x_foot.php")?>
 </body>
 </html>
-

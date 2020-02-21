@@ -1,5 +1,4 @@
 $(function(){ 
-
 	$('.head_mymenu').on('click',function(){
 		if($(this).hasClass('mypage_on')){
 			$(this).removeClass('mypage_on');
