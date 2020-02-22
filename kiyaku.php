@@ -5,6 +5,8 @@ include_once("./library/no_session.php");
 $nowpage=1;
 $ex=8;
 $d=0;
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">

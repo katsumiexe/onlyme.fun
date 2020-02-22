@@ -5,6 +5,9 @@
 		PC・タブレットではご利用いただけません。<br>
 	</div>
 </div>
+
+
+
 <div class="sp_only">
 <div class="head">
 <div  class="head_c <?if($nowpage==1){?> top_b_sel<?}?>">
