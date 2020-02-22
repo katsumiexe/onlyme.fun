@@ -8,10 +8,11 @@ $d=0;
 
 $date_30=date("Y-m-d H:i:s",time()-2592000);
 
-$host	=$_POST["host"];
-$n_host	=$_POST["n_host"];
 $e_host	=$_REQUEST["e_host"];
 $es		=$_REQUEST["es"];
+
+$host	=$_POST["host"];
+$n_host	=$_POST["n_host"];
 
 if($host){
 	$host_id	=$host;

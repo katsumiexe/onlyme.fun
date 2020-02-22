@@ -23,17 +23,29 @@ if($pg<1) $pg=1;
 $pg_st=($pg-1)*8;
 $pg_ed=$pg_st+8;
 
+
+
 $sql ="SELECT tmpl_id FROM me_tmpl";
 $sql.=" WHERE del<>1";
 if($cate>0){
 	$sql.=" AND cate0{$cate}=1";
 }
+
+
 $sql.=" ORDER BY tmpl_id DESC";
 if($result = mysqli_query($mysqli,$sql)){
 	while($row = mysqli_fetch_assoc($result)){
 		$tmpl_id=$row["tmpl_id"];
 		if($pg_st<=$cnt && $cnt<$pg_ed){
+
+			$sql ="SELECT COUNT(making_id) as cnt, use_tmpl FROM me_making";
+			$sql .="WHERE use_tmpl='{$tmpl_id}'";
+			$sql .="LIMIT 1";
 			$list_n["l"].="<div id=\"p{$tmpl_id}\" class=\"fsample\"><img src=\"./img/sample/s{$tmpl_id}.jpg\" class=\"fsample_img img_off\"></div>";
+			if($res2 = mysqli_query($mysqli,$sql)){
+				$dat2 = mysqli_fetch_assoc($res2);
+				$list_n["l"].="<input id=\"cnt{$tmpl_id}\" type=\"hidden\" name=\"cnt\" value=\"{$dat2["cnt"]}\">";
+			}
 		}
 		$cnt++;
 	}
