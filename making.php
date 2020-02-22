@@ -166,6 +166,9 @@ $(function(){
 	$('.fbox1a').on('click','.fsample',function(){
 		Clr3 = $(this).attr('id').replace("p", "");
 		Clr3_img = $(this).children('img').attr('src');
+
+		Clr3_cnt = $('#cnt'+Clr3).val();
+		console.log(Clr3_cnt);
 		$('.fsample_md').animate({'top':'9vh'},100);
 		$('.fsample_bk').show;
 
