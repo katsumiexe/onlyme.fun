@@ -627,8 +627,12 @@ var Gray	=0;
 var Sepia	=0;
 TmpW =$(window).width() * Width /100;
 TmpH =$(window).width() * Height /100;
-$('#id_width').val(TmpW);
-$('#id_height').val(TmpH);
+
+$(function(){ 
+	$('#id_width').val(TmpW);
+	$('#id_height').val(TmpH);
+});
+
 </script>
 <script src="./js/trial.js?t=<?=time()?>"></script>
 <script src="./js/first.js?_<?=date("YmdHi")?>"></script>

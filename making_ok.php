@@ -62,8 +62,14 @@ if($img_tmp){
 	$id_top=ceil($id_top2*(-100)/$id_zoom);
 	$id_left=ceil($id_left2*(-100)/$id_zoom);
 */
+
+print("<!--");
+var_dump($_POST);
+print("-->");
+
 	$base_img_h=ceil(127.4/$base_zoom*(100/$id_zoom));
 	$base_img_w=ceil(77/$base_zoom*(100/$id_zoom));
+
 
 	if($id_height==0){
 		$id_top=0;
@@ -359,14 +365,57 @@ if($qr !=2){
 	include_once("./qr_img.php");
 }
 
+
+
+$tmp3 =imagecreatetruecolor($print_x0,$print_y0);
+$bk=ImageColorAllocate($tmp3,0,0,0);
+$wh3=ImageColorAllocate($tmp3,255,255,255);
+
+imagefill($tmp3, 0, 0, $wh3);
+
+$base_x	-= 10;
+$base_y	-= 15;
+
+//■縦軸--------------
+for($n=0;$n<4;$n++){	
+	imageline($tmp3, $base_x*$n+50+$n, 50, $base_x*$n+90+$n, 50, $bk);
+	imageline($tmp3, $base_x*$n+70+$n, 50, $base_x*$n+70+$n, 70, $bk);
+
+	imageline($tmp3, $base_x*$n+50+$n, $base_y+140, $base_x*$n+90+$n, $base_y+140, $bk);
+	imageline($tmp3, $base_x*$n+70+$n, $base_y+120, $base_x*$n+70+$n, $base_y+140, $bk);
+}
+
+//■横軸左--------------
+imageline($tmp3, 30, 89, 50, 89, $bk);
+imageline($tmp3, 30, 70, 30, 110, $bk);
+
+imageline($tmp3, 30, $base_y+90, 50, $base_y+90, $bk);
+imageline($tmp3, 30, $base_y+70, 30, $base_y+110, $bk);
+
+imageline($tmp3, $base_x*3+60+30, 89, $base_x*3+60+50, 89, $bk);
+imageline($tmp3, $base_x*3+60+50, 70, $base_x*3+60+50, 110, $bk);
+
+imageline($tmp3, $base_x*3+60+30, $base_y+90, $base_x*3+60+50, $base_y+90, $bk);
+imageline($tmp3, $base_x*3+60+50, $base_y+70, $base_x*3+60+50, $base_y+110, $bk);
+
+//■main--------------
+ImageCopyResampled($tmp3, $tmp2, ($base_x+1)*0+71, 90, 0, 0, $base_x, $base_y, $base_x+10, $base_y+15);
+ImageCopyResampled($tmp3, $tmp2, ($base_x+1)*1+71, 90, 0, 0, $base_x, $base_y, $base_x+10, $base_y+15);
+ImageCopyResampled($tmp3, $tmp2, ($base_x+1)*2+71, 90, 0, 0, $base_x, $base_y, $base_x+10, $base_y+15);
+
+$rd=ImageColorAllocate($tmp3,255,0,0);
+imagettftext($tmp3, 30, 0, 200, 1150, $rd, $cont_font, $now);
+
 imagejpeg($tmpn,$img_url2,100);
 imagejpeg($tmp2,$img_url1,100);
+imagejpeg($tmp3,$dir."print.jpg",100);
+
 
 }
 
 
-$sql ="INSERT INTO me_making(`use_tmpl`, makedate, user_id, name, orgin, `url`, `insta`, twitter, cosp, img, img2, `top`, `left`, zoom, rote, wturn, vturn, bright, sepia, gray,app_date,app_code)";
-$sql.=" VALUES('{$tmpl}','{$now}','{$_SESSION["id"]}','{$name}','{$orgin}','{$url}','{$insta}','{$twitter}','{$cosp}','{$_POST["img_url1"]}','{$_POST["img_url2"]}','{$id_top}','{$id_left}','{$id_zoom}','{$id_rote}','{$id_wturn}','{$id_vturn}','{$id_bright}','{$id_sepia}','{$id_gray}','{$now}','{$dat_token["fileID"]}')";
+$sql ="INSERT INTO me_making(`use_tmpl`, makedate, user_id, name, orgin, `url`, `insta`, twitter, cosp, img, img2, `top`, `left`, zoom, rote, wturn, vturn, bright, sepia, gray)";
+$sql.=" VALUES('{$tmpl}','{$now}','{$_SESSION["id"]}','{$name}','{$orgin}','{$url}','{$insta}','{$twitter}','{$cosp}','{$_POST["img_url1"]}','{$_POST["img_url2"]}','{$id_top}','{$id_left}','{$id_zoom}','{$id_rote}','{$id_wturn}','{$id_vturn}','{$id_bright}','{$id_sepia}','{$id_gray}')";
 mysqli_query($mysqli,$sql);
 
 $tmp_auto=mysqli_insert_id($mysqli);	

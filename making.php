@@ -105,7 +105,7 @@ var mid_h 	= 0;
 var Quality	= <?=$quality[$prof["quality"]+0]?>;
 var orientation=0;
 var Pg 	= 0;
-var data	= [];
+var data	= {};
 var CvImg	= '';
 var Rote	= '';
 
@@ -348,7 +348,7 @@ $(function(){
 				dataType: "json"
 
 			}).always(function( data) {
-				$('#rote_ck').html(data);
+				console.log(data);
 				$('#forms').submit();
 			});
 		}

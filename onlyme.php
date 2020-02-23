@@ -1,6 +1,8 @@
 <?
 	$sql ="SELECT user_id, img2 FROM me_making";
 	$sql .=" WHERE del=0";
+	$sql .=" AND top_ng=0";
+//	$sql .=" GROUP BY user_id";
 	$sql .=" ORDER BY making_id DESC";
 	$sql .=" LIMIT 5";
 	$result = mysqli_query($mysqli,$sql);
