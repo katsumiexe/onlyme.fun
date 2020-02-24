@@ -1,19 +1,29 @@
 <?
-	$sql ="SELECT user_id, img2 FROM me_making";
+	$sql ="SELECT user_id, MAX(making_id) as max_id FROM me_making";
 	$sql .=" WHERE del=0";
 	$sql .=" AND top_ng=0";
-//	$sql .=" GROUP BY user_id";
-	$sql .=" ORDER BY making_id DESC";
+	$sql .=" GROUP BY user_id";
+	$sql .=" ORDER BY max_id DESC";
 	$sql .=" LIMIT 5";
-	$result = mysqli_query($mysqli,$sql);
-	while($dat2 = mysqli_fetch_assoc($result)){
 
-		for($n=0;$n<4;$n++){
-			$tmp_key=substr($dat2["user_id"],$n*2,2);
-			$tmp_enc[$n]=$enc[$tmp_key];
+	$res1 = mysqli_query($mysqli,$sql);
+	while($dat1 = mysqli_fetch_assoc($res1)){
+		$cnt++;
+		$sql ="SELECT img2 FROM me_making";
+		$sql .=" WHERE making_id='{$dat1["max_id"]}'";
+		$sql .=" LIMIT 1";
+
+print("<!--".$sql."--><br>");
+
+		$res2 = mysqli_query($mysqli,$sql);
+		while($dat2 = mysqli_fetch_assoc($res2)){
+			for($n=0;$n<4;$n++){
+				$tmp_key=substr($dat1["user_id"],$n*2,2);
+				$tmp_enc[$n]=$enc[$tmp_key];
+			}
+			$user_enc_id=$tmp_enc[0].$tmp_enc[3].$tmp_enc[1].$tmp_enc[2].$tmp_enc[3].$tmp_enc[2];
+			$roll_img[]="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[1]}{$tmp_enc[3]}/".$dat2["img2"];		
 		}
-		$user_enc_id=$tmp_enc[0].$tmp_enc[3].$tmp_enc[1].$tmp_enc[2].$tmp_enc[3].$tmp_enc[2];
-		$roll_img[]="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[1]}{$tmp_enc[3]}/".$dat2["img2"];		
 	}
 
 ?>
@@ -32,11 +42,9 @@ $(function(){
 
 	var Roll=
 	[
-	'<?=$roll_img[0]?>',
-	'<?=$roll_img[1]?>',
-	'<?=$roll_img[2]?>',
-	'<?=$roll_img[3]?>',
-	'<?=$roll_img[4]?>'
+<?for($h=0;$h<$cnt;$h++){?>
+	'<?=$roll_img[$h]?>',
+<? } ?>
 	];
 
 	$(window).scroll(function () {
@@ -74,12 +82,12 @@ $(function(){
 	});
 	setInterval(function(){
 		$('.lp_roll')
-		
+
 		.animate({'width':'55vw'},500)
 		.delay(3000)
 		.animate({'width':'0vw'},500,function(){
 			N++;
-			if(N>4) N=0;
+			if(N>='<?=$cnt?>') N=0;
 			$('.lp_roll').attr('src',Roll[N])
 		});
     },300);
