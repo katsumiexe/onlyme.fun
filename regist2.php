@@ -2,7 +2,6 @@
 include_once("./library/lib.php");
 include_once("./library/lib_me.php");
 include_once("./library/no_session.php");
-$nowpage=4;
 if($_SESSION){
 	$_SESSION = array();
 	session_destroy(); 
@@ -88,7 +87,6 @@ if($done){
 			}
 		}
 
-		
 		$msg=file_get_contents("./mail/mail_2.txt");
 		$msg=str_replace("[name]",$name,$msg);
 		$msg=str_replace("[reg_id]",$tmp_auto,$msg);

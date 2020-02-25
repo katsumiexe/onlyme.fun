@@ -12,7 +12,6 @@ if($result = mysqli_query($mysqli,$sql)){
 		$thanks[$dat2["sort"]]=$dat2;
 	}
 }
-
 /*https://syncer.jp/Web/API/Twitter/REST_API/GET/users/lookup/*/
 
 
