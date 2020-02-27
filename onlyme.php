@@ -12,9 +12,6 @@
 		$sql ="SELECT img2 FROM me_making";
 		$sql .=" WHERE making_id='{$dat1["max_id"]}'";
 		$sql .=" LIMIT 1";
-
-print("<!--".$sql."--><br>");
-
 		$res2 = mysqli_query($mysqli,$sql);
 		while($dat2 = mysqli_fetch_assoc($res2)){
 			for($n=0;$n<4;$n++){
