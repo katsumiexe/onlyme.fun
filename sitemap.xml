@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
 <!--  created with free sitemap generation system www.sitemapxml.jp  --> 
 <url>
   <loc>https://onlyme.fun/</loc>
   <priority>1.0</priority>
 </url>
+
 <url>
   <loc>https://onlyme.fun/index.php</loc>
   <priority>0.8</priority>
 </url>
+
 <url>
-  <loc>https://onlyme.fun/howto.php</loc>
+  <loc>https://onlyme.fun/pg.php</loc>
   <priority>0.8</priority>
 </url>
-<url>
-  <loc>https://onlyme.fun/faq.php</loc>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://onlyme.fun/soon.php</loc>
-  <priority>0.8</priority>
-</url>
+
 <url>
   <loc>https://onlyme.fun/outpost.php</loc>
   <priority>0.8</priority>
@@ -35,4 +29,17 @@
   <priority>0.7</priority>
 </url>
 
+<url>
+  <loc>https://onlyme.fun/out.php</loc>
+  <priority>0.3</priority>
+</url>
+<url>
+  <loc>https://onlyme.fun/chg.php</loc>
+  <priority>0.3</priority>
+</url>
+
+<url>
+  <loc>https://onlyme.fun/chg2.php</loc>
+  <priority>0.3</priority>
+</url>
 </urlset>
