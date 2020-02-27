@@ -40,7 +40,6 @@ if($result = mysqli_query($mysqli,$sql)){
 				$dat2 = mysqli_fetch_assoc($res2);
 				$list_n["l"].="<input id=\"cnt{$tmpl_id[$cnt]}\" type=\"hidden\" name=\"cnt\" value=\"{$dat2["cnt"]}\">";
 			}
-
 		}
 		$cnt++;
 	}
@@ -112,11 +111,8 @@ var Rote	= '';
 var Clr1=0;
 var Clr2=1;
 
-
 $(function(){ 
-
 	$('#p<?=$tmpl_id[0]?>').css({'border-color':'#ee0000'});
-
 	<?if($exp>=100){?>
 	var Tmp=$('#qr<?=$prof["qr"]?>').html();
 	$('#qr_select').html(Tmp);
@@ -202,9 +198,7 @@ $(function(){
 			$('.fsample_if').addClass("if_on");
 			$('.fsample_md_com').animate({'height':'90vw'},100);
 		}
-
 	});
-
 
 	$('#fol1').on('click',function(){
 		$('.folder_all1').fadeIn(100);
@@ -385,7 +379,6 @@ $(function(){
 		$('#qr_option').slideUp(150);
 	});
 });
-
 
 </script>
 <style>

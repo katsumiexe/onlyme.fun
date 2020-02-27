@@ -52,8 +52,6 @@ if($result = mysqli_query($mysqli,$sql)){
 		$cnt++;
 	}
 
-
-
 	if($pg>1){
 		$pg_p=$pg-1;
 		$list_n["p"]="<span id=\"pg_p{$pg_p}\" class=\"card_box card_prev\"></span>";
