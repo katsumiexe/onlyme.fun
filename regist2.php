@@ -208,7 +208,14 @@ $(function(){
 </script>
 </head>
 <body class="body">
-<div class="main_irr">
+<div class="pc_only">
+	<img src="./img/top.png" style="width:700px;"><br>
+	<div class="pc_box" style="font-size:14px;">
+		こちらはスマホ専用サイトです。<br>
+		PC・タブレットではご利用いただけません。<br>
+	</div>
+</div>
+<div class="main_irr sp_only">
 <h1 class="h1"><span class="h1_title">新規登録(無料)</span></h1>
 
 <?if($out =="1"){?>
