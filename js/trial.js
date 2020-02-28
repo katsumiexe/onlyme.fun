@@ -249,7 +249,7 @@ $(function(){
 		$('.trim_img, .trim_img2').css({'width':vWidth,'height':vHeight});
 
 		$('#zoomin,#st05').text(Zoom);
-		$('#input_zoom').val(Zoom);
+		$('#id_zoom').val(Zoom);
 		$('#bs01').text(vWidth);
 		$('#bs02').text(vHeight);
 		$('#id_height').val(vHeight);
