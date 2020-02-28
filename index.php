@@ -37,16 +37,6 @@ if($chg == 1){//■イイネ数順
 	$sql.=" ORDER BY iine DESC";
 	$sql.=" LIMIT 21";
 
-}elseif($chg == 2){//■コメント最新順
-	$sql ="SELECT *, sum(me_iine.pritty)+sum(me_iine.smart)+sum(me_iine.funny)+sum(me_iine.sexy) as iine, max(me_cheer.cheer_date) as cheer_new FROM `me_making`";
-	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
-	$sql.=" LEFT JOIN `me_iine` ON me_making.making_id=i_card_id";
-	$sql.=" LEFT JOIN `me_cheer` ON me_making.making_id=me_cheer.c_card_id";
-	$sql.=" WHERE `me_making`.`del`='0'";
-	$sql.=" GROUP BY me_making.making_id";
-	$sql.=" ORDER BY cheer_new DESC";
-	$sql.=" LIMIT 21";
-
 }elseif($chg == 3){//■お気に入り
 	$sql ="SELECT *, sum(me_iine.pritty)+sum(me_iine.smart)+sum(me_iine.funny)+sum(me_iine.sexy) as iine FROM `me_making`";
 	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
@@ -58,6 +48,17 @@ if($chg == 1){//■イイネ数順
 	$sql.=" GROUP BY me_making.making_id";
 	$sql.=" ORDER BY me_making.making_id DESC";
 	$sql.=" LIMIT 21";
+
+}elseif($chg == 2){//■コメント最新順
+	$sql ="SELECT *, sum(me_iine.pritty)+sum(me_iine.smart)+sum(me_iine.funny)+sum(me_iine.sexy) as iine, max(me_cheer.cheer_date) as cheer_new FROM `me_making`";
+	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
+	$sql.=" LEFT JOIN `me_iine` ON me_making.making_id=i_card_id";
+	$sql.=" LEFT JOIN `me_cheer` ON me_making.making_id=me_cheer.c_card_id";
+	$sql.=" WHERE `me_making`.`del`='0'";
+	$sql.=" GROUP BY me_making.making_id";
+	$sql.=" ORDER BY cheer_new DESC";
+	$sql.=" LIMIT 21";
+
 
 }else{
 	$sql ="SELECT *, sum(me_iine.pritty)+sum(me_iine.smart)+sum(me_iine.funny)+sum(me_iine.sexy)  as iine, max(me_cheer.cheer_date) as cheer_new FROM `me_making`";
@@ -402,6 +403,7 @@ mysqli_query($mysqli,$sql);
 <div class="pop04">すでに通報されています。</div>
 <div class="pop05">自分の投稿は通報できません。</div>
 <div class="pop06">自分の投稿には応援できません。</div>
+
 <div class="pop07">
 	<div class="pop07_a">
 		<textarea id="p_cheer_box" class="p_cheer_box" name="p_cheer_box"></textarea>
