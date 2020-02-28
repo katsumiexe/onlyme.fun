@@ -193,7 +193,7 @@ table{
 	width:20vw;
 	font-size:4vw;
 	font-weight:400;
-	
+	z-index:10;
 	border:0.2vw solid #303030;
 	background:#ffffff;
 }
