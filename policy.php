@@ -18,11 +18,7 @@ $d=0;
 <link rel="stylesheet" href="./css/set_icon.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/first.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/policy.css?_<?=date("YmdHi")?>">
-
 <script src="./js/jquery-3.2.1.min.js"></script>
-<style>
-
-</style>
 </head>
 <body class="body">
 <div class="main_irr">
