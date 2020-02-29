@@ -66,7 +66,14 @@ session_destroy();
 </style>
 </head>
 <body class="body">
-<div class="main_irr">
+<div class="pc_only">
+	<img src="./img/top.png" style="width:700px;"><br>
+	<div class="pc_box" style="font-size:14px;">
+		こちらはスマホ専用サイトです。<br>
+		PC・タブレットではご利用いただけません。<br>
+	</div>
+</div>
+<div class="main_irr sp_only">
 	<h1 class="h1"><span class="h1_title">退会処理</span></h1>
 	<div class="box_01">
 	<div class="box_02">
