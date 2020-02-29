@@ -9,6 +9,16 @@
 	z-index		:1;
 }
 
+.prof_main2{
+	position	:fixed;
+	left		:0vw;
+	top			:0vh;
+	width		:100vw;
+	height		:31vw;
+	background	:#ffe0f0;
+	background	:linear-gradient(#f8e8ff,#f0e0ff);
+	z-index		:1;
+}
 .prof_table{
 	position	:absolute;
 	border-collapse: collapse;

@@ -237,17 +237,9 @@ twq('track','PageView');
 		PC・タブレットではご利用いただけません。<br>
 	</div>
 </div>
-
-<div class="sp_only">
-<div class="head">
-<a href="index.php" class="head_c <?if($nowpage==1){?> top_b_sel<?}?>"><span class="head_icon icon_img"></span><span class="head_com">TOP</span></a>
-<a href="howto.php" class="head_c <?if($nowpage==2){?> top_b_sel<?}?>"><span class="head_icon icon_img"></span><span class="head_com">HowTo</span></a>
-<a href="faq.php" class="head_c <?if($nowpage==3){?> top_b_sel<?}?>"><span class="head_icon icon_img"></span><span class="head_com">FAQ</span></a>
-<a href="soon.php" class="head_c <?if($nowpage==4){?> top_b_sel<?}?>"><span class="head_icon icon_img"></span><span class="head_com">新規登録</span></a>
-</div>
-<div class="main_fix">
-	<div class="prof_main">
-	<img src="<?=$host_face?>" class="prof_img">
+<div class="main_irr sp_only">
+	<div class="prof_main2">
+		<img src="<?=$host_face?>" class="prof_img">
 		<div class="prof_name"><?=$de["reg_name"]?></div>
 		<div class="prof_iine p1"><span class="iine_icon icon_img"></span><span class="iine_no"><?=$e_pritty+0?></span></div>
 		<div class="prof_iine p2"><span class="iine_icon icon_img"></span><span class="iine_no"><?=$e_smart+0?></span></div>
@@ -313,7 +305,6 @@ twq('track','PageView');
 		</div>
 		<img src="img/logo_r.png" style="width:40vw">
 	</div>
-</div>
 
 <div class="pop00">
 	<div class="pop00_a">
