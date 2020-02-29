@@ -258,7 +258,17 @@ twq('track','PageView');
 <style>
 </style>
 </head>
+
 <body class="body">
+<div class="pc_only">
+	<img src="./img/top.png" style="width:700px;"><br>
+	<div class="pc_box" style="font-size:14px;">
+		こちらはスマホ専用サイトです。<br>
+		PC・タブレットではご利用いただけません。<br>
+	</div>
+</div>
+<div class="sp_only">
+
 <?if(!$_SESSION["id"]){?>
 <?
 $t_re=$_SERVER["HTTP_REFERER"];

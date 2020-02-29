@@ -101,8 +101,14 @@ $(function(){
 </script>
 </head>
 <body class="body">
-<?include_once("./x_irr.php")?>
-<div class="main">
+<div class="pc_only">
+	<img src="./img/top.png" style="width:700px;"><br>
+	<div class="pc_box" style="font-size:14px;">
+		こちらはスマホ専用サイトです。<br>
+		PC・タブレットではご利用いただけません。<br>
+	</div>
+</div>
+<div class="main_irr sp_only">
 <h1 class="h1"><span class="h1_title">パスワードの変更</span></h1>
 
 <?if($mode == 3){?>
