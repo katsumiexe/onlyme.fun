@@ -109,8 +109,8 @@ $(function(){
 	</div>
 </div>
 <div class="main_irr sp_only">
-<h1 class="h1"><span class="h1_title">パスワードの変更</span></h1>
 
+<h1 class="h1"><span class="h1_title">パスワードの変更</span></h1>
 <?if($mode == 3){?>
 <div class="box_01">
 <span style="font-weight:600;width:100%;text-align:center;">パスワード変更受付完了</span><br>
@@ -137,7 +137,7 @@ $(function(){
 <div class="box_01">
 	<div class="box_02">
 		ご登録されたメールアドレスと、新しいパスワードをご入力下さい。<br>
-	<div>
+	</div>
 	<div class="box_02">
 		<div class="title">メールアドレス</div>
 		<div><input id="me_mail" type="text" value="" name="me_mail" class="send_box" maxlength="50"></div>
@@ -157,10 +157,12 @@ $(function(){
 <?}?>
 
 <div class="ft_box">
-<a href="policy.php" class="ft">プライバシーポリシー<span class="ft_ar">></span></a>
-<a href="kiyaku.php" class="ft">利用規約<span class="ft_ar">></span></a>
-<a href="poxt.php" class="ft">お問い合わせ・ご意見<span class="ft_ar">></span></a>
+<a href="policy.php" class="ft"><span class="ft_ar icon_img"></span><span class="ft_txt">プライバシーポリシー</span></a>
+<a href="kiyaku.php" class="ft"><span class="ft_ar icon_img"></span><span class="ft_txt">利用規約</span></a>
+<a href="outpost.php" class="ft"><span class="ft_ar icon_img"></span><span class="ft_txt">お問い合わせ・ご意見</span></a>
 </div>
+
+
 </div>
 <?include_once("./x_foot.php")?>
 </body>
