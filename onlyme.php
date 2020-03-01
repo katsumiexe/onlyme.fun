@@ -26,7 +26,7 @@
 ?>
 <script>
 $(function(){ 
-	var Tmp_1=$('#beacon').offset().top+10;
+	var Tmp_1=$('#beacon').offset().top+160;
 	var Tmp_2=Tmp_1+$(window).width() * 26 /100;
 	var Tmp_3=Tmp_2+$(window).width() * 37 /100;
 	var Tmp_4=Tmp_3+$(window).width() * 26 /100;
