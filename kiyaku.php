@@ -27,14 +27,17 @@ $d=0;
 </style>
 </head>
 <body class="body">
-<?if(!$_SESSION["id"]){?>
-<div class="main_irr">
-<?}else{?>
-<?include_once("./x_head.php")?>
-<div class="main">
-<?}?>
+<div class="pc_only">
+	<img src="./img/top.png" style="width:700px;"><br>
+	<div class="pc_box" style="font-size:14px;">
+		こちらはスマホ専用サイトです。<br>
+		PC・タブレットではご利用いただけません。<br>
+	</div>
+</div>
+<div class="main_irr sp_only">
+<a href="./index.php" class="irr_top">写真名刺作成サイト★OnlyMe</a>
+<h1 class="h1_irr"><span class="h1_title">利用規約</span></h1>
 
-<h1 class="h1"><span class="h1_title">利用規約</span></h1>
 <div class="policy2">
 この利用規約は、「OnlyMe」（以下「僕」）がサイト上で提供するサービス（以下「これ」）の利用条件を定めるものだ。<br>
 登録ユーザーの皆様（以下「君たち」）には、本規約に従ってもらうようお願いするよ。<br>

@@ -21,9 +21,16 @@ $d=0;
 <script src="./js/jquery-3.2.1.min.js"></script>
 </head>
 <body class="body">
-<div class="main_irr">
-
-<h1 class="h1"><span class="h1_title">Privacy Policy</span></h1>
+<div class="pc_only">
+	<img src="./img/top.png" style="width:700px;"><br>
+	<div class="pc_box" style="font-size:14px;">
+		こちらはスマホ専用サイトです。<br>
+		PC・タブレットではご利用いただけません。<br>
+	</div>
+</div>
+<div class="main_irr sp_only">
+<a href="./index.php" class="irr_top">写真名刺作成サイト★OnlyMe</a>
+<H1 class="h1_irr"><span class="h1_title">Privacy Policy</span></h1>
 <div class="policy2">
 個人情報に関する注意事項です。<br>
 後々もめないように、利用前にさらっと見といてね。<br>
