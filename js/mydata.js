@@ -66,11 +66,13 @@ $(function(){
 	});
 
 	$('#id_print').on('click',function () {
+		Ck_count=0;
+		$('.print_list').removeClass('print_list_on');
+		$('.list_count').css({'background':'#909090','color':'#fafafa'});
 
 		$('.album_tag').removeClass('album_tag_sel');
 		$(this).addClass('album_tag_sel');
 
-		Ck_count=0;
 		PrintCk=new Array();	
 		$('.list_count').text(Ck_count);
 

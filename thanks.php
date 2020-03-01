@@ -156,8 +156,9 @@ if($result = mysqli_query($mysqli,$sql)){
 	</div>
 </div>
 <div class="main_irr sp_only">
-<h1 class="h1"><span class="h1_title">Special Thanks</span></h1>
+<a href="./index.php" class="irr_top">写真名刺作成サイト★OnlyMe</a>
 
+<H1 class="h1_irr"><span class="h1_title">Special Thanks</span></h1>
 <div class="thanks_top">
 	OnlyMe作成にあたり、ご協力いただいた方々です。<br>
 </div>
