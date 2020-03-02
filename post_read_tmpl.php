@@ -23,14 +23,11 @@ if($pg<1) $pg=1;
 $pg_st=($pg-1)*8;
 $pg_ed=$pg_st+8;
 
-
-
 $sql ="SELECT tmpl_id FROM me_tmpl";
 $sql.=" WHERE del<>1";
 if($cate>0){
 	$sql.=" AND cate0{$cate}=1";
 }
-
 
 $sql.=" ORDER BY tmpl_id DESC"; 
 if($result = mysqli_query($mysqli,$sql)){

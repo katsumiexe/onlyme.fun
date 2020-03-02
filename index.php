@@ -165,11 +165,12 @@ while($dat2 = mysqli_fetch_assoc($result)){
 			$ch++;
 		}
 		$dat[$d]["cheer_ct"]=$ch;
-
 		$sql4 ="SELECT al_card_id FROM me_alert";
 		$sql4.=" WHERE al_card_id='{$dat2["making_id"]}'";
 		$sql4.=" AND al_user_id='{$user["id"]}'";
 		$sql4.=" LIMIT 1";
+
+
 		$result4 = mysqli_query($mysqli,$sql4);
 		if($dat4 = mysqli_fetch_assoc($result4)){
 			$dat[$d]["alert"]=1;	
@@ -341,15 +342,20 @@ mysqli_query($mysqli,$sql);
 	</div>
 </div>
 
+
+<div id="p_page_info" class="info">
+<span class="icon_img"></span>
+</div>
+
 <div class="p_page">
 	<div id="p_page_out" class="back"><span class="icon_img"></span></div>
 	<span class="p_date"></span>
 
 	<div id="p_page_alert" class="alert">
-		<span class="p_icon icon_img"></span>
+		<span class="p_icon icon_img"></span>
 	</div>
-	<img id="tmpl" class="p_page_img">
 
+	<img id="tmpl" class="p_page_img">
 	<div class="box_iine">
 	<img id="p_pict" class="box_iine_face">
 	<div id="p_page_prof" class="box_name"><span class="p_name"></span></div>

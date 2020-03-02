@@ -2,7 +2,7 @@
 include_once("./library/lib.php");
 include_once("./library/lib_me.php");
 include_once("./library/no_session.php");
-$nowpage=1;
+
 $ex=8;
 $d=0;
 
@@ -237,6 +237,7 @@ twq('track','PageView');
 		PC・タブレットではご利用いただけません。<br>
 	</div>
 </div>
+
 <div class="main_irr sp_only">
 <a href="./index.php" class="irr_top">写真名刺作成サイト★OnlyMe</a>
 	<div class="prof_main2">

@@ -188,6 +188,24 @@
 	border-radius:2vw;
 }
 
+.info{
+	display:inline-block;
+	position:absolute;
+	width:8vw;
+	height:8vw;
+	line-height:8vw;
+	font-size:5vw;
+	background:#f17766;
+	text-align:center;	
+	color:#ffffff;
+	cursor:pointer;
+	top:7vw;
+	left:12vw;
+	border-radius:2vw;
+}
+
+
+
 .p_date{
 	display:inline-block;
 	position:absolute;
@@ -215,9 +233,7 @@
 	line-height:7vw;
 	text-align:center;
 	cursor:pointer;
-	background:#fafafa;
 	font-size:4.5vw;
-	color:#fefe60;
 	border:1vw solid #f17766;
 }
 
@@ -248,11 +264,14 @@
 }
 
 .alert_yet{
-	color:#909000;
+	color		:#666600;
+	background	:#ffff80;
 }
 
-.alert_done, .alert_mine{
-	color:#c0c0c0;
+.alert_done,
+.alert_mine{
+	color		:#c0c0c0;
+	background	:#e0e0e0;
 }
 
 .p_menu{

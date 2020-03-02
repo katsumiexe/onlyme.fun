@@ -353,10 +353,11 @@ table{
 }
 
 .sp_only{
-	display:block;;
-	margin:0 auto;
-	padding:0;
-	width:99vw;
+	display			:block;
+	margin-left		:auto;
+	margin-right	:auto;
+	padding			:0;
+	width			:99vw;
 }
 
 .hh{
