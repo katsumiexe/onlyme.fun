@@ -306,13 +306,13 @@ $(function(){
 	$('.info').on('click',function () {
 		if($('.info_list').css('display')=='none'){
 			$('.info_list').slideDown(300);
+			$('.info').animate({'top':'18vw'},300);
 
-console.log('OPEN');
 
 		}else{
 			$('.info_list').slideUp(100);	
+			$('.info').animate({'top':'7vw'},100);
 
-console.log('CLOSE');
 
 		}
 	});

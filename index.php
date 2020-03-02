@@ -341,29 +341,9 @@ mysqli_query($mysqli,$sql);
 		<span class="icon_img"></span>
 	</div>
 <? } ?>
-
 	<div class="info_list">
-	<table class="info_list_table">
-		<tr>
-			<td class="info_list_td" colspan="2">デザイン情報</td>
-		</tr>
-		<tr>
-			<td class="info_list_td_l">コード</td>
-			<td class="info_list_td_r">：</td>
-		</tr>
-		<tr>
-			<td class="info_list_td_l">タ　グ</td>
-			<td class="info_list_td_r">：</td>
-		</tr>
-		<tr>
-			<td class="info_list_td_l">利用数</td>
-			<td class="info_list_td_r">：</td>
-		</tr>
-		<tr>
-			<td class="info_list_td" colspan="2"><span class="./info_use">このデザインを使う</span></td>
-		</tr>
-	</table>
 	</div>
+
 
 	<span class="p_date"></span>
 	<div id="p_page_alert" class="alert">
