@@ -306,8 +306,14 @@ $(function(){
 	$('.info').on('click',function () {
 		if($('.info_list').css('display')=='none'){
 			$('.info_list').slideDown(300);
+
+console.log('OPEN');
+
 		}else{
-			$('.info_list').slideUp(100);
+			$('.info_list').slideUp(100);	
+
+console.log('CLOSE');
+
 		}
 	});
 

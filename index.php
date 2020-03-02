@@ -259,17 +259,7 @@ twq('track','PageView');
 <style>
 </style>
 </head>
-
 <body class="body">
-<div class="pc_only">
-	<img src="./img/top.png" style="width:700px;"><br>
-	<div class="pc_box" style="font-size:14px;">
-		こちらはスマホ専用サイトです。<br>
-		PC・タブレットではご利用いただけません。<br>
-	</div>
-</div>
-<div class="sp_only">
-
 <?if(!$_SESSION["id"]){?>
 <?
 $t_re=$_SERVER["HTTP_REFERER"];
@@ -358,16 +348,16 @@ mysqli_query($mysqli,$sql);
 			<td class="info_list_td" colspan="2">デザイン情報</td>
 		</tr>
 		<tr>
-			<td class="info_list_td">コード</td>
-			<td class="info_list_td">：</td>
+			<td class="info_list_td_l">コード</td>
+			<td class="info_list_td_r">：</td>
 		</tr>
 		<tr>
-			<td class="info_list_td">タ　グ</td>
-			<td class="info_list_td">：</td>
+			<td class="info_list_td_l">タ　グ</td>
+			<td class="info_list_td_r">：</td>
 		</tr>
 		<tr>
-			<td class="info_list_td">利用数</td>
-			<td class="info_list_td">：</td>
+			<td class="info_list_td_l">利用数</td>
+			<td class="info_list_td_r">：</td>
 		</tr>
 		<tr>
 			<td class="info_list_td" colspan="2"><span class="./info_use">このデザインを使う</span></td>

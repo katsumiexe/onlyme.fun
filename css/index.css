@@ -207,15 +207,48 @@
 .info_list{
 	display			:none;
 	position		:absolute;
-	top				:15vw;
-	left			:2.5vw;
-	width			:30vw;
-	height			:30vw;
+	top				:17vw;
+	left			:13vw;
+	width			:45vw;
+	height			:35vw;
 	background		:#f0f0f0;
-	text-align		:center;	
 	border			:0.5vw solid #f17766;
 	color			:#303030;
+	z-index			:13;
 }
+
+.info_list_table{
+	width			:45vw;
+	height			:35vw;
+}
+
+.info_list_td{
+	padding			:1vw;
+	text-align		:center;
+	font-size:4vw;
+	font-weight:600;
+	color:#606060;
+}
+
+.info_list_td_l{
+	width			:16vw;
+	padding			:1vw;
+	text-align		:left;
+	font-size:4vw;
+	font-weight:600;
+	color:#606060;
+}
+
+.info_list_td_r{
+	padding			:1vw;
+	text-align		:left;;
+	font-size:4vw;
+	font-weight:600;
+	color:#606060;
+}
+
+
+
 
 .p_date{
 	display			:inline-block;
