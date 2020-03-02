@@ -154,12 +154,12 @@ $(function(){
 
 	$('.print_code_print').on('click', function(){
 		TopNow=$(window).scrollTop();
-		$('.pop10').animate({'left': '0vw'},150);
+		$('.pop10,.page_top2').animate({'left': '0vw'},150);
 	});
 
 	$('.print_return').on('click', function(){
 		$(window).scrollTop(TopNow);
-		$('.pop10').animate({'left': '105vw'},100);
+		$('.pop10,.page_top2').animate({'left': '105vw'},100);
 	});
 
 

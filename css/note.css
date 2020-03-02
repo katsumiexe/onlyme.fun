@@ -161,7 +161,6 @@
 
 .page_main{
 	position:relative;
-	
 	width:97vw;
 	background:#fff0f5;
 	min-height:99vh;
@@ -171,6 +170,23 @@
 	line-height:6vw;
 	margin:9vw 0.5vw 1vw 0.5vw
 }
+
+.page_top2{
+	position:fixed;
+	display:inline-block;
+	top:8vh;
+	left:105vw;
+	height:10vw;
+	line-height:12vw;
+	width:100vw;
+	background:#f17766;
+	color:#fafafa;
+	font-weight:700;
+	text-shadow:0.3vw 0.3vw 0vw #000000;
+	text-align:center;
+	z-index:11;
+}
+
 
 /*/-------------------------------------------------------------------*/
 

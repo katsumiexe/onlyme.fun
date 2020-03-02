@@ -391,7 +391,7 @@ $(function(){
 
 
 <div class="pop10">
-<div class="page_top"><span class="print_return icon_img"></span><span class="page_title">コンビニでの印刷方法について</span></div>
+<div class="page_top2"><span class="print_return icon_img"></span><span class="page_title">コンビニでの印刷方法について</span></div>
 <div class="page_main">
 <h2 class="h2">印刷可能なコンビニ</h2>
 <div class="exp_box1">
