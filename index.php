@@ -343,18 +343,16 @@ mysqli_query($mysqli,$sql);
 </div>
 
 
-<div id="p_page_info" class="info">
-<span class="icon_img"></span>
-</div>
-
 <div class="p_page">
 	<div id="p_page_out" class="back"><span class="icon_img"></span></div>
-	<span class="p_date"></span>
+	<div id="p_page_info" class="info">
+		<span class="icon_img"></span>
+	</div>
 
+	<span class="p_date"></span>
 	<div id="p_page_alert" class="alert">
 		<span class="p_icon icon_img"></span>
 	</div>
-
 	<img id="tmpl" class="p_page_img">
 	<div class="box_iine">
 	<img id="p_pict" class="box_iine_face">
