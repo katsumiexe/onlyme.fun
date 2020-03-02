@@ -345,14 +345,41 @@ mysqli_query($mysqli,$sql);
 
 <div class="p_page">
 	<div id="p_page_out" class="back"><span class="icon_img"></span></div>
+
+<?if($user["id"]< "10002014"){?>
 	<div id="p_page_info" class="info">
 		<span class="icon_img"></span>
+	</div>
+<? } ?>
+
+	<div class="info_list">
+	<table class="info_list_table">
+		<tr>
+			<td class="info_list_td" colspan="2">デザイン情報</td>
+		</tr>
+		<tr>
+			<td class="info_list_td">コード</td>
+			<td class="info_list_td">：</td>
+		</tr>
+		<tr>
+			<td class="info_list_td">タ　グ</td>
+			<td class="info_list_td">：</td>
+		</tr>
+		<tr>
+			<td class="info_list_td">利用数</td>
+			<td class="info_list_td">：</td>
+		</tr>
+		<tr>
+			<td class="info_list_td" colspan="2"><span class="./info_use">このデザインを使う</span></td>
+		</tr>
+	</table>
 	</div>
 
 	<span class="p_date"></span>
 	<div id="p_page_alert" class="alert">
 		<span class="p_icon icon_img"></span>
 	</div>
+
 	<img id="tmpl" class="p_page_img">
 	<div class="box_iine">
 	<img id="p_pict" class="box_iine_face">

@@ -303,6 +303,14 @@ $(function(){
 		$('.pop01_c').val();
 	});
 
+	$('.info').on('click',function () {
+		if($('.info_list').css('display')=='none'){
+			$('.info_list').slideDown(300);
+		}else{
+			$('.info_list').slideUp(100);
+		}
+	});
+
 	$('#yes_1').on('click',function (){
 		$.post("post_set_alert.php",
 			{
