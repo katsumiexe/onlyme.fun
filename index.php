@@ -341,9 +341,9 @@ mysqli_query($mysqli,$sql);
 		<span class="icon_img"></span>
 	</div>
 <? } ?>
+
 	<div class="info_list">
 	</div>
-
 
 	<span class="p_date"></span>
 	<div id="p_page_alert" class="alert">
