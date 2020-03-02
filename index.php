@@ -109,7 +109,6 @@ while($dat2 = mysqli_fetch_assoc($result)){
 		if($dat4["cate05"] == 1) $cate[$d][]="季節";
 		if($dat4["cate06"] == 1) $cate[$d][]="厨二";
 		if($dat4["cate07"] == 1) $cate[$d][]="限定";
-
 		
 		$dat[$d]=$dat2;
 		$dat[$d]["mdate"]=substr($dat2["makedate"],5,2)."/".substr($dat2["makedate"],8,2)." ".substr($dat2["makedate"],11,2).":".substr($dat2["makedate"],14,2);
