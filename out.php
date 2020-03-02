@@ -74,7 +74,8 @@ session_destroy();
 	</div>
 </div>
 <div class="main_irr sp_only">
-	<h1 class="h1"><span class="h1_title">退会処理</span></h1>
+<a href="./index.php" class="irr_top">写真名刺作成サイト★OnlyMe</a>
+<h1 class="h1_irr"><span class="h1_title">退会</span></h1>
 	<div class="box_01">
 	<div class="box_02">
 		退会しました。

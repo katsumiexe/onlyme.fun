@@ -116,7 +116,8 @@ $(function(){
 	</div>
 </div>
 <div class="main_irr sp_only">
-<h1 class="h1"><span class="h1_title">新規登録(無料)</span></h1>
+<a href="./index.php" class="irr_top">写真名刺作成サイト★OnlyMe</a>
+<h1 class="h1_irr"><span class="h1_title">新規登録(無料)</span></h1>
 
 <?if($mode == 3){?>
 

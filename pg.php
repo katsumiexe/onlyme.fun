@@ -238,6 +238,7 @@ twq('track','PageView');
 	</div>
 </div>
 <div class="main_irr sp_only">
+<a href="./index.php" class="irr_top">写真名刺作成サイト★OnlyMe</a>
 	<div class="prof_main2">
 		<img src="<?=$host_face?>" class="prof_img">
 		<div class="prof_name"><?=$de["reg_name"]?></div>

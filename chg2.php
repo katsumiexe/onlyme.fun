@@ -57,6 +57,8 @@ if(!$msg){
 	</div>
 </div>
 <div class="main_irr sp_only">
+<a href="./index.php" class="irr_top">写真名刺作成サイト★OnlyMe</a>
+<h1 class="h1_irr"><span class="h1_title">登録情報変更</span></h1>
 	<?if($msg){?>
 		<div class="box_01">
 			<?=$msg?>
