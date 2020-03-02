@@ -78,16 +78,40 @@ while($dat2 = mysqli_fetch_assoc($result)){
 		$tmp_key=substr($dat2["user_id"],$n*2,2);
 		$tmp_enc[$n]=$enc[$tmp_key];
 	}
+
 	$list_enc=$tmp_enc[0].$tmp_enc[3].$tmp_enc[1].$tmp_enc[2].$tmp_enc[3].$tmp_enc[2];
 	$main_img	="./myalbum/{$tmp_enc[3]}/{$list_enc}/{$tmp_enc[2]}{$tmp_enc[3]}/{$dat2["img"]}";
 	$sub_img	="./myalbum/{$tmp_enc[3]}/{$list_enc}/{$tmp_enc[1]}{$tmp_enc[3]}/{$dat2["img2"]}";
 
 	if(file_exists($main_img) && file_exists($sub_img)){
-	
+
+		$sql="SELECT count(making_id) as cnt FROM me_making";
+		$sql.=" WHERE user_id>10002014";
+		$sql.=" LIMIT 1";
+
+		$res3 = mysqli_query($mysqli,$sql);
+		$dat3 = mysqli_fetch_assoc($res3);
+
+		$dat[$d]["info_cnt"]=$dat3["cnt"];
+
+		$sql="SELECT * FROM me_tmpl";
+		$sql.=" WHERE tmpl_id '{$dat3["use_tmpl"]}'";
+		$sql.=" LIMIT 1";
+
+		$res4 = mysqli_query($mysqli,$sql);
+		$dat4 = mysqli_fetch_assoc($res4));
+
+		if($dat4["cate01"] == 1) $cate[$d][]="";
+		if($dat4["cate02"] == 1) $cate[$d][]="";
+		if($dat4["cate03"] == 1) $cate[$d][]="";
+		if($dat4["cate04"] == 1) $cate[$d][]="";
+		if($dat4["cate05"] == 1) $cate[$d][]="";
+		if($dat4["cate06"] == 1) $cate[$d][]="";
+		if($dat4["cate07"] == 1) $cate[$d][]="";
+		
 		$dat[$d]=$dat2;
 		$dat[$d]["mdate"]=substr($dat2["makedate"],5,2)."/".substr($dat2["makedate"],8,2)." ".substr($dat2["makedate"],11,2).":".substr($dat2["makedate"],14,2);
 		$dat[$d]["img_url"]	=$sub_img;
-
 		$dat[$d]["tl"]	=get_after($dat2["makedate"]);
 
 		for($n=0;$n<4;$n++){
@@ -341,10 +365,12 @@ mysqli_query($mysqli,$sql);
 		<span class="icon_img"></span>
 	</div>
 <? } ?>
-
 	<div class="info_list">
-	</div>
+	<div class="info_list_code">T00001</div>
+	<div class="info_list_flex"></div>
+	<div class="info_list_btn">このデザインを使う</div>
 
+	</div>
 	<span class="p_date"></span>
 	<div id="p_page_alert" class="alert">
 		<span class="p_icon icon_img"></span>
