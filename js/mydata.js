@@ -441,6 +441,10 @@ $(function(){
 		$('.pop08_d1, .pop08_d2').hide();
 		$('.pop08_d3, .pop08_d4').show();
 
+		Ck_count=0;
+		$('.print_list').removeClass('print_list_on');
+		$('.list_count').css({'background':'#909090','color':'#fafafa'});
+
 		Tmp=$('.print_code_id').text();	
 
 		$.post({
