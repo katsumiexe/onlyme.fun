@@ -99,15 +99,17 @@ while($dat2 = mysqli_fetch_assoc($result)){
 		$sql.=" LIMIT 1";
 
 		$res4 = mysqli_query($mysqli,$sql);
-		$dat4 = mysqli_fetch_assoc($res4));
+		$dat4 = mysqli_fetch_assoc($res4);
 
-		if($dat4["cate01"] == 1) $cate[$d][]="";
-		if($dat4["cate02"] == 1) $cate[$d][]="";
-		if($dat4["cate03"] == 1) $cate[$d][]="";
-		if($dat4["cate04"] == 1) $cate[$d][]="";
-		if($dat4["cate05"] == 1) $cate[$d][]="";
-		if($dat4["cate06"] == 1) $cate[$d][]="";
-		if($dat4["cate07"] == 1) $cate[$d][]="";
+
+		if($dat4["cate01"] == 1) $cate[$d][]="女子";
+		if($dat4["cate02"] == 1) $cate[$d][]="男子";
+		if($dat4["cate03"] == 1) $cate[$d][]="和風";
+		if($dat4["cate04"] == 1) $cate[$d][]="自然";
+		if($dat4["cate05"] == 1) $cate[$d][]="季節";
+		if($dat4["cate06"] == 1) $cate[$d][]="厨二";
+		if($dat4["cate07"] == 1) $cate[$d][]="限定";
+
 		
 		$dat[$d]=$dat2;
 		$dat[$d]["mdate"]=substr($dat2["makedate"],5,2)."/".substr($dat2["makedate"],8,2)." ".substr($dat2["makedate"],11,2).":".substr($dat2["makedate"],14,2);
