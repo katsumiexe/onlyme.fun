@@ -90,6 +90,7 @@ $(function(){
     },300);
 });
 </script>
+
 <div style="background:#fafafa">
 <H1 class="h1"><span class="h1_title">写真名刺作成サイト★OnlyMe</span></h1>
 <div class="top_img">

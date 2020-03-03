@@ -285,6 +285,7 @@ twq('track','PageView');
 </style>
 </head>
 <body class="body">
+
 <?if(!$_SESSION["id"]){?>
 <?
 $t_re=$_SERVER["HTTP_REFERER"];
@@ -296,6 +297,15 @@ $log_date = date("Y-m-d H:i:s");
 $sql="INSERT INTO me_alllog(`log_date`,`log_ref`,`log_ua`,`log_ip`) VALUES('{$log_date}','{$t_re}','{$t_ua}','{$t_ip}')";
 mysqli_query($mysqli,$sql);
 ?>
+<div class="pc_only">
+	<img src="./img/top.png" style="width:700px;"><br>
+	<div class="pc_box" style="font-size:14px;">
+		こちらはスマホ専用サイトです。<br>
+		PC・タブレットではご利用いただけません。<br>
+	</div>
+</div>
+<div class="sp_only">
+
 <?include_once("./onlyme.php")?>
 <?}else{?>
 <?include_once("./x_head.php")?>
