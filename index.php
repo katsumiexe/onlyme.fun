@@ -106,7 +106,8 @@ while($dat2 = mysqli_fetch_assoc($result)){
 		if($dat2["cate05"] == 1) $tag[$d][].="季節";
 		if($dat2["cate06"] == 1) $tag[$d][].="厨二";
 		if($dat2["cate07"] == 1) $tag[$d][].="限定";
-		$tag_c[$d]=count($tag[$d]);
+		$tag_c[$d]		=count($tag[$d]);
+		$tag_id[$d]		="tag".$dat2["use_tmpl"];
 
 //print($dat[$d]["cate01"]."◇".$dat[$d]["cate"]."<br>\n");
 
@@ -352,9 +353,10 @@ mysqli_query($mysqli,$sql);
 				<input id="ff<?=$dat[$n]["making_id"]?>" type="hidden" name="funny" value="<?=$funny[$n]+0?>">
 				<input id="xx<?=$dat[$n]["making_id"]?>" type="hidden" name="sexy" value="<?=$sexy[$n]+0?>">
 				<input id="al<?=$dat[$n]["making_id"]?>" type="hidden" name="all" value="<?=$iine[$n]+0?>">
+				<input type="hidden" name="cate_id" value="<?=$tag_id[$n]?>">
 
 <?for($t=0;$t<$tag_c[$n];$t++){?>
-				<input type="hidden" class="hidden_tag" name="cate<?=$t?>" value="<?=$tag[$n][$t]?>">
+				<input type="hidden" name="cate<?=$t?>" value="<?=$tag[$n][$t]?>">
 <?}?>
 				<table class="index_frame_ttl">
 					<tr>

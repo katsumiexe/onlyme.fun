@@ -76,6 +76,7 @@ $(function(){
 		Cate2	= $(this).children('input:hidden[name="cate1"]').val();
 		Cate3	= $(this).children('input:hidden[name="cate2"]').val();
 		Cate4	= $(this).children('input:hidden[name="cate3"]').val();
+		Cate_id	= $(this).children('input:hidden[name="cate_id"]').val();
 
 
 		AllIine	= $(this).children('input:hidden[name="all"]').val();
@@ -101,6 +102,8 @@ $(function(){
 		}
 	
 		$('.info_list_flex').html(Cate);
+		$('.info_list_btn').attr('id',Cate_id);
+
 
 
 		Img_Url	=$(this).children('.index_img').attr('src');
@@ -154,6 +157,7 @@ $(function(){
 		stop: function( event, ui ) {
 			if(ui.position.left < 100){
 				$('.p_page').animate({'left':'0.5vw'},200);
+
 			}else{
 				$('.p_page').animate({'left': '105vw'},100);
 				$('.prof_table').show();
@@ -173,6 +177,8 @@ $(function(){
 				$('.set_cheer').removeClass('cheer_no');
 				$('#p_page_alert').removeClass('alert_yet alert_mine alert_done');
 		
+				$('.info_list').hide();	
+				$('.info').animate({'top':'7vw'},100);
 				$(window).scrollTop(TopNow);
 			}
 		}
@@ -204,6 +210,9 @@ $(function(){
 			}else{
 				$('.pop10').animate({'left': '105vw'},100);
 				$(window).scrollTop(TopNow);
+				$('.info_list').hide();	
+				$('.info').animate({'top':'7vw'},100);
+
 			}
 		}
 	});
@@ -302,6 +311,8 @@ $(function(){
 		$('.set_cheer').removeClass('cheer_no');
 		$('#p_page_alert').removeClass('alert_yet alert_mine alert_done');
 
+		$('.info_list').hide();
+		$('.info').animate({'top':'7vw'},100);
 		$(window).scrollTop(TopNow);
 	});
 
