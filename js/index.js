@@ -2,7 +2,6 @@ var Direction="";
 var Position="";
 var TopNow="";
 var TopNow2="";
-var Cate="";
 
 $(function(){ 
 	$('.p_cheer_com').hide();
@@ -53,6 +52,7 @@ $(function(){
 	});
 
 	$(document).on('click', '.index_frame', function(){
+		var Cate="";
 		TopNow=$(window).scrollTop();
 		Img_id	= $(this).attr('id').replace("f", "");
 
