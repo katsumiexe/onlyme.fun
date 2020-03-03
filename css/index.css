@@ -192,8 +192,8 @@
 	display			:inline-block;
 	position		:absolute;
 	top				:7vw;
-	left			:14vw;
-	width			:8vw;
+	left			:13vw;
+	width			:8.5vw;
 	height			:8vw;
 	line-height		:8vw;
 	font-size		:4.5vw;
@@ -211,7 +211,7 @@
 	top				:17vw;
 	left			:12vw;
 	width			:45vw;
-	height			:35vw;
+	height			:28vw;
 	background		:#f0f0f0;
 	border			:0.5vw solid #f17766;
 	color			:#303030;
@@ -221,7 +221,7 @@
 .info_list_flex{
 	display			:flex;
 	position		:absolute;
-	top				:11vw;
+	top				:10vw;
 	left			:1vw;
 	width			:43vw;
 }
@@ -248,7 +248,11 @@
 	text-align		:center;
 	height			:7vw;
 	line-height		:7vw;
-	font-size		:4vw;
+	font-size		:3.6vw;
+	font-weight		:600;
+	color			:#fafafa;
+	background		:#ffa0e0;
+	border-radius	:1vw;
 }
 
 .info_list_btn{
@@ -264,7 +268,11 @@
 	height			:7vw;
 	line-height		:7vw;
 	font-size		:4vw;
-	background:linear-gradient(#60a060,#008000);
+	color			:#fafafa;
+	font-weight		:600;
+	border-radius	:1vw;
+	background		:linear-gradient(#60a060,#008000);
+
 }
 
 .p_date{

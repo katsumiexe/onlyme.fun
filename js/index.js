@@ -2,6 +2,7 @@ var Direction="";
 var Position="";
 var TopNow="";
 var TopNow2="";
+var Cate="";
 
 $(function(){ 
 	$('.p_cheer_com').hide();
@@ -71,11 +72,36 @@ $(function(){
 		Sexy	= $(this).children('input:hidden[name="sexy"]').val();
 		Tlink	= $(this).children('input:hidden[name="tlink"]').val();
 
+		Cate1	= $(this).children('input:hidden[name="cate0"]').val();
+		Cate2	= $(this).children('input:hidden[name="cate1"]').val();
+		Cate3	= $(this).children('input:hidden[name="cate2"]').val();
+		Cate4	= $(this).children('input:hidden[name="cate3"]').val();
+
+
 		AllIine	= $(this).children('input:hidden[name="all"]').val();
 		$('#e_pritty').text(Pritty);
 		$('#e_smart').text(Smart);
 		$('#e_funny').text(Funny);
 		$('#e_sexy').text(Sexy);
+
+		if(Cate1){
+			Cate+="<span class='info_list_tag'>"+Cate1+"</span>";
+		}
+	
+		if(Cate2){
+			Cate+="<span class='info_list_tag'>"+Cate2+"</span>";
+		}
+	
+		if(Cate3){
+			Cate+="<span class='info_list_tag'>"+Cate3+"</span>";
+		}
+	
+		if(Cate4){
+			Cate+="<span class='info_list_tag'>"+Cate4+"</span>";
+		}
+	
+		$('.info_list_flex').html(Cate);
+
 
 		Img_Url	=$(this).children('.index_img').attr('src');
 		Img_Name=$(this).children('.index_img').attr('alt');

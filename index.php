@@ -31,6 +31,7 @@ if($chg == 1){//■イイネ数順
 	$sql ="SELECT *, sum(me_iine.pritty)+sum(me_iine.smart)+sum(me_iine.funny)+sum(me_iine.sexy) as iine FROM `me_making`";
 	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
 	$sql.=" LEFT JOIN `me_iine` ON me_making.making_id=i_card_id";
+	$sql.=" LEFT JOIN `me_tmpl` ON me_making.use_tmpl=me_tmpl.tmpl_id";
 	$sql.=" WHERE `me_making`.`del`='0'";
 	$sql.=" AND makedate>'{$date_30}'";
 	$sql.=" GROUP BY me_making.making_id";
@@ -42,6 +43,7 @@ if($chg == 1){//■イイネ数順
 	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
 	$sql.=" LEFT JOIN `me_iine` ON me_making.making_id=i_card_id";
 	$sql.=" LEFT JOIN `me_fav` ON me_making.user_id=fav_host_id";
+	$sql.=" LEFT JOIN `me_tmpl` ON me_making.use_tmpl=me_tmpl.tmpl_id";
 	$sql.=" WHERE `me_making`.`del`='0'";
 	$sql.=" AND `me_fav`.`fav_user_id`='{$user["id"]}'";
 	$sql.=" AND `me_fav`.`fav_set`='1'";
@@ -54,6 +56,7 @@ if($chg == 1){//■イイネ数順
 	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
 	$sql.=" LEFT JOIN `me_iine` ON me_making.making_id=i_card_id";
 	$sql.=" LEFT JOIN `me_cheer` ON me_making.making_id=me_cheer.c_card_id";
+	$sql.=" LEFT JOIN `me_tmpl` ON me_making.use_tmpl=me_tmpl.tmpl_id";
 	$sql.=" WHERE `me_making`.`del`='0'";
 	$sql.=" GROUP BY me_making.making_id";
 	$sql.=" ORDER BY cheer_new DESC";
@@ -65,15 +68,17 @@ if($chg == 1){//■イイネ数順
 	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
 	$sql.=" LEFT JOIN `me_iine` ON me_making.making_id=i_card_id";
 	$sql.=" LEFT JOIN `me_cheer` ON me_making.making_id=me_cheer.c_card_id";
+	$sql.=" LEFT JOIN `me_tmpl` ON me_making.use_tmpl=me_tmpl.tmpl_id";
 	$sql.=" WHERE `me_making`.`del`='0'";
 	$sql.=" GROUP BY me_making.making_id";
 	$sql.=" ORDER BY me_making.making_id DESC";
 	$sql.=" LIMIT 21";
 }
 
+//print($sql);
+
 $result = mysqli_query($mysqli,$sql);
 while($dat2 = mysqli_fetch_assoc($result)){
-
 	for($n=0;$n<4;$n++){
 		$tmp_key=substr($dat2["user_id"],$n*2,2);
 		$tmp_enc[$n]=$enc[$tmp_key];
@@ -94,23 +99,20 @@ while($dat2 = mysqli_fetch_assoc($result)){
 
 		$dat[$d]["info_cnt"]=$dat3["cnt"];
 
-		$sql="SELECT * FROM me_tmpl";
-		$sql.=" WHERE tmpl_id '{$dat3["use_tmpl"]}'";
-		$sql.=" LIMIT 1";
+		if($dat2["cate01"] == 1) $tag[$d][].="女子";
+		if($dat2["cate02"] == 1) $tag[$d][].="男子";
+		if($dat2["cate03"] == 1) $tag[$d][].="和風";
+		if($dat2["cate04"] == 1) $tag[$d][].="自然";
+		if($dat2["cate05"] == 1) $tag[$d][].="季節";
+		if($dat2["cate06"] == 1) $tag[$d][].="厨二";
+		if($dat2["cate07"] == 1) $tag[$d][].="限定";
+		$tag_c[$d]=count($tag[$d]);
 
-		$res4 = mysqli_query($mysqli,$sql);
-		$dat4 = mysqli_fetch_assoc($res4);
+//print($dat[$d]["cate01"]."◇".$dat[$d]["cate"]."<br>\n");
 
-
-		if($dat4["cate01"] == 1) $cate[$d][]="女子";
-		if($dat4["cate02"] == 1) $cate[$d][]="男子";
-		if($dat4["cate03"] == 1) $cate[$d][]="和風";
-		if($dat4["cate04"] == 1) $cate[$d][]="自然";
-		if($dat4["cate05"] == 1) $cate[$d][]="季節";
-		if($dat4["cate06"] == 1) $cate[$d][]="厨二";
-		if($dat4["cate07"] == 1) $cate[$d][]="限定";
-		
 		$dat[$d]=$dat2;
+
+
 		$dat[$d]["mdate"]=substr($dat2["makedate"],5,2)."/".substr($dat2["makedate"],8,2)." ".substr($dat2["makedate"],11,2).":".substr($dat2["makedate"],14,2);
 		$dat[$d]["img_url"]	=$sub_img;
 		$dat[$d]["tl"]	=get_after($dat2["makedate"]);
@@ -203,6 +205,11 @@ while($dat2 = mysqli_fetch_assoc($result)){
 		$d++;
 	}
 }
+/*
+foreach($dat[0] as $a1 => $a2){
+print($a1."■".$a2."<br>\n");
+}
+*/
 $last_card=$dat[19]['making_id'];
 ?>
 <!DOCTYPE html>
@@ -346,6 +353,9 @@ mysqli_query($mysqli,$sql);
 				<input id="xx<?=$dat[$n]["making_id"]?>" type="hidden" name="sexy" value="<?=$sexy[$n]+0?>">
 				<input id="al<?=$dat[$n]["making_id"]?>" type="hidden" name="all" value="<?=$iine[$n]+0?>">
 
+<?for($t=0;$t<$tag_c[$n];$t++){?>
+				<input type="hidden" class="hidden_tag" name="cate<?=$t?>" value="<?=$tag[$n][$t]?>">
+<?}?>
 				<table class="index_frame_ttl">
 					<tr>
 						<td rowspan="2" class="ttl_1"><img id="h_face<?=$n?>" src="<?=$dat[$n]["face"]?>" class="ttl_img"></td>
