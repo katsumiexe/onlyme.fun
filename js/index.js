@@ -112,9 +112,7 @@ $(function(){
 		$('.p_date').text(Mdate);
 		$('#p_pict').attr('src',Pict);
 		$('#cheer_ct').text('(' + Cheer_ct +')');
-
 		$('.iine_twitter').attr('href',Tlink);
-		
 		
 		$('.p_page').animate({'left': '0.5vw'},150);
 
