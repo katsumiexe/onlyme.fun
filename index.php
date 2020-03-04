@@ -391,7 +391,7 @@ mysqli_query($mysqli,$sql);
 	<div class="info_list">
 	<div class="info_list_code">T00001</div>
 	<div class="info_list_flex"></div>
-	<div class="info_list_btn">このデザインを使う</div>
+	<a href="" class="info_list_btn">このデザインを使う</a>
 
 	</div>
 	<span class="p_date"></span>

@@ -102,9 +102,7 @@ $(function(){
 		}
 	
 		$('.info_list_flex').html(Cate);
-		$('.info_list_btn').attr('id',Cate_id);
-
-
+		$('.info_list_btn').attr('src','./making.php?c=' + Cate_id);
 
 		Img_Url	=$(this).children('.index_img').attr('src');
 		Img_Name=$(this).children('.index_img').attr('alt');
@@ -193,7 +191,6 @@ $(function(){
 		$(window).scrollTop(TopNow);
 		$('.pop10,.page_top2').animate({'left': '105vw'},100);
 	});
-
 
 	$('.pop11').draggable({
 		axis: 'x',

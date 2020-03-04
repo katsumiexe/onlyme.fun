@@ -272,6 +272,11 @@
 	font-weight		:600;
 	border-radius	:1vw;
 	background		:linear-gradient(#60a060,#008000);
+	text-decoration	:none;
+}
+
+.info_list_btn:active {
+	background		:linear-gradient(#90c090,#00a000);
 
 }
 
