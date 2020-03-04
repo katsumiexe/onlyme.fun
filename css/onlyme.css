@@ -146,8 +146,7 @@
 	font-weight:800;
 	color:#f17766;
 	text-align:center;
-	width:flex;
-	padding:1;
+	padding:1vw;
 	margin:2vw;
 	border-top:0.5vw solid #f17766;
 	border-bottom:0.5vw solid #f17766;
@@ -212,7 +211,6 @@
 }
 
 .box_q{
-	width:frex;
 	text-align:left;
 	font-weight:700;
 	font-size:3.8vw;
@@ -227,7 +225,6 @@
 	background:#ffffff;
 	text-align:left;
 	padding:1.5vw;
-	width:frex;
 	font-size:3.2vw;
 }
 #tl1{top:5vw;}
@@ -393,5 +390,4 @@
 	margin:auto;
 	width:55vw;
 	height:91vw;
-//	transform: rotate(-31deg);
 }

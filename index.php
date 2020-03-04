@@ -108,6 +108,7 @@ while($dat2 = mysqli_fetch_assoc($result)){
 		if($dat2["cate07"] == 1) $tag[$d][].="限定";
 		$tag_c[$d]		=count($tag[$d]);
 		$tag_id[$d]		="tag".$dat2["use_tmpl"];
+		$tag_code[$d]	=$dat2["tmpl_code"];
 
 //print($dat[$d]["cate01"]."◇".$dat[$d]["cate"]."<br>\n");
 
@@ -354,6 +355,7 @@ mysqli_query($mysqli,$sql);
 				<input id="xx<?=$dat[$n]["making_id"]?>" type="hidden" name="sexy" value="<?=$sexy[$n]+0?>">
 				<input id="al<?=$dat[$n]["making_id"]?>" type="hidden" name="all" value="<?=$iine[$n]+0?>">
 				<input type="hidden" name="cate_id" value="<?=$tag_id[$n]?>">
+				<input type="hidden" name="cate_code" value="<?=$tag_code[$n]?>">
 
 <?for($t=0;$t<$tag_c[$n];$t++){?>
 				<input type="hidden" name="cate<?=$t?>" value="<?=$tag[$n][$t]?>">
@@ -383,17 +385,15 @@ mysqli_query($mysqli,$sql);
 <div class="p_page">
 	<div id="p_page_out" class="back"><span class="icon_img"></span></div>
 
-<?if($user["id"]< "10002014"){?>
 	<div id="p_page_info" class="info">
 		<span class="icon_img"></span>
 	</div>
-<? } ?>
 	<div class="info_list">
 	<div class="info_list_code">T00001</div>
 	<div class="info_list_flex"></div>
 	<a href="" class="info_list_btn">このデザインを使う</a>
-
 	</div>
+	
 	<span class="p_date"></span>
 	<div id="p_page_alert" class="alert">
 		<span class="p_icon icon_img"></span>

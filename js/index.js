@@ -77,6 +77,7 @@ $(function(){
 		Cate3	= $(this).children('input:hidden[name="cate2"]').val();
 		Cate4	= $(this).children('input:hidden[name="cate3"]').val();
 		Cate_id	= $(this).children('input:hidden[name="cate_id"]').val();
+		Code	= $(this).children('input:hidden[name="cate_code"]').val();
 
 
 		AllIine	= $(this).children('input:hidden[name="all"]').val();
@@ -101,8 +102,9 @@ $(function(){
 			Cate+="<span class='info_list_tag'>"+Cate4+"</span>";
 		}
 	
+		$('.info_list_code').html(Code);
 		$('.info_list_flex').html(Cate);
-		$('.info_list_btn').attr('src','./making.php?c=' + Cate_id);
+		$('.info_list_btn').attr('href','./making.php?c=' + Cate_id);
 
 		Img_Url	=$(this).children('.index_img').attr('src');
 		Img_Name=$(this).children('.index_img').attr('alt');

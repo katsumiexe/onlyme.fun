@@ -17,11 +17,16 @@ $cnt4=0;
 $cnt5=0;
 $cnt6=0;
 $cnt7=0;
-
 $pg=1;
 $cnt=0;
+
+$c=str_replace("tag","",$_REQUEST["c"]);
+
 $sql ="SELECT tmpl_id FROM me_tmpl";
 $sql.=" WHERE del<>1";
+if($c){
+$sql.=" AND tmpl_id='{$c}'";
+}
 $sql.=" ORDER BY tmpl_id DESC";
 
 if($result = mysqli_query($mysqli,$sql)){
@@ -30,7 +35,6 @@ if($result = mysqli_query($mysqli,$sql)){
 			$tmpl_id[$cnt]=$row["tmpl_id"];
 			$list_n["l"].="<div id=\"p{$tmpl_id[$cnt]}\" class=\"fsample\"><img src=\"./img/sample/s{$tmpl_id[$cnt]}.jpg\" class=\"fsample_img {$img_off}\"></div>";
 			$img_off="img_off";
-
 
 			$sql ="SELECT COUNT(making_id) as cnt, use_tmpl FROM me_making";
 			$sql .=" WHERE use_tmpl='{$tmpl_id[$cnt]}'";
@@ -64,7 +68,6 @@ $img_url1.=".jpg";
 $img_url2.=".jpg";
 
 if($prof["qr"] ==0) $prof["qr"]=1;
-
 ?>
 
 <!DOCTYPE html>

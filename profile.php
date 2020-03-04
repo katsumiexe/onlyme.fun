@@ -10,7 +10,6 @@ $date_30=date("Y-m-d H:i:s",time()-2592000);
 
 $e_host	=$_REQUEST["e_host"];
 $es		=$_REQUEST["es"];
-
 $host	=$_POST["host"];
 $n_host	=$_POST["n_host"];
 
@@ -45,11 +44,11 @@ if($host){
     $jump_id+=0;
 }
 
-
 if($jump_id){
 	$sql ="SELECT * FROM `me_making`";
 	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
 	$sql.=" LEFT JOIN `me_iine` ON me_making.making_id=i_card_id";
+
 	$sql.=" WHERE me_making.making_id='{$jump_id}'";
 	$sql.=" AND me_making.del='0'";
 	$sql.=" GROUP BY me_making.making_id";
@@ -191,6 +190,7 @@ if($user_ck){
 
 	$sql ="SELECT *	FROM `me_making`";
 	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
+	$sql.=" LEFT JOIN `me_tmpl` ON me_making.use_tmpl=me_tmpl.tmpl_id";
 	$sql.=" WHERE `me_making`.`del`='0'";
 	$sql.=" AND me_making.user_id='{$host_id}'";
 	$sql.=" ORDER BY me_making.making_id DESC";
@@ -198,6 +198,18 @@ if($user_ck){
 
 	$result = mysqli_query($mysqli,$sql);
 	while($dat2 = mysqli_fetch_assoc($result)){
+
+		if($dat2["cate01"] == 1) $tag[$d][].="女子";
+		if($dat2["cate02"] == 1) $tag[$d][].="男子";
+		if($dat2["cate03"] == 1) $tag[$d][].="和風";
+		if($dat2["cate04"] == 1) $tag[$d][].="自然";
+		if($dat2["cate05"] == 1) $tag[$d][].="季節";
+		if($dat2["cate06"] == 1) $tag[$d][].="厨二";
+		if($dat2["cate07"] == 1) $tag[$d][].="限定";
+		$tag_c[$d]		=count($tag[$d]);
+		$tag_id[$d]		="tag".$dat2["use_tmpl"];
+		$tag_code[$d]	=$dat2["tmpl_code"];
+
 		$dat[$d]=$dat2;
 
 		$dat[$d]["img_url"]	=$card_url.$dat2["img2"];
@@ -235,10 +247,7 @@ if($user_ck){
 			}
 		}
 
-
 		$dat[$d]["iine"]=$dat[$d]["pritty"]+$dat[$d]["smart"]+$dat[$d]["funny"]+$dat[$d]["sexy"];
-
-
 
 		$sql="SELECT count(c_card_id) as cnt, c_card_id FROM me_cheer";
 		$sql.=" WHERE del=0";
@@ -289,13 +298,6 @@ if($user_ck){
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <meta name="description" content="PC不要、住所不要、スマホで作成、コンビニで印刷。手軽で簡単な写真名刺制作サイトです。">
 <meta name="keywords" content="写真名刺,コスプレ,画像修正,onlyme,名刺作成,無料,簡単">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="<?=$twitter?>">
-<meta property="og:url" content="https://onlyme.fun/profile.php?es=<?=$e_host?>">
-<meta property="og:title" content="<?=$name?>さんの名刺　-OnlyMe-">
-<meta property="og:description" content="PC不要、住所不要、スマホで作成、コンビニで印刷。簡単手軽な写真名刺制作サイト">
-<meta property="og:image" content="<?=$img?>">
 
 <link rel="stylesheet" href="./css/set_icon.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/first.css?_<?=date("YmdHi")?>">
@@ -487,6 +489,14 @@ $(function(){
 				<input id="ff<?=$dat[$n]["making_id"]?>" type="hidden" name="funny" value="<?=$dat[$n]["funny"]+0?>">
 				<input id="xx<?=$dat[$n]["making_id"]?>" type="hidden" name="sexy" value="<?=$dat[$n]["sexy"]+0?>">
 				<input id="al<?=$dat[$n]["making_id"]?>" type="hidden" name="all" value="<?=$dat[$n]["iine"]+0?>">
+				<input type="hidden" name="cate_id" value="<?=$tag_id[$n]?>">
+				<input type="hidden" name="cate_code" value="<?=$tag_code[$n]?>">
+
+				<?for($t=0;$t<$tag_c[$n];$t++){?>
+				<input type="hidden" name="cate<?=$t?>" value="<?=$tag[$n][$t]?>">
+				<?}?>
+
+
 
 				<div class="album_prof">
 				<span class="album_time"><?=$dat[$n]["tl"]?></span>
@@ -506,6 +516,16 @@ $(function(){
 
 <div class="p_page">
 	<div id="p_page_out" class="back"><span class="icon_img"></span></div>
+
+	<div id="p_page_info" class="info">
+		<span class="icon_img"></span>
+	</div>
+	<div class="info_list">
+	<div class="info_list_code">T00001</div>
+	<div class="info_list_flex"></div>
+	<a href="" class="info_list_btn">このデザインを使う</a>
+	</div>
+
 	<span class="p_date"></span>
 
 	<div id="p_page_alert" class="alert">
