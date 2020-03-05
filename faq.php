@@ -14,6 +14,7 @@ $nowpage=3;
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <meta name="description" content="使い方説明1：PC不要、住所不要、スマホで作成、コンビニで印刷。手軽で簡単な写真名刺制作サイトです。">
 <meta name="keywords" content="写真名刺,コスプレ,onlyme,名刺作成,無料">
+<meta name="robots" content="noindex">
 
 <link rel="stylesheet" href="./css/set_icon.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/first.css?_<?=date("YmdHi")?>">
