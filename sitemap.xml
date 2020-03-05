@@ -42,4 +42,27 @@
   <loc>https://onlyme.fun/chg2.php</loc>
   <priority>0.3</priority>
 </url>
+
+<url>
+  <loc>https://onlyme.fun/regist.php</loc>
+  <priority>0.3</priority>
+</url>
+
+<url>
+  <loc>https://onlyme.fun/regist2.php</loc>
+  <priority>0.3</priority>
+</url>
+
+<url>
+  <loc>https://onlyme.fun/regist_again.php</loc>
+  <priority>0.3</priority>
+</url>
+
+<url>
+  <loc>https://onlyme.fun/regist_again2.php</loc>
+  <priority>0.3</priority>
+</url>
+
+
+
 </urlset>
