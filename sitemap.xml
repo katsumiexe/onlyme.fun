@@ -64,5 +64,9 @@
 </url>
 
 
+<url>
+  <loc>https://onlyme.fun/lost_pass.php</loc>
+  <priority>0.3</priority>
+</url>
 
 </urlset>
