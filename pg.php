@@ -155,6 +155,7 @@ exit;
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <meta name="description" content="PC不要、住所不要、スマホで作成、コンビニで印刷。手軽で簡単な写真名刺作成サイトです。">
 <meta name="keywords" content="写真名刺,コスプレ,画像修正,onlyme,名刺作成,無料,簡単">
+<link rel="canonical" href="https://onlyme.fun/">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="<?=$card?>">
