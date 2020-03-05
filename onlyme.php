@@ -187,4 +187,3 @@ SNS入り・QRコード入りの
 <a href="outpost.php" class="ft"><span class="ft_ar icon_img"></span><span class="ft_txt">お問い合わせ・ご意見</span></a>
 </div>
 <div style="height:4vh">　</div>
-<?include_once("./x_foot.php")?>

@@ -7,14 +7,12 @@ $nowpage=1;
 $ex=8;
 $d=0;
 
-
 if($_POST["img_url1"] && $_POST["img_url2"]){
 	unlink($dir.'print.php');
 	unlink($dir.$_POST["img_url1"]);
 	unlink($dir2.$_POST["img_url2"]);
 
 }
-
 
 if($user["tuto"] == 0){
 	$tuto=1;
@@ -224,6 +222,7 @@ $last_card=$dat[19]['making_id'];
 <meta name="description" content="PC不要、住所不要、スマホで作成、コンビニで印刷。手軽で簡単な写真名刺制作サイトです。">
 <meta name="keywords" content="写真名刺,コスプレ,画像修正,onlyme,名刺作成,無料,簡単">
 
+<link rel="canonical" href="https://onlyme.fun/">
 <link rel="stylesheet" href="./css/set_icon.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/first.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/index.css?_<?=date("YmdHi")?>">
@@ -294,7 +293,6 @@ twq('track','PageView');
 </style>
 </head>
 <body class="body">
-
 <?if(!$_SESSION["id"]){?>
 <?
 $t_re=$_SERVER["HTTP_REFERER"];
@@ -306,6 +304,7 @@ $log_date = date("Y-m-d H:i:s");
 $sql="INSERT INTO me_alllog(`log_date`,`log_ref`,`log_ua`,`log_ip`) VALUES('{$log_date}','{$t_re}','{$t_ua}','{$t_ip}')";
 mysqli_query($mysqli,$sql);
 ?>
+
 <div class="pc_only">
 	<img src="./img/top.png" style="width:700px;"><br>
 	<div class="pc_box" style="font-size:14px;">
@@ -314,7 +313,6 @@ mysqli_query($mysqli,$sql);
 	</div>
 </div>
 <div class="sp_only">
-
 <?include_once("./onlyme.php")?>
 <?}else{?>
 <?include_once("./x_head.php")?>
@@ -491,5 +489,5 @@ mysqli_query($mysqli,$sql);
 <form id="chg_jump" action="./index.php" method="post">
 	<input id="chg" type="hidden" name="chg" value="">
 </form>
-<?include_once("./x_foot.php")?>
 <? } ?>
+<?include_once("./x_foot.php")?>
