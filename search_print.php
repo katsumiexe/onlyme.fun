@@ -93,7 +93,6 @@ if($res1 = mysqli_query($mysqli,$sql)){
 		}
 	}
 }
-print("○".$sql."<br>\n");
 
 if($app){
 	$sql="INSERT INTO me_print_log(`date`,user_id,making_id,tmpl_id,print_id,print_count) VALUES ";
@@ -101,8 +100,6 @@ if($app){
 	$sql=substr($sql,0,-1);
 	mysqli_query($mysqli,$sql);
 }
-print("●".$sql."<br>\n");
-
 
 exit;
 ?>
