@@ -51,7 +51,6 @@ if($res1 = mysqli_query($mysqli,$sql)){
 		if($e_token = file_get_contents($url, false, stream_context_create($dat_e2))){
 			$p_count =json_decode($e_token,true);
 
-
 			for($n=0;$n<$p_count["totalFiles"];$n++){
 				print($p_count["fileList"][$n]["fileID"]."<br>\n");
 				print($p_count["fileList"][$n]["printedCount"]."<br>\n");
@@ -64,17 +63,11 @@ if($res1 = mysqli_query($mysqli,$sql)){
 					if($yet_date[$p_count["fileList"][$n]["fileID"]]== 1){
 						$sql="UPDATE me_print_log SET";
 						$sql.=" `date`='{$date}',";
-	
 						$sql.=" `user_id`='{$print_user[$p_count["fileList"][$n]["fileID"]]}',";
-	
 						$sql.=" `making_id`='{$print_id	[$p_count["fileList"][$n]["fileID"]]}',";
-	
 						$sql.=" `tmpl_id`='{$print_tmpl[$p_count["fileList"][$n]["fileID"]]}',";
-	
 						$sql.=" `print_count`='{$p_count["fileList"][$n]["printedCount"]}'";
-	
 						$sql.=" WHERE `print_id`='{$print_user[$p_count["fileList"][$n]["fileID"]]}'";
-	
 						mysqli_query($mysqli,$sql);
 					
 					}else{
@@ -85,8 +78,7 @@ if($res1 = mysqli_query($mysqli,$sql)){
 							'{$print_tmpl[$p_count["fileList"][$n]["fileID"]]}',
 							'{$p_count["fileList"][$n]["fileID"]}',
 							'{$p_count["fileList"][$n]["printedCount"]}'
-							),";
-			
+						),";
 					}
 				}
 			}
