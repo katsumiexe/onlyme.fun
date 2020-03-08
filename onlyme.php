@@ -34,15 +34,7 @@ $(function(){
 	var Tmp_6=Tmp_5+$(window).width() * 26 /100;
 	var Tmp_7=Tmp_6+$(window).width() * 37 /100;
 	var Tmp_8=Tmp_7+$(window).width() * 26 /100;
-
 	var N=0;
-
-	var Roll=
-	[
-<?for($h=0;$h<$cnt;$h++){?>
-	'<?=$roll_img[$h]?>',
-<? } ?>
-	];
 
 	$(window).scroll(function () {
 		if ($(this).scrollTop() >Tmp_1 && $('#tl1').css('display') == 'none') {
@@ -78,16 +70,15 @@ $(function(){
 		}
 	});
 	setInterval(function(){
-		$('.lp_roll')
-
-		.animate({'width':'55vw'},500)
-		.delay(3000)
-		.animate({'width':'0vw'},500,function(){
+		$('.lp_roll').animate({'width':'55vw'},500).delay(3000).animate({'width':'0vw'},500,function(){
+			$('.lp_roll').hide();
+			$('#img' + N).show();
 			N++;
 			if(N>='<?=$cnt?>') N=0;
-			$('.lp_roll').attr('src',Roll[N])
+			console.log(N);
 		});
-    },300);
+
+	},0);
 });
 </script>
 
@@ -113,7 +104,10 @@ $(function(){
 </div>
 
 <div class="div_lp_roll">
-<img src="<?=$roll_img[0]?>" class="lp_roll">
+<?for($h=0;$h<$cnt;$h++){?>
+<img id="img<?=$h?>" src="<?=$roll_img[$h]?>?t=<?=time()?>" class="lp_roll">
+<?}?>
+
 </div>
 
 <div class="div_lp_roll_txt">

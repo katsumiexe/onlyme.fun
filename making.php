@@ -395,6 +395,7 @@ $(function(){
 <div class="main_fix">
 <div id="err"></div>
 <div id="wait"><span id="wait_in"></span></div>
+<div class="nowloading_back"></div>
 <form id="forms" action="./making_mk.php" enctype="multipart/form-data" method="post">
 <input id="tmpl" type="hidden" name="tmpl" value="<?=$tmpl_id[0]?>">
 <input type="hidden" id="rote" name="rote" value="0">
