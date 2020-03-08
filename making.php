@@ -83,10 +83,12 @@ if($prof["qr"] ==0) $prof["qr"]=1;
 <link rel="stylesheet" href="./css/set_icon.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/first.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/making.css?_<?=date("YmdHi")?>">
+<link rel="stylesheet" href="https://katsumiexe.github.io/wait/ide_loading.css">
 
 <script src="./js/jquery-3.4.1.min.js"></script>
 <script src="./js/jquery.exif.js"></script>
 <script src="./js/first.js"></script>
+<script src="https://katsumiexe.github.io/wait/ide_loading.js"></script>
 
 <script>
 var VwBase =$(window).width()/100;
@@ -330,7 +332,8 @@ $(function(){
 			return false;
 
 		} else {
-			$('#wait').show();
+/*			$('#wait').show();*/
+			IdeLoading();
 			data.cvimg	= CvImg.replace(/^data:image\/jpeg;base64,/, "");
 			data.url1	= '<?=$dir?>';
 			data.url2	= '<?=$img_url1?>';
@@ -413,7 +416,7 @@ $(function(){
 	<span class="mk_com">テキスト</span>
 </div><!--
 --><div class="mk_lv4 icon_img"></div><!--
---><div class="mk_lv5 icon_img"></div></div>
+--><div class="mk_lv5 icon_img ide_loading"></div></div>
 <div class="folder_all1">
 	<div class="fbox1"><!--
 	--><div id="v0" class="fitem" style="background:#008000">全て</div><!--
