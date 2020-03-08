@@ -76,8 +76,6 @@ $(function(){
 		});
 		N1++;
 		if(N1>='<?=$cnt?>') N1=0;
-		console.log(N1);
-
 	},4000);
 });
 </script>
