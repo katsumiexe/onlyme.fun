@@ -57,7 +57,7 @@ if($result = mysqli_query($mysqli,$sql)){
 
 			if($ch_c['c_user_id'] == $user_id){
 				$cheer_color=" p_cheer_me";
-				$ch_list.="<input type=\"hidden\" name=\"tmpcheer\" val=\"{$ch_c["com"]}\">";
+				$ch_list.="<input type=\"hidden\" name=\"tmpcheer\" value=\"{$ch_c["com"]}\">";
 
 			}else{
 				$cheer_color=" ";

@@ -787,8 +787,19 @@
 }
 
 .cheer_no{
-	border:0.5vw solid #c0c0c0;
-	background:linear-gradient(#e0e0e0,#c0c0c0);
+	margin			:1vw auto;
+	width			:59vw;
+	text-align		:center;
+	box-shadow		:1vw 1vw 1vw rgba(60,60,60,0.5);
+	height			:7vw;
+	line-height		:7vw;
+	font-size		:5vw;
+	font-weight		:600;
+	color			:#ffffff;
+	text-shadow		:0.3vw 0.3vw 0.3vw rgba(60,60,60,0.5);
+
+	border			:0.5vw solid #c0c0c0;
+	background		:linear-gradient(#e0e0e0,#c0c0c0);
 }
 
 .p_cheer_box{

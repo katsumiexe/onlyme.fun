@@ -388,7 +388,6 @@ mysqli_query($mysqli,$sql);
 
 <div class="p_page">
 	<div id="p_page_out" class="back"><span class="icon_img"></span></div>
-
 	<div id="p_page_info" class="info">
 		<span class="icon_img"></span>
 	</div>

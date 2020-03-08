@@ -327,7 +327,6 @@ $(function(){
 	</div>
 	<div class="p_cheer">
 		<div class="cheer_list"></div>
-		<div class="set_cheer"><span class="icon_img"></span>応援！</div>
 	</div>
 </div>
 </div>
