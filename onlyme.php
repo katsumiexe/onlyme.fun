@@ -34,7 +34,7 @@ $(function(){
 	var Tmp_6=Tmp_5+$(window).width() * 26 /100;
 	var Tmp_7=Tmp_6+$(window).width() * 37 /100;
 	var Tmp_8=Tmp_7+$(window).width() * 26 /100;
-	var N=0;
+	var N1=0;
 
 	$(window).scroll(function () {
 		if ($(this).scrollTop() >Tmp_1 && $('#tl1').css('display') == 'none') {
@@ -72,13 +72,13 @@ $(function(){
 	setInterval(function(){
 		$('.lp_roll').animate({'width':'55vw'},500).delay(3000).animate({'width':'0vw'},500,function(){
 			$('.lp_roll').hide();
-			$('#img' + N).show();
-			N++;
-			if(N>='<?=$cnt?>') N=0;
-			console.log(N);
+			$('#img' + N1).show();
 		});
+		N1++;
+		if(N1>='<?=$cnt?>') N1=0;
+		console.log(N1);
 
-	},0);
+	},4000);
 });
 </script>
 
