@@ -52,12 +52,13 @@ if($res1 = mysqli_query($mysqli,$sql)){
 			$p_count =json_decode($e_token,true);
 
 			for($n=0;$n<$p_count["totalFiles"];$n++){
+/*
 				print($p_count["fileList"][$n]["fileID"]."<br>\n");
 				print($p_count["fileList"][$n]["printedCount"]."<br>\n");
 				print($print_id[$p_count["fileList"][$n]["fileID"]]."<br>\n");
 				print($print_tmpl[$p_count["fileList"][$n]["fileID"]]."<br>\n");
 				print($print_user[$p_count["fileList"][$n]["fileID"]]."<br>\n<hr>");
-
+*/
 				if($p_count["fileList"][$n]["printedCount"]>0){
 
 					if($yet_date[$p_count["fileList"][$n]["fileID"]]== 1){
@@ -92,6 +93,6 @@ if($app){
 	$sql=substr($sql,0,-1);
 	mysqli_query($mysqli,$sql);
 }
-
+print("Done");
 exit;
 ?>
