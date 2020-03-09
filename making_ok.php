@@ -56,16 +56,6 @@ $img_tmp	= getimagesize($img_url1);
 
 if($img_tmp){
 	list($width0, $height0, $type0, $attr0) = $img_tmp;
-/*
-	$base_img_w=ceil($base_y*($height0/$base_y)*100/$id_zoom);
-	$base_img_h=ceil($base_y*($height0/$base_y)*100/$id_zoom);
-	$id_top=ceil($id_top2*(-100)/$id_zoom);
-	$id_left=ceil($id_left2*(-100)/$id_zoom);
-*/
-
-print("<!--");
-var_dump($_POST);
-print("-->");
 
 	$base_img_h=ceil(127.4/$base_zoom*(100/$id_zoom));
 	$base_img_w=ceil(77/$base_zoom*(100/$id_zoom));
@@ -365,8 +355,6 @@ if($qr !=2){
 	include_once("./qr_img.php");
 }
 
-
-
 $tmp3 =imagecreatetruecolor($print_x0,$print_y0);
 $bk=ImageColorAllocate($tmp3,0,0,0);
 $wh3=ImageColorAllocate($tmp3,255,255,255);
@@ -409,10 +397,7 @@ imagettftext($tmp3, 30, 0, 200, 1150, $rd, $cont_font, $now);
 imagejpeg($tmpn,$img_url2,100);
 imagejpeg($tmp2,$img_url1,100);
 imagejpeg($tmp3,$dir."print.jpg",100);
-
-
 }
-
 
 $sql ="INSERT INTO me_making(`use_tmpl`, makedate, user_id, name, orgin, `url`, `insta`, twitter, cosp, img, img2, `top`, `left`, zoom, rote, wturn, vturn, bright, sepia, gray)";
 $sql.=" VALUES('{$tmpl}','{$now}','{$_SESSION["id"]}','{$name}','{$orgin}','{$url}','{$insta}','{$twitter}','{$cosp}','{$_POST["img_url1"]}','{$_POST["img_url2"]}','{$id_top}','{$id_left}','{$id_zoom}','{$id_rote}','{$id_wturn}','{$id_vturn}','{$id_bright}','{$id_sepia}','{$id_gray}')";

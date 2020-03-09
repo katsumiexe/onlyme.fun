@@ -111,8 +111,6 @@ if($dat_list = mysqli_fetch_assoc($result)){
 	$code=$dat_list["p_api_code"];
 }
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -487,7 +485,6 @@ $(function(){
 <br>
 </div>
 </div>
-
 
 <form id="p_jump" action="./profile.php" method="post">
 	<input id="p_jump_id" type="hidden" name="n_host" value="">
