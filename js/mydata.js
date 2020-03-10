@@ -48,6 +48,7 @@ $(function(){
 		);
 	});
 
+
 	$('#album_in').on('click','.next_a',function () {
 		Next_album	= $(this).attr('id').replace("next_a", "");
 		$.post("post_read_album.php",
