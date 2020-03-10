@@ -290,7 +290,17 @@ $(function(){
 
 <div class="p_page">
 	<div id="p_page_out" class="back"><span class="icon_img"></span></div>
-	<span class="p_date" style="left:30.5vw;"></span>
+	<div id="p_page_info" class="info">
+		<span class="icon_img"></span>
+	</div>
+	<div class="info_list">
+	<div class="info_list_code">T00001</div>
+	<div class="info_list_flex"></div>
+	<a href="" class="info_list_btn">このデザインを使う</a>
+	</div>
+
+
+	<span class="p_date" style="left:32.5vw;"></span>
 	<img id="tmpl" class="p_page_img">
 	<div class="box_iine">
 	<a href="" target="_BLANK" class="iine_twitter icon_img"></a>

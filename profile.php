@@ -577,6 +577,7 @@ $(function(){
 <div class="pop01">
 	<div class="pop01_a">
 		<div class="pop01_a1">
+			<span class="pop01_ttl">違反通報</span>
 			<textarea class="pop01_c" name=""></textarea>
 			<div id="yes_1" class="btn c2">通報</div>　
 			<div id="no_1" class="btn c1">取消</div>

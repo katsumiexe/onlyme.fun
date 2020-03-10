@@ -220,7 +220,7 @@ $lis.="<input id=\"al{$dat[$n]['making_id']}\" type=\"hidden\" name=\"all\" valu
 $lis.="<input type=\"hidden\" name=\"cate_id\" value=\"{$tag_id[$n]}\">";
 $lis.="<input type=\"hidden\" name=\"cate_code\" value=\"{$tag_code[$n]}\">";
 for($t=0;$t<$tag_c[$n];$t++){
-$lis.="<input type=\"hidden\" name=\"cate{$t}\" value=\"{tag[$n][$t]}\">";
+$lis.="<input type=\"hidden\" name=\"cate{$t}\" value=\"{$tag[$n][$t]}\">";
 }
 
 $lis.="<img src=\"{$dat[$n]['img_url']}\" class=\"index_img\" alt=\"{$dat[$n]['reg_name']}\">";

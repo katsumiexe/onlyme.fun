@@ -26,7 +26,7 @@ if($next_album>0){
 $sql ="SELECT *,sum(me_iine.pritty) as s_pritty, sum(me_iine.smart) as s_smart, sum(me_iine.funny) as s_funny, sum(me_iine.sexy) as s_sexy FROM `me_making`";
 $sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
 $sql.=" LEFT JOIN `me_iine` ON me_making.making_id=i_card_id";
-
+$sql.=" LEFT JOIN `me_tmpl` ON me_making.use_tmpl=me_tmpl.tmpl_id";
 
 $sql.=" WHERE `me_making`.`del`='0'";
 $sql.=" AND me_making.user_id='{$user_id}'";
@@ -40,6 +40,29 @@ if($result = mysqli_query($mysqli,$sql)){
 	while ($dat2 = mysqli_fetch_assoc($result)) {
 		$last_id=$dat2['making_id'];
 		if($cnt<20){
+		$tag=array();
+
+		$sql="SELECT count(making_id) as cnt FROM me_making";
+		$sql.=" WHERE user_id>10002014";
+		$sql.=" LIMIT 1";
+
+		$res3 = mysqli_query($mysqli,$sql);
+		$dat3 = mysqli_fetch_assoc($res3);
+
+		$dat[$d]["info_cnt"]=$dat3["cnt"];
+
+		if($dat2["cate01"] == 1) $tag[].="女子";
+		if($dat2["cate02"] == 1) $tag[].="男子";
+		if($dat2["cate03"] == 1) $tag[].="和風";
+		if($dat2["cate04"] == 1) $tag[].="自然";
+		if($dat2["cate05"] == 1) $tag[].="季節";
+		if($dat2["cate06"] == 1) $tag[].="厨二";
+		if($dat2["cate07"] == 1) $tag[].="限定";
+		$tag_c		=count($tag);
+		$tag_id		="tag".$dat2["use_tmpl"];
+		$tag_code	=$dat2["tmpl_code"];
+
+
 
 			$sql2.=" SELECT count(cheer_id) as cnt FROM `me_cheer`";
 			$sql2.=" WHERE `me_cheer`.`del`='0'";
@@ -93,6 +116,13 @@ if($result = mysqli_query($mysqli,$sql)){
 			$ch_list.="<input id=\"ff{$dat2['making_id']}\" type=\"hidden\" name=\"funny\" value=\"{$dat2['s_funny']}\">";
 			$ch_list.="<input id=\"xx{$dat2['making_id']}\" type=\"hidden\" name=\"sexy\" value=\"{$dat2['s_sexy']}\">";
 			$ch_list.="<input id=\"al{$dat2['making_id']}\" type=\"hidden\" name=\"all\" value=\"{$s_all}\">";
+
+
+$ch_list.="<input type=\"hidden\" name=\"cate_id\" value=\"{$tag_id}\">";
+$ch_list.="<input type=\"hidden\" name=\"cate_code\" value=\"{$tag_code}\">";
+for($t=0;$t<$tag_c;$t++){
+$ch_list.="<input type=\"hidden\" name=\"cate{$t}\" value=\"{$tag[$t]}\">";
+}
 
 			$ch_list.="<input id=\"tl{$dat2['making_id']}\" type=\"hidden\" name=\"tlink\" value=\"{$tlink}\">";
 

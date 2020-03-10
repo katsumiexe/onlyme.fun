@@ -824,15 +824,23 @@ table{
 	-5vw -5vw 8vw rgba(220,190,120,0.2) inset;
 }
 
-
+.pop01_ttl{
+	display:inline-block;
+	height:5vw;
+	line-height:5vw;
+	font-size:4vw;
+	margin-left:3vw;
+	font-weight:700;
+	color:#d00000;
+}
 .pop01_a{
 	position:absolute;
-	top:30vh;
+	top:25vh;
 	left:0;
 	right:0;
 	margin:auto;
 	width:70vw;
-	height:80vw;
+	height:85vw;
 	border:2vw solid #ffffff;
 	background:#fff0fa;
 	border-radius: 2vw;
