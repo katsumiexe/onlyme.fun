@@ -1,7 +1,7 @@
 <?
 include_once("./library/lib.php");
 include_once("./library/lib_me.php");
-include_once("./library/session.php");
+include_once("./library/no_session.php");
 if(!$mysqli){
 	$msg="接続エラー";
 	die("接続エラー");
@@ -22,6 +22,7 @@ if($chg == 1){//0：ふぁぼ順
 	$sql.=" LEFT JOIN `me_iine` ON me_making.making_id=i_card_id";
 	$sql.=" LEFT JOIN `me_fav` ON me_making.user_id=fav_host_id";
 	$sql.=" LEFT JOIN `me_cheer` ON me_making.making_id=me_cheer.c_card_id";
+	$sql.=" LEFT JOIN `me_tmpl` ON me_making.use_tmpl=me_tmpl.tmpl_id";
 	$sql.=" WHERE `me_making`.`del`='0'";
 	$sql.=" AND `me_fav`.`fav_user_id`='{$user["id"]}'";
 	$sql.=" AND `me_fav`.`fav_set`='1'";
@@ -35,6 +36,7 @@ if($chg == 1){//0：ふぁぼ順
 	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
 	$sql.=" LEFT JOIN `me_iine` ON me_making.making_id=i_card_id";
 	$sql.=" LEFT JOIN `me_cheer` ON me_making.making_id=me_cheer.c_card_id";
+	$sql.=" LEFT JOIN `me_tmpl` ON me_making.use_tmpl=me_tmpl.tmpl_id";
 	$sql.=" WHERE `me_making`.`del`='0'";
 	$sql.=" AND makedate>'{$date_30}'";
 	$sql.=" AND me_making.making_id<{$last_card}";
@@ -47,6 +49,7 @@ if($chg == 1){//0：ふぁぼ順
 	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
 	$sql.=" LEFT JOIN `me_iine` ON me_making.making_id=i_card_id";
 	$sql.=" LEFT JOIN `me_cheer` ON me_making.making_id=me_cheer.c_card_id";
+	$sql.=" LEFT JOIN `me_tmpl` ON me_making.use_tmpl=me_tmpl.tmpl_id";
 	$sql.=" WHERE `me_making`.`del`='0'";
 	$sql.=" AND me_making.making_id<{$last_card}";
 	$sql.=" GROUP BY me_making.making_id";
@@ -56,6 +59,7 @@ if($chg == 1){//0：ふぁぼ順
 }else{
 	$sql ="SELECT * FROM `me_making`";//0：通常
 	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
+	$sql.=" LEFT JOIN `me_tmpl` ON me_making.use_tmpl=me_tmpl.tmpl_id";
 	$sql.=" WHERE `me_making`.`del`='0'";
 	$sql.=" AND me_making.making_id<{$last_card}";
 	$sql.=" ORDER BY me_making.making_id DESC";
@@ -74,6 +78,28 @@ while($dat2 = mysqli_fetch_assoc($result)){
 	$sub_img	="./myalbum/{$tmp_enc[3]}/{$list_enc}/{$tmp_enc[1]}{$tmp_enc[3]}/{$dat2["img2"]}";
 
 	if(file_exists($main_img) && file_exists($sub_img)){
+
+		$sql="SELECT count(making_id) as cnt FROM me_making";
+		$sql.=" WHERE user_id>10002014";
+		$sql.=" LIMIT 1";
+
+		$res3 = mysqli_query($mysqli,$sql);
+		$dat3 = mysqli_fetch_assoc($res3);
+
+		$dat[$d]["info_cnt"]=$dat3["cnt"];
+
+		if($dat2["cate01"] == 1) $tag[$d][].="女子";
+		if($dat2["cate02"] == 1) $tag[$d][].="男子";
+		if($dat2["cate03"] == 1) $tag[$d][].="和風";
+		if($dat2["cate04"] == 1) $tag[$d][].="自然";
+		if($dat2["cate05"] == 1) $tag[$d][].="季節";
+		if($dat2["cate06"] == 1) $tag[$d][].="厨二";
+		if($dat2["cate07"] == 1) $tag[$d][].="限定";
+		$tag_c[$d]		=count($tag[$d]);
+		$tag_id[$d]		="tag".$dat2["use_tmpl"];
+		$tag_code[$d]	=$dat2["tmpl_code"];
+
+
 		$dat[$d]=$dat2;
 		$dat[$d]["mdate"]=substr($dat2["makedate"],5,2)."/".substr($dat2["makedate"],8,2)."　".substr($dat2["makedate"],11,2).":".substr($dat2["makedate"],14,2);
 		$tmp_tl=time()-strtotime($dat2["makedate"]);
@@ -190,6 +216,13 @@ $lis.="<input id=\"ss{$dat[$n]['making_id']}\" type=\"hidden\" name=\"smart\" va
 $lis.="<input id=\"ff{$dat[$n]['making_id']}\" type=\"hidden\" name=\"funny\" value=\"{$funny[$dat[$n]['making_id']]}\">";
 $lis.="<input id=\"xx{$dat[$n]['making_id']}\" type=\"hidden\" name=\"sexy\" value=\"{$sexy[$dat[$n]['making_id']]}\">";
 $lis.="<input id=\"al{$dat[$n]['making_id']}\" type=\"hidden\" name=\"all\" value=\"{$all[$dat[$n]['making_id']]}\">";
+
+$lis.="<input type=\"hidden\" name=\"cate_id\" value=\"{$tag_id[$n]}\">";
+$lis.="<input type=\"hidden\" name=\"cate_code\" value=\"{$tag_code[$n]}\">";
+for($t=0;$t<$tag_c[$n];$t++){
+$lis.="<input type=\"hidden\" name=\"cate{$t}\" value=\"{tag[$n][$t]}\">";
+}
+
 $lis.="<img src=\"{$dat[$n]['img_url']}\" class=\"index_img\" alt=\"{$dat[$n]['reg_name']}\">";
 $lis.="<table class=\"index_frame_ttl\">";
 $lis.="<tr>";
