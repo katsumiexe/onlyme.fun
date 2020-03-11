@@ -28,7 +28,6 @@ $(function(){
 		}	
 	});
 	
-
 	$('.index_box').on('click', '.next', function(){
 		Last_card	= $(this).attr('id').replace("next_", "");
 		$.post("post_read_main.php",
@@ -346,8 +345,6 @@ $(function(){
 		}else{
 			$('.info_list').slideUp(100);	
 			$('.info').animate({'top':'7vw'},100);
-
-
 		}
 	});
 

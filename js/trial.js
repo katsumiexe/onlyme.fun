@@ -81,15 +81,41 @@ $(function(){
 	});
 
 	$('.fbox1a').on('click','.fsample',function(){
+		var Cate="";
 		Clr3 = $(this).attr('id').replace("p", "");
 		Clr3_img = $(this).children('img').attr('src');
 
 		Clr3_cnt = $('#cnt'+Clr3).val();
-		console.log(Clr3_cnt);
 		$('.fsample_md').animate({'top':'9vh'},100);
 		$('.fsample_bk').show;
 
 		$('.fsample_md_img').attr('src',Clr3_img);
+
+		Cate1	= $(this).children('input:hidden[name="cate0"]').val();
+		Cate2	= $(this).children('input:hidden[name="cate1"]').val();
+		Cate3	= $(this).children('input:hidden[name="cate2"]').val();
+		Cate4	= $(this).children('input:hidden[name="cate3"]').val();
+		Cate_id	= $(this).children('input:hidden[name="cate_id"]').val();
+		Code	= $(this).children('input:hidden[name="cate_code"]').val();
+
+		if(Cate1){
+			Cate+="<span class='info_list_tag'>"+Cate1+"</span>";
+		}
+	
+		if(Cate2){
+			Cate+="<span class='info_list_tag'>"+Cate2+"</span>";
+		}
+	
+		if(Cate3){
+			Cate+="<span class='info_list_tag'>"+Cate3+"</span>";
+		}
+	
+		if(Cate4){
+			Cate+="<span class='info_list_tag'>"+Cate4+"</span>";
+		}
+		$('.info_list_code').html(Code);
+		$('.info_list_flex').html(Cate);
+
 	});
 
 	$('.fsample_ok').on('click',function(){

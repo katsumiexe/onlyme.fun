@@ -22,7 +22,7 @@ $cnt=0;
 
 $c=str_replace("tag","",$_REQUEST["c"]);
 
-$sql ="SELECT tmpl_id FROM me_tmpl";
+$sql ="SELECT * FROM me_tmpl";
 $sql.=" WHERE del<>1";
 if($c){
 $sql.=" AND tmpl_id='{$c}'";
@@ -32,6 +32,17 @@ $sql.=" ORDER BY tmpl_id DESC";
 if($result = mysqli_query($mysqli,$sql)){
 	while($row = mysqli_fetch_assoc($result)){
 		if($cnt<8){
+			$tag=array();
+
+			if($row["cate01"] == 1) $tag[].="女子";
+			if($row["cate02"] == 1) $tag[].="男子";
+			if($row["cate03"] == 1) $tag[].="和風";
+			if($row["cate04"] == 1) $tag[].="自然";
+			if($row["cate05"] == 1) $tag[].="季節";
+			if($row["cate06"] == 1) $tag[].="厨二";
+			if($row["cate07"] == 1) $tag[].="限定";
+			$tag_c			=count($tag);
+
 			$sql="SELECT count(making_id) as cnt FROM me_making";
 			$sql.=" WHERE user_id>10002014";
 			$sql.=" AND use_tmpl='{$row["tmpl_id"]}'";
@@ -41,7 +52,13 @@ if($result = mysqli_query($mysqli,$sql)){
 			$dat3 = mysqli_fetch_assoc($res3);
 
 			$tmpl_id[$cnt]=$row["tmpl_id"];
-			$list_n["l"].="<div id=\"p{$tmpl_id[$cnt]}\" class=\"fsample\"><div class=\"tmpl_count\"><div class=\"tmpl_count_icon\"></div><div class=\"tmpl_count_cnt\">{$dat3["cnt"]}</div></div><img src=\"./img/sample/s{$tmpl_id[$cnt]}.jpg\" class=\"fsample_img {$img_off}\"></div>";
+			$list_n["l"].="<div id=\"p{$tmpl_id[$cnt]}\" class=\"fsample\"><img src=\"./img/sample/s{$tmpl_id[$cnt]}.jpg\" class=\"fsample_img {$img_off}\">";
+			$list_n["l"].="<input type=\"hidden\" name=\"cate_code\" value=\"{$row["tmpl_code"]}\">";
+			
+for($t=0;$t<$tag_c;$t++){
+			$list_n["l"].="<input type=\"hidden\" name=\"cate{$t}\" value=\"{$tag[$t]}\">";
+}
+			$list_n["l"].="</div>";
 			$img_off="img_off";
 
 		}
@@ -83,12 +100,13 @@ if($prof["qr"] ==0) $prof["qr"]=1;
 <link rel="stylesheet" href="./css/set_icon.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/first.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/making.css?_<?=date("YmdHi")?>">
+<link rel="stylesheet" href="./css/index.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="https://katsumiexe.github.io/wait/ide_loading.css">
 
 <script src="./js/jquery-3.4.1.min.js"></script>
 <script src="./js/jquery.exif.js"></script>
-<script src="./js/trial.js"></script>
 <script src="./js/first.js"></script>
+<script src="./js/trial.js"></script>
 <script src="https://katsumiexe.github.io/wait/ide_loading.js"></script>
 
 <script>
@@ -154,9 +172,7 @@ $(function(){
 			});
 		}
 	});
-
 });
-
 </script>
 <style>
 </style>
@@ -247,10 +263,8 @@ $(function(){
 <div class="fsample_md">
 <img class="fsample_md_img">
 <div class="fsample_md_com">
-TP0001 男子　女子　季節<br>
-用紙：縦<br>
-名前：横書<br>
-作品：横書<br>
+<div class="info_list_code">T00001</div>
+<div class="info_list_flex"></div>
 <br>
 利用数<br>
 </div>
