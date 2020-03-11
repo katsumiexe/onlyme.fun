@@ -32,18 +32,18 @@ $sql.=" ORDER BY tmpl_id DESC";
 if($result = mysqli_query($mysqli,$sql)){
 	while($row = mysqli_fetch_assoc($result)){
 		if($cnt<8){
+			$sql="SELECT count(making_id) as cnt FROM me_making";
+			$sql.=" WHERE user_id>10002014";
+			$sql.=" AND use_tmpl='{$row["tmpl_id"]}'";
+			$sql.=" LIMIT 1";
+
+			$res3 = mysqli_query($mysqli,$sql);
+			$dat3 = mysqli_fetch_assoc($res3);
+
 			$tmpl_id[$cnt]=$row["tmpl_id"];
-			$list_n["l"].="<div id=\"p{$tmpl_id[$cnt]}\" class=\"fsample\"><img src=\"./img/sample/s{$tmpl_id[$cnt]}.jpg\" class=\"fsample_img {$img_off}\"></div>";
+			$list_n["l"].="<div id=\"p{$tmpl_id[$cnt]}\" class=\"fsample\"><div class=\"tmpl_count\"><div class=\"tmpl_count_icon\"></div><div class=\"tmpl_count_cnt\">{$dat3["cnt"]}</div></div><img src=\"./img/sample/s{$tmpl_id[$cnt]}.jpg\" class=\"fsample_img {$img_off}\"></div>";
 			$img_off="img_off";
 
-			$sql ="SELECT COUNT(making_id) as cnt, use_tmpl FROM me_making";
-			$sql .=" WHERE use_tmpl='{$tmpl_id[$cnt]}'";
-			$sql .=" LIMIT 1";
-
-			if($res2 = mysqli_query($mysqli,$sql)){
-				$dat2 = mysqli_fetch_assoc($res2);
-				$list_n["l"].="<input id=\"cnt{$tmpl_id[$cnt]}\" type=\"hidden\" name=\"cnt\" value=\"{$dat2["cnt"]}\">";
-			}
 		}
 		$cnt++;
 	}

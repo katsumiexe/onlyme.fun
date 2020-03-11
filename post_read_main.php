@@ -79,15 +79,6 @@ while($dat2 = mysqli_fetch_assoc($result)){
 
 	if(file_exists($main_img) && file_exists($sub_img)){
 
-		$sql="SELECT count(making_id) as cnt FROM me_making";
-		$sql.=" WHERE user_id>10002014";
-		$sql.=" LIMIT 1";
-
-		$res3 = mysqli_query($mysqli,$sql);
-		$dat3 = mysqli_fetch_assoc($res3);
-
-		$dat[$d]["info_cnt"]=$dat3["cnt"];
-
 		if($dat2["cate01"] == 1) $tag[$d][].="女子";
 		if($dat2["cate02"] == 1) $tag[$d][].="男子";
 		if($dat2["cate03"] == 1) $tag[$d][].="和風";
