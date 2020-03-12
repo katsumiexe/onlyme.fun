@@ -92,7 +92,7 @@ $(function(){
 	</div>
 </div>
 <span class="err_msg"><?=$msg?></span><br>
-<a href="./regist.php" class="resist_in" id="beacon">新規登録</a><br>
+<a href="./regist.php" class="regist_in" id="beacon">新規登録</a><br>
 
 <div class="top_msg check2">
 <span class="icon_img check"></span> スマホで作成<br>

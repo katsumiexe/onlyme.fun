@@ -152,8 +152,11 @@ if($done){
 			header('Location: https://onlyme.fun');
 			exit;
 		}
-	
-		if($res2){//□正常
+		$t_date=date("Y-m-d H:i:s",time()-2000);
+		if($t_date>$res2["date"]){
+			$out=1;//□タイムアウト
+
+		}elseif($res2){//□正常
 			$out=3;
 			$reg_mail=$res2["mail"];
 			$reg_code=$res2["reg_code"];
@@ -253,10 +256,16 @@ $(function(){
 <h1 class="h1_irr"><span class="h1_title">新規登録(無料)</span></h1>
 
 <?if($out =="1"){?>
-<div class="box_01">
+<div class="box_01"><br>
 	仮登録の有効期限が切れてます。<br>
-	初めからご登録ください<br>
+	もう一度ご登録くださいませ<br>
+<br>
 </div>
+<br>
+<a href="./regist.php" class="regist_in">新規登録</a><br>
+
+
+
 
 <?}elseif($out =="2"){?>
 <div class="box_01">
