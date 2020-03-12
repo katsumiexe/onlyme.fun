@@ -1,7 +1,20 @@
 <?
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+mb_language("Japanese");
+mb_internal_encoding("UTF-8");
+
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+require 'PHPMailer/src/POP3.php';
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/OAuth.php';
+require 'PHPMailer/language/phpmailer.lang-ja.php';
+
 include_once("./library/lib.php");
 include_once("./library/lib_me.php");
 include_once("./library/no_session.php");
+include_once("./library/lib_regist.php");
 
 $me_pass	=$_REQUEST["me_pass"];	//■ニックネーム
 $me_mail	=$_REQUEST["me_mail"];	//■アドレス
@@ -19,19 +32,34 @@ if($me_pass && $me_mail){
 	$sql_up	.="VALUES('{$date}', '{$date_code}', '{$me_mail}', '{$me_pass}', '{$reg_code}')";
 	mysqli_query ($mysqli,$sql_up);
 
-
 	$msg=file_get_contents("./mail/mail_1.txt");
 	$msg=str_replace("[code]",$date_code,$msg);
 
-	mb_language("Japanese");
-	mb_internal_encoding("UTF-8");
+	$mailer = new PHPMailer();
+	$mailer->IsSMTP();
 
-	$to      = $me_mail;
-	$subject = "写真名刺作成サイト★OnlyMe";
-	$message = "下記リンクよりアクセスし、無料登録を完了させてください\n\nhttps://onlyme.fun/regist2.php?target=".$date_code."\n\n※登録後30分以上経過しますと、登録は無効となります。";
-	$headers = 'From:register@onlyme.fun' . "\r\n";
-	mb_send_mail($to, $subject, $msg, $headers);
+	$mailer->Host		= $host;
+	$mailer->CharSet	= 'utf-8';
+	$mailer->SMTPAuth	= TRUE;
+	$mailer->Username	= $mail_from;
+	$mailer->Password	= 'onlyme';
+	$mailer->SMTPSecure = 'tls';
+	$mailer->Port		= 587;
+	//$mailer->SMTPDebug = 2;
+
+$message = "下記リンクよりアクセスし、無料登録を完了させてください\n\nhttps://onlyme.fun/regist2.php?target=".$date_code."\n\n※登録後30分以上経過しますと、登録は無効となります。";
+	$mailer->From     = $mail_from;
+	$mailer->FromName = mb_convert_encoding("写真名刺作成サイト★OnlyMe","UTF-8","AUTO");
+	$mailer->Subject  = mb_convert_encoding('会員登録確認',"UTF-8","AUTO");
+	$mailer->Body     = mb_convert_encoding($msg,"UTF-8","AUTO");
+	$mailer->AddAddress($me_mail);
+
+	if($mailer->Send()){
+	}else{
+	    echo "送信に失敗しました" . $mailer->ErrorInfo;
+	}
 }
+
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ja">
