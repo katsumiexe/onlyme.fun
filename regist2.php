@@ -1,7 +1,21 @@
 <?
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+require 'PHPMailer/src/POP3.php';
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/OAuth.php';
+require 'PHPMailer/language/phpmailer.lang-ja.php';
+
+mb_language("Japanese");
+mb_internal_encoding("UTF-8");
+
+
 include_once("./library/lib.php");
 include_once("./library/lib_me.php");
 include_once("./library/no_session.php");
+include_once("./library/lib_regist.php");
 if($_SESSION){
 	$_SESSION = array();
 	session_destroy(); 
@@ -34,7 +48,6 @@ $reg_code	=$_POST["reg_code"];
 if(!$yy) $yy=2000;
 
 if($done){
-
 	$sql ="SELECT * FROM reg";
 	$sql.=" WHERE reg_mail='{$reg_mail}'";
 	$sql.=" LIMIT 1";
@@ -44,6 +57,7 @@ if($done){
 
 	if(count($ck)>0){
 		$out=7;
+
 	}else{
 		$out=6;
 		$birth=$yy."-".$mm."-".$dd;
@@ -53,8 +67,8 @@ if($done){
 		mysqli_query($mysqli,$sql);
 
 		$tmp_auto=mysqli_insert_id($mysqli)+0;
-		$sql_up	 ="INSERT INTO me_prof(`prof_id`,`name`, `mail`)";
-		$sql_up	.="VALUES('{$tmp_auto}', '{$name}', '{$reg_mail}')";
+		$sql_up	 ="INSERT INTO me_prof(`prof_id`,`name`,`mail`)";
+		$sql_up	.="VALUES('{$tmp_auto}','{$name}','{$reg_mail}')";
 		mysqli_query ($mysqli,$sql_up);
 		mb_language("Japanese");
 		mb_internal_encoding("UTF-8");
@@ -91,12 +105,24 @@ if($done){
 		$msg=str_replace("[name]",$name,$msg);
 		$msg=str_replace("[reg_id]",$tmp_auto,$msg);
 		$msg=str_replace("[login]",$login_code,$msg);
-		
-		$to      = $reg_mail;
-		$subject = "写真名刺作成サイト★OnlyMe";
-		$message = "登録が完了しました。\n下記よりログインいただけます。\n\nhttps://onlyme.fun/index.php?easy=".$login_code."\n\n";
-		$headers = 'From:register@onlyme.fun' . "\r\n";
-		mb_send_mail($to, $subject, $msg, $headers);
+
+		$mailer = new PHPMailer();
+		$mailer->IsSMTP();
+
+		$mailer->Host		= $host;
+		$mailer->CharSet	= 'utf-8';
+		$mailer->SMTPAuth	= TRUE;
+		$mailer->Username	= $mail_from;
+		$mailer->Password	= 'onlyme';
+		$mailer->SMTPSecure = 'tls';
+		$mailer->Port		= 587;
+		//$mailer->SMTPDebug = 2;
+
+		$mailer->From     = $mail_from;
+		$mailer->FromName = mb_convert_encoding("写真名刺作成サイト★OnlyMe","UTF-8","AUTO");
+		$mailer->Subject  = mb_convert_encoding('会員登録完了',"UTF-8","AUTO");
+		$mailer->Body     = mb_convert_encoding($msg,"UTF-8","AUTO");
+		$mailer->AddAddress($reg_mail);
 	}
 
 }elseif($submit_ok){
@@ -106,7 +132,6 @@ if($done){
 	$out=4;
 
 }elseif($target){
-
 	$out=3;
 	$l_time=substr($target,2,4).substr($target,0,2).substr($target,8,2).substr($target,10,2).substr($target,12,2).substr($target,6,2);
 	$reg_pass=substr($target,14);
@@ -119,11 +144,19 @@ if($done){
 		$res1=	mysqli_query($mysqli,$sql);
 		$res2 = mysqli_fetch_assoc($res1);
 
+		$sql="SELECT * FROM reg WHERE reg_mail='{$res2["mail"]}'";
+
+		$dn1	=mysqli_query($mysqli,$sql);
+		$dn2	=mysqli_fetch_assoc($dn1);
+		if(count($dn2)>0){
+			header('Location: https://onlyme.fun');
+			exit;
+		}
+	
 		if($res2){//□正常
 			$out=3;
 			$reg_mail=$res2["mail"];
 			$reg_code=$res2["reg_code"];
-
 
 		}else{//□パラメータがおかしい
 			$out=2;//□パラメータ不足

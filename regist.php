@@ -21,8 +21,6 @@ $me_mail	=$_REQUEST["me_mail"];	//■アドレス
 $send		=$_REQUEST["send"];
 $reg_code	=$_REQUEST["reg_code"];
 
-$nowpage=4;
-
 $date		=date("Y-m-d H:i:s");
 $date_code	=date(mYsdHi).$me_pass;
 
