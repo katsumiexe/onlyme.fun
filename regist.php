@@ -40,12 +40,11 @@ if($me_pass && $me_mail){
 	$mailer->CharSet	= 'utf-8';
 	$mailer->SMTPAuth	= TRUE;
 	$mailer->Username	= $mail_from;
-	$mailer->Password	= 'onlyme';
+	$mailer->Password	= $mail_pass;
 	$mailer->SMTPSecure = 'tls';
 	$mailer->Port		= 587;
-	//$mailer->SMTPDebug = 2;
+//	$mailer->SMTPDebug = 2;
 
-$message = "下記リンクよりアクセスし、無料登録を完了させてください\n\nhttps://onlyme.fun/regist2.php?target=".$date_code."\n\n※登録後30分以上経過しますと、登録は無効となります。";
 	$mailer->From     = $mail_from;
 	$mailer->FromName = mb_convert_encoding("写真名刺作成サイト★OnlyMe","UTF-8","AUTO");
 	$mailer->Subject  = mb_convert_encoding('会員登録確認',"UTF-8","AUTO");
@@ -54,7 +53,9 @@ $message = "下記リンクよりアクセスし、無料登録を完了させ�
 
 	if($mailer->Send()){
 	}else{
-	    echo "送信に失敗しました" . $mailer->ErrorInfo;
+		$sql="INSERT INTO mail_error_log (`date`,`log_no`,`to_mail`)";
+		$sql.=" VALUES('{$date}','regist.php','{$me_mail}');";
+		mysqli_query($mysqli,$sql);
 	}
 }
 

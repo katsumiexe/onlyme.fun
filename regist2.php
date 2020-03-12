@@ -10,6 +10,7 @@ require 'PHPMailer/language/phpmailer.lang-ja.php';
 
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
+$date=date("Y-m-d H:i:s");
 
 
 include_once("./library/lib.php");
@@ -61,7 +62,6 @@ if($done){
 	}else{
 		$out=6;
 		$birth=$yy."-".$mm."-".$dd;
-		$date=date("Y-m-d H:i:s");
 		$sql="INSERT INTO `reg`(`reg_name`,`reg_mail`,`reg_pass`,`reg_style`,`reg_state`,`reg_birth`,`reg_date`,`reg_sex`,`reg_rank`,`reg_code`)";
 		$sql.=" VALUES('{$name}','{$reg_mail}','{$reg_pass}','1','{$state}','{$birth}','{$date}','{$sex}',11,'{$reg_code}')";
 		mysqli_query($mysqli,$sql);
@@ -113,16 +113,22 @@ if($done){
 		$mailer->CharSet	= 'utf-8';
 		$mailer->SMTPAuth	= TRUE;
 		$mailer->Username	= $mail_from;
-		$mailer->Password	= 'onlyme';
+		$mailer->Password	= $mail_pass;
 		$mailer->SMTPSecure = 'tls';
 		$mailer->Port		= 587;
-		//$mailer->SMTPDebug = 2;
+//		$mailer->SMTPDebug = 2;
 
 		$mailer->From     = $mail_from;
 		$mailer->FromName = mb_convert_encoding("写真名刺作成サイト★OnlyMe","UTF-8","AUTO");
 		$mailer->Subject  = mb_convert_encoding('会員登録完了',"UTF-8","AUTO");
 		$mailer->Body     = mb_convert_encoding($msg,"UTF-8","AUTO");
 		$mailer->AddAddress($reg_mail);
+		if($mailer->Send()){
+		}else{
+			$sql="INSERT INTO mail_error_log (`date`,`log_no`,`to_mail`)";
+			$sql.=" VALUES('{$date}','regist2.php','{$reg_mail}');";
+			mysqli_query($mysqli,$sql);
+		}
 	}
 
 }elseif($submit_ok){
@@ -263,9 +269,6 @@ $(function(){
 </div>
 <br>
 <a href="./regist.php" class="regist_in">新規登録</a><br>
-
-
-
 
 <?}elseif($out =="2"){?>
 <div class="box_01">
