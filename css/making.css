@@ -183,10 +183,10 @@
 	position:absolute;
 	left:0;
 	right:0;
-	top:7vw;
+	bottom:16vw;
 	z-index:21;
 	margin:auto;
-	width:50.5vw;
+	width:55vw;
 	height:0vw;
 	background:rgba(255,255,255,0.8);
 	color:#303030;

@@ -143,7 +143,7 @@ $(function(){
 
 		}else{
 			$('.fsample_if').addClass("if_on");
-			$('.fsample_md_com').animate({'height':'90vw'},100);
+			$('.fsample_md_com').animate({'height':'35vw'},400);
 		}
 	});
 
