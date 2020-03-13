@@ -2,11 +2,6 @@
 include_once("./library/lib.php");
 include_once("./library/lib_me.php");
 include_once("./library/session.php");
-if(!$_SESSION["id"]){
-	$url = 'https://onlyme.fun/index.php';
-	header('Location:' . $url, true, 301);
-	exit;
-}
 $nowpage=4;
 
 if($_POST["send"]){
@@ -383,7 +378,6 @@ $(function(){
 
 <div style="padding-bottom:1vw;">
 	<div id="set1" class="set_btn">変更する</div>
-
 	<div class="remove_comm">
 		※登録情報を変更されますと一旦ログアウトし、登録メールアドレスに認証メールが送信されます。<br>
 		変更を有効にするには、認証メールからのログインが必要となります。<br>
