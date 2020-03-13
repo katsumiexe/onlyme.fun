@@ -73,13 +73,6 @@ if($n_max>20) $n_max=20;
 
 $met	=file_get_contents("https://api.networkprint.jp/rest/webapi/v2/maintenanceInfo");
 $met2	=json_decode($met,true);
-/*
-print("■".$met2["status"]."▲<br>\n");
-print("■".$met2["announcementHours"]."▲<br>\n");
-print("■".$met2["maintenanceTime"]["type"]."▲<br>\n");
-print("■".$met2["maintenanceTime"]["from"]."▲<br>\n");
-print("■".$met2["maintenanceTime"]["to"]."▲<br>\n");
-*/
 if($met2["status"] == "emergency"){
 	$net_mente=1;
 
