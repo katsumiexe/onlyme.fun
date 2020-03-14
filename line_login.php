@@ -1,11 +1,51 @@
 <?
-
+/*
 include_once("./library/lib.php");
 include_once("./library/lib_me.php");
 include_once("./library/no_session.php");
 include_once("./library/lib_regist.php");
 
+
+https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=openid
+
+*/
+
+$dat_e = array(
+  'grant_type'    => 'authorization_code',
+  'code'          => $_GET['code'],
+  'redirect_uri'  => 'https%3A%2F%2Fonlyme.fun%2Fline_login.php',
+  'client_id'     => '1653949496',
+  'client_secret' => '8602dc9eba8e1901830af09a045f0711'
+);
+
+$url = "https://api.line.me/oauth2/v2.1/token";
+
+$content = http_build_query($dat_e);
+$dat_e2 = array(
+	'http' => array(
+		'header' =>"Content-Type: application/x-www-form-urlencoded",
+		'method' =>'POST',
+		'content'=>$content
+	)
+);
+
+$e_token = file_get_contents($url,false, stream_context_create($dat_e2));
+$e_login =json_decode($e_token,true);
+
+
+//$accessToken = $e_token->access_token;
+
+var_dump($e_login);
+echo '<hr>';
+print($url);
+echo '<hr>';
+var_dump($dat_e2);
+echo '<hr>';
+
+
+
 ?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ja">
 <head>
