@@ -7,7 +7,11 @@ include_once("./library/lib_regist.php");
 https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=profile%20openid%20email	
 */	
 
+$yy		=$_POST["yy"];
 $out	=$_POST["out"];
+
+if(!$yy) $yy=2000;
+
 if(!$out){
 	$dat_e = array(
 	  'grant_type'    => 'authorization_code',
@@ -53,6 +57,10 @@ if(!$out){
 	$tmp=base64_decode($id_decode[1]);
 	$reg_chk=json_decode($tmp,true);
 
+foreach($reg_chk as $a1 => $a2){
+print("<!--".$a1."□".$a2."-->");
+}
+
 	if($reg_chk["iss"] =="https://access.line.me" && $reg_chk["aud"] ==1653949496){
 		$line_name		=$reg_chk["name"];
 		$line_picture	=$reg_chk["picture"];
@@ -61,7 +69,7 @@ if(!$out){
 
 		$sql=" SELECT * FROM reg";
 		$sql.=" WHERE reg_mail='{$line_mail}' OR reg_line='{$line_id}'";
-
+print($sql);
 		$line_reg = mysqli_query($mysqli,$sql);
 
 		if($l_user = mysqli_fetch_assoc($line_reg)){
@@ -82,7 +90,8 @@ if(!$out){
 			exit;
 		}
 	}
-}
+
+}else{
 
 $send		=$_POST["send"];
 $reg_mail	=$_POST["reg_mail"];
@@ -92,7 +101,6 @@ $submit_ok	=$_POST["submit_ok"];
 $done		=$_POST["done"];
 
 $name		=$_POST["name"];
-$yy			=$_POST["yy"];
 $mm			=$_POST["mm"];
 $dd			=$_POST["dd"];
 $sex		=$_POST["sex"];
@@ -101,57 +109,54 @@ $reg_code	=$_POST["reg_code"];
 
 $line_id	=$_POST["line_id"];
 $line_picture=$_POST["line_picture"];
+	if($out == 2){
+		$birth=$yy."-".$mm."-".$dd;
+		$sql="INSERT INTO `reg`(`reg_name`,`reg_mail`,`reg_pass`,`reg_style`,`reg_state`,`reg_birth`,`reg_date`,`reg_sex`,`reg_rank`,`reg_code`,`reg_line`)";
+		$sql.=" VALUES('{$name}','{$reg_mail}','{$reg_pass}','1','{$state}','{$birth}','{$date}','{$sex}',12,'{$reg_code}','{$line_id}')";
+		mysqli_query($mysqli,$sql);
 
-if(!$yy) $yy=2000;
+		$tmp_auto=mysqli_insert_id($mysqli)+0;
+		$sql_up	 ="INSERT INTO me_prof(`prof_id`,`name`,`mail`)";
+		$sql_up	.="VALUES('{$tmp_auto}','{$name}','{$reg_mail}')";
+		mysqli_query ($mysqli,$sql_up);
+		mb_language("Japanese");
+		mb_internal_encoding("UTF-8");
 
-if($out == 3){
-	$birth=$yy."-".$mm."-".$dd;
-	$sql="INSERT INTO `reg`(`reg_name`,`reg_mail`,`reg_pass`,`reg_style`,`reg_state`,`reg_birth`,`reg_date`,`reg_sex`,`reg_rank`,`reg_code`,`reg_line`)";
-	$sql.=" VALUES('{$name}','{$reg_mail}','{$reg_pass}','1','{$state}','{$birth}','{$date}','{$sex}',12,'{$reg_code}','{$line_id}')";
-	mysqli_query($mysqli,$sql);
+		if($reg_code>0){
+			$sql="SELECT making_id, user_id FROM me_making";	
+			$sql.=" LEFT JOIN reg ON me_making.user_id=reg.id";	
+			$sql.=" WHERE making_id='{$reg_code}'";	
+			$sql.=" AND del='0'";	
+			$sql.=" AND reg_rank>10";	
+			$sql.=" LIMIT 1";	
+			
+			$re = mysqli_query($mysqli,$sql);
+			$de = mysqli_fetch_assoc($re);
 
-	$tmp_auto=mysqli_insert_id($mysqli)+0;
-	$sql_up	 ="INSERT INTO me_prof(`prof_id`,`name`,`mail`)";
-	$sql_up	.="VALUES('{$tmp_auto}','{$name}','{$reg_mail}')";
-	mysqli_query ($mysqli,$sql_up);
-	mb_language("Japanese");
-	mb_internal_encoding("UTF-8");
+			if($de){
+				$sql_up	 ="INSERT INTO me_fav(`fav_date`,`fav_user_id`,`fav_host_id`,`fav_set`)";
+				$sql_up	.="VALUES('{$date}','{$tmp_auto}', '{$de["user_id"]}', '1')";
+				mysqli_query($mysqli,$sql_up);
 
-	if($reg_code>0){
-		$sql="SELECT making_id, user_id FROM me_making";	
-		$sql.=" LEFT JOIN reg ON me_making.user_id=reg.id";	
-		$sql.=" WHERE making_id='{$reg_code}'";	
-		$sql.=" AND del='0'";	
-		$sql.=" AND reg_rank>10";	
-		$sql.=" LIMIT 1";	
-		
-		$re = mysqli_query($mysqli,$sql);
-		$de = mysqli_fetch_assoc($re);
-
-		if($de){
-			$sql_up	 ="INSERT INTO me_fav(`fav_date`,`fav_user_id`,`fav_host_id`,`fav_set`)";
-			$sql_up	.="VALUES('{$date}','{$tmp_auto}', '{$de["user_id"]}', '1')";
-			mysqli_query($mysqli,$sql_up);
-
-			$sql_log="INSERT INTO me_notice(`date`,`notice_log`,`n_user_id`,`n_target_id`)";
-			$sql_log.=" VALUES('{$date}','6','{$tmp_auto}','{$de["user_id"]}')";
-			mysqli_query($mysqli,$sql_log);
+				$sql_log="INSERT INTO me_notice(`date`,`notice_log`,`n_user_id`,`n_target_id`)";
+				$sql_log.=" VALUES('{$date}','6','{$tmp_auto}','{$de["user_id"]}')";
+				mysqli_query($mysqli,$sql_log);
+			}
 		}
-	}
 
-	if($line_picture){
-		$prof_x		=$enc["01"].".jpg";
-		$link		="./".$dir3.$prof_x;
+		if($line_picture){
+			$prof_x		=$enc["01"].".jpg";
+			$link		="./".$dir3.$prof_x;
 
-		$pict= imagecreatefromjpeg($line_picture);
-		$img= imagecreatetruecolor(400,400);
+			$pict= imagecreatefromjpeg($line_picture);
+			$img= imagecreatetruecolor(400,400);
 
-		$img_tmp	= getimagesize($pict);
-		list($tmp_width, $tmp_height, $type0, $attr0) = $img_tmp;
+			$img_tmp	= getimagesize($pict);
+			list($tmp_width, $tmp_height, $type0, $attr0) = $img_tmp;
 
-		ImageCopyResampled($img, $pict, 0, 0, 0, 0, 400, 400, $tmp_width, $tmp_height);
-		imagejpeg($img,$link,100);
-	}
+			ImageCopyResampled($img, $pict, 0, 0, 0, 0, 400, 400, $tmp_width, $tmp_height);
+			imagejpeg($img,$link,100);
+		}
 		session_save_path('./session/');
 		ini_set('session.gc_maxlifetime', 3*60*60); // 3 hours
 		ini_set('session.gc_probability', 1);
@@ -162,6 +167,7 @@ if($out == 3){
 		$_SESSION["id"]= $tmp_auto;
 		$_SESSION["time"]= time();
 
+	}
 }
 
 ?>
