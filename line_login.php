@@ -1,25 +1,21 @@
 <?
-/*
 include_once("./library/lib.php");
 include_once("./library/lib_me.php");
 include_once("./library/no_session.php");
 include_once("./library/lib_regist.php");
-
-
-https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=openid
-
+/*
+https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=profile%20openid%20email	
 */
 
 $dat_e = array(
   'grant_type'    => 'authorization_code',
   'code'          => $_GET['code'],
-  'redirect_uri'  => 'https%3A%2F%2Fonlyme.fun%2Fline_login.php',
+  'redirect_uri'  => 'https://onlyme.fun/line_login.php',
   'client_id'     => '1653949496',
   'client_secret' => '8602dc9eba8e1901830af09a045f0711'
 );
 
 $url = "https://api.line.me/oauth2/v2.1/token";
-
 $content = http_build_query($dat_e);
 $dat_e2 = array(
 	'http' => array(
@@ -32,21 +28,38 @@ $dat_e2 = array(
 $e_token = file_get_contents($url,false, stream_context_create($dat_e2));
 $e_login =json_decode($e_token,true);
 
+$id_token		=$e_login["id_token"];
+$access_token	=$e_login["access_token"];
 
-//$accessToken = $e_token->access_token;
-
-var_dump($e_login);
-echo '<hr>';
-print($url);
-echo '<hr>';
-var_dump($dat_e2);
-echo '<hr>';
+$dat_d = array(
+	'id_token'	=>$id_token,
+	'client_id'	=>'1653949496'
+);
 
 
+$url = "https://api.line.me/oauth2/v2.1/verify";
+$content = http_build_query($dat_d);
+$dat_d2 = array(
+	'http' => array(
+		'header' =>"Content-Type: application/x-www-form-urlencoded",
+		'method' =>'POST',
+		'content'=>$content
+	)
+);
 
+$d_token = file_get_contents($url,false, stream_context_create($dat_d2));
+$d_login =json_decode($d_token,true);
+
+$id_decode=explode(".",$id_token);
+$n=json_decode(base64_decode($id_decode[1]));
+
+if($n[iss] =="https://access.line.me" && $n[aud] ==1653949496){
+	$line_name=$n["name"];
+	$line_mail=$n["email"];
+	$line_id=$n["sub"];
+}
 ?>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -71,8 +84,6 @@ echo '<hr>';
 <div class="main_irr sp_only">
 <a href="./index.php" class="irr_top">写真名刺作成サイト★OnlyMe</a>
 <h1 class="h1_irr"><span class="h1_title">LINEログイン</span></h1>
-
-
 </div>
 <?include_once("./x_foot.php")?>
 </body>

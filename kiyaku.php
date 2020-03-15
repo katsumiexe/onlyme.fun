@@ -113,7 +113,6 @@ IDの代わりに登録時のメールアドレスを用いることもできる
 <div class="policy2">
 僕は君たちに連絡もなく、突然サービスを変更したり、この規約を変更することもある。<br>
 </div>
-</div>
 <?include_once("./x_foot.php")?>
 </body>
 </html>
