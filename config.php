@@ -102,7 +102,6 @@ if($_POST["send"]){
 <script src="./js/jquery.ui.touch-punch.min.js"></script>
 <script src="./js/jquery.exif.js"></script>
 <script>
-
 var User_id =<?=$user["id"]+0?>;
 var NoImg ='./img/noimage<?=$user['reg_sex']?>.jpg';
 $(function(){ 
@@ -156,7 +155,6 @@ $(function(){
 	<span style="font-weight:600;">性別:</span><?=$l_sex[$user["reg_sex"]]?>　
 	<span style="font-weight:600;">誕生日:</span><?=substr($user["reg_birth"],0,4)?>年<?=substr($user["reg_birth"],5,2)?>月<?=substr($user["reg_birth"],8,2)?>日
 </div>
-
 
 <table class="config_img">
 	<tr>
@@ -381,6 +379,7 @@ $(function(){
 	<div class="remove_comm">
 		※登録情報を変更されますと一旦ログアウトし、登録メールアドレスに認証メールが送信されます。<br>
 		変更を有効にするには、認証メールからのログインが必要となります。<br>
+		<?if($user["reg_rank"] != 11){?> SNSからの登録の場合、パスワードを設定しないと登録名とメールアドレスをこちらから変更することができません。<br><?}?>
 	</div>
 </div>
 

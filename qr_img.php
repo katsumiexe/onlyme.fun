@@ -665,10 +665,9 @@ for ($qry=1; $qry < 129; $qry++) {
 		if($pixel >0){
 			    ImageSetPixel($base_qr2,$qrx,$qry,$col3[1]); 
 
-//print("●".$qrx."■".$qry."■".$pixel."<br>\n");
 		}else{
 			    ImageSetPixel($base_qr2,$qrx,$qry,$col3[0]); 
-//print("○".$qrx."■".$qry."■".$pixel."<br>\n");
+
 		}
 
 	}

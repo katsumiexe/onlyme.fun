@@ -60,7 +60,6 @@ if(!$out){
 foreach($reg_chk as $a1 => $a2){
 print("<!--".$a1."□".$a2."-->");
 }
-
 	if($reg_chk["iss"] =="https://access.line.me" && $reg_chk["aud"] ==1653949496){
 		$line_name		=$reg_chk["name"];
 		$line_picture	=$reg_chk["picture"];
@@ -69,7 +68,6 @@ print("<!--".$a1."□".$a2."-->");
 
 		$sql=" SELECT * FROM reg";
 		$sql.=" WHERE reg_mail='{$line_mail}' OR reg_line='{$line_id}'";
-print($sql);
 		$line_reg = mysqli_query($mysqli,$sql);
 
 		if($l_user = mysqli_fetch_assoc($line_reg)){
@@ -93,22 +91,22 @@ print($sql);
 
 }else{
 
-$send		=$_POST["send"];
-$reg_mail	=$_POST["reg_mail"];
+	$send		=$_POST["send"];
+	$reg_mail	=$_POST["reg_mail"];
 
-$submit		=$_POST["submit"];
-$submit_ok	=$_POST["submit_ok"];
-$done		=$_POST["done"];
+	$submit		=$_POST["submit"];
+	$submit_ok	=$_POST["submit_ok"];
+	$done		=$_POST["done"];
 
-$name		=$_POST["name"];
-$mm			=$_POST["mm"];
-$dd			=$_POST["dd"];
-$sex		=$_POST["sex"];
-$state		=$_POST["state"];
-$reg_code	=$_POST["reg_code"];
+	$name		=$_POST["name"];
+	$mm			=$_POST["mm"];
+	$dd			=$_POST["dd"];
+	$sex		=$_POST["sex"];
+	$state		=$_POST["state"];
+	$reg_code	=$_POST["reg_code"];
 
-$line_id	=$_POST["line_id"];
-$line_picture=$_POST["line_picture"];
+	$line_id	=$_POST["line_id"];
+	$line_picture=$_POST["line_picture"];
 	if($out == 2){
 		$birth=$yy."-".$mm."-".$dd;
 		$sql="INSERT INTO `reg`(`reg_name`,`reg_mail`,`reg_pass`,`reg_style`,`reg_state`,`reg_birth`,`reg_date`,`reg_sex`,`reg_rank`,`reg_code`,`reg_line`)";
@@ -166,10 +164,8 @@ $line_picture=$_POST["line_picture"];
 		session_start();
 		$_SESSION["id"]= $tmp_auto;
 		$_SESSION["time"]= time();
-
 	}
 }
-
 ?>
 <!DOCTYPE HTML>
 <html lang="ja">

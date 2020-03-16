@@ -143,7 +143,37 @@ $(function(){
 	});
 
 	$('#set1').on('click',function(){
-		$('.pop00,.pop01').fadeIn(100);
+		Mail=$('#p_mail').val();
+		$.post("post_config_mail.php",
+			{
+			'set_mail':Mail,
+			'set_pass':Pass,
+			'set_name':Name
+
+			},function(data){
+				if(data=='1'){
+					$('.msg').text('登録されているメールアドレスです');
+					return false;	
+
+				}else if(data=='2'){
+					$('.msg').text('メールアドレスが無効です');
+					return false;	
+
+				}else if(data=='3'){
+
+					$('.msg').text('パスワードが無効です(半角英数字4文字以上)');
+					return false;	
+	
+				}else if(data=='4'){
+					$('.msg').text('登録名が無効です');
+					return false;	
+
+				}else{
+					$('.pop00,.pop01').fadeIn(100);
+				}
+			});
+
+
 	});
 
 	$('#set2').on('click',function(){
