@@ -3,19 +3,34 @@ include_once("./library/no_session.php");
 
 $img_url 	= imagecreatefromjpeg("./myalbum/qr.jpg");
 $base		=imagecreate(108,108);
-$black		=ImageColorAllocate($base,255,0,0);
+$black		=ImageColorAllocate($base,0,0,0);
 $white		=ImageColorAllocate($base,255,255,255);
+$red		=ImageColorAllocate($base,255,0,0);
 
 $ck=0;
-for($y=0;$y<34;$y++){
-	for($x=0;$x<34;$x++){
-		$pixel = ImageColorAt($img_url, $x*26+13, $y*26+13);
+for($y=0;$y<36;$y++){
+	for($x=0;$x<36;$x++){
 
-		if($pixel ==0){
+		if($x>18){
+			$xp=20;
+
+		}else{
+			$xp=10;
+		}
+
+		if($y>18){
+			$yp=20;
+
+		}else{
+			$yp=10;
+		}
+
+		$pixel = ImageColorAt($img_url, $x*25+$xp, $y*25+$yp);
+		
+		if($pixel==0){
 			$s_code.=1;		
 		}else{
 			$s_code.=0;		
-
 		}
 	}
 }
@@ -31,6 +46,8 @@ for($y=0;$y<36;$y++){
 
 		if($code_ck == 1){
 			imagefilledrectangle($base, $x1, $y1, $x2, $y2, $black);
+//		    ImageSetPixel($base,$x,$y,$red); 
+
 		}else{
 			imagefilledrectangle($base, $x1, $y1, $x2, $y2, $white);
 		}

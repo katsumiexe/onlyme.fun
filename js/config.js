@@ -172,8 +172,6 @@ $(function(){
 					$('.pop00,.pop01').fadeIn(100);
 				}
 			});
-
-
 	});
 
 	$('#set2').on('click',function(){
