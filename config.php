@@ -72,6 +72,8 @@ if($_POST["send"]){
 	$prof["open_fb"]	=$_POST["open_fb"];
 }
 
+$line_qr=$dir3.$tmp_enc[2]."s".$tmp_enc[3].".png";
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -232,6 +234,9 @@ $(function(){
 	<?if($exp>=100){?>
 		<div id="qr_option" class="qr_option">
 			<span id="qr1" class="qr_option_a"><span class="qr_option_icon"></span><span class="qr_option_txt">onlyme</span></span>
+<?if(file_exists($line_qr)){?>
+			<span id="qr6" class="qr_option_a word2_c6"><span class="qr_option_icon"></span><span class="qr_option_txt">LINE</span></span>
+<?}?>
 			<span id="qr3" class="qr_option_a word2_c3"><span class="qr_option_icon"></span><span class="qr_option_txt">twitter</span></span>
 			<span id="qr4" class="qr_option_a word2_c4"><span class="qr_option_icon"></span><span class="qr_option_txt">Instagram</span></span>
 			<span id="qr5" class="qr_option_a word2_c5"><span class="qr_option_icon"></span><span class="qr_option_txt">Cosplayer Archive</span></span>
@@ -382,6 +387,22 @@ $(function(){
 		<?if($user["reg_rank"] != 11){?> SNSからの登録の場合、パスワードを設定しないと登録名とメールアドレスをこちらから変更することができません。<br><?}?>
 	</div>
 </div>
+
+<?if($user["reg_line"]){?>
+<H2 class="h1"><span class=h1_title>LINE連携</span></h2>
+<div style="padding-bottom:5vw;text-align:center;">
+	<div id="set3" class="set_btn"><span class="icon_img" style="font-weight:400;"></span>LINE連携解除</div>
+	<div id="set3" class="set_btn"><span class="icon_img"></span>QRコード登録</div>
+
+
+	<div class="remove_comm">
+		※退会されますとアルバムは全て削除されます<br>
+		退会後、24時間以内の再開はできません。ご注意ください<br>	
+	</div>
+</div>
+<?}?>
+
+
 
 <H2 class="h1"><span class=h1_title>退会</span></h2>
 <div style="padding-bottom:5vw;text-align:center;">

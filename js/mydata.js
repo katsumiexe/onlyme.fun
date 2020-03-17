@@ -167,6 +167,9 @@ $(function(){
 	});
 
 	$('.print_box').on('click','.print_list_on',function () {
+
+
+
 		$('#wait').show();
 		var print_str = JSON.stringify(PrintCk);
 		var Print = $.parseJSON(print_str);
@@ -176,13 +179,18 @@ $(function(){
 			dataType: 'json',
 
 		}).done(function(data, textStatus, jqXHR){
-			$('#wait,.print_list,.print_code_text').hide();
-			$('.print_code,.print_code_limit').show();
-			$('#id_code_del').addClass('del_on');
 
+if(data.limit>0){
+			$('#reload').submit();				
+
+}else{
 			$('#print_in').html(data.list);				
 			$('.print_code_id').text(data.code);				
 			$('#limit_date').text(data.limit);				
+}
+			$('#wait,.print_list,.print_code_text').hide();
+			$('.print_code,.print_code_limit').show();
+			$('#id_code_del').addClass('del_on');
 			$('.list_count').text("0");
 
 		}).fail(function(jqXHR, textStatus, errorThrown){

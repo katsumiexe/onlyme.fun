@@ -11,6 +11,7 @@ $base_d=date("Y-m-d 00:00:00",time()-604800);
 $user_id	=$_POST["user_id"];
 $print_ck	=$_POST["print_ck"];
 
+/*-------------------------------------------------------------*/
 $ck_css[0]=" ck_mes c_wt";
 $ck_css[1]=" ck_mes c_ok";
 $ck_css[2]=" ck_mes c_ng";
@@ -18,6 +19,24 @@ $ck_css[2]=" ck_mes c_ng";
 $ck_msg[0]="<span class=\"ck_mes c_wt\"><span class=\"ck_icon\"></span><span class=\"ck_text\">転送中</span></span>";
 $ck_msg[1]="<span class=\"ck_mes c_ok\"><span class=\"ck_icon\"></span><span class=\"ck_text\">印刷可能</span></span>";
 $ck_msg[2]="<span class=\"ck_mes c_ng\"><span class=\"ck_icon\"></span><span class=\"ck_text\">転送失敗</span></span>";
+
+
+$met	=file_get_contents("https://api.networkprint.jp/rest/webapi/v2/maintenanceInfo");
+$met2	=json_decode($met,true);
+if($met2["status"] == "emergency"){
+	$ch_list["mente"]=1;
+
+}elseif($met2["status"] == "scheduled"){
+	$ch_list["mente"]=2;
+
+}else{
+	if($met2["maintenanceTime"]["from"] >$now && $met2["maintenanceTime"]["to"] > $now){
+		$ch_list["mente"]=3;
+	}
+}
+
+/*-------------------------------------------------------------*/
+
 
 $cnt=0;
 $now=date("Y-m-d H:i:s");

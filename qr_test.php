@@ -49,7 +49,7 @@ for($y=0;$y<35;$y++){
 		$y2=$y*3+6+2;
 
 		if($code_ck == 1){
-			imagefilledrectangle($base, $x1, $y1, $x2, $y2, $red);
+			imagefilledrectangle($base, $x1, $y1, $x2, $y2, $black);
 //		    ImageSetPixel($base,$x,$y,$red); 
 
 		}else{

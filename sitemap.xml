@@ -49,6 +49,11 @@
 </url>
 
 <url>
+  <loc>https://onlyme.fun/line_login.php</loc>
+  <priority>0.3</priority>
+</url>
+
+<url>
   <loc>https://onlyme.fun/regist2.php</loc>
   <priority>0.3</priority>
 </url>

@@ -5,7 +5,7 @@ include_once("./library/session.php");
 
 $cheer	=$_POST["cheer"];
 $n_cheer=$_POST["n_cheer"];
-$t_tag=$_REQUEST["tag"];
+$t_tag	=$_REQUEST["tag"];
 
 $nowpage=2;
 $ex=8;
@@ -86,6 +86,7 @@ if($met2["status"] == "emergency"){
 		$net_mente=0;
 	}
 }
+
 $er_msg[0]="メンテナンス情報はありません。";
 $er_msg[1]="ただ今ネットワークプリントはメンテナンス中のため、ご利用いただけません。<br><span style=\"font-weight:600\">終了予定:未定</span>";
 $er_msg[2]="ただ今ネットワークプリントはメンテナンス中のため、ご利用いただけません。<br><span style=\"font-weight:600\">終了予定:{$met2["maintenanceTime"]["to"]}</span><br>";
@@ -395,10 +396,9 @@ $(function(){
 <div class="page_main">
 <h2 class="h2">印刷可能なコンビニ</h2>
 <div class="exp_box1">
-<img src="./img/print_logo.jpg" class="note_img"><br>
 <span class="ok1">ファミリーマート</span>と<span class="ok1">ローソン</span>のマルチコピー機で印刷可能です。<br>
 <span class="ng1">セイコーマートのマルチコピー機、セブンイレブンのネットプリントはご利用いただけません。</span>ご注意ください。<br>
-※一部対応していない店舗もございます。詳細は各店舗にご確認下さい。<br>
+※一部対応していない店舗もございます。<br>
 </div>
 
 <h2 class="h2">プリントリスト作成</h2>
@@ -488,6 +488,10 @@ $(function(){
 <br>
 </div>
 </div>
+
+<form id="reload" action="./mydata.php" method="post">
+	<input type="hidden" name="tag" value="print">
+</form>
 
 <form id="p_jump" action="./profile.php" method="post">
 	<input id="p_jump_id" type="hidden" name="n_host" value="">
