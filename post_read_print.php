@@ -12,6 +12,24 @@ $user_id	=$_REQUEST["user_id"];
 $next_print	=$_REQUEST["next_print"]+0;
 $cnt=0;
 
+
+$met	=file_get_contents("https://api.networkprint.jp/rest/webapi/v2/maintenanceInfo");
+$met2	=json_decode($met,true);
+
+if($met2["status"] == "emergency"){
+	$ch_list["mente"]=1;
+}elseif($met2["status"] == "available"){
+}elseif($met2["status"] == "scheduled"){
+	$ch_list["mente"]=2;
+
+}else{
+	if($met2["maintenanceTime"]["from"] <$now && $met2["maintenanceTime"]["to"] > $now){
+		$ch_list["mente"]=3;
+	}
+}
+
+if(!$ch_list["mente"]){
+
 $ck_css[0]=" ck_mes c_wt";
 $ck_css[1]=" ck_mes c_ok";
 $ck_css[2]=" ck_mes c_ng";
@@ -110,6 +128,7 @@ if($dat = mysqli_fetch_assoc($result)){
 	}elseif($cnt>=20){
 		$ch_list["list"].="<div id=\"next_p{$last_id}\" class=\"next_a\">続きを見る</div>";
 	}
+}
 }
 
 echo json_encode($ch_list);

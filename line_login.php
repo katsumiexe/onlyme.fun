@@ -172,13 +172,15 @@ print("<!--".$a1."□".$a2."-->");
 			$prof_x		=$enc[$tmp].".jpg";
 			$link		="./".$dir3.$prof_x;
 
+
 			$pict= imagecreatefromjpeg($line_picture);
 			$img= imagecreatetruecolor(400,400);
 
 			$img_tmp	= getimagesize($line_picture);
 			list($tmp_width, $tmp_height, $type, $attr) = $img_tmp;
 
-			ImageCopyResampled($img, $line_picture, 0, 0, 0, 0, 400, 400, $tmp_width, $tmp_height);
+			ImageCopyResampled($img, $pict, 0, 0, 0, 0, 400, 400, $tmp_width, $tmp_height);
+
 			imagejpeg($img,$link,100);
 
 			$sql="UPDATE reg SET reg_pic=1 WHERE id='{$tmp_auto}'";

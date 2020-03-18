@@ -69,8 +69,8 @@ mysqli_query($mysqli,$sql);
 $n_max=$c;
 if($n_max>20) $n_max=20;
 
+if($t_tag =="print"){
 //■□ネットワークプリントメンテナンス－－－－－
-
 $met	=file_get_contents("https://api.networkprint.jp/rest/webapi/v2/maintenanceInfo");
 $met2	=json_decode($met,true);
 if($met2["status"] == "emergency"){
@@ -86,6 +86,9 @@ if($met2["status"] == "emergency"){
 		$net_mente=0;
 	}
 }
+}
+
+
 
 $er_msg[0]="メンテナンス情報はありません。";
 $er_msg[1]="ただ今ネットワークプリントはメンテナンス中のため、ご利用いただけません。<br><span style=\"font-weight:600\">終了予定:未定</span>";
@@ -144,15 +147,15 @@ var User_id =<?=$user["id"]+0?>;
 var iine_Pt =<?=$iine_pt+0?>;
 
 <?if($t_tag=="print"){?>
-
-$('.album_tag').removeClass('album_tag_sel');
-$(this).addClass('album_tag_sel');
-
 Ck_count=0;
 PrintCk=new Array();	
 $('.list_count').text(Ck_count);
 $(function(){ 
-	if(Maintenance==1 || Maintenance==2){
+	$('.album_tag').removeClass('album_tag_sel');
+	$('#id_print').addClass('album_tag_sel');
+
+
+	if(Maintenance>0){
 		$('.print_box_out').fadeIn(100);
 		$('.notice_box,.fav_b_box,.fav_c_box,.album_box,.print_box').hide();
 

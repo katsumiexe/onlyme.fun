@@ -26,7 +26,7 @@ $met2	=json_decode($met,true);
 
 if($met2["status"] == "emergency"){
 	$ch_list["mente"]=1;
-
+}elseif($met2["status"] == "available"){
 }elseif($met2["status"] == "scheduled"){
 	$ch_list["mente"]=2;
 

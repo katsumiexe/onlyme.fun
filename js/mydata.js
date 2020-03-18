@@ -48,7 +48,6 @@ $(function(){
 		);
 	});
 
-
 	$('#album_in').on('click','.next_a',function () {
 		Next_album	= $(this).attr('id').replace("next_a", "");
 		$.post("post_read_album.php",
@@ -68,28 +67,30 @@ $(function(){
 
 	$('#id_print').on('click',function () {
 		Ck_count=0;
+		PrintCk=new Array();	
 		$('.print_list').removeClass('print_list_on');
 		$('.list_count').css({'background':'#909090','color':'#fafafa'});
 
 		$('.album_tag').removeClass('album_tag_sel');
 		$(this).addClass('album_tag_sel');
 
-		PrintCk=new Array();	
 		$('.list_count').text(Ck_count);
+		$('.notice_box,.fav_b_box,.fav_c_box,.album_box,.print_box_out').hide();
 
-		if(Maintenance==1 || Maintenance==2){
-			$('.print_box_out').fadeIn(100);
-			$('.notice_box,.fav_b_box,.fav_c_box,.album_box,.print_box').hide();
+		$.post({
+			url:'post_read_print.php',
+			data:{'user_id':User_id},
+			dataType: 'json',
 
-		}else{
-			$('.print_box').fadeIn(100);
-			$('.notice_box,.fav_b_box,.fav_c_box,.album_box,.print_box_out').hide();
-			$.post({
-				url:'post_read_print.php',
-				data:{'user_id':User_id},
-				dataType: 'json',
+		}).done(function(data, textStatus, jqXHR){
+			console.log(data);
+			if(data.mente>0){
+				$('#reload').submit();
+				return false;
+			}else{
+				$('.print_box').fadeIn(100);
 
-			}).done(function(data, textStatus, jqXHR){
+
 				$('#print_in').html(data.list);				
 				if(data.code){
 					$('.print_list,.print_code_text').hide();
@@ -104,16 +105,16 @@ $(function(){
 					$('.print_code,.print_code_limit').hide();
 					$('#id_code_del').removeClass('del_on');
 				}
+			}
 
-			}).fail(function(jqXHR, textStatus, errorThrown){
-				console.log("Error");
-			});
-		}
+		}).fail(function(jqXHR, textStatus, errorThrown){
+			console.log("Error");
+		});
+
 	});
 
 	$('#print_in').on('click','.next_a',function () {
 		Next_print	= $(this).attr('id').replace("next_p", "");
-
 			$.post({
 				url:'post_read_print.php',
 				data:{'user_id':User_id,'next_print':Next_print},
@@ -233,7 +234,7 @@ if(data.mente>0){
 		$('.album_tag').removeClass('album_tag_sel');
 		$(this).addClass('album_tag_sel');
 		$('.fav_c_box').fadeIn(100);
-		$('.album_box,.notice_box,.fav_b_box,.print_box').hide();
+		$('.album_box,.notice_box,.fav_b_box,.print_box,.print_box_out').hide();
 
 		$.post("post_read_fav.php",
 			{
