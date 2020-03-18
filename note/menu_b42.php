@@ -1,9 +1,8 @@
 <h2 class="h2">印刷可能なコンビニ</h2>
 <div class="exp_box1">
-<img src="./img/print_logo.jpg" class="note_img"><br>
 <span class="ok1">ファミリーマート</span>と<span class="ok1">ローソン</span>のマルチコピー機で印刷可能です。<br>
 <span class="ng1">セイコーマートのマルチコピー機、セブンイレブンのネットプリントはご利用いただけません。</span>ご注意ください。<br>
-※一部対応していない店舗もございます。詳細は各店舗にご確認下さい。<br>
+※一部対応していない店舗もございます<br>
 
 </div>
 
