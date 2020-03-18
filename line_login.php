@@ -67,11 +67,12 @@ print("<!--".$a1."□".$a2."-->");
 		$line_id		=$reg_chk["sub"];
 
 		$sql=" SELECT * FROM reg";
-		$sql.=" WHERE reg_mail='{$line_mail}' OR reg_line='{$line_id}'";
+		$sql.=" WHERE reg_mail='{$line_mail}' OR reg_line='{$line_id}' ORDER BY id DESC LIMIT 1";
 		$line_reg = mysqli_query($mysqli,$sql);
 
 		if($l_user = mysqli_fetch_assoc($line_reg)){
-			if($user["reg_rank"]>10){
+			if($l_user["reg_rank"]>10){
+
 				session_save_path('./session/');
 				ini_set('session.gc_maxlifetime', 3*60*60); // 3 hours
 				ini_set('session.gc_probability', 1);
@@ -79,13 +80,15 @@ print("<!--".$a1."□".$a2."-->");
 				ini_set('session.cookie_secure', FALSE);
 				ini_set('session.use_only_cookies', TRUE);
 				session_start();
-				$_SESSION	=$l_user;
+				$_SESSION= $l_user;
 				$_SESSION["time"]= time();
 			}
-
+/*
 			$url = 'https://onlyme.fun';
 			header('Location: ' . $url, true, 301);
 			exit;
+*/
+
 		}
 	}
 
@@ -107,6 +110,7 @@ print("<!--".$a1."□".$a2."-->");
 
 	$line_id	=$_POST["line_id"];
 	$line_picture=$_POST["line_picture"];
+
 	if($out == 2){
 		$birth=$yy."-".$mm."-".$dd;
 		$sql="INSERT INTO `reg`(`reg_name`,`reg_mail`,`reg_pass`,`reg_style`,`reg_state`,`reg_birth`,`reg_date`,`reg_sex`,`reg_rank`,`reg_code`,`reg_line`)";
@@ -143,17 +147,48 @@ print("<!--".$a1."□".$a2."-->");
 		}
 
 		if($line_picture){
-			$prof_x		=$enc["01"].".jpg";
+			//■------------------------
+			for($n=0;$n<4;$n++){	
+				$tmp_key=substr($tmp_auto,$n*2,2);
+				$tmp_enc[$n]=$enc[$tmp_key];
+			}
+			//■------------------------
+
+			$user_enc_id=$tmp_enc[0].$tmp_enc[3].$tmp_enc[1].$tmp_enc[2].$tmp_enc[3].$tmp_enc[2];
+			$dir="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[2]}{$tmp_enc[3]}/";//album
+			$dir2="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[1]}{$tmp_enc[3]}/";//card
+			$dir3="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[3]}{$tmp_enc[2]}/";//prof
+
+			mkdir($dir, 0777, TRUE);
+			chmod($dir, 0777);
+
+			mkdir($dir2, 0777, TRUE);
+			chmod($dir2, 0777);
+
+			mkdir($dir3, 0777, TRUE);
+			chmod($dir3, 0777);
+
+			$tmp=substr("0".$tmp_key+1,-2,2);
+			$prof_x		=$enc[$tmp].".jpg";
 			$link		="./".$dir3.$prof_x;
 
 			$pict= imagecreatefromjpeg($line_picture);
 			$img= imagecreatetruecolor(400,400);
 
-			$img_tmp	= getimagesize($pict);
-			list($tmp_width, $tmp_height, $type0, $attr0) = $img_tmp;
+			$img_tmp	= getimagesize($line_picture);
+			list($tmp_width, $tmp_height, $type, $attr) = $img_tmp;
 
-			ImageCopyResampled($img, $pict, 0, 0, 0, 0, 400, 400, $tmp_width, $tmp_height);
+			ImageCopyResampled($img, $line_picture, 0, 0, 0, 0, 400, 400, $tmp_width, $tmp_height);
 			imagejpeg($img,$link,100);
+
+			$sql="UPDATE reg SET reg_pic=1 WHERE id='{$tmp_auto}'";
+			mysqli_query($mysqli,$sql);
+
+print($line_picture."□<br>");
+print($tmp_width."□<br>");
+print($tmp_height."□<br>");
+print($type."□<br>");
+
 		}
 		session_save_path('./session/');
 		ini_set('session.gc_maxlifetime', 3*60*60); // 3 hours

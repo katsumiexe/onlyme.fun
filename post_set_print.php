@@ -10,7 +10,7 @@ if(!$mysqli){
 $base_d=date("Y-m-d 00:00:00",time()-604800);
 $user_id	=$_POST["user_id"];
 $print_ck	=$_POST["print_ck"];
-
+$now=date("Y-m-d H:i:s");
 /*-------------------------------------------------------------*/
 $ck_css[0]=" ck_mes c_wt";
 $ck_css[1]=" ck_mes c_ok";
@@ -23,6 +23,7 @@ $ck_msg[2]="<span class=\"ck_mes c_ng\"><span class=\"ck_icon\"></span><span 
 
 $met	=file_get_contents("https://api.networkprint.jp/rest/webapi/v2/maintenanceInfo");
 $met2	=json_decode($met,true);
+
 if($met2["status"] == "emergency"){
 	$ch_list["mente"]=1;
 
@@ -30,14 +31,14 @@ if($met2["status"] == "emergency"){
 	$ch_list["mente"]=2;
 
 }else{
-	if($met2["maintenanceTime"]["from"] >$now && $met2["maintenanceTime"]["to"] > $now){
+	if($met2["maintenanceTime"]["from"] <$now && $met2["maintenanceTime"]["to"] > $now){
 		$ch_list["mente"]=3;
 	}
 }
 
+
 /*-------------------------------------------------------------*/
-
-
+if(!$ch_list["mente"]){
 $cnt=0;
 $now=date("Y-m-d H:i:s");
 $cont_font	="./font/RobotoCondensed-Regular.ttf";
@@ -235,6 +236,7 @@ if($j_token = file_get_contents($url, false, stream_context_create($dat2))){
 			}
 		}
 	}
+}
 }
 echo json_encode($ch_list);
 exit;

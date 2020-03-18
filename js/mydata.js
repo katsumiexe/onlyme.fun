@@ -88,6 +88,7 @@ $(function(){
 				url:'post_read_print.php',
 				data:{'user_id':User_id},
 				dataType: 'json',
+
 			}).done(function(data, textStatus, jqXHR){
 				$('#print_in').html(data.list);				
 				if(data.code){
@@ -167,9 +168,6 @@ $(function(){
 	});
 
 	$('.print_box').on('click','.print_list_on',function () {
-
-
-
 		$('#wait').show();
 		var print_str = JSON.stringify(PrintCk);
 		var Print = $.parseJSON(print_str);
@@ -179,20 +177,20 @@ $(function(){
 			dataType: 'json',
 
 		}).done(function(data, textStatus, jqXHR){
+			console.log(data.mente);
 
-if(data.limit>0){
-			$('#reload').submit();				
-
+if(data.mente>0){
+			$('#reload').submit();
 }else{
 			$('#print_in').html(data.list);				
 			$('.print_code_id').text(data.code);				
 			$('#limit_date').text(data.limit);				
-}
 			$('#wait,.print_list,.print_code_text').hide();
 			$('.print_code,.print_code_limit').show();
 			$('#id_code_del').addClass('del_on');
-			$('.list_count').text("0");
+}
 
+			$('.list_count').text("0");
 		}).fail(function(jqXHR, textStatus, errorThrown){
 			$('#wait').hide();
 		})
@@ -278,7 +276,6 @@ if(data.limit>0){
 			dataType: 'json',
 
 		}).done(function(data){
-			console.log(data);
 			Pritty	=parseInt(data.s_pritty)+0;
 			Smart	=parseInt(data.s_smart)+0;
 			Funny	=parseInt(data.s_funny)+0;
@@ -364,7 +361,6 @@ if(data.limit>0){
 			'user_id':User_id,
 		},
 		function(data){
-			console.log(data);
 			$('#kiyaku_ck').text('');
 			$('.pop09').delay(500).fadeOut(500,function(){$('#kiyaku_ck').text('')});
 		});

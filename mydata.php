@@ -80,7 +80,7 @@ if($met2["status"] == "emergency"){
 	$net_mente=2;
 
 }else{
-	if($met2["maintenanceTime"]["from"] >$now && $met2["maintenanceTime"]["to"] > $now){
+	if($met2["maintenanceTime"]["from"] <$now && $met2["maintenanceTime"]["to"] > $now){
 		$net_mente=3;
 	}else{
 		$net_mente=0;
