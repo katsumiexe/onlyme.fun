@@ -30,18 +30,33 @@ if($qr == 1){//url
 }elseif($qr == 5){//archive
 	$qrcode_data_string="https://sp.cosp.jp/prof.aspx?id=".$cosp;
 
-}elseif($qr == 6){//url
-	$qrcode_data_string=$url;
-
 }else{
 	$qrcode_data_string="https://onlyme.fun";
 }
 
-
-//$qrcode_data_string="http://piyo-piyo.work/onlyme/test/test/test/testindex.php";
-//$qrcode_data_string="https://onlyme.fun/";
-
 /* ------ setting area end ------ */
+
+if($qr == 6){//■LINE
+
+for ($qry=0; $qry < 40; $qry++) {
+	for ($qrx=0; $qrx < 40; $qrx++) {
+		$pixel = ImageColorAt($base_image, $qrx, $qry);
+
+		if($pixel >0){
+			imagefilledrectangle($base_image2, $qrx*3, $qry*3, $qrx*3+2, $qry*3+2, $col[1]);
+
+		}else{
+			imagefilledrectangle($base_image2, $qrx*3, $qry*3, $qrx*3+2, $qry*3+2, $col[0]);
+		}
+	}
+}
+
+
+
+
+$qrcode_image_size2=120;
+
+}else{
 
 $qrcode_error_correct="H";
 $qrcode_module_size=2;
@@ -390,12 +405,6 @@ while($i<$max_data_codewords){
     $i++;
 }
 
-/*
-#
-# RS-ECC main
-#
-*/
-
 $rs_block_number=0;
 $rs_block_order_num=count($rs_block_order);
 
@@ -645,19 +654,18 @@ for ($qry=1; $qry < $mib-1; $qry++) {
 		$pixel = ImageColorAt($base_image, $qrx, $qry);
 
 		if($pixel >0){
-//			imagefilledrectangle($base_image2, $qrx*2*$b, $qry*2*$b, $qrx*2*$b+$b*2-1, $qry*2*$b+$b*2-1, $col[1]);
 			imagefilledrectangle($base_image2, $qrx*1.5*$b, $qry*1.5*$b, $qrx*1.5*$b+$b*1.5-1, $qry*1.5*$b+$b*1.5-1, $col[1]);
 
 		}else{
-//			imagefilledrectangle($base_image2, $qrx*2*$b, $qry*2*$b, $qrx*2*$b+$b*2-1, $qry*2*$b+$b*2-1, $col[0]);
 			imagefilledrectangle($base_image2, $qrx*1.5*$b, $qry*1.5*$b, $qrx*1.5*$b+$b*1.5-1, $qry*1.5*$b+$b*1.5-1, $col[0]);
-
 		}
 	}
 }
 
+}//■LINE以外処理ここまで------------------------------------
 
 
+//■ダミー用-----------------------------------
 for ($qry=1; $qry < 129; $qry++) {
 	for ($qrx=1; $qrx < 129; $qrx++) {
 		$pixel = ImageColorAt($base_qr, $qrx, $qry);
@@ -672,6 +680,7 @@ for ($qry=1; $qry < 129; $qry++) {
 
 	}
 }
+
 
 
 $i_size=ceil($qrcode_image_size2*0.2);
@@ -715,4 +724,3 @@ imagettftext($tmp2, $i_size, 0, $qr_s_x, $qr_s_y, $col2[0], $icon_font, $c_icon)
 ImageCopy($tmpn, $base_qr2 , $qr_n_x, $qr_n_y, 0, 0, 128, 128);
 
 ?>
-

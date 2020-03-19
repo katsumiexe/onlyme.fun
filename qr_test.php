@@ -1,13 +1,8 @@
 <?
 include_once("./library/no_session.php");
-
 $at=array(14,39,65,90,118,137,167);
-
 $at_lim=array(0,27,51,78,102,129,153);
-
 $at_point=array(27,24,27,24,27,24,27);
-
-
 
 $img_url 	= imagecreatefromjpeg("./myalbum/qr.jpg");
 $base		=imagecreate(120,120);
@@ -43,17 +38,13 @@ for($y=0;$y<35;$y++){
 	for($x=0;$x<35;$x++){
 		$code_ck=substr($s_code,$ck,1);
 
-		$x1=$x*3+6;
-		$x2=$x*3+6+2;
-		$y1=$y*3+6;
-		$y2=$y*3+6+2;
-
 		if($code_ck == 1){
-			imagefilledrectangle($base, $x1, $y1, $x2, $y2, $black);
-//		    ImageSetPixel($base,$x,$y,$red); 
+//			imagefilledrectangle($base, $x1, $y1, $x2, $y2, $black);
+		    ImageSetPixel($base,$x+2,$y+2,$black); 
 
 		}else{
-			imagefilledrectangle($base, $x1, $y1, $x2, $y2, $white);
+//			imagefilledrectangle($base, $x1, $y1, $x2, $y2, $white);
+		    ImageSetPixel($base,$x+2,$y+2,$white); 
 		}
 		$ck++;
 	}

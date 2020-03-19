@@ -4,8 +4,8 @@ include_once("./library/lib_me.php");
 include_once("./library/no_session.php");
 include_once("./library/lib_regist.php");
 /*
-https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=profile%20openid%20email	
-*/	
+https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=profile%20openid%20email
+*/
 
 $yy		=$_POST["yy"];
 $out	=$_POST["out"];
@@ -13,6 +13,7 @@ $out	=$_POST["out"];
 if(!$yy) $yy=2000;
 
 if(!$out){
+
 	$dat_e = array(
 	  'grant_type'    => 'authorization_code',
 	  'code'          => $_GET['code'],
@@ -22,7 +23,7 @@ if(!$out){
 	);
 
 	$url = "https://api.line.me/oauth2/v2.1/token";
-	$content = http_build_query($dat_e);	
+	$content = http_build_query($dat_e);
 	$dat_e2 = array(
 		'http' => array(
 			'header' =>"Content-Type: application/x-www-form-urlencoded",
@@ -57,9 +58,10 @@ if(!$out){
 	$tmp=base64_decode($id_decode[1]);
 	$reg_chk=json_decode($tmp,true);
 
-foreach($reg_chk as $a1 => $a2){
-print("<!--".$a1."□".$a2."-->");
-}
+	foreach($reg_chk as $a1 => $a2){
+	print("<!--".$a1."□".$a2."-->");
+	}
+
 	if($reg_chk["iss"] =="https://access.line.me" && $reg_chk["aud"] ==1653949496){
 		$line_name		=$reg_chk["name"];
 		$line_picture	=$reg_chk["picture"];
@@ -67,12 +69,11 @@ print("<!--".$a1."□".$a2."-->");
 		$line_id		=$reg_chk["sub"];
 
 		$sql=" SELECT * FROM reg";
-		$sql.=" WHERE reg_mail='{$line_mail}' OR reg_line='{$line_id}' ORDER BY id DESC LIMIT 1";
+		$sql.=" WHERE reg_line='{$line_id}' ORDER BY id DESC LIMIT 1";
 		$line_reg = mysqli_query($mysqli,$sql);
 
 		if($l_user = mysqli_fetch_assoc($line_reg)){
 			if($l_user["reg_rank"]>10){
-
 				session_save_path('./session/');
 				ini_set('session.gc_maxlifetime', 3*60*60); // 3 hours
 				ini_set('session.gc_probability', 1);
@@ -82,18 +83,60 @@ print("<!--".$a1."□".$a2."-->");
 				session_start();
 				$_SESSION= $l_user;
 				$_SESSION["time"]= time();
+
+				if($l_user["reg_mail"] != $line_mail){
+					$sql="UPDATE reg SET reg_mail='{$line_mail}' WHERE id='{$l_user["id"]}'";
+					mysqli_query($mysqli,$sql);
+				}
+
+				if($line_picture){
+					//■------------------------
+					for($n=0;$n<4;$n++){	
+						$tmp_key=substr($l_user["id"],$n*2,2);
+						$tmp_enc[$n]=$enc[$tmp_key];
+					}
+					//■------------------------
+					$user_enc_id=$tmp_enc[0].$tmp_enc[3].$tmp_enc[1].$tmp_enc[2].$tmp_enc[3].$tmp_enc[2];
+					$dir="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[2]}{$tmp_enc[3]}/";//album
+					$dir2="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[1]}{$tmp_enc[3]}/";//card
+					$dir3="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[3]}{$tmp_enc[2]}/";//prof
+
+					mkdir($dir, 0777, TRUE);
+					chmod($dir, 0777);
+
+					mkdir($dir2, 0777, TRUE);
+					chmod($dir2, 0777);
+
+					mkdir($dir3, 0777, TRUE);
+					chmod($dir3, 0777);
+
+					$tmp=substr("0".$tmp_key+1,-2,2);
+					$prof_x		=$enc[$tmp].".jpg";
+					$link		="./".$dir3.$prof_x;
+
+					$pict= imagecreatefromjpeg($line_picture);
+					$img= imagecreatetruecolor(400,400);
+
+					$img_tmp	= getimagesize($line_picture);
+					list($tmp_width, $tmp_height, $type, $attr) = $img_tmp;
+
+					ImageCopyResampled($img, $pict, 0, 0, 0, 0, 400, 400, $tmp_width, $tmp_height);
+					imagejpeg($img,$link,100);
+				}
+
 			}
+
 /*
 			$url = 'https://onlyme.fun';
 			header('Location: ' . $url, true, 301);
 			exit;
 */
-
 		}
+
 	}
 
-}else{
 
+}else{
 	$send		=$_POST["send"];
 	$reg_mail	=$_POST["reg_mail"];
 
@@ -179,8 +222,8 @@ print("<!--".$a1."□".$a2."-->");
 			$img_tmp	= getimagesize($line_picture);
 			list($tmp_width, $tmp_height, $type, $attr) = $img_tmp;
 
-			ImageCopyResampled($img, $pict, 0, 0, 0, 0, 400, 400, $tmp_width, $tmp_height);
-
+//			ImageCopyResampled($img, $pict, 0, 0, 0, 0, 400, 400, $tmp_width, $tmp_height);
+			ImageCopyResampled($img, $pict, 0, 0, 0, 0, 400, 400, 800, 800);
 			imagejpeg($img,$link,100);
 
 			$sql="UPDATE reg SET reg_pic=1 WHERE id='{$tmp_auto}'";

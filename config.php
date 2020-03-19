@@ -161,6 +161,13 @@ $(function(){
 <table class="config_img">
 	<tr>
 		<td class="config_img_a" rowspan="3"><img src="<?=$user_face?>?t=<?=time()?>" class="config_img_a1"></td>
+
+<?if($user["reg_line"]){?>
+		<td class="config_img_b">
+			<div class="config_img_line"><span class="icon_img" style="font-weight:400;"></span>LINE</div>
+		</td>
+<?}else{?>
+
 		<td class="config_img_b">
 			<img id="sumb1" src="<?=$prof_img[1]?>?t=<?=time()?>" class="config_img_b1">
 			<div id="s1" class="img_btn1<?if(strpos($prof_img[1],"noimage") === FALSE){?> btn_chg<?}?><?if($user["reg_pic"]== 1){?> img_sel<?}?>">
@@ -176,6 +183,8 @@ $(function(){
 				<span class="img_btn_txt">削除</span>
 			</div>
 		</td>
+<? } ?>
+
 	</tr>
 	<tr>
 		<td class="config_img_b">
