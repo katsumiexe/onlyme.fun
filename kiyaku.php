@@ -13,7 +13,6 @@ $d=0;
 <head>
 <title>写真名刺制作サイト「OnlyMe」</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <meta name="description" content="PC不要、住所不要、スマホで作成、コンビニで印刷。手軽で簡単な写真名刺制作サイトです。">
 <meta name="keywords" content="写真名刺,コスプレ,画像修正,onlyme,名刺作成,無料,簡単">
