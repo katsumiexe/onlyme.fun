@@ -38,6 +38,19 @@ if($qr == 1){//url
 
 if($qr == 6){//■LINE
 
+$qrcode_image_size2=120;
+
+$line_qr=$dir3.$tmp_enc[2]."s".$tmp_enc[3].".png";
+
+
+$base_image=ImageCreateFromPNG($line_qr);
+$base_image2 =imagecreate($qrcode_image_size2,$qrcode_image_size2);
+
+$col[0]=ImageColorAllocate($base_image2,$qr_t1,$qr_t2,$qr_t3);
+$col[1]=ImageColorAllocate($base_image2,$qr_b1,$qr_b2,$qr_b3);
+$c_icon='';
+
+
 for ($qry=0; $qry < 40; $qry++) {
 	for ($qrx=0; $qrx < 40; $qrx++) {
 		$pixel = ImageColorAt($base_image, $qrx, $qry);
@@ -50,11 +63,6 @@ for ($qry=0; $qry < 40; $qry++) {
 		}
 	}
 }
-
-
-
-
-$qrcode_image_size2=120;
 
 }else{
 
@@ -677,9 +685,9 @@ for ($qry=1; $qry < 129; $qry++) {
 			    ImageSetPixel($base_qr2,$qrx,$qry,$col3[0]); 
 
 		}
-
 	}
 }
+//■ダミー用ここまで----------------------------
 
 
 
@@ -702,7 +710,6 @@ if($dat_tmpl['qr_p']==1 ||$dat_tmpl['qr_p']==3){
 	$qr_x	=$base_x-$qrcode_image_size2-ceil($dat_tmpl['qr_x']*$b)+8;
 	$qr_s_x	=$qr_x+$b_size[0];
 	$qr_n_x	=$base_x-128;
-
 }
 
 if($dat_tmpl['qr_p']<=2){

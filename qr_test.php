@@ -5,12 +5,12 @@ $at_lim=array(0,27,51,78,102,129,153);
 $at_point=array(27,24,27,24,27,24,27);
 
 $img_url 	= imagecreatefromjpeg("./myalbum/qr.jpg");
-$base		=imagecreate(120,120);
+$base		=imagecreate(40,40);
 $black		=ImageColorAllocate($base,0,0,0);
 $white		=ImageColorAllocate($base,255,255,255);
 $red		=ImageColorAllocate($base,255,0,0);
 
-ImageFilledRectangle($base,0,0,120,120,$white);
+ImageFilledRectangle($base,0,0,40,40,$white);
 
 $ck=0;
 for($y=0;$y<35;$y++){

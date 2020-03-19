@@ -13,7 +13,6 @@ $out	=$_POST["out"];
 if(!$yy) $yy=2000;
 
 if(!$out){
-
 	$dat_e = array(
 	  'grant_type'    => 'authorization_code',
 	  'code'          => $_GET['code'],
@@ -126,15 +125,12 @@ if(!$out){
 
 			}
 
-/*
 			$url = 'https://onlyme.fun';
 			header('Location: ' . $url, true, 301);
 			exit;
-*/
+
 		}
-
 	}
-
 
 }else{
 	$send		=$_POST["send"];
@@ -214,7 +210,6 @@ if(!$out){
 			$tmp=substr("0".$tmp_key+1,-2,2);
 			$prof_x		=$enc[$tmp].".jpg";
 			$link		="./".$dir3.$prof_x;
-
 
 			$pict= imagecreatefromjpeg($line_picture);
 			$img= imagecreatetruecolor(400,400);

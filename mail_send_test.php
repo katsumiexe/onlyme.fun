@@ -1,9 +1,5 @@
 <?php
 
-$headers = 'From: test@onlyme.fun\r\n';
-$headers.= 'Content-Type: multipart/mixed; boundary="nyan"\r\n';
-$to      = 'counterpost2016@gmail.com';
-$subject = 'まるちぱーと';
 $msg ='--nyan';
 $msg.='Content-Type: text/plain; charset="iso-2022-jp"';
 $msg.='Content-Transfer-Encoding: 7bit';
@@ -22,12 +18,26 @@ $msg.='</body>';
 $msg.='</html>';
 $msg.='--nyan';
 
-mb_send_mail($to, $subject, $msg, $headers);
+
+$mail	="counterpost2016@gmail.com";
+$subject	= "てすと";//■メールタイトル
+
+$from		= "onlymestaff@gmail.com";//■送信メールアドレス・エラー時戻りアドレス
+$from_name	= "差出人";//■差出人
+$pass		= "http://piyo-piyo.work/simulator/";//■このファイルが入っているフォルダ
+$ret= "-f ".$from;
+
+$head  = 'From:' . mb_encode_mimeheader($from_name,"ISO-2022-JP") . '<{$from}> \r\n';
+$head .= 'Content-Type: multipart/mixed; boundary=nyan \r\n';
+
+
+mb_send_mail($mail, $subject, $msg, $head, $ret);
+
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html lang="ja">
 <body class="body">
-にゃんにゃ
+にゃんにゃん
 
 </body>
 </html>
