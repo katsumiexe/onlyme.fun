@@ -59,9 +59,38 @@
 	height		:10vw;
 	line-height	:10vw;
 	background	:#00c000;
-	color		:#fafafa;
-	font-weight	:600;
 	border-radius:1vw;
+	text-decoration:none;
+}
+
+.icon_line{
+	display:inline-block;
+	position	:absolute;
+	top			:0;
+	left		:2vw;
+	bottom		:0;
+	margin		:auto;
+	width		:8vw;
+	height		:8vw;
+	line-height	:8vw;
+	color		:#fafafa;
+	font-size	:8vw;
+}
+
+.text_line{
+	display:inline-block;
+	position	:absolute;
+	top			:0;
+	left		:0;
+	right		:0;
+	bottom		:0;
+	margin		:auto;
+	height		:8vw;
+	line-height	:8vw;
+	color		:#fafafa;
+	font-size	:8vw;
+	text-align	:center;
+	font-weight	:700;
 }
 
 

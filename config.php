@@ -164,7 +164,7 @@ $(function(){
 
 <?if($user["reg_line"]){?>
 		<td class="config_img_b">
-			<div class="config_img_line"><span class="icon_img" style="font-weight:400;"></span>LINE</div>
+			<a href="https://line.me/R/" class="config_img_line"><span class="icon_img icon_line"></span><span class="text_line">LINE</span></a>
 		</td>
 <?}else{?>
 

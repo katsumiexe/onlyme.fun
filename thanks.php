@@ -162,6 +162,8 @@ if($result = mysqli_query($mysqli,$sql)){
 	OnlyMe作成にあたり、ご協力いただいた方々です。<br>
 </div>
 
+<div class="thanks_icon" style="color:#303030"></div>
+
 <?foreach($thanks as $a1 =>$a2){?>
 <div class="thanks_box">
 	<span class="thanks_box_name"><?=$thanks[$a1]["name"]?></span>

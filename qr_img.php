@@ -12,10 +12,25 @@ $qr_t3=hexdec(substr($dat_tmpl['qr_top'],5,2));
 $qr_b1=hexdec(substr($dat_tmpl['qr_base'],1,2));
 $qr_b2=hexdec(substr($dat_tmpl['qr_base'],3,2));
 $qr_b3=hexdec(substr($dat_tmpl['qr_base'],5,2));
+/*
+$qr_t1=255;
+$qr_t2=0;
+$qr_t3=0;
 
+$qr_b1=0;
+$qr_b2=0;
+$qr_b3=255;
+*/
 
 $base_qr=ImageCreateFromPNG("./img/qr_base.png");
 $base_qr2=ImageCreate(128,128);
+
+$col2[0]=ImageColorAllocate($tmp2,$qr_t1,$qr_t2,$qr_t3);
+$col2[1]=ImageColorAllocate($tmp2,$qr_b1,$qr_b2,$qr_b3);
+
+$col3[0]=ImageColorAllocate($base_qr2,$qr_t1,$qr_t2,$qr_t3);
+$col3[1]=ImageColorAllocate($base_qr2,$qr_b1,$qr_b2,$qr_b3);
+
 
 
 if($qr == 1){//url
@@ -48,7 +63,7 @@ $base_image2 =imagecreate($qrcode_image_size2,$qrcode_image_size2);
 
 $col[0]=ImageColorAllocate($base_image2,$qr_t1,$qr_t2,$qr_t3);
 $col[1]=ImageColorAllocate($base_image2,$qr_b1,$qr_b2,$qr_b3);
-$c_icon='';
+$c_icon='';
 
 
 for ($qry=0; $qry < 40; $qry++) {
@@ -583,14 +598,7 @@ $wh=ImageColorAllocate($base_image2,255,255,255);
 $col[0]=ImageColorAllocate($base_image2,$qr_t1,$qr_t2,$qr_t3);
 $col[1]=ImageColorAllocate($base_image2,$qr_b1,$qr_b2,$qr_b3);
 
-$col2[0]=ImageColorAllocate($tmp2,$qr_t1,$qr_t2,$qr_t3);
-$col2[1]=ImageColorAllocate($tmp2,$qr_b1,$qr_b2,$qr_b3);
 
-$col3[0]=ImageColorAllocate($base_qr2,$qr_t1,$qr_t2,$qr_t3);
-$col3[1]=ImageColorAllocate($base_qr2,$qr_b1,$qr_b2,$qr_b3);
-
-$col4[0]=ImageColorAllocate($tmpn,$qr_t1,$qr_t2,$qr_t3);
-$col4[1]=ImageColorAllocate($tmpn,$qr_b1,$qr_b2,$qr_b3);
 
 $image_path=$image_path."/qrv".$qrcode_version.".png";
 $base_image=ImageCreateFromPNG($image_path);
@@ -725,7 +733,7 @@ if($dat_tmpl['qr_p']<=2){
 
 ImageCopyResized($tmp2, $base_image2 , $qr_x, $qr_y, 4, 4, $qrcode_image_size2-8, $qrcode_image_size2-8, $qrcode_image_size2-8, $qrcode_image_size2-8);
 
-imagettftext($tmp2, $i_size, 0, $qr_s_x, $qr_s_y, $col2[1], $icon_font, '');
+imagettftext($tmp2, $i_size, 0, $qr_s_x, $qr_s_y, $col2[1], $icon_font, '');
 imagettftext($tmp2, $i_size, 0, $qr_s_x, $qr_s_y, $col2[0], $icon_font, $c_icon);
 
 ImageCopy($tmpn, $base_qr2 , $qr_n_x, $qr_n_y, 0, 0, 128, 128);
