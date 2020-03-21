@@ -30,12 +30,11 @@ if(!$out){
 		)
 	);	
 
-
 	$e_token = file_get_contents($url,false, stream_context_create($dat_e2));
 	$e_login =json_decode($e_token,true);
-
 	$id_token		=$e_login["id_token"];
 
+/*
 	$dat_d = array(
 		'id_token'	=>$id_token,
 		'client_id'	=>'1653949496'
@@ -54,6 +53,8 @@ if(!$out){
 	$d_token = file_get_contents($url,false, stream_context_create($dat_d2));
 	$d_login =json_decode($d_token,true);
 
+*/
+
 	$id_decode=explode(".",$id_token);
 	$tmp=base64_decode($id_decode[1]);
 	$reg_chk=json_decode($tmp,true);
@@ -68,6 +69,7 @@ if(!$out){
 
 	if($reg_chk["iss"] =="https://access.line.me" && $reg_chk["aud"] ==1653949496){
 
+
 //■友達チェック------------------
 		$url="https://api.line.me/friendship/v1/status";
 		$dat_a2 = array(
@@ -77,14 +79,13 @@ if(!$out){
 			)
 		);
 
-		$a_token = file_get_contents($url,false, stream_context_create($dat_a2));
+		$a_token = file_get_contents($url, stream_context_create($dat_a2));
 		$a_login =json_decode($a_token,true);
+
 		print("△".$a_token);
 		print("▽".$a_login);
 
 //■友達チェック------------------
-
-
 
 		$line_name		=$reg_chk["name"];
 		$line_picture	=$reg_chk["picture"];
