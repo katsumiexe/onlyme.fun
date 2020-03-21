@@ -264,7 +264,7 @@ $(function(){
 			名刺データ右上の『<span class="icon_img"></span>』をタップすることで、印刷リストに追加できます（最大10個）。<br>
 		</div>
 
-		<div class="print_code_print"><span class="print_icon"></span>プリント方法</div>
+		<div class="print_code_print"><span class="print_icon"></span>プリント方法</div>
 
 		<div id="id_code_del" class="print_code_del"><span class="print_icon"></span>リストの削除</div>
 
@@ -406,7 +406,7 @@ $(function(){
 
 <h2 class="h2">プリントリスト作成</h2>
 <div class="exp_box1">
-<span class="ok2"><span class="icon_img"></span>Album</span>⇒<span class="ok2">「プリント」</span>を選択してください。<br>
+<span class="ok2"><span class="icon_img"></span>Album</span>⇒<span class="ok2">「プリント」</span>を選択してください。<br>
 プリントしたい名刺データの右上の『<span class="icon_img"></span>』をタップしますと、プリントリストに追加できます。<br>
 プリントリストには最大10枚までの名刺データを追加できます。<br>
 プリントリストは一つしか作成できません。新たに作成する場合は、既存のプリントリストを削除する必要があります。<br>

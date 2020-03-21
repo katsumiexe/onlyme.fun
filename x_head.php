@@ -34,13 +34,13 @@ ERROR!
 				<a href="index.php" class="head_l <?if($nowpage==1){?> top_l_sel<?}?>"><span class="head_icon icon_img"></span><span class="head_com">TOP</span></a>
 			</div>
 			<div  class="head_c <?if($nowpage==2){?> top_b_sel<?}?>">
-				<a href="mydata.php" class="head_l <?if($nowpage==2){?> top_l_sel<?}?>"><span class="head_icon icon_img"></span><span class="head_com">Album</span><?if($datn2["cnt"]){?><span class="head_cnt"><?=$datn2["cnt"]?></span><?}?></a>
+				<a href="mydata.php" class="head_l <?if($nowpage==2){?> top_l_sel<?}?>"><span class="head_icon icon_img"></span><span class="head_com">Album</span><?if($datn2["cnt"]){?><span class="head_cnt"><?=$datn2["cnt"]?></span><?}?></a>
 			</div>
 			<div  class="head_c <?if($nowpage==3){?> top_b_sel<?}?>">
 				<a href="making.php" class="head_l <?if($nowpage==3){?> top_l_sel<?}?>"><span class="head_icon icon_img"></span><span class="head_com">Making</span></a>
 			</div>
 			<div  class="head_c <?if($nowpage==4){?> top_b_sel<?}?>">
-				<a href="config.php" class="head_l <?if($nowpage==4){?> top_l_sel<?}?>"><span class="head_icon icon_img"></span><span class="head_com">Config</span></a>
+				<a href="config.php" class="head_l <?if($nowpage==4){?> top_l_sel<?}?>"><span class="head_icon icon_img"></span><span class="head_com">Config</span></a>
 			</div>
 	</div>
 	<div class="mypage">

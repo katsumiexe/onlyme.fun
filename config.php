@@ -164,7 +164,12 @@ $(function(){
 
 <?if($user["reg_line"]){?>
 		<td class="config_img_b">
-			<a href="https://line.me/R/" class="config_img_line"><span class="icon_img icon_line"></span><span class="text_line">LINE</span></a>
+			<img id="sumb1" src="<?=$prof_img[1]?>?t=<?=time()?>" class="config_img_b1">
+			<div id="s1" class="img_btn1<?if(strpos($prof_img[1],"noimage") === FALSE){?> btn_chg<?}?><?if($user["reg_pic"]== 1){?> img_sel<?}?>">
+				<span class="icon_img icon_5s img_btn_icon"></span>
+				<span class="img_btn_txt">選択</span>
+			</div>
+			<a href="line://nv/profile" class="config_img_line"><span class="icon_img icon_line"></span><span class="text_line">LINE</span></a>
 		</td>
 <?}else{?>
 

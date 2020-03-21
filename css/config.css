@@ -51,11 +51,11 @@
 .config_img_line{
 	position	:absolute;
 	top			:0;
-	left		:0;
+	left		:27vw;
 	right		:0;
 	bottom		:0;
 	margin		:auto;
-	width		:54vw;
+	width		:24vw;
 	height		:10vw;
 	line-height	:10vw;
 	background	:#00c000;
@@ -67,28 +67,28 @@
 	display:inline-block;
 	position	:absolute;
 	top			:0;
-	left		:2vw;
+	left		:1vw;
 	bottom		:0;
 	margin		:auto;
-	width		:8vw;
-	height		:8vw;
-	line-height	:8vw;
+	width		:6vw;
+	height		:6vw;
+	line-height	:6vw;
 	color		:#fafafa;
-	font-size	:8vw;
+	font-size	:6vw;
 }
 
 .text_line{
 	display:inline-block;
 	position	:absolute;
 	top			:0;
-	left		:0;
+	left		:7vw;
 	right		:0;
 	bottom		:0;
 	margin		:auto;
-	height		:8vw;
-	line-height	:8vw;
+	height		:6vw;
+	line-height	:6vw;
 	color		:#fafafa;
-	font-size	:8vw;
+	font-size	:5vw;
 	text-align	:center;
 	font-weight	:700;
 }

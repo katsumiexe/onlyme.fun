@@ -9,10 +9,9 @@ https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=165394
 
 $yy		=$_POST["yy"];
 $out	=$_POST["out"];
-
 if(!$yy) $yy=2000;
-
 if(!$out){
+
 	$dat_e = array(
 	  'grant_type'    => 'authorization_code',
 	  'code'          => $_GET['code'],
@@ -68,67 +67,114 @@ if(!$out){
 		$line_id		=$reg_chk["sub"];
 
 		$sql=" SELECT * FROM reg";
-		$sql.=" WHERE reg_line='{$line_id}' ORDER BY id DESC LIMIT 1";
-		$line_reg = mysqli_query($mysqli,$sql);
+		$sql.=" WHERE reg_mail='{$line_mail}' && reg_line='' ORDER BY id DESC LIMIT 1";
+		$line_yet = mysqli_query($mysqli,$sql);
 
-		if($l_user = mysqli_fetch_assoc($line_reg)){
-			if($l_user["reg_rank"]>10){
-				session_save_path('./session/');
-				ini_set('session.gc_maxlifetime', 3*60*60); // 3 hours
-				ini_set('session.gc_probability', 1);
-				ini_set('session.gc_divisor', 100);
-				ini_set('session.cookie_secure', FALSE);
-				ini_set('session.use_only_cookies', TRUE);
-				session_start();
-				$_SESSION= $l_user;
-				$_SESSION["time"]= time();
+		if($l_user_yet = mysqli_fetch_assoc($line_yet)){
 
-				if($l_user["reg_mail"] != $line_mail){
-					$sql="UPDATE reg SET reg_mail='{$line_mail}' WHERE id='{$l_user["id"]}'";
-					mysqli_query($mysqli,$sql);
+			if($line_picture){
+				//■------------------------
+				for($n=0;$n<4;$n++){	
+					$tmp_key=substr($l_user_yet["id"],$n*2,2);
+					$tmp_enc[$n]=$enc[$tmp_key];
 				}
+				//■------------------------
+				$user_enc_id=$tmp_enc[0].$tmp_enc[3].$tmp_enc[1].$tmp_enc[2].$tmp_enc[3].$tmp_enc[2];
+				$dir="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[2]}{$tmp_enc[3]}/";//album
+				$dir2="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[1]}{$tmp_enc[3]}/";//card
+				$dir3="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[3]}{$tmp_enc[2]}/";//prof
 
-				if($line_picture){
-					//■------------------------
-					for($n=0;$n<4;$n++){	
-						$tmp_key=substr($l_user["id"],$n*2,2);
-						$tmp_enc[$n]=$enc[$tmp_key];
-					}
-					//■------------------------
-					$user_enc_id=$tmp_enc[0].$tmp_enc[3].$tmp_enc[1].$tmp_enc[2].$tmp_enc[3].$tmp_enc[2];
-					$dir="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[2]}{$tmp_enc[3]}/";//album
-					$dir2="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[1]}{$tmp_enc[3]}/";//card
-					$dir3="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[3]}{$tmp_enc[2]}/";//prof
+				mkdir($dir, 0777, TRUE);
+				chmod($dir, 0777);
 
-					mkdir($dir, 0777, TRUE);
-					chmod($dir, 0777);
+				mkdir($dir2, 0777, TRUE);
+				chmod($dir2, 0777);
 
-					mkdir($dir2, 0777, TRUE);
-					chmod($dir2, 0777);
+				mkdir($dir3, 0777, TRUE);
+				chmod($dir3, 0777);
 
-					mkdir($dir3, 0777, TRUE);
-					chmod($dir3, 0777);
+				$tmp=substr("0".$tmp_key+1,-2,2);
+				$prof_x		=$enc[$tmp].".jpg";
+				$link		="./".$dir3.$prof_x;
 
-					$tmp=substr("0".$tmp_key+1,-2,2);
-					$prof_x		=$enc[$tmp].".jpg";
-					$link		="./".$dir3.$prof_x;
+				$pict= imagecreatefromjpeg($line_picture);
+				$img= imagecreatetruecolor(400,400);
 
-					$pict= imagecreatefromjpeg($line_picture);
-					$img= imagecreatetruecolor(400,400);
+				$img_tmp	= getimagesize($line_picture);
+				list($tmp_width, $tmp_height, $type, $attr) = $img_tmp;
 
-					$img_tmp	= getimagesize($line_picture);
-					list($tmp_width, $tmp_height, $type, $attr) = $img_tmp;
-
-					ImageCopyResampled($img, $pict, 0, 0, 0, 0, 400, 400, $tmp_width, $tmp_height);
-					imagejpeg($img,$link,100);
-				}
-
+				ImageCopyResampled($img, $pict, 0, 0, 0, 0, 400, 400, $tmp_width, $tmp_height);
+				imagejpeg($img,$link,100);
 			}
 
-			$url = 'https://onlyme.fun';
-			header('Location: ' . $url, true, 301);
-			exit;
+			$sql ="UPDATE reg SET reg_line='{$line_id}'";
+	if(!$l_user_yet["reg_pic"]){
+			$sql.=" ,reg_pic='1'";
+	}
+			$sql.=" WHERE reg_mail='{$line_mail}'";
+			mysqli_query($mysqli,$sql);
 
+		}else{
+			$sql=" SELECT * FROM reg";
+			$sql.=" WHERE reg_line='{$line_id}' ORDER BY id DESC LIMIT 1";
+			$line_reg = mysqli_query($mysqli,$sql);
+
+			if($l_user = mysqli_fetch_assoc($line_reg)){
+				if($l_user["reg_rank"]>10){
+					session_save_path('./session/');
+					ini_set('session.gc_maxlifetime', 3*60*60); // 3 hours
+					ini_set('session.gc_probability', 1);
+					ini_set('session.gc_divisor', 100);
+					ini_set('session.cookie_secure', FALSE);
+					ini_set('session.use_only_cookies', TRUE);
+					session_start();
+					$_SESSION= $l_user;
+					$_SESSION["time"]= time();
+
+					if($l_user["reg_mail"] != $line_mail){
+						$sql="UPDATE reg SET reg_mail='{$line_mail}' WHERE id='{$l_user["id"]}'";
+						mysqli_query($mysqli,$sql);
+					}
+
+					if($line_picture){
+						//■------------------------
+						for($n=0;$n<4;$n++){	
+							$tmp_key=substr($l_user["id"],$n*2,2);
+							$tmp_enc[$n]=$enc[$tmp_key];
+						}
+						//■------------------------
+						$user_enc_id=$tmp_enc[0].$tmp_enc[3].$tmp_enc[1].$tmp_enc[2].$tmp_enc[3].$tmp_enc[2];
+						$dir="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[2]}{$tmp_enc[3]}/";//album
+						$dir2="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[1]}{$tmp_enc[3]}/";//card
+						$dir3="myalbum/{$tmp_enc[3]}/{$user_enc_id}/{$tmp_enc[3]}{$tmp_enc[2]}/";//prof
+
+						mkdir($dir, 0777, TRUE);
+						chmod($dir, 0777);
+
+						mkdir($dir2, 0777, TRUE);
+						chmod($dir2, 0777);
+
+						mkdir($dir3, 0777, TRUE);
+						chmod($dir3, 0777);
+
+						$tmp=substr("0".$tmp_key+1,-2,2);
+						$prof_x		=$enc[$tmp].".jpg";
+						$link		="./".$dir3.$prof_x;
+
+						$pict= imagecreatefromjpeg($line_picture);
+						$img= imagecreatetruecolor(400,400);
+
+						$img_tmp	= getimagesize($line_picture);
+						list($tmp_width, $tmp_height, $type, $attr) = $img_tmp;
+
+						ImageCopyResampled($img, $pict, 0, 0, 0, 0, 400, 400, $tmp_width, $tmp_height);
+						imagejpeg($img,$link,100);
+					}
+				}
+				$url = 'https://onlyme.fun';
+				header('Location: ' . $url, true, 301);
+				exit;
+			}
 		}
 	}
 

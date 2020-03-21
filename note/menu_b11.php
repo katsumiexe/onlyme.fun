@@ -5,7 +5,7 @@
 『写真登録』で使う写真を登録します。<br>
 『テキスト』で名前やSNSリンク等を設定します。<br>
 設定できましたら<span class="red">【<span class="icon_img"></span>】</span>をタップしてください。<br>
-<div class="exp_box2">『テキスト』は<span class="red">[<span class="icon_img"></span>config]</span>で設定することも可能で、設定しておけば毎回入力する必要がなくなります。<br></div>
+<div class="exp_box2">『テキスト』は<span class="red">[<span class="icon_img"></span>config]</span>で設定することも可能で、設定しておけば毎回入力する必要がなくなります。<br></div>
 </div>
 
 <div class="exp_box1">

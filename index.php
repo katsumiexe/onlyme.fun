@@ -389,7 +389,7 @@ mysqli_query($mysqli,$sql);
 	
 	<span class="p_date"></span>
 	<div id="p_page_alert" class="alert">
-		<span class="p_icon icon_img"></span>
+		<span class="p_icon icon_img"></span>
 	</div>
 
 	<img id="tmpl" class="p_page_img">
