@@ -17,17 +17,17 @@
 }
 
 .regist_in{
-	display		:inline-block;
-	margin		:2vw auto;
-	width		:60vw;
-	height		:12vw;
-	line-height	:12vw;
-	background	:linear-gradient(#f05040,#f17766);
-	text-decoration:none;
-	font-size:5vw;
-	color:#fafafa;
-	font-weight:700;
-	border-radius:5vw;
+	display			:inline-block;
+	margin			:2vw auto;
+	width			:60vw;
+	height			:12vw;
+	line-height		:12vw;
+	background		:linear-gradient(#f05040,#f17766);
+	text-decoration	:none;
+	font-size		:5vw;
+	color			:#fafafa;
+	font-weight		:700;
+	border-radius	:5vw;
 }
 
 .top_img{

@@ -159,11 +159,11 @@ if(!$out){
 					print($sql);
 				}
 			}
-/*
+
 			$url = 'https://onlyme.fun';
 			header('Location: ' . $url, true, 301);
 			exit;
-*/
+
 		}
 	}
 

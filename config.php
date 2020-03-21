@@ -318,7 +318,7 @@ $(function(){
 		<td class="item1_n"><span class="icon_img icon_5" style="margin:0 1.5vw"></span><span class="item3_n">mail/メールアドレス</span></td>
 	</tr>
 	<tr>
-		<td class="item3_n"><input type="text" id="p_mail" name="p_mail" value="<?=$user["reg_mail"]?>" class="item2_box"></td>
+		<td class="item3_n"><input type="text" id="p_mail" name="p_mail" value="<?=$user["reg_mail"]?>" class="item2_box" <?if($user["reg_line"]){?> disabled="disabled"<?}?>></td>
 	</tr>
 	<tr>
 		<td class="item4_n"></td>
@@ -396,9 +396,13 @@ $(function(){
 <div style="padding-bottom:1vw;">
 	<div id="set1" class="set_btn">変更する</div>
 	<div class="remove_comm">
+		<?if($user["reg_rank"] == 11){?>
 		※登録情報を変更されますと一旦ログアウトし、登録メールアドレスに認証メールが送信されます。<br>
 		変更を有効にするには、認証メールからのログインが必要となります。<br>
-		<?if($user["reg_rank"] != 11){?> SNSからの登録の場合、パスワードを設定しないと登録名とメールアドレスをこちらから変更することができません。<br><?}?>
+		<?}else{?>
+		メールアドレスの変更は、LINE側で行う事ができます。<br>
+		PASSを設定することで、会員ID、メールアドレスでのログインが可能になります。<br>
+		<? } ?>
 	</div>
 </div>
 
@@ -407,14 +411,12 @@ $(function(){
 <div style="padding-bottom:5vw;text-align:center;">
 	<div id="set3" class="set_btn"><span class="icon_img" style="font-weight:400;"></span>LINE連携解除</div>
 	<div id="set3" class="set_btn"><span class="icon_img"></span>QRコード登録</div>
-
 	<div class="remove_comm">
-		※退会されますとアルバムは全て削除されます<br>
-		退会後、24時間以内の再開はできません。ご注意ください<br>	
+		QRコードの登録はLINEのページよりダウンロードできます。
+		登録できるのは自身のもののみです。違う登録のID、ビジネスアカウントは登録出来ません。
 	</div>
 </div>
 <?}?>
-
 
 
 <H2 class="h1"><span class=h1_title>退会</span></h2>
@@ -470,6 +472,26 @@ $(function(){
 		<div class="btn c1">戻る</div>
 	</div>
 </div>
+
+<div class="pop05">
+	LINE連携を解除します<br>
+	<?if($user["reg_pass"]){?>
+		LINEでのログインはできなくなります。<br>
+		会員ID、もしくはメールアドレスとPASSでのログインは可能です。
+	<?}else{?>
+		LINEでのログインはできなくなります。<br>
+		PASSを設定しておくことで、メールアドレスとPASSでログインは可能になります。<br>
+	<?}?>
+
+	<div class="pop_notice">
+		<div id="yes_3" class="btn c2">LINE連携解除</div>　
+		<div class="btn c1">戻る</div>
+	</div>
+
+</div>
+
+
+
 
 <div class="pop05">
 	<div class="img_box_in">
