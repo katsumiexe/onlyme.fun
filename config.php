@@ -408,7 +408,6 @@ $(function(){
 	<div id="set3" class="set_btn"><span class="icon_img" style="font-weight:400;"></span>LINE連携解除</div>
 	<div id="set3" class="set_btn"><span class="icon_img"></span>QRコード登録</div>
 
-
 	<div class="remove_comm">
 		※退会されますとアルバムは全て削除されます<br>
 		退会後、24時間以内の再開はできません。ご注意ください<br>	
