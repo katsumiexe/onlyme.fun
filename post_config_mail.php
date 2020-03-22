@@ -4,6 +4,7 @@ include_once("./library/no_session.php");
 $set_mail	=$_POST["set_mail"];
 $set_name	=$_POST["set_name"];
 $set_pass	=$_POST["set_pass"];
+$set_id		=$_POST["set_id"];
 $res=0;
 if(!$set_name){
 	$res=4;
@@ -15,9 +16,9 @@ if(!$set_name){
 	$res=2;
 
 }else{
-
 	$sql="SELECT reg_mail FROM reg";
 	$sql.=" WHERE reg_mail='{$set_mail}'";
+	$sql.=" AND id<>'{$set_id}'";
 	$sql.=" LIMIT 1";
 
 	$res1 = mysqli_query($mysqli,$sql);

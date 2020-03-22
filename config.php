@@ -397,18 +397,18 @@ $(function(){
 
 <?if($user["reg_rank"] == 11){?>
 <div style="padding-bottom:1vw;">
-	<div id="set11" class="set_btn">変更する</div>
-	<div class="remove_comm">
-		メールアドレスの変更は、LINE側で行う事ができます。<br>
-		PASSを設定することで、会員ID、メールアドレスでのログインが可能になります。<br>
-	</div>
-</div>
-<?}else{ ?>
-<div style="padding-bottom:1vw;">
 	<div id="set1" class="set_btn">変更する</div>
 	<div class="remove_comm">
 		※登録情報を変更されますと一旦ログアウトし、登録メールアドレスに認証メールが送信されます。<br>
 		変更を有効にするには、認証メールからのログインが必要となります。<br>
+	</div>
+</div>
+<?}else{ ?>
+<div style="padding-bottom:1vw;">
+	<div id="set11" class="set_btn">変更する</div>
+	<div class="remove_comm">
+		メールアドレスの変更は、LINE側で行う事ができます。<br>
+		PASSを設定することで、会員ID、メールアドレスでのログインが可能になります。<br>
 	</div>
 </div>
 <? } ?>
@@ -416,8 +416,8 @@ $(function(){
 
 
 <?if($user["id"]<10002014){?>
-<?if($user["reg_line"]){?>
 <H2 class="h1"><span class=h1_title>LINE</span></h2>
+<?if($user["reg_line"]){?>
 <div style="padding-bottom:5vw;text-align:center;">
 	<div id="set3" class="set_btn"><span class="icon_img" style="font-weight:400;"></span>LINE連携解除</div>
 	<div id="set3" class="set_btn"><span class="icon_img"></span>QRコード登録</div>
@@ -426,6 +426,7 @@ $(function(){
 		登録できるのは自身のもののみです。違う登録のID、ビジネスアカウントは登録出来ません。
 	</div>
 </div>
+
 <?}else{?>
 <div style="padding-bottom:5vw;text-align:center;">
 	<div id="set3" class="set_btn"><span class="icon_img" style="font-weight:400;"></span>LINEと連携する</div>
