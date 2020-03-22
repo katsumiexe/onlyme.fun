@@ -497,13 +497,23 @@ input[type="checkbox"]:checked ~ .sw_img {
 	z-index:25;
 }
 
-.pop01,.pop03,.err00{
+.pop01,.pop03{
 	height:50vw;
+
 }
 
-.pop02{
+.pop02,.err00{
 	height:25vw;
 }
+
+.err_btn{
+	position:absolute;
+	left:0;
+	right:0;
+	bottom:2vw;
+	margin:auto;
+}
+
 
 .pop_notice{
 	position:absolute;

@@ -144,35 +144,92 @@ $(function(){
 
 	$('#set1').on('click',function(){
 		Mail=$('#p_mail').val();
-		$.post("post_config_mail.php",
+		Pass=$('#p_pass').val();
+		Name=$('#p_name').val();
+
+		if(Name==''){
+			$('#err').text('名前が入力されていません');
+			$('.pop00,.err00').fadeIn(100);
+			return false;	
+
+		}else if(Pass==''){
+			$('#err').text('パスワードが入力されていません');
+			$('.pop00,.err00').fadeIn(100);
+			return false;	
+
+		}else if(Mail==''){
+			$('#err').text('メールアドレスが入力されていません');
+			$('.pop00,.err00').fadeIn(100);
+			return false;	
+
+		}else{
+
+			$.post("post_config_mail.php",
+				{
+				'set_mail':Mail,
+				'set_pass':Pass,
+				'set_name':Name,
+				'set_id':User_id
+
+				},function(data){
+					if(data=='1'){
+						$('#err').text('登録されているメールアドレスです');
+						$('.pop00,.err00').fadeIn(100);
+						return false;	
+
+					}else if(data=='2'){
+						$('#err').text('メールアドレスが無効です');
+						$('.pop00,.err00').fadeIn(100);
+						return false;	
+
+					}else if(data=='3'){
+						$('#err').text('パスワードが無効です(半角英数字4文字以上)');
+						$('.pop00,.err00').fadeIn(100);
+						return false;	
+		
+					}else if(data=='4'){
+						$('#err').text('登録名が無効です');
+						$('.pop00,.err00').fadeIn(100);
+						return false;	
+
+					}else{
+						$('.pop00,.pop01').fadeIn(100);
+					}
+				});
+			}
+	});
+
+	$('#set11').on('click',function(){
+		Pass=$('#p_pass').val();
+		Name=$('#p_name').val();
+		State=$('#p_state').val();
+		var Cnt = $('#p_pass').val().length;
+
+		if(Name==''){
+			$('#err').text('名前が入力されていません');
+			$('.pop00,.err00').fadeIn(100);
+			return false;	
+
+		}else if(Pass<4 && Pass>0){
+			$('#err').text('パスワードが無効です(半角英数字4文字以上で設定してください)');
+			$('.pop00,.err00').fadeIn(100);
+			return false;	
+
+		}else{
+			$.post("post_config_sns_chg.php",
 			{
-			'set_mail':Mail,
 			'set_pass':Pass,
-			'set_name':Name
+			'set_name':Name,
+			'set_state':State,
+			'set_id':User_id
 
 			},function(data){
-				if(data=='1'){
-					$('.msg').text('登録されているメールアドレスです');
-					return false;	
-
-				}else if(data=='2'){
-					$('.msg').text('メールアドレスが無効です');
-					return false;	
-
-				}else if(data=='3'){
-
-					$('.msg').text('パスワードが無効です(半角英数字4文字以上)');
-					return false;	
-	
-				}else if(data=='4'){
-					$('.msg').text('登録名が無効です');
-					return false;	
-
-				}else{
-					$('.pop00,.pop01').fadeIn(100);
-				}
+				$('#err').text('変更されました');
+				$('.pop00,.err00').fadeIn(100);
 			});
+		}
 	});
+
 
 	$('#set2').on('click',function(){
 		$('.pop00,.pop02').fadeIn(100);
@@ -257,7 +314,7 @@ $(function(){
 	});
 
 	$('.pop00,.c1').on('click',function(){
-		$('.pop00,.pop01,.pop02,.pop03,.pop04,.pop05').fadeOut(150);
+		$('.pop00,.pop01,.pop02,.pop03,.pop04,.pop05,.err00').fadeOut(150);
 		var cvs = document.getElementById('cvs1');
 		var ctx = cvs.getContext('2d');
 		ctx.clearRect(0, 0, cvs_A,cvs_A);

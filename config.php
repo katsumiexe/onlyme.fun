@@ -107,6 +107,7 @@ $line_qr=$dir3.$tmp_enc[2]."s".$tmp_enc[3].".png";
 var User_id =<?=$user["id"]+0?>;
 var NoImg ='./img/noimage<?=$user['reg_sex']?>.jpg';
 $(function(){ 
+
 <?if(!$prof["twitter"]){?>
 	$('#switch1').prop('disabled', true);
 <?}else{?>
@@ -393,21 +394,30 @@ $(function(){
 	</tr>
 </table>
 
+
+<?if($user["reg_rank"] == 11){?>
+<div style="padding-bottom:1vw;">
+	<div id="set11" class="set_btn">変更する</div>
+	<div class="remove_comm">
+		メールアドレスの変更は、LINE側で行う事ができます。<br>
+		PASSを設定することで、会員ID、メールアドレスでのログインが可能になります。<br>
+	</div>
+</div>
+<?}else{ ?>
 <div style="padding-bottom:1vw;">
 	<div id="set1" class="set_btn">変更する</div>
 	<div class="remove_comm">
-		<?if($user["reg_rank"] == 11){?>
 		※登録情報を変更されますと一旦ログアウトし、登録メールアドレスに認証メールが送信されます。<br>
 		変更を有効にするには、認証メールからのログインが必要となります。<br>
-		<?}else{?>
-		メールアドレスの変更は、LINE側で行う事ができます。<br>
-		PASSを設定することで、会員ID、メールアドレスでのログインが可能になります。<br>
-		<? } ?>
 	</div>
 </div>
+<? } ?>
 
+
+
+<?if($user["id"]<10002014){?>
 <?if($user["reg_line"]){?>
-<H2 class="h1"><span class=h1_title>LINE連携</span></h2>
+<H2 class="h1"><span class=h1_title>LINE</span></h2>
 <div style="padding-bottom:5vw;text-align:center;">
 	<div id="set3" class="set_btn"><span class="icon_img" style="font-weight:400;"></span>LINE連携解除</div>
 	<div id="set3" class="set_btn"><span class="icon_img"></span>QRコード登録</div>
@@ -416,8 +426,12 @@ $(function(){
 		登録できるのは自身のもののみです。違う登録のID、ビジネスアカウントは登録出来ません。
 	</div>
 </div>
+<?}else{?>
+<div style="padding-bottom:5vw;text-align:center;">
+	<div id="set3" class="set_btn"><span class="icon_img" style="font-weight:400;"></span>LINEと連携する</div>
+</div>
 <?}?>
-
+<?}?>
 
 <H2 class="h1"><span class=h1_title>退会</span></h2>
 <div style="padding-bottom:5vw;text-align:center;">
@@ -429,9 +443,10 @@ $(function(){
 </div>
 
 <div class="pop00"></div>
+
 <div class="err00">
-	<div id="#err" style="text-align:left;width:100%;"></div>
-	<div class="btn c1">戻る</div>
+	<div id="err" style="text-align:left;width:100%;"></div>
+	<div class="btn c1 err_btn">戻る</div>
 </div>
 
 <div class="pop01">

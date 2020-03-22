@@ -6,7 +6,7 @@ if(!$mysqli){
 	$msg="接続エラー";
 	die("接続エラー");
 }
-$base_d=date("Y-m-d 23:59:00",time()-518400);
+$base_d=date("Y-m-d 23:59:00",time()-604800);
 $ch_list=array();
 $user_id	=$_REQUEST["user_id"];
 $next_print	=$_REQUEST["next_print"]+0;
