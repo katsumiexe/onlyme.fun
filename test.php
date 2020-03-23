@@ -1,46 +1,53 @@
 <?
-$img_link="https://profile.line-scdn.net/0hCnXi9V2yHEFlEDRXGCxjFllVEiwSPhoJHXRSL0MXEXgbKVwWXHMEIkESR3FBIV0RCyVTcElCQXYb";
+$rnd=array(1,2,3,4,5,6,7,8,9);
+shuffle($rnd);
 
-//$img_link="myalbum/pq/ampqagalpqal/agpq/mfpzmiclre.jpg";
+$dat[0]=$rnd[0];
+$dat[1]=$rnd[1];
+$dat[2]=$rnd[2];
 
-$img_tmp	= getimagesize($img_link);
-
-$pict		= imagecreatefromjpeg($img_link);
-
-$img		= imagecreatetruecolor(400,400);
-
-list($tmp_width, $tmp_height, $type, $attr) = $img_tmp;
-
-print($line_picture."□<br>");
-print($tmp_width."□<br>");
-print($tmp_height."□<br>");
-print($type."□<br>");
-print($attr."□<br>");
-print($mime."□<br>");
-
-ImageCopyResampled($img, $pict, 0, 0, 0, 0, 400, 400, $tmp_width, $tmp_height);
-imagejpeg($img,"myalbum/test.jpg");
-
+print($dat[0]."<br>\n");
+print($dat[1]."<br>\n");
+print($dat[2]."<br>\n");
 ?>
-<html>
-<heaD>
-<script src="./js/jquery-3.4.1.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+.main{
+    width:100%;
+    max-width:600px;
+    background:#f0f0f0;
+    margin:0 auto;    
+}
+
+.hako{ 
+    display:inline-block;
+    width:55px;
+    height:55px;
+    line-height:55px;
+    background:#f00000;
+    box-sizing:border-box;
+    border:0.5vw solid #0000ff;
+    text-align:center;
+    font-size:20px;
+
+}
+</style>
 <script>
 $(function(){ 
-	$('.btn').on('click',function(){;
 
-	$('#v64').val("aarfaofeqogeagnaegeatgaetairaerfqa");
-	$('#v64').select();
-	document.execCommand("copy");
-	});
 });
-
 </script>
 </head>
-<body>
-<img src="https://profile.line-scdn.net/0hCnXi9V2yHEFlEDRXGCxjFllVEiwSPhoJHXRSL0MXEXgbKVwWXHMEIkESR3FBIV0RCyVTcElCQXYb" width="100">
-<input id="v64" type="hidden">
-<div class="btn">あ</div>
+<body style="text-align:center">
+<div class="main">
+<span class="hako">あ</span><span class="hako">い</span><span class="hako">う</span><span class="hako">あ</span><span class="hako">い</span><span class="hako">う</span><span class="hako">あ</span><span class="hako">い</span><span class="hako">う</span><span class="hako">あ</span>
+</div>
 </body>
 </html>
+
 
