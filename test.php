@@ -1,14 +1,31 @@
 <?
-$rnd=array(1,2,3,4,5,6,7,8,9);
-shuffle($rnd);
+session_save_path('./session/');
+ini_set('session.gc_maxlifetime', 3*60*60); // 3 hours
+ini_set('session.gc_probability', 1);
+ini_set('session.gc_divisor', 100);
+ini_set('session.cookie_secure', FALSE);
+ini_set('session.use_only_cookies', TRUE);
+session_start();
 
-$dat[0]=$rnd[0];
-$dat[1]=$rnd[1];
-$dat[2]=$rnd[2];
+if($_POST["start"]){
+    $rnd=array(0,1,2,3,4,5,6,7,8,9,10,11);
+    shuffle($rnd);
 
-print($dat[0]."<br>\n");
-print($dat[1]."<br>\n");
-print($dat[2]."<br>\n");
+    $_SESSION["a"]=$rnd;
+    $dat["a"]=$rnd;
+
+    shuffle($rnd);
+    $_SESSION["b"]=$rnd;
+    $dat["b"]=$rnd;
+
+    shuffle($rnd);
+    $_SESSION["c"]=$rnd;
+    $dat["c"]=$rnd;
+
+    shuffle($rnd);
+    $_SESSION["card"]=$rnd;
+    $dat["card"]=$rnd;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,20 +51,97 @@ print($dat[2]."<br>\n");
     border:0.5vw solid #0000ff;
     text-align:center;
     font-size:20px;
-
 }
+
+.table_a{
+    width:100%;    
+    background:#e0f0ff;
+}
+
+.td_a{
+    width:120px;    
+    background:#a0f0ff;
+}
+
+.table_b{
+    width:100%;    
+    background:#e0f0ff;
+}
+
+.td_b1{
+    height:30px;    
+    background:#00f020;
+}
+
+.td_b2{
+    background:#00f0ff;
+}
+.p_name{
+    display:inline-block;
+    width:200px;
+    background:#ff5030;
+}
+
+.p_status{
+    display:inline-block;
+    width:45px;
+    background:#ff50a0;
+}
+
+.p_pts{
+    display:inline-block;
+    width:74px;
+    height:40px;
+    background:#0000ff;
+    box-sizing:border-box;
+    border:1px solid #ffffff;
+}
+
 </style>
 <script>
 $(function(){ 
+    $(".p_pts_on").on('click,'function(){
 
+        $(this).removeClass('p_pts_on');
+        No=$(this).attr('id').replace('i','');
+
+		$.post("post_read_turn.php",
+			{
+				'turn':Turn,
+				'bet':No,
+			},
+			function(data){
+                
+			}
+		);
+    });
 });
 </script>
 </head>
 <body style="text-align:center">
 <div class="main">
-<span class="hako">あ</span><span class="hako">い</span><span class="hako">う</span><span class="hako">あ</span><span class="hako">い</span><span class="hako">う</span><span class="hako">あ</span><span class="hako">い</span><span class="hako">う</span><span class="hako">あ</span>
+<table class="table_a">
+	<tr>
+		<td class="td_a">あ</td>
+		<td>
+			<table class="table_b">
+				<tr>
+					<td class="td_b1">
+						<span class="p_name">みりあ</span>
+						<span class="p_status">みり</span>
+						<span class="p_status">みり</span>
+						<span class="p_status">みり</span>
+						<span class="p_status">みり</span>
+						<span class="p_status">みり</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="td_b2"><?for($n=0;$n<12;$n++){?><span id="i<?=$n?>" class="p_pts <?if($dat_p[$n] == 1){?>pts_on<?}?>"></span><?}?></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
 </div>
 </body>
 </html>
-
-
