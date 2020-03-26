@@ -38,7 +38,21 @@ if($met2["status"] == "emergency"){
 
 
 /*-------------------------------------------------------------*/
-if(!$ch_list["mente"]){
+$base_d=date("Y-m-d 23:59:00",time()-604800);
+
+$sql ="SELECT * FROM `me_plist_main`";
+$sql.=" WHERE `p_date`>'{$base_d}'";
+$sql.=" AND p_user_id='{$user_id}'";
+$sql.=" AND `p_del`=0";
+$sql.=" LIMIT 1";
+
+$printcheck = mysqli_query($mysqli,$sql);
+$printcheck_2 = mysqli_fetch_assoc($printcheck);
+
+$ch_list["sql"]=$sql;
+$ch_list["id"]=$printcheck_2["p_main_id"];
+
+if(!$ch_list["mente"] && !$printcheck_2["p_main_id"]){
 $cnt=0;
 $now=date("Y-m-d H:i:s");
 $cont_font	="./font/RobotoCondensed-Regular.ttf";
@@ -64,7 +78,6 @@ if($j_token = file_get_contents($url, false, stream_context_create($dat2))){
 	}
 
 	krsort($print_ck);
-
 	if($dat_token["result"] ==0){
 		$sql ="INSERT INTO `me_plist_main`(p_date,p_user_id,p_api_code,api_token)";
 		$sql .="VALUES('{$now}','{$user["id"]}','{$dat_token["userCode"]}','{$dat_token["authToken"]}')";
@@ -138,7 +151,7 @@ if($j_token = file_get_contents($url, false, stream_context_create($dat2))){
 					imagejpeg($tmp3,$dir."/print".$cnt.".jpg");
 				}
 
-				sleep(1);
+				sleep(2);
 				$api_url = "https://api.networkprint.jp/rest/webapi/v2";
 				$dat3["token"]		= $dat_token["authToken"];
 				$dat3["location"]	= "https://onlyme.fun/{$dir}print{$cnt}.jpg";

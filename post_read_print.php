@@ -12,7 +12,6 @@ $user_id	=$_REQUEST["user_id"];
 $next_print	=$_REQUEST["next_print"]+0;
 $cnt=0;
 
-
 $met	=file_get_contents("https://api.networkprint.jp/rest/webapi/v2/maintenanceInfo");
 $met2	=json_decode($met,true);
 
@@ -38,10 +37,10 @@ $ck_msg[0]="<span class=\"ck_icon\"></span><span class=\"ck_text\">転送中<
 $ck_msg[1]="<span class=\"ck_icon\"></span><span class=\"ck_text\">印刷可能</span>";
 $ck_msg[2]="<span class=\"ck_icon\"></span><span class=\"ck_text\">転送失敗</span>";
 
-
 if($next_print>0){
 	$app =" AND making_id<'{$next_print}'";
 }
+
 $sql ="SELECT * FROM `me_plist_main`";
 $sql.=" WHERE `p_date`>'{$base_d}'";
 $sql.=" AND p_user_id='{$user_id}'";
@@ -51,7 +50,6 @@ $sql.=" LIMIT 1";
 
 $result = mysqli_query($mysqli,$sql);
 if($dat = mysqli_fetch_assoc($result)){
-
 	$url = "https://api.networkprint.jp/rest/webapi/v2";
 
 	$dat_e["token"]	= $dat["api_token"];

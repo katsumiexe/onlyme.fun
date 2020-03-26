@@ -178,7 +178,7 @@ $(function(){
 			dataType: 'json',
 
 		}).done(function(data, textStatus, jqXHR){
-			console.log(data.mente);
+			console.log(data);
 
 if(data.mente>0){
 			$('#reload').submit();
