@@ -35,7 +35,7 @@ if($res1 = mysqli_query($mysqli,$sql)){
 			}
 		}
 
-		$url = "https://api.networkprint.jp/rest/webapi/v2";
+		$url = "https://networkprint.ne.jp/rest/webapi/v2";
 
 		$dat_e["token"]	= $row1["api_token"];
 		$dat_e["M"]		= "getFileList";

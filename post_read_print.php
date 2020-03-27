@@ -12,7 +12,7 @@ $user_id	=$_REQUEST["user_id"];
 $next_print	=$_REQUEST["next_print"]+0;
 $cnt=0;
 
-$met	=file_get_contents("https://api.networkprint.jp/rest/webapi/v2/maintenanceInfo");
+$met	=file_get_contents("https://networkprint.ne.jp/rest/webapi/v2/maintenanceInfo");
 $met2	=json_decode($met,true);
 
 if($met2["status"] == "emergency"){
@@ -50,7 +50,7 @@ $sql.=" LIMIT 1";
 
 $result = mysqli_query($mysqli,$sql);
 if($dat = mysqli_fetch_assoc($result)){
-	$url = "https://api.networkprint.jp/rest/webapi/v2";
+	$url = "https://networkprint.ne.jp/rest/webapi/v2";
 
 	$dat_e["token"]	= $dat["api_token"];
 	$dat_e["M"]		= "getFileList";

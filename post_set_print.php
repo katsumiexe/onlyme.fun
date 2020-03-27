@@ -21,7 +21,7 @@ $ck_msg[1]="<span class=\"ck_mes c_ok\"><span class=\"ck_icon\"></span><span 
 $ck_msg[2]="<span class=\"ck_mes c_ng\"><span class=\"ck_icon\"></span><span class=\"ck_text\">転送失敗</span></span>";
 
 
-$met	=file_get_contents("https://api.networkprint.jp/rest/webapi/v2/maintenanceInfo");
+$met	=file_get_contents("https://networkprint.ne.jp/rest/webapi/v2/maintenanceInfo");
 $met2	=json_decode($met,true);
 
 if($met2["status"] == "emergency"){
@@ -57,10 +57,12 @@ $cnt=0;
 $now=date("Y-m-d H:i:s");
 $cont_font	="./font/RobotoCondensed-Regular.ttf";
 
-$url = "https://api.networkprint.jp/rest/webapi/v2";
-$dat1["app_key"]	= "85B35DD2-7B07-4560-A04B-C564425DDFE8";
+$url = "https://networkprint.ne.jp/rest/webapi/v2";
+$dat1["app_key"]	= $nwps;
 $dat1["api_ver"]	= "2.7";
 $dat1["M"]		= "loginForGuest2";
+
+ 
 
 $content = http_build_query($dat1);
 $dat2 = array(
@@ -152,7 +154,7 @@ if($j_token = file_get_contents($url, false, stream_context_create($dat2))){
 				}
 
 				sleep(2);
-				$api_url = "https://api.networkprint.jp/rest/webapi/v2";
+				$api_url = "https://networkprint.ne.jp/rest/webapi/v2";
 				$dat3["token"]		= $dat_token["authToken"];
 				$dat3["location"]	= "https://onlyme.fun/{$dir}print{$cnt}.jpg";
 				$dat3["filename"]	= date("YmdHi").".jpg";
@@ -227,7 +229,7 @@ if($j_token = file_get_contents($url, false, stream_context_create($dat2))){
 		$sql .=$apps;
 		mysqli_query($mysqli,$sql);
 
-		$url = "https://api.networkprint.jp/rest/webapi/v2";
+		$url = "https://networkprint.ne.jp/rest/webapi/v2";
 
 		$dat_e["token"]	= $dat_token["authToken"];
 		$dat_e["M"]		= "getFileList";
