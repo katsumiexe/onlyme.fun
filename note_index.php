@@ -6,6 +6,7 @@ $nowpage=1;
 $ex=8;
 $d=0;
 $note=$_REQUEST["note"];
+
 $base_d=date("Y-m-d 23:59:00",time()-518400);
 $sql="SELECT p_api_code FROM me_plist_main";
 $sql.=" WHERE p_user_id='{$user["id"]}'";
@@ -41,7 +42,7 @@ if($dat_list = mysqli_fetch_assoc($result)){
 <?if($note){?>
 $(function(){ 
 	TTL=$(this).children('.note_item').text();
-	Tmp='./note/menu_b{$note}.php';
+	Tmp="./note/menu_b<?=$note?>.php";
 	$.post(
 		Tmp,
 		function(data){
