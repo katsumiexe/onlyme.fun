@@ -55,8 +55,8 @@ ERROR!
 			<span class="user_level">Exp：<span class="mypage_exp"><?=$exp?></span><br>
 		</div>
 		<div class="mypage_prof2">	
-			<a href="./mydata.php" class="mypage_prof_in">フォロー数<span class="mypage_prof_p"><?=$user["s_fav"]+0?></span></a><br>
-			<a href="./mydata.php" class="mypage_prof_in">フォロワー数<span class="mypage_prof_p"><?=$user["s_favd"]+0?></span></a><br>
+			<a href="./mydata.php" class="mypage_prof_in">フォロー数<span class="mypage_prof_p"><?=$user["s_favd"]+0?></span></a><br>
+			<a href="./mydata.php" class="mypage_prof_in">フォロワー数<span class="mypage_prof_p"><?=$user["s_fav"]+0?></span></a><br>
 		</div>
 		<div class="mypage_iine_box">
 			<div class="mypage_iine" style="color:#0000d0"><span class="icon_img"></span> 応援<span class="mypage_iine_p"><?=$user["s_cheer"]+0?></span></div>

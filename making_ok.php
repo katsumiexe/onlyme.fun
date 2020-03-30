@@ -450,13 +450,10 @@ $(function(){
 <body class="body">
 <?include_once("./x_head.php")?>
 <div class="main5">
-
-	<div class="trim_ok">
-		<img src="<?=$img_url1?>?t=<?=time()?>" class="img_pg">
-	</div>
+	<img src="<?=$img_url1?>?t=<?=time()?>" class="img_pg">
 	<a href="./mydata.php?tag=print" class="ok_btn ok4"></a>
 	<a href="https://twitter.com/intent/tweet?text=<?=$text?>&url=https://onlyme.fun/pg.php?es=<?=$e_code?>&related=onlyme_staff&hashtags=<?=$hash?>" target="_BLANK" class="ok_btn ok5"></a>
-</div>
+	</div>
 
 <?include_once("./x_foot.php")?>
 </body>
