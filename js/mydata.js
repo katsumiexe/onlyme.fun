@@ -324,32 +324,6 @@ if(data.mente>0){
 		$(window).scrollTop(TopNow);
 	});
 
-	$('#a_page_comment').on('click',function () {
-		if($(this).hasClass('p_page_comment_on')){
-			$(this).removeClass('p_page_comment_on');
-			$('.p_page_img').animate({'top': '7.5vw'},150);
-			$('.p_cheer').animate({'top': '100vh'},150);
-			$('.btm_flex').animate({'top': '115vw'},150);
-			$('.tbl_p_page_msg').animate({'top': '118.5vw'},150);
-
-		}else{
-			$(this).addClass('p_page_comment_on');
-			$('.p_page_img').animate({'top': '-100vh'},150);
-			$('.p_cheer').animate({'top': '12vw'},150);
-			$('.btm_flex').animate({'top': '1.5vw'},150);
-			$('.tbl_p_page_msg').animate({'top': '7.5vw'},150);
-
-			$.post("post_read_cheer.php",
-			{
-				'user_id':User_id,
-				'card_id':Img_id,
-				'pg':'1'
-			},
-			function(data){
-				$('.cheer_list').html(data);
-			});
-		}
-	});
 
 	$('#fav_in_b,#fav_in_c').on('click', '.fav_member', function(){
 	Tmp_Fav=$(this).attr('id').replace("mb_", "");

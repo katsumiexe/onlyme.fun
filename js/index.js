@@ -396,7 +396,8 @@ $(function(){
 			$(this).removeClass('p_page_comment_on2');
 			$('.p_page_img').animate({'top': '15.5vw'},150);
 			$('.p_cheer').animate({'top': '105vh'},150);
-			$('.p_date,.back').show();
+			$('.info').animate({'top': '7vw'},0);
+			$('.p_date,.back,.info').show();
 			
 		}else{
 			$.post("post_read_cheer.php",
@@ -413,7 +414,7 @@ $(function(){
 			$(this).addClass('p_page_comment_on2');
 			$('.p_page_img').animate({'top': '-100vh'},150);
 			$('.p_cheer').animate({'top': '7vw'},150);
-			$('.p_date,.back').hide();
+			$('.p_date,.back,.info,.info_list').hide();
 		}
 	});
 

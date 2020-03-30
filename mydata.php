@@ -205,9 +205,7 @@ $(function(){
 	<div id="id_album" class="album_tag">アルバム</div>
 	<div id="fav_b" class="album_tag">フォロー</div>
 	<div id="fav_c" class="album_tag">フォロワー</div>
-<?if($user["id"] < "10002016"){?>
 	<div id="id_print" class="album_tag">プリント</div>
-<? } ?>
 
 <!--■■■■■■■■■■■■■■■■■■■■■■■■-->
 	<div class="notice_box">
@@ -301,8 +299,7 @@ $(function(){
 	<img id="tmpl" class="p_page_img">
 	<div class="box_iine">
 	<a href="" target="_BLANK" class="iine_twitter icon_img"></a>
-	<div id="p_page_print" class="a_menu_list2"><span class="p_icon2 icon_img"></span><span class="p_icon_comment">印刷</span></div>
-	<div id="p_page_comment2" class="a_menu_list3"><span class="p_icon2 icon_img"></span><span class="p_icon_comment">応援<span id="cheer_ct"></span></span></div>
+	<div id="p_page_comment2" class="box_comm2"><span class="p_icon2 icon_img"></span><span class="p_icon_comment">応援<span id="cheer_ct"></span></span></div>
 	<div id="p_page_del" class="p_menu_del"><span class="p_icon3 icon_img"></span><span class="p_icon_comment2">削除</span></div>
 
 	<div id="pritty" class="p_page_msg_a_my my_1">

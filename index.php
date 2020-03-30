@@ -314,7 +314,7 @@ mysqli_query($mysqli,$sql);
 <div class="main">
 <div style="height:0.5vw">　</div>
 	<div class="index_info">
-		<p class="p_toi">名刺データ作成・印刷は<a href="./note_index.php">HELP</a>をご参照下さい</p>
+		<p class="p_toi">印刷の仕様が変更になりました。詳細は<a href="./note_index.php?note=42">HELP</a>をご参照下さい</p>
 		<p class="p_toi">お問い合わせ、不具合報告は<a href="./inpost.php">ご意見メール</a>よりお願いします</p>
 	</div>
 

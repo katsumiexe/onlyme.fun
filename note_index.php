@@ -5,7 +5,7 @@ include_once("./library/session.php");
 $nowpage=1;
 $ex=8;
 $d=0;
-
+$note=$_REQUEST["note"];
 $base_d=date("Y-m-d 23:59:00",time()-518400);
 $sql="SELECT p_api_code FROM me_plist_main";
 $sql.=" WHERE p_user_id='{$user["id"]}'";
@@ -38,6 +38,20 @@ if($dat_list = mysqli_fetch_assoc($result)){
 <script src="./js/first.js"></script>
 <script src="./js/note.js"></script>
 <script>
+<?if($note){?>
+$(function(){ 
+	TTL=$(this).children('.note_item').text();
+	Tmp='./note/menu_b{$note}.php';
+	$.post(
+		Tmp,
+		function(data){
+		$('.page').css({'left':0,'display':'block'});
+		$('.page_main').html(data);
+		$('.page_title').text(TTL);
+	});
+});
+<? } ?>
+
 </script>
 </head>
 <body class="body">
@@ -58,11 +72,7 @@ if($dat_list = mysqli_fetch_assoc($result)){
 	</div>
 	<div id="menu_b1" class="exp_box0_b">
 	<span id="menu_b11" class="exp_box0_c"><span class="note_item">デザインする</span><span class="icon_img exp_box0_d"></span></span>
-	<?if($user["id"] <= "10002015"){?>
 	<span id="menu_b42" class="exp_box0_c"><span class="note_item">印刷する</span><span class="icon_img exp_box0_d"></span></span>
-	<?}else{?>
-	<span id="menu_b12" class="exp_box0_c"><span class="note_item">印刷する</span><span class="icon_img exp_box0_d"></span></span>
-	<?}?>
 	</div>
 
 	<div id="menu_a2" class="exp_box0_a">

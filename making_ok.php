@@ -450,15 +450,14 @@ $(function(){
 <body class="body">
 <?include_once("./x_head.php")?>
 <div class="main5">
-	<div class="ck">
-		画像を長押しすることで保存できます<br>
+
+	<div class="trim_ok">
+		<img src="<?=$img_url1?>?t=<?=time()?>" class="img_pg">
 	</div>
-	<div class="imgbox">
-		<img src="<?=$dir?>print.jpg?t=<?=time()?>" class="img_pg">
-	</div>
-	<a href="https://twitter.com/intent/tweet?text=<?=$text?>&url=https://onlyme.fun/pg.php?es=<?=$e_code?>&related=onlyme_staff&hashtags=<?=$hash?>" target="_BLANK" class="ok_twitter"></a>
+	<a href="./mydata.php?tag=print" class="ok_btn ok4"></a>
+	<a href="https://twitter.com/intent/tweet?text=<?=$text?>&url=https://onlyme.fun/pg.php?es=<?=$e_code?>&related=onlyme_staff&hashtags=<?=$hash?>" target="_BLANK" class="ok_btn ok5"></a>
 </div>
-<!--a href="./mydata.php?tag=print"-->
+
 <?include_once("./x_foot.php")?>
 </body>
 </html>

@@ -574,6 +574,20 @@
 	display:block;
 }
 
+.trim_ok {
+	position: absolute;
+	top:8.5vh;
+	left:4vw;
+
+	overflow: hidden;
+	width: 77vw;
+	height: 127.4vw;
+	border:0.5vw solid #000000;
+	margin:2vw auto;
+	text-align:center;
+	display:block;
+}
+
 
 .word{
 	position: absolute;
@@ -850,18 +864,16 @@
 
 
 .ok_btn{
-	position:fixed;
-	right:1vw;
-	width:11vw;
-	height:11vw;
-	line-height:11vw;
-	text-align:center;
-	cursor:pointer;
-	border-radius:2vw;
-	padding:0;
-	font-size:4vw;
-	text-shadow:1px 1px 0px #303030;
-	cursor:pointer;
+	position		:fixed;
+	right			:3vw;
+	width			:11vw;
+	height			:11vw;
+	line-height		:11vw;
+	text-align		:center;
+	cursor			:pointer;
+	border-radius	:2vw;
+	padding			:0;
+	text-shadow		:1px 1px 0px #303030;
 }
 
 .ok1{
@@ -870,6 +882,7 @@
 	color:#fafafa;
 	background:#3333ff;
 	background:linear-gradient(#a0a0ff,#3333ff);
+	font-size		:4vw;
 }
 
 .ok2{
@@ -878,6 +891,7 @@
 	color:#fafafa;
 	background:#cc3366;
 	background:linear-gradient(#ff6699,#cc3366);
+	font-size		:4vw;
 }
 
 .ok3{
@@ -886,6 +900,29 @@
 	color:#fafafa;
 	background:#ff70ff;
 	background:linear-gradient(#30c060,#008030);
+	font-size		:4vw;
+}
+
+.ok4{
+	top			:120vw;
+	border		:0.2vw solid #009000;
+	background	:#009000;
+	color		:#fafafa;
+	font-family	:at_icon;
+	text-decoration:none;
+	text-align	:center;
+	font-size	:8vw;
+}
+
+.ok5{
+	top			:134vw;
+	border		:0.2vw solid #55ACEE;
+	background	:#55ACEE;
+	color		:#fafafa;
+	font-family	:at_icon;
+	text-decoration:none;
+	text-align	:center;
+	font-size	:8vw;
 }
 
 .btn_ttl{
@@ -1284,11 +1321,11 @@ input[type=range]::-moz-range-thumb{
 }
 
 .img_pg{
-	position:absolute;
-	top:-12.9vw;
-	left:-9.9vw;
-	width:253.8vw;
+	width: 77vw;
+	height: 127.4vw;
 }
+
+
 
 .ck{
 	display:none;
@@ -1304,26 +1341,5 @@ input[type=range]::-moz-range-thumb{
 	line-height:10vw;
 	z-index:15;
 }
-
-.ok_twitter{
-	position:absolute;
-	top:8vh;
-	right:2vw;
-	height:8vw;
-	width:8vw;
-	line-height:8vw;
-	text-align:center;
-	font-size:6vw;
-	border-radius:2vw;
-
-	border:1vw solid #55ACEE;
-	background:#55ACEE;
-	color:#fafafa;
-	font-family:at_icon;
-	text-decoration:none;
-	text-align:center;
-	opacity:0.8;
-}
-
 
 
