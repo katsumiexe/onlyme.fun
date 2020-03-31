@@ -145,6 +145,16 @@ $url = 'https://onlyme.fun';
 header('Location: ' . $url, true, 301);
 exit;
 }
+
+$t_re=$_SERVER["HTTP_REFERER"];
+$t_ua=$_SERVER['HTTP_USER_AGENT'];
+$t_ip=$_SERVER["REMOTE_ADDR"];
+if(!$t_re) $t_re="null";
+if(!$t_ua) $t_ua="null";
+$log_date = date("Y-m-d H:i:s");
+$sql="INSERT INTO me_alllog(`log_date`,`log_ref`,`log_ua`,`log_ip`,`log_at`) VALUES('{$log_date}','{$t_re}','{$t_ua}','{$t_ip}','pg')";
+mysqli_query($mysqli,$sql);
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">

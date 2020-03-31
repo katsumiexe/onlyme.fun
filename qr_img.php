@@ -65,6 +65,9 @@ $col[0]=ImageColorAllocate($base_image2,$qr_t1,$qr_t2,$qr_t3);
 $col[1]=ImageColorAllocate($base_image2,$qr_b1,$qr_b2,$qr_b3);
 $c_icon='';
 
+$c_inner=ImageColorAllocate($tmp2,0,200,0);
+$c_inner2=ImageColorAllocate($tmp3,255,25,25);
+
 
 for ($qry=0; $qry < 40; $qry++) {
 	for ($qrx=0; $qrx < 40; $qrx++) {
@@ -661,10 +664,6 @@ if($qr == 3){//twitter
 	$c_icon='';
 }
 
-$c_color=ImageColorAllocate($tmp2,255,255,255);
-$c_color2=ImageColorAllocate($tmp3,255,255,255);
-
-
 for ($qry=1; $qry < $mib-1; $qry++) {
 	for ($qrx=1; $qrx < $mib-1; $qrx++) {
 		$pixel = ImageColorAt($base_image, $qrx, $qry);
@@ -679,6 +678,8 @@ for ($qry=1; $qry < $mib-1; $qry++) {
 }
 
 }//■LINE以外処理ここまで------------------------------------
+$c_color=ImageColorAllocate($tmp2,255,255,255);
+$c_color2=ImageColorAllocate($tmp3,255,255,255);
 
 
 //■ダミー用-----------------------------------
@@ -687,11 +688,10 @@ for ($qry=1; $qry < 129; $qry++) {
 		$pixel = ImageColorAt($base_qr, $qrx, $qry);
 
 		if($pixel >0){
-			    ImageSetPixel($base_qr2,$qrx,$qry,$col3[1]); 
+		    ImageSetPixel($base_qr2,$qrx,$qry,$col3[1]); 
 
 		}else{
-			    ImageSetPixel($base_qr2,$qrx,$qry,$col3[0]); 
-
+		    ImageSetPixel($base_qr2,$qrx,$qry,$col3[0]); 
 		}
 	}
 }
@@ -733,8 +733,16 @@ if($dat_tmpl['qr_p']<=2){
 
 ImageCopyResized($tmp2, $base_image2 , $qr_x, $qr_y, 4, 4, $qrcode_image_size2-8, $qrcode_image_size2-8, $qrcode_image_size2-8, $qrcode_image_size2-8);
 
+
+/*
 imagettftext($tmp2, $i_size, 0, $qr_s_x, $qr_s_y, $col2[1], $icon_font, '');
 imagettftext($tmp2, $i_size, 0, $qr_s_x, $qr_s_y, $col2[0], $icon_font, $c_icon);
+*/
+
+imagettftext($tmp2, $i_size, 0, $qr_s_x, $qr_s_y, $c_color, $icon_font, '');
+imagettftext($tmp2, $i_size, 0, $qr_s_x, $qr_s_y, $c_inner, $icon_font, $c_icon);
+
+
 
 ImageCopy($tmpn, $base_qr2 , $qr_n_x, $qr_n_y, 0, 0, 128, 128);
 

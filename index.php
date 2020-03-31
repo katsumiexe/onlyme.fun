@@ -201,6 +201,18 @@ print($a1."■".$a2."<br>\n");
 }
 */
 $last_card=$dat[19]['making_id'];
+
+if(!$_SESSION){
+$t_re=$_SERVER["HTTP_REFERER"];
+$t_ua=$_SERVER['HTTP_USER_AGENT'];
+$t_ip=$_SERVER["REMOTE_ADDR"];
+if(!$t_re) $t_re="null";
+if(!$t_ua) $t_ua="null";
+$log_date = date("Y-m-d H:i:s");
+$sql="INSERT INTO me_alllog(`log_date`,`log_ref`,`log_ua`,`log_ip`) VALUES('{$log_date}','{$t_re}','{$t_ua}','{$t_ip}')";
+mysqli_query($mysqli,$sql);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -289,26 +301,7 @@ twq('track','PageView');
 		PC・タブレットではご利用いただけません。<br>
 	</div>
 </div>
-<div class="foot">
-<img src="./img/logo_r.png" class="foot_img" alt="logo">
-<span class="foot_a">2019 写真名刺をスマホで作成★OnlyMe</span>
-</div>
-</body>
-</html>
-<div class="sp_only">
-<?if(!$_SESSION["id"]){?>
-<?
-$t_re=$_SERVER["HTTP_REFERER"];
-$t_ua=$_SERVER['HTTP_USER_AGENT'];
-$t_ip=$_SERVER["REMOTE_ADDR"];
-if(!$t_re) $t_re="null";
-if(!$t_ua) $t_ua="null";
-$log_date = date("Y-m-d H:i:s");
-$sql="INSERT INTO me_alllog(`log_date`,`log_ref`,`log_ua`,`log_ip`) VALUES('{$log_date}','{$t_re}','{$t_ua}','{$t_ip}')";
-mysqli_query($mysqli,$sql);
-?>
 <?include_once("./onlyme.php")?>
-
 <?}else{?>
 <?include_once("./x_head.php")?>
 <div class="main">
@@ -486,3 +479,10 @@ mysqli_query($mysqli,$sql);
 </form>
 <?include_once("./x_foot.php")?>
 <? } ?>
+<div class="foot"><img src="./img/logo_r.png" class="foot_img" alt="logo"><span class="foot_a">2019 写真名刺をスマホで作成★OnlyMe</span></div>
+</body></html>
+
+
+
+
+
