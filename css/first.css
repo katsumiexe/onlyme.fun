@@ -96,20 +96,20 @@ select:focus {
 }
 
 #wait{
-	display:none;
-	position:fixed;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	margin:auto;
-	width:16vw;
-	height:16vw;
+	display		:none;
+	position	:fixed;
+	top			:0;
+	left		:0;
+	right		:0;
+	bottom		:0;
+	margin		:auto;
+	width		:16vw;
+	height		:16vw;
+	line-height	:16vw;
+	background	:rgba(255,200,225,0.6);
+	text-align	:center;
 	border-radius:50%;
-	z-index:100;
-	background:rgba(255,200,225,0.6);
-	text-align:center;
-	line-height:16vw;
+	z-index		:100;
 }
 
 #wait_in{
@@ -138,7 +138,6 @@ select:focus {
 table{
 	border-collapse: collapse;
 }
-
 
 .h1{
 	margin:0;
@@ -181,17 +180,17 @@ table{
 }
 
 .h1_title{
-	position:absolute;
-	top:0;
-	bottom:0;
-	left:1vw;
-	margin:auto;
-	display:inline-block;
-	height:6vw;
-	line-height:6vw;
-	font-size:5vw;
-	font-weight:700;
-	color:#ffffff;
+	position	:absolute;
+	top			:0;
+	bottom		:0;
+	left		:1vw;
+	margin		:auto;
+	display		:inline-block;
+	height		:6vw;
+	line-height	:6vw;
+	font-size	:5vw;
+	font-weight	:700;
+	color		:#ffffff;
 	text-shadow:0.3vw 0.3vw 0vw #000000;
 }
 
