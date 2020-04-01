@@ -201,7 +201,6 @@ print($a1."■".$a2."<br>\n");
 }
 */
 $last_card=$dat[19]['making_id'];
-
 if(!$_SESSION){
 $t_re=$_SERVER["HTTP_REFERER"];
 $t_ua=$_SERVER['HTTP_USER_AGENT'];
@@ -268,15 +267,14 @@ $(function(){
 	<?}?>
 		$('#tuto_pg2').hide();
 });
-
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146438289-2"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-146438289-2');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-146438289-2');
 </script>
 
 <!-- Twitter universal website tag code -->
@@ -294,22 +292,17 @@ twq('track','PageView');
 </style>
 </head>
 <body class="body">
-<div class="pc_only">
-	<img src="./img/top.png" style="width:700px;"><br>
-	<div class="pc_box" style="font-size:14px;">
-		こちらはスマホ専用サイトです。<br>
-		PC・タブレットではご利用いただけません。<br>
-	</div>
-</div>
+<?if(!$_SESSION){?>
 <?include_once("./onlyme.php")?>
+
 <?}else{?>
 <?include_once("./x_head.php")?>
 <div class="main">
-<div style="height:0.5vw">　</div>
+<div style="height:0.5vw">　</div/>
 	<div class="index_info">
 		<p class="p_toi">印刷の仕様が変更になりました。詳細は<a href="./note_index.php?note=42">HELP</a>をご参照下さい</p>
 		<p class="p_toi">お問い合わせ、不具合報告は<a href="./inpost.php">ご意見メール</a>よりお願いします</p>
-	</div>
+	</div/>
 
 	<h1 class="h1">
 		<span class="h1_title">みんなの名刺</span>
@@ -321,7 +314,7 @@ twq('track','PageView');
 		<span id="sel_3" class="h1_item">フォロー</span>
 		</span>
 	</h1>
-	<div class="h1_select">登録された順番です</div>
+	<div class="h1_select">登録された順番です</div/>
 	<div class="index_box">
 		<?for($n=0;$n<$d;$n++){?>
 		<?if($n>=20){break;}?>	
@@ -354,71 +347,71 @@ twq('track','PageView');
 						<div class="ttl_comm">
 						<span class="icon_img comm_icon"></span>
 						<span class="comm_cnt"><?=$dat[$n]["iine"]+0?></span>
-						</div>
+						</div/>
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2" class="ttl_4"><?=$dat[$n]["reg_name"]?></td>
 					</tr>
 				</table>	
-			</div>
+			</div/>
 		<? } ?>
-		<div id="next_<?=$last_card?>" class="next">続きを見る</div>
-	</div>
-</div>
+		<div id="next_<?=$last_card?>" class="next">続きを見る</div/>
+	</div/>
+</div/>
 
 
 <div class="p_page">
-	<div id="p_page_out" class="back"><span class="icon_img"></span></div>
+	<div id="p_page_out" class="back"><span class="icon_img"></span></div/>
 	<div id="p_page_info" class="info">
 		<span class="icon_img"></span>
-	</div>
+	</div/>
 	<div class="info_list">
-	<div class="info_list_code">T00001</div>
-	<div class="info_list_flex"></div>
+	<div class="info_list_code">T00001</div/>
+	<div class="info_list_flex"></div/>
 	<a href="" class="info_list_btn">このデザインを使う</a>
-	</div>
+	</div/>
 	
 	<span class="p_date"></span>
 	<div id="p_page_alert" class="alert">
 		<span class="p_icon icon_img"></span>
-	</div>
+	</div/>
 
 	<img id="tmpl" class="p_page_img">
 	<div class="box_iine">
 	<img id="p_pict" class="box_iine_face">
-	<div id="p_page_prof" class="box_name"><span class="p_name"></span></div>
-	<div id="p_page_comment" class="box_comm"><span class="p_icon2 icon_img"></span><span class="p_icon_comment">応援</span><span id="cheer_ct"></span></div>
+	<div id="p_page_prof" class="box_name"><span class="p_name"></span></div/>
+	<div id="p_page_comment" class="box_comm"><span class="p_icon2 icon_img"></span><span class="p_icon_comment">応援</span><span id="cheer_ct"></span></div/>
 
 	<div id="pritty" class="p_page_msg_a ii_1">
 		<span class="icon_img p_page_icon"></span>
 		<span class="p_page_msg_b">カワイイ</span>
 		<span id="e_pritty" class="p_page_msg_c"></span>
-	</div>
+	</div/>
 
 	<div id="smart" class="p_page_msg_a ii_2">
 		<span class="icon_img p_page_icon"></span>
 		<span class="p_page_msg_b">イケメン</span>
 		<span id="e_smart" class="p_page_msg_c"></span>
-	</div>
+	</div/>
 
 	<div id="funny" class="p_page_msg_a ii_3">
 		<span class="icon_img p_page_icon"></span>
 		<span class="p_page_msg_b">ユニーク</span>
 		<span id="e_funny" class="p_page_msg_c"></span>
-	</div>
+	</div/>
 
 	<div id="sexy" class="p_page_msg_a ii_4">
 		<span class="icon_img p_page_icon"></span>
 		<span class="p_page_msg_b">セクシー</span>
 		<span id="e_sexy" class="p_page_msg_c"></span>
-	</div>
-	</div>
+	</div/>
+	</div/>
 	<div class="p_cheer">
-		<div class="cheer_list"></div>
-		<div class="set_cheer"><span class="icon_img"></span>応援！</div>
-	</div>
-</div>
+		<div class="cheer_list"></div/>
+		<div class="set_cheer"><span class="icon_img"></span>応援！</div/>
+	</div/>
+</div/>
 
 
 <div class="pop01">
@@ -426,9 +419,9 @@ twq('track','PageView');
 		<div class="pop01_a1">
 			<span class="pop01_ttl">違反通報</span>
 			<textarea class="pop01_c" name="textarea"></textarea>
-			<div id="yes_1" class="btn c2">通報</div>　
-			<div id="no_1" class="btn c1">取消</div>
-		</div>
+			<div id="yes_1" class="btn c2">通報</div/>　
+			<div id="no_1" class="btn c1">取消</div/>
+		</div/>
 		<div class="pop01_a2">
 			通報された投稿はスタッフが確認を行い、不適切と判断されましたら削除されます。<br>
 			通報された投稿が必ずしも削除されるわけではありません。<br>
@@ -436,53 +429,46 @@ twq('track','PageView');
 			・公序良俗に反する画像<br>
 			・著作権を侵害していると思われる画像<br>
 			・個人情報に抵触していると思われる画像<br>
-		</div>
-	</div>
+		</div/>
+	</div/>
 	<div class="pop01_e">
 		通報しました。<br><br>
-		<div class="btn c1">戻る</div>
-	</div>
-</div>
+		<div class="btn c1">戻る</div/>
+	</div/>
+</div/>
 
-<div class="pop02">自分の投稿には評価を付けられません。</div>
-<div class="pop03">「評価」をすると応援コメントを送れます。</div>
-<div class="pop04">すでに通報されています。</div>
-<div class="pop05">自分の投稿は通報できません。</div>
-<div class="pop06">自分の投稿には応援できません。</div>
+<div class="pop02">自分の投稿には評価を付けられません。</div/>
+<div class="pop03">「評価」をすると応援コメントを送れます。</div/>
+<div class="pop04">すでに通報されています。</div/>
+<div class="pop05">自分の投稿は通報できません。</div/>
+<div class="pop06">自分の投稿には応援できません。</div/>
 
 <div class="pop07">
 	<div class="pop07_a">
 		<textarea id="p_cheer_box" class="p_cheer_box" name="p_cheer_box"></textarea>
-		<div id="p_cheer_sub" class="btn c2 ps1" style="width:17.5vw;">応援</div> 
-		<div id="no_1" class="btn c1  ps2" style="width:17.5vw;">取消</div> 
-		<div id="p_cheer_del" class="btn c3 ps3">消去</div>
-	</div>
-</div>
+		<div id="p_cheer_sub" class="btn c2 ps1" style="width:17.5vw;">応援</div/> 
+		<div id="no_1" class="btn c1  ps2" style="width:17.5vw;">取消</div/> 
+		<div id="p_cheer_del" class="btn c3 ps3">消去</div/>
+	</div/>
+</div/>
 <div class="tuto">
 	<div class="tuto_box">
 		<span class="tuto_wel">ようこそ <?=$user["reg_name"]?>様</span>
 		<div id="tuto_pg1" class="tuto_pg">
 			<img src="./img/tuto/tuto_01.png" class="tuto_img"><br>
 			まずはMENU「config」から、名刺データを設定してね。<br>
-		</div>
+		</div/>
 		<div id="tuto_pg2" class="tuto_pg">
 			<img src="./img/tuto/tuto_02.png" class="tuto_img"><br>
 			名刺の作成はMENU「making」から行えます。<br>
-		</div>
-	</div>
-</div>
+		</div/>
+	</div/>
+</div/>
 <form id="jump_p" action="./profile.php" method="post">
 	<input id="jump_id" type="hidden" name="host" value="">	
 </form>
 <form id="chg_jump" action="./index.php" method="post">
 	<input id="chg" type="hidden" name="chg" value="">
 </form>
-<?include_once("./x_foot.php")?>
 <? } ?>
-<div class="foot"><img src="./img/logo_r.png" class="foot_img" alt="logo"><span class="foot_a">2019 写真名刺をスマホで作成★OnlyMe</span></div>
-</body></html>
-
-
-
-
-
+<?include_once("./x_foot.php")?>

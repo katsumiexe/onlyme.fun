@@ -316,7 +316,7 @@ twq('track','PageView');
 		<div class="pg_com">
 		スマホでデザイン<br>コンビニでプリント<br>写真名刺を簡単作成<br>PC不要/住所不要<br>
 		</div>
-		<img src="img/logo_r.png" style="width:40vw">
+		<a href="https://onlyme.fun"><img src="img/logo_r.png" style="width:40vw"></a>
 	</div>
 
 <div class="pop00">
