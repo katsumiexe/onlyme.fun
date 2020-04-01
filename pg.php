@@ -165,7 +165,7 @@ mysqli_query($mysqli,$sql);
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <meta name="description" content="PC不要、住所不要、スマホで作成、コンビニで印刷。手軽で簡単な写真名刺作成サイトです。">
 <meta name="keywords" content="写真名刺,コスプレ,画像修正,onlyme,名刺作成,無料,簡単">
-<link rel="canonical" href="https://onlyme.fun/">
+<link rel="canonical" href="https://onlyme.fun/pg.php">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="<?=$card?>">
@@ -334,12 +334,9 @@ twq('track','PageView');
 	</div>
 </div>
 <form id="form_out" action="" method="post" target="_blank"></form>
-
 <form id="new_reg" action="regist.php" method="post">
 <input id="reg_code" type="hidden" name="reg_code" value="<?=$jump_id?>">
 </form>
-
-
 <?include_once("./x_foot.php")?>
 </body>
 </html>
