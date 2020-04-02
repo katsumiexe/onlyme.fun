@@ -470,6 +470,11 @@ $(function(){
 			}
 		);
 	});
-});
 
+    $( "#set4" ).on('click',function() {     
+			$('#line_qr').upload('post_config_line_set.php', function(data){
+			console.log(data);
+ 		});
+    });
+});
 

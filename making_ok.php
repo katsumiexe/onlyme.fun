@@ -6,15 +6,12 @@ $nowpage=3;
 $rate=0.28;
 
 $b=2;
-
 $base_x=275*$b;
 $base_y=455*$b;
-
 $print_x0=890*$b;
 $print_y0=635*$b;
 
 $now=date("Y/m/d H:i:s");
-
 $sql="SELECT * FROM me_encode";
 if($re = mysqli_query($mysqli,$sql)){
 	while($de = mysqli_fetch_assoc($re)){
@@ -23,7 +20,6 @@ if($re = mysqli_query($mysqli,$sql)){
 }
 
 if($token	 == 3){
-
 $id_zoom	=$_POST["id_zoom"];
 $base_zoom	=$_POST["base_zoom"];
 $vw_set		=$_POST["vw_set"];
@@ -83,7 +79,6 @@ $img_url 	= imagecreatefromjpeg($img_url1);
 $qr_center	= imagecreatefrompng("./img/qr_twitter_30.png");
 
 //imagejpeg($img_url,$dir."test.jpg",100);
-
 
 $sql ="SELECT * FROM me_tmpl";
 $sql.=" WHERE tmpl_id='{$tmpl}'";
@@ -155,9 +150,7 @@ $lay[7]=$dat_tmpl["wall3_z"];
 $lay[8]=$dat_tmpl["frame0_z"];
 $lay[9]=$dat_tmpl["frame1_z"];
 
-
 asort($lay);
-
 if(!$result_info || !$result_tmpl){
 //	die();
 }
@@ -258,7 +251,6 @@ if($dat_tmpl['name_p']==2 ||$dat_tmpl['name_p']==5){
 }else{
 	$name_x		+=$dat_tmpl['name_shadow_size']+$dat_tmpl['name_line_size'];
 }
-
 
 //■orgin-------------------------------
 for($n=0;$n<mb_strlen($orgin);$n++){

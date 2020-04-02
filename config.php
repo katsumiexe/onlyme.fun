@@ -103,6 +103,8 @@ $line_qr=$dir3.$tmp_enc[2]."s".$tmp_enc[3].".png";
 <script src="./js/jquery-ui.min.js"></script>
 <script src="./js/jquery.ui.touch-punch.min.js"></script>
 <script src="./js/jquery.exif.js"></script>
+<script src="./js/jqueryupload.js"></script>
+
 <script>
 var User_id =<?=$user["id"]+0?>;
 var NoImg ='./img/noimage<?=$user['reg_sex']?>.jpg';
@@ -413,14 +415,15 @@ $(function(){
 </div>
 <? } ?>
 
-
-
 <?if($user["id"]<10002014){?>
 <H2 class="h1"><span class=h1_title>LINE</span></h2>
 <?if($user["reg_line"]){?>
 <div style="padding-bottom:5vw;text-align:center;">
-	<div id="set3" class="set_btn"><span class="icon_img" style="font-weight:400;"></span>LINE連携解除</div>
-	<div id="set3" class="set_btn"><span class="icon_img"></span>QRコード登録</div>
+	<div id="set5" class="set_btn"><span class="icon_img" style="font-weight:400;"></span>LINE連携解除</div>
+
+	<input id="line_qr" type="file" name="qr_files" accept="image">
+	<div id="set4" class="set_btn"><span class="icon_img"></span>QRコード登録</div>
+	
 	<div class="remove_comm">
 		QRコードの登録はLINEのページよりダウンロードできます。
 		登録できるのは自身のもののみです。違う登録のID、ビジネスアカウントは登録出来ません。
@@ -439,27 +442,24 @@ $(function(){
 	<div id="set3" class="set_btn">退会する</div>
 	<div class="remove_comm">
 		※退会されますとアルバムは全て削除されます<br>
+		<?if($user["reg_line"]){?>LINE連携も解除されます<br><?}?>
 		退会後、24時間以内の再開はできません。ご注意ください<br>	
 	</div>
 </div>
 
 <div class="pop00"></div>
-
 <div class="err00">
 	<div id="err" style="text-align:left;width:100%;"></div>
 	<div class="btn c1 err_btn">戻る</div>
 </div>
-
 <div class="pop01">
 	※Mail、PASSを変更されますと一旦ログアウトし、登録メールアドレスに認証メールが送信されます。<br>
 	変更を有効にするには、認証メールからのログインが必要となります。<br>
 	よろしいですか
-
 	<div class="pop_notice">
 		<div id="yes_1" class="btn c2">はい</div>　
 		<div class="btn c1">いいえ</div>
 	</div>
-
 </div>
 
 <div class="pop02">
@@ -473,6 +473,7 @@ $(function(){
 
 <div class="pop03">
 	※退会されますとアルバムは全て削除されます<br>
+	<?if($user["reg_line"]){?>LINE連携も解除されます<br><?}?>
 	退会後、24時間以内の再開はできません。ご注意ください<br>
 	<div class="pop_notice">
 		<div id="yes_3" class="btn c2">退会する</div>　
@@ -495,7 +496,7 @@ $(function(){
 		LINEでのログインはできなくなります。<br>
 		会員ID、もしくはメールアドレスとPASSでのログインは可能です。
 	<?}else{?>
-		LINEでのログインはできなくなります。<br>
+		「OnlyMe」へのログインはできなくなります。<br>
 		PASSを設定しておくことで、メールアドレスとPASSでログインは可能になります。<br>
 	<?}?>
 
@@ -505,6 +506,8 @@ $(function(){
 	</div>
 
 </div>
+
+
 
 
 

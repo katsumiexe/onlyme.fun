@@ -43,7 +43,6 @@ $sql_log.=" `reg_pic`='{$img_id}'";
 $sql_log.=" WHERE id='{$user["id"]}'";
 mysqli_query($mysqli,$sql_log);
 
-
 ImageCopyResampled($img2, $img, 0, 0, $tmp_left, $tmp_top, 400, 400, $tmp_width, $tmp_height);
 imagejpeg($img2,$link);
 ?>
