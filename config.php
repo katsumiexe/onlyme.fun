@@ -419,13 +419,14 @@ $(function(){
 <H2 class="h1"><span class=h1_title>LINE</span></h2>
 <?if($user["reg_line"]){?>
 <div style="padding-bottom:5vw;text-align:center;">
-	<div id="set5" class="set_btn"><span class="icon_img" style="font-weight:400;"></span>LINE連携解除</div>
+	<div id="set5" class="set_line"><span class="icon_img" style="font-weight:400;"></span>LINE連携解除</div>
+	<label for="line_qr" class="qr_imgfile icon_img"></label>
+	<input id="line_qr" type="file" name="qr_files" accept="image" style="display:none;">
+	<div id="set4" class="set_qr"><span class="icon_img"></span>QR登録</div>
 
-	<input id="line_qr" type="file" name="qr_files" accept="image">
-	<div id="set4" class="set_btn"><span class="icon_img"></span>QRコード登録</div>
-	
+	<div class="line_err"></div>
 	<div class="remove_comm">
-		QRコードの登録はLINEのページよりダウンロードできます。
+		登録用のQRコードはLINEのサイトよりダウンロードできます。
 		登録できるのは自身のもののみです。違う登録のID、ビジネスアカウントは登録出来ません。
 	</div>
 </div>
