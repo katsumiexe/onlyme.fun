@@ -234,7 +234,7 @@ $dat0.="}";
 
 if($dat_tmpl['orgin_p']){
 
-$orgin_font	="./font/".$font_list[$dat_tmpl['name_font']];
+$orgin_font	="./font/".$font_list[$dat_tmpl['orgin_font']];
 $orgin_size_tmp	=ImageTTFBBox(floor($orgin_size*0.75),0,$orgin_font,$orgin);
 
 $orgin_w		=$orgin_size_tmp[2]-$orgin_size_tmp[0];
