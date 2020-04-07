@@ -347,7 +347,26 @@ $(function(){
 <a href="./index.php" class="irr_top">写真名刺作成サイト★OnlyMe</a>
 <h1 class="h1_irr"><span class="h1_title">LINE連携登録</span></h1>
 
-<?if($out =="1"){?>
+<?if($line_out =="1"){?>
+<div class="main_irr sp_only">
+<h1 class="h1_irr"><span class="h1_title">退会されたアカウント</span></h1>
+<div class="box_01">
+	<div class="box_02">
+	退会されているアカウントです。<br>
+	</div>
+</div>
+	<?if($return_ok =="1"){?>
+		<div class="send_btn_line" id="line_out">LINE登録で再開</div><br>
+	<?}else{?>
+		<div class="send_btn_line_ng">LINE登録で再開</div><br>
+		<div class="box_01">
+			<div class="box_02">
+				退会後、24時間経過しないと再開することができません。<br>
+			</div>
+		</div>
+	<? } ?>
+
+<?}elseif($out =="1"){?>
 <form action="./line_login.php" method="post">
 <div class="box_01"><br>
 これでよろしいですか<br><br>
