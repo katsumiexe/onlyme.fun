@@ -8,7 +8,8 @@ $t_date=date("Y-m-d H:i:s");
 $sql ="UPDATE reg SET";
 $sql.=" `reg_remove_day`='{$t_date}',";
 $sql.=" `reg_pic`='0',";
-$sql.=" `reg_rank`='2'";
+$sql.=" `reg_rank`='2',";
+$sql.=" `reg_line`=''";
 $sql.=" WHERE `id`='{$user["id"]}'";
 mysqli_query($mysqli,$sql);
 

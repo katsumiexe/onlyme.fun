@@ -79,6 +79,35 @@
 	border:none;
 }
 
+.send_btn_mail{
+	display		:block;
+	width		:60vw;
+	height		:10vw;
+	margin		:0 auto;
+	font-size	:5vw;
+	font-weight	:600;
+	color		:#ffffff;
+	background	:linear-gradient(#d090b0,#c040a0);
+	line-height	:10vw;
+	cursor		:pointer;
+	border		:none;
+	text-decoration:none;
+}
+
+.send_btn_line{
+	width		:60vw;
+	height		:10vw;
+	margin		:1vw auto;
+	font-size	:5vw;
+	font-weight	:600;
+	color		:#ffffff;
+	line-height	:10vw;
+	cursor		:pointer;
+	border		:none;
+	background	:#00c000;
+}
+
+
 #err{
 	display:inline-block;
 	height:7vw;

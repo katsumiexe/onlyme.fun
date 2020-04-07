@@ -82,9 +82,6 @@ if(!$out){
 		$a_token = file_get_contents($url, stream_context_create($dat_a2));
 		$a_login =json_decode($a_token,true);
 
-		print("△".$a_token);
-		print("▽".$a_login);
-
 //■友達チェック------------------
 
 		$line_name		=$reg_chk["name"];
@@ -97,17 +94,18 @@ if(!$out){
 		$line_yet = mysqli_query($mysqli,$sql);
 
 		if($l_user_yet = mysqli_fetch_assoc($line_yet)){
-			session_save_path('./session/');
-			ini_set('session.gc_maxlifetime', 3*60*60); // 3 hours
-			ini_set('session.gc_probability', 1);
-			ini_set('session.gc_divisor', 100);
-			ini_set('session.cookie_secure', FALSE);
-			ini_set('session.use_only_cookies', TRUE);
-			session_start();
-			$_SESSION= $l_user_yet;
-			$_SESSION["time"]= time();
 
 			if($l_user_yet["reg_rank"]>10){
+				session_save_path('./session/');
+				ini_set('session.gc_maxlifetime', 3*60*60); // 3 hours
+				ini_set('session.gc_probability', 1);
+				ini_set('session.gc_divisor', 100);
+				ini_set('session.cookie_secure', FALSE);
+				ini_set('session.use_only_cookies', TRUE);
+				session_start();
+				$_SESSION= $l_user_yet;
+				$_SESSION["time"]= time();
+
 				if($line_picture){
 					//■------------------------
 					for($n=0;$n<4;$n++){	
@@ -148,6 +146,7 @@ if(!$out){
 
 				}elseif($l_user_yet["reg_mail"] != $line_mail){
 					$app.=" reg_mail='{$line_mail}',";
+
 				}
 
 				if($app){
@@ -158,11 +157,16 @@ if(!$out){
 					mysqli_query($mysqli,$sql);
 					print($sql);
 				}
-			}
+				$url = 'https://onlyme.fun';
+				header('Location: ' . $url, true, 301);
+				exit;
 
-			$url = 'https://onlyme.fun';
-			header('Location: ' . $url, true, 301);
-			exit;
+			}else{
+			/**■LINE退会--------------------*/
+
+
+
+			}
 
 		}
 	}

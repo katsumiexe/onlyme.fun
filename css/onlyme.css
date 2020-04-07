@@ -158,20 +158,38 @@
 .top_input{
 	width:40vw;
 }
+
 .btn_login{
-	display:inline-block;
-	margin:1vw 0.5vw;
-	font-size:4.5vw;
-	width:40vw;
-	height:6vw;
-	line-height:6vw;
-	text-align:center;
-	border:0.5vw solid #f17766;
-	background:#ffffff;
-	color:#f17766;
-	font-weight:800;
-	cursor:pointer;
+	display		:inline-block;
+	margin		:1vw 0.5vw;
+	font-size	:4.5vw;
+	width		:40vw;
+	height		:8vw;
+	line-height	:8vw;
+	text-align	:center;
+	border		:0.5vw solid #f17766;
+	background	:#ffffff;
+	color		:#f17766;
+	font-weight	:800;
+	cursor		:pointer;
 }
+
+.btn_line_login{
+	display		:inline-block;
+	margin		:1vw 0.5vw;
+	font-size	:4.5vw;
+	width		:40vw;
+	height		:8vw;
+	line-height	:8vw;
+	text-align	:center;
+	border		:0.5vw solid #00c000;
+	background	:#00c000;
+	color		:#fafafa;
+	font-weight	:800;
+	cursor		:pointer;
+	text-decoration:none;
+}
+
 
 .box0{
 	display:flex;
