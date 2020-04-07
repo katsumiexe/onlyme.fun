@@ -232,8 +232,9 @@ $dat0 =".word1{";
 	
 	
 	if($dat_tmpl['orgin_p']){
-	
-		$orgin_font	="./font/".$font_list[$dat_tmpl['name_font']];
+
+		$orgin_font	="./font/".$font_list[$dat_tmpl['orgin_font']];
+
 		$orgin_size_tmp	=ImageTTFBBox(floor($orgin_size*0.75),0,$orgin_font,$orgin);
 		
 		$orgin_w		=$orgin_size_tmp[2]-$orgin_size_tmp[0];
@@ -287,7 +288,7 @@ $dat0 =".word1{";
 		$dat0.="font-size:{$orgin_size}vw;";
 		$dat0.="font-family:at_orgin;";
 		$dat0.="}";
-	
+
 		if($orgin_line_size>0){
 			$dat0.=".word3_1{";
 			$dat0.="text-stroke: {$orgin_line_size}vw {$orgin_line_color};";
@@ -688,6 +689,7 @@ $dat0 =".word1{";
 				<span class="word2_cosp"><span class="icons3"></span><span class="contact_cosp"><?=$cosp?></span><br></span>
 			</div>
 			<div class="word3 word3_1"><?=$orgin?></div>
+			<div class="word3"><?=$orgin?></div>
 
 			<div class="wall0"></div>
 			<div class="wall1"></div>

@@ -471,10 +471,27 @@ $(function(){
 		);
 	});
 
-    $( "#set4" ).on('click',function() {     
+    $( "#set4" ).on('click',function(){     
+
+		if($('#line_qr').val()==''){
+			$('.line_err').text("QRコードが登録されていません");
+			return false;		
+
+		}else{
+			$('.line_err').text();
 			$('#line_qr').upload('post_config_line_set.php', function(data){
-			console.log(data);
- 		});
+				console.log(data);
+				if(data == 1){
+					$('.line_err').text("登録されました");
+					$('.qr_imgfile').css({'color':'#003000'});
+
+				}else{
+					$('.line_err').text("QRコードが認識できません");
+				
+				}
+
+		    });
+		}
     });
 });
 
