@@ -44,9 +44,30 @@
 	color			:#fafafa;
 	font-weight		:700;
 	border-radius	:10vw;
-	text-align		:center;
-	vertical-align	:middle;
 }
+
+
+.regist_in_a{
+	display			:inline-block;
+	position		:absolute;
+	top				:4vw;
+	right			:0;
+	left			:0;
+	margin			:auto;
+}
+
+.regist_in_b{
+	display			:inline-block;
+	position		:absolute;
+	bottom			:4vw;
+	right			:0;
+	left			:0;
+	margin			:auto;
+}
+
+
+
+
 
 .top_img{
 	width			:100%;
