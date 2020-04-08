@@ -1,3 +1,39 @@
+
+box_00_l
+	display		:block;
+	width		:80vw;
+	height		:8vw;
+	line-height	:10vw;
+	padding		:1vw 2vw;
+	font-size	:4.5vw;
+	font-weight	:600;
+	text-align	:left;
+	color		:#00c000;
+}
+
+.box_01_l{
+	width		:80vw;
+	background	:#c0ffc0;
+	border-radius:2vw;
+	border		:2vw solid #ffffff;
+	padding		:1vw;
+	font-size	:4vw;
+	margin		:2vw auto ;
+	text-align	:center;
+}
+
+.box_00{
+	display		:block;
+	width		:80vw;
+	height		:8vw;
+	line-height	:10vw;
+	padding		:1vw 2vw;
+	font-size	:4.5vw;
+	font-weight	:600;
+	text-align	:left;
+	color		:#e5c5ff;
+}
+
 .box_01{
 	width:80vw;
 	background:#f5e5ff;
@@ -8,6 +44,7 @@
 	margin:2vw auto ;
 	text-align:center;
 }
+
 
 .box_02{
 	margin:2vw auto;
@@ -55,7 +92,6 @@
 	color:#303030;
 }
 
-
 .and{
 	color:#303030;
 	font-size:3.5vw;
@@ -67,7 +103,7 @@
 }
 
 .send_btn{
-	width:70vw;
+	width:60vw;
 	height:8vw;
 	margin:0 auto;
 	font-size:4.5vw;
@@ -80,6 +116,7 @@
 }
 
 .send_btn_line{
+	display		:inline-block;
 	width		:60vw;
 	height		:10vw;
 	margin		:2vw auto;
@@ -92,7 +129,8 @@
 	background	:#00c000;
 }
 
-.send_btn_line{
+.send_btn_line_ng{
+	display		:inline-block;
 	width		:60vw;
 	height		:10vw;
 	margin		:2vw auto;

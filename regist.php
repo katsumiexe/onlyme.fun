@@ -157,6 +157,8 @@ $(function(){
 </div>
 <?}else{?>
 <form id="forms" action="./regist.php" method="post">
+
+<div class="box_00"><span class="icon_img" style="font-weight:400;"></span>メールアドレスで登録</div>
 <div class="box_01">
 	<div class="box_02">
 		<span class="title">メールアドレス</span><span class="and">(最大50文字)</span><br>
@@ -179,6 +181,15 @@ $(function(){
 </div>
 <input type="hidden" value="<?=$reg_code?>" name="reg_code">
 </form>
+
+<div class="box_00_l"><span class="icon_img" style="font-weight:400;"></span>LINEアカウントで登録</div>
+<div class="box_01_l">
+	<div class="box_02">
+			<a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=profile%20openid%20email" class="send_btn_line"><span class="icon_img " style="font-weight:400"></span>送　信</a>
+	</div>
+</div>
+
+
 <?}?>
 <div class="ft_box">
 <a href="policy.php" class="ft"><span class="ft_ar icon_img"></span><span class="ft_txt">プライバシーポリシー</span></a>

@@ -98,11 +98,8 @@ $(function(){
 					<input type="password" name="log_pass" placeholder="PASSWORD" class="top_input"><br>
 					<span class="btn_login">LOGIN</span>
 				</form>
-
-					<a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=profile%20openid%20email" class="btn_line_login"><span class="icon_img " style="font-weight:400"></span>LOGIN</a>
-
+<a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=profile%20openid%20email" class="btn_line_login"><span class="icon_img " style="font-weight:400"></span>LOGIN</a>
 			</div>
-
 		</div>
 		<span class="err_msg"><?=$msg?></span><br>
 		<a href="./regist.php" class="regist_in" id="beacon">新規登録</a><br>

@@ -7,11 +7,39 @@ include_once("./library/lib_regist.php");
 https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=profile%20openid%20email
 */
 
+$id			=$_POST["id"];
+$uid		=$_POST["uid"];
+$ret		=$_POST["ret"];
 
-$yy		=$_POST["yy"];
-$out	=$_POST["out"];
+$yy			=$_POST["yy"];
+$out		=$_POST["out"];
 if(!$yy) $yy=2000;
-if(!$out){
+$remove_ck=date("Y-m-d H:i:s",time()-86400);
+
+if($uid){
+	$sql=" UPDATE reg SET";
+	$sql.=" reg_line='{$uid}',";
+	$sql.=" reg_pic='1',";
+	$sql.=" reg_rank='12'";
+	$sql.=" WHERE id='{$id}'";
+	mysqli_query($mysqli,$sql);
+
+	session_save_path('./session/');
+	ini_set('session.gc_maxlifetime', 3*60*60); // 3 hours
+	ini_set('session.gc_probability', 1);
+	ini_set('session.gc_divisor', 100);
+	ini_set('session.cookie_secure', FALSE);
+	ini_set('session.use_only_cookies', TRUE);
+	session_start();
+	$_SESSION["id"]= $id;
+	$_SESSION["time"]= time();
+
+	$url = 'https://onlyme.fun';
+	header('Location: ' . $url, true, 301);
+	exit;
+
+
+}elseif(!$out){
 	$dat_e = array(
 	  'grant_type'    => 'authorization_code',
 	  'code'          => $_GET['code'],
@@ -30,9 +58,9 @@ if(!$out){
 		)
 	);	
 
-	$e_token = file_get_contents($url,false, stream_context_create($dat_e2));
-	$e_login =json_decode($e_token,true);
-	$id_token		=$e_login["id_token"];
+	$e_token	= file_get_contents($url,false, stream_context_create($dat_e2));
+	$e_login	=json_decode($e_token,true);
+	$id_token	=$e_login["id_token"];
 
 /*
 	$dat_d = array(
@@ -92,7 +120,6 @@ if(!$out){
 		$sql=" SELECT * FROM reg";
 		$sql.=" WHERE reg_mail='{$line_mail}' || reg_line='{$line_id}' ORDER BY id DESC LIMIT 1";
 		$line_yet = mysqli_query($mysqli,$sql);
-
 		if($l_user_yet = mysqli_fetch_assoc($line_yet)){
 
 			if($l_user_yet["reg_rank"]>10){
@@ -146,7 +173,6 @@ if(!$out){
 
 				}elseif($l_user_yet["reg_mail"] != $line_mail){
 					$app.=" reg_mail='{$line_mail}',";
-
 				}
 
 				if($app){
@@ -157,15 +183,17 @@ if(!$out){
 					mysqli_query($mysqli,$sql);
 					print($sql);
 				}
+
 				$url = 'https://onlyme.fun';
 				header('Location: ' . $url, true, 301);
 				exit;
 
 			}else{
 			/**■LINE退会--------------------*/
-
-
-
+					$line_return=1;
+				if($l_user_yet["reg_remove_day"]<$remove_ck){
+					$return_ok=1;
+				}
 			}
 
 		}
@@ -332,6 +360,11 @@ $(function(){
 			$('#form1').submit();
 		}
 	});
+
+	$('.send_btn_line').on('click',function () {
+		$(this).css('background','#a0c0a0');
+		$('#line_return').submit();
+	});
 });
 </script>
 </head>
@@ -345,28 +378,31 @@ $(function(){
 </div>
 <div class="main_irr sp_only">
 <a href="./index.php" class="irr_top">写真名刺作成サイト★OnlyMe</a>
-<h1 class="h1_irr"><span class="h1_title">LINE連携登録</span></h1>
-
-<?if($line_out =="1"){?>
-<div class="main_irr sp_only">
+<?if($line_return =="1"){?>
 <h1 class="h1_irr"><span class="h1_title">退会されたアカウント</span></h1>
+<?if($return_ok =="1"){?>
 <div class="box_01">
 	<div class="box_02">
 	退会されているアカウントです。<br>
 	</div>
 </div>
-	<?if($return_ok =="1"){?>
-		<div class="send_btn_line" id="line_out">LINE登録で再開</div><br>
-	<?}else{?>
-		<div class="send_btn_line_ng">LINE登録で再開</div><br>
-		<div class="box_01">
-			<div class="box_02">
-				退会後、24時間経過しないと再開することができません。<br>
-			</div>
-		</div>
-	<? } ?>
-
+	<div class="send_btn_line">LINE登録で再開</div><br>
+<?}else{?>
+<div class="box_01">
+	<div class="box_02">
+	退会されているアカウントです。<br>
+<span style="color-#c00000">退会後、24時間経過しないと再開することができません。<br>
+</span>
+	</div>
+</div>
+	<div class="send_btn_line_ng">LINE登録で再開</div><br>
+<? } ?>
+<form id="line_return" action="./line_login.php" method="post">
+<input type="hidden" value="<?=$line_id?>" name="uid">
+<input type="hidden" value="<?=$l_user_yet["id"]?>" name="id">
+</form>
 <?}elseif($out =="1"){?>
+<h1 class="h1_irr"><span class="h1_title">LINE連携登録</span></h1>
 <form action="./line_login.php" method="post">
 <div class="box_01"><br>
 これでよろしいですか<br><br>

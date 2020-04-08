@@ -3,8 +3,6 @@ include_once("./library/lib.php");
 include_once("./library/lib_me.php");
 include_once("./library/no_session.php");
 include_once("./library/lib_regist.php");
-
-
 ?>
 <!DOCTYPE HTML>
 <html lang="ja">
