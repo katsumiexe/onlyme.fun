@@ -33,26 +33,27 @@
 .regist_in_n{
 	display			:inline-block;
 	position		:absolute;
-	bottom			:57vw;
-	right			:10vw;
+	top				:5vw;
+	right			:5vw;
 	margin			:auto;
-	width			:30vw;
-	height			:10vw;
-	line-height		:10vw;
+	width			:20vw;
+	height			:20vw;
 	background		:linear-gradient(#f05040,#f17766);
 	text-decoration	:none;
 	font-size		:5vw;
 	color			:#fafafa;
 	font-weight		:700;
-	border-radius	:3vw;
+	border-radius	:10vw;
+	text-align		:center;
+	vertical-align	:middle;
 }
 
 .top_img{
-	width:100%;
-	position:relative;
-	border:none;
-	background:#fff0f9;
-	font-weight:600;
+	width			:100%;
+	position		:relative;
+	border			:none;
+	background		:#fff0f9;
+	font-weight		:600;
 }
 
 .link_mail{

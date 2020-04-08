@@ -92,7 +92,7 @@ $(function(){
 		<div class="top_img">
 			<img src="./img/top_image.jpg" style="width:100%;" alt="onlyme_top">
 
-			<a href="./regist.php" class="regist_in_n" id="beacon">新規登録</a><br>
+			<a href="./regist.php" class="regist_in_n" id="beacon">新規<br>登録</a><br>
 
 
 			<div class="top_login_n">
