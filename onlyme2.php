@@ -92,28 +92,32 @@ $(function(){
 		<div class="top_img">
 			<img src="./img/top_image.jpg" style="width:100%;" alt="onlyme_top">
 
-			<div class="top_login">
+			<a href="./regist.php" class="regist_in_n" id="beacon">新規登録</a><br>
+
+
+			<div class="top_login_n">
 				<form id="user_login" action="./index.php" method="post">
-					<input type="text" name="log_in" placeholder="ID or ADDRESS" class="top_input"><br>
-					<input type="password" name="log_pass" placeholder="PASSWORD" class="top_input"><br>
-					<span class="btn_login">LOGIN</span>
+					<input type="text" name="log_in" placeholder="ID or ADDRESS" class="top_input_n"><br>
+					<input type="password" name="log_pass" placeholder="PASSWORD" class="top_input_n"><br>
+					<span class="btn_login_n">LOGIN</span>
 				</form>
-<a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=profile%20openid%20email" class="btn_line_login"><span class="icon_img " style="font-weight:400"></span>LOGIN</a>
+<a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=profile%20openid%20email" class="btn_line_login_n"><span class="icon_img " style="font-weight:400"></span>LOGIN</a>
 			</div>
 		</div>
 		<span class="err_msg"><?=$msg?></span><br>
-		<a href="./regist.php" class="regist_in" id="beacon">新規登録</a><br>
+
+
 		<div class="top_msg check2">
 			<span class="icon_img check"></span> スマホで作成<br>
 			<span class="icon_img check"></span> コンビニで印刷<br>
 			<span class="icon_img check"></span> 写真名刺を簡単作成<br>
 		</div>
+
 		<div class="div_lp_roll">
 			<?for($h=0;$h<$cnt;$h++){?>
 				<img id="img<?=$h?>" src="<?=$roll_img[$h]?>?t=<?=time()?>" class="lp_roll">
 			<?}?>
 		</div>
-
 		<div class="div_lp_roll_txt">
 			パソコンがなくても
 			SNS入り・QRコード入りの
