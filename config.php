@@ -289,7 +289,6 @@ $(function(){
 </div>
 <div class="item2"><input id="ck_twitter" type="text" name="twitter" value="<?=$prof["twitter"]?>" class="item2_box"></div>
 
-
 <div class="item1"><span class="icon_img icon_9" style="margin:0 1.5vw"></span>Instagram</div>
 <div class="item3">
 	<div class="switch">
