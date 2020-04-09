@@ -479,7 +479,7 @@ $(function(){
 
 		}else{
 			$('.line_err').text();
-			$('#line_qr').upload('post_config_line_set.php', function(data){
+			$('#line_qr').upload('post_config_line_qr.php', function(data){
 				console.log(data);
 				if(data == 1){
 					$('.line_err').text("登録されました");
@@ -487,11 +487,37 @@ $(function(){
 
 				}else{
 					$('.line_err').text("QRコードが認識できません");
-				
 				}
-
 		    });
 		}
     });
-});
 
+	$("#set6").on('click',function(){     
+		$('#line_on').submit();
+	});
+
+	$("#set7").on('click',function(){     
+		$('.pop00,.pop07').fadeIn(100);
+	});
+
+	$("#yes_7").on('click',function(){
+		$.post({
+			url:'post_config_line_remove.php',
+
+		}).done(function(data, textStatus, jqXHR){
+			if(data ==1){
+				$('#err').text('解除されました');
+				$('.pop00,.err00').fadeIn(100);
+				$('#line_face1,#line_submit1').hide();
+				$('#line_face2,#line_submit2').show();
+		
+			}else if(data==2){
+				window.location.href = "./index.php?logout=1";
+
+			}else{
+				$('#err').text('エラーが発生しました');
+				$('.pop00,.err00').fadeIn(100);
+			}
+		});
+	});
+});

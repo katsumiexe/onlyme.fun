@@ -98,6 +98,16 @@ $line_qr=$dir3.$tmp_enc[2]."s".$tmp_enc[3].".png";
 	background:linear-gradient(#9000a0,#600090);
 	<?if($prof["quality"] == 1){?>display:none;<?}?>
 }
+
+<?if($user["reg_line"]){?>
+#line_face2, #line_submit1{
+	display:none;
+}
+<?}else{?>
+#line_face1, #line_submit2{
+	display:none;
+}
+<?}?>
 </style>
 <script src="./js/jquery-3.4.1.min.js"></script>
 <script src="./js/jquery-ui.min.js"></script>
@@ -165,8 +175,7 @@ $(function(){
 	<tr>
 		<td class="config_img_a" rowspan="3"><img src="<?=$user_face?>?t=<?=time()?>" class="config_img_a1"></td>
 
-<?if($user["reg_line"]){?>
-		<td class="config_img_b">
+		<td id="line_face1" class="config_img_b">
 			<img id="sumb1" src="<?=$prof_img[1]?>?t=<?=time()?>" class="config_img_b1">
 			<div id="s1" class="img_btn1<?if(strpos($prof_img[1],"noimage") === FALSE){?> btn_chg<?}?><?if($user["reg_pic"]== 1){?> img_sel<?}?>">
 				<span class="icon_img icon_5s img_btn_icon"></span>
@@ -174,9 +183,8 @@ $(function(){
 			</div>
 			<a href="line://nv/profile" class="config_img_line"><span class="icon_img icon_line"></span><span class="text_line">LINE</span></a>
 		</td>
-<?}else{?>
 
-		<td class="config_img_b">
+		<td id="line_face2" class="config_img_b">
 			<img id="sumb1" src="<?=$prof_img[1]?>?t=<?=time()?>" class="config_img_b1">
 			<div id="s1" class="img_btn1<?if(strpos($prof_img[1],"noimage") === FALSE){?> btn_chg<?}?><?if($user["reg_pic"]== 1){?> img_sel<?}?>">
 				<span class="icon_img icon_5s img_btn_icon"></span>
@@ -191,7 +199,6 @@ $(function(){
 				<span class="img_btn_txt">削除</span>
 			</div>
 		</td>
-<? } ?>
 
 	</tr>
 	<tr>
@@ -416,14 +423,13 @@ $(function(){
 <? } ?>
 
 <?if($user["id"]<10002014){?>
-<H2 class="h1"><span class=h1_title>LINE</span></h2>
-<?if($user["reg_line"]){?>
-<div style="padding-bottom:5vw;text-align:center;">
-	<div id="set5" class="set_line"><span class="icon_img" style="font-weight:400;"></span>LINE連携解除</div>
+<H2 class="h1"><span class="h1_title">LINE</span></h2>
+<div id="line_submit1" style="padding-bottom:5vw;text-align:center;">
+	<div id="set7" class="set_line"><span class="icon_img" style="font-weight:400;"></span>LINE連携解除</div>
 	<label for="line_qr" class="qr_imgfile icon_img"></label>
 	<input id="line_qr" type="file" name="qr_files" accept="image" style="display:none;">
+<?if($exp>=100){?>
 	<div id="set4" class="set_qr"><span class="icon_img"></span>QR登録</div>
-
 	<div class="line_err"></div>
 	<div class="remove_comm">
 		登録用のQRコードはLINEのサイトよりダウンロードできます。
@@ -431,11 +437,9 @@ $(function(){
 	</div>
 </div>
 
-<?}else{?>
-<div style="padding-bottom:5vw;text-align:center;">
-	<div id="set3" class="set_btn"><span class="icon_img" style="font-weight:400;"></span>LINEと連携する</div>
+<div id="line_submit2" style="padding-bottom:5vw;text-align:center;">
+	<div id="set6" class="set_btn"><span class="icon_img" style="font-weight:400;"></span>LINEと連携する</div>
 </div>
-<?}?>
 <?}?>
 
 <H2 class="h1"><span class=h1_title>退会</span></h2>
@@ -492,28 +496,6 @@ $(function(){
 </div>
 
 <div class="pop05">
-	LINE連携を解除します<br>
-	<?if($user["reg_pass"]){?>
-		LINEでのログインはできなくなります。<br>
-		会員ID、もしくはメールアドレスとPASSでのログインは可能です。
-	<?}else{?>
-		「OnlyMe」へのログインはできなくなります。<br>
-		PASSを設定しておくことで、メールアドレスとPASSでログインは可能になります。<br>
-	<?}?>
-
-	<div class="pop_notice">
-		<div id="yes_3" class="btn c2">LINE連携解除</div>　
-		<div class="btn c1">戻る</div>
-	</div>
-
-</div>
-
-
-
-
-
-
-<div class="pop05">
 	<div class="img_box_in">
 		<div class="img_box_in111"><canvas id="cvs1" width="400px" height="400px;" style=" background:#f0f0f0;"></canvas></div>
 		<div class="img_box_out1"></div>
@@ -544,6 +526,23 @@ $(function(){
 	</div>
 </div>
 
+<div class="pop07">
+	LINE連携を解除します<br>
+	<?if($user["reg_pass"]){?>
+		LINEでのログインはできなくなります。<br>
+		会員ID、もしくはメールアドレスとPASSでのログインは可能です。
+	<?}else{?>
+		ログインができなくなります。<br>
+		引き続きのご利用を希望される方は、パスワードを設定してください。<br>
+		退会希望の方は、下記より「退会」を選択してください。<br>
+		（退会されますと、自動的にLINE連携も解除されます）<br>
+	<?}?>
+	<div class="pop_notice">
+		<div id="yes_7" class="btn c2">LINE連携解除</div>　
+		<div class="btn c1">戻る</div>
+	</div>
+</div>
+
 <input id="img_top" type="hidden" name="img_top" value="10">
 <input id="img_left" type="hidden" name="img_left" value="10">
 
@@ -552,6 +551,14 @@ $(function(){
 
 <input id="img_zoom" type="hidden" name="img_zoom" value="100">
 <input id="upd" type="file" accept="image/*" style="display:none;">
+</form>
+
+<form id="line_on" action="https://access.line.me/oauth2/v2.1/authorize" method="post">
+<input type="hidden" name="response_type" value="code">
+<input type="hidden" name="client_id" value="1653949496">
+<input type="hidden" name="redirect_uri" value="redirect_uri=https%3a%2f%2fonlyme.fun%2fconfig.php">
+<input type="hidden" name="state" value="1sdf">
+<input type="hidden" name="scope" value="profile%20openid%20email">
 </form>
 
 <div id="err"></div>
