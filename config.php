@@ -36,6 +36,30 @@ if($_GET['code']){
 	$reg_chk=json_decode($tmp,true);
 
 	if($reg_chk["iss"] =="https://access.line.me" && $reg_chk["aud"] ==$line_client_id_c){
+
+		$line_name		=$reg_chk["name"];
+		$line_picture	=$reg_chk["picture"];
+		$line_mail		=$reg_chk["email"];
+		$line_id		=$reg_chk["sub"];
+
+		$sql=" SELECT * FROM reg";
+		$sql.=" WHERE reg_mail='{$line_mail}' || reg_line='{$line_id}' ORDER BY id DESC LIMIT 1";
+
+		$line_yet = mysqli_query($mysqli,$sql);
+		if($l_user_yet = mysqli_fetch_assoc($line_yet)){
+			if($l_user_yet["reg_mail"] == $line_mail && $l_user_yet["id"] != $user["id"]){
+				$errmsg="メールアドレスが他IDで登録されているため、LINE連携できません";
+
+			}elseif($l_user_yet["reg_mail"] == $line_mail){
+				$errmsg="該当のLNEアカウントは、すでにLINE連携されています。";
+			}
+		}else{
+			$sql ="UPDATE reg SET";
+			$sql.=" reg_mail='{$line_mail}',";
+			$sql.=" reg_line='{$line_id}'";
+			$sql.=" WHERE id='{$user["id"]}'";
+			mysqli_query($mysqli,$sql);
+		}
 	}
 
 }elseif($_POST["send"]){
@@ -133,6 +157,9 @@ $line_qr=$dir3.$tmp_enc[2]."s".$tmp_enc[3].".png";
 	<?if($prof["quality"] == 1){?>display:none;<?}?>
 }
 
+<?if($err_msg){?>
+alert('<?=$errmsg?>');
+<?}?>
 <?if($user["reg_line"]){?>
 #line_face2, #line_submit2{
 	display:none;

@@ -169,7 +169,6 @@ if($uid){
 					$sql.=$app;
 					$sql.=" WHERE id='{$l_user_yet["id"]}'";
 					mysqli_query($mysqli,$sql);
-					print($sql);
 				}
 
 				$url = 'https://onlyme.fun';
