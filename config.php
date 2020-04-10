@@ -552,11 +552,12 @@ $(function(){
 <input id="img_zoom" type="hidden" name="img_zoom" value="100">
 <input id="upd" type="file" accept="image/*" style="display:none;">
 </form>
+<!--https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=profile%20openid%20email-->
 
 <form id="line_on" action="https://access.line.me/oauth2/v2.1/authorize" method="post">
 <input type="hidden" name="response_type" value="code">
 <input type="hidden" name="client_id" value="1653949496">
-<input type="hidden" name="redirect_uri" value="redirect_uri=https%3a%2f%2fonlyme.fun%2fconfig.php">
+<input type="hidden" name="redirect_uri" value="https%3a%2f%2fonlyme.fun%2fconfig.php">
 <input type="hidden" name="state" value="1sdf">
 <input type="hidden" name="scope" value="profile%20openid%20email">
 </form>
