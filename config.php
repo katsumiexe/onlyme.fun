@@ -4,7 +4,41 @@ include_once("./library/lib_me.php");
 include_once("./library/session.php");
 $nowpage=4;
 
-if($_POST["send"]){
+
+
+if($_GET['code']){
+	$dat_e = array(
+	  'grant_type'    => 'authorization_code',
+	  'code'          => $_GET['code'],
+	  'redirect_uri'  => 'https://onlyme.fun/line_login.php',
+	  'client_id'     => $line_client_id_c,
+	  'client_secret' => $line_client_secret_c
+	);
+
+
+
+	$url = "https://api.line.me/oauth2/v2.1/token";
+	$content = http_build_query($dat_e);
+	$dat_e2 = array(
+		'http' => array(
+			'header' =>"Content-Type: application/x-www-form-urlencoded",
+			'method' =>'POST',
+			'content'=>$content
+		)
+	);	
+
+	$e_token	= file_get_contents($url,false, stream_context_create($dat_e2));
+	$e_login	=json_decode($e_token,true);
+	$id_token	=$e_login["id_token"];
+
+	$id_decode=explode(".",$id_token);
+	$tmp=base64_decode($id_decode[1]);
+	$reg_chk=json_decode($tmp,true);
+
+	if($reg_chk["iss"] =="https://access.line.me" && $reg_chk["aud"] ==$line_client_id_c){
+	}
+
+}elseif($_POST["send"]){
 	$open_fb	=$_POST["open_fb"];
 	$open_url	=$_POST["open_url"];
 	$open_cosp	=$_POST["open_cosp"];
@@ -438,7 +472,8 @@ $(function(){
 </div>
 
 <div id="line_submit2" style="padding-bottom:5vw;text-align:center;">
-	<div id="set6" class="set_line"><span class="icon_img" style="font-weight:400;"></span>LINEと連携する</div>
+	<a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1654068401&redirect_uri=https%3a%2f%2fonlyme.fun%2fconfig.php&state=1sdf&scope=profile%20openid%20email" class="set_line"><span class="icon_img" style="font-weight:400;"></span>LINEと連携する</a>
+
 </div>
 <?}?>
 
@@ -552,15 +587,8 @@ $(function(){
 <input id="img_zoom" type="hidden" name="img_zoom" value="100">
 <input id="upd" type="file" accept="image/*" style="display:none;">
 </form>
-<!--https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=profile%20openid%20email-->
 
-<form id="line_on" action="https://access.line.me/oauth2/v2.1/authorize" method="post">
-<input type="hidden" name="response_type" value="code">
-<input type="hidden" name="client_id" value="1653949496">
-<input type="hidden" name="redirect_uri" value="https%3a%2f%2fonlyme.fun%2fconfig.php">
-<input type="hidden" name="state" value="1sdf">
-<input type="hidden" name="scope" value="profile%20openid%20email">
-</form>
+<!--https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=profile%20openid%20email-->
 
 <div id="err"></div>
 <div id="wait"><span id="wait_in"></span></div>

@@ -35,14 +35,13 @@ if($uid){
 	header('Location: ' . $url, true, 301);
 	exit;
 
-
 }elseif(!$out){
 	$dat_e = array(
 	  'grant_type'    => 'authorization_code',
 	  'code'          => $_GET['code'],
 	  'redirect_uri'  => 'https://onlyme.fun/line_login.php',
-	  'client_id'     => '1653949496',
-	  'client_secret' => '8602dc9eba8e1901830af09a045f0711'
+	  'client_id'     => $line_client_id,
+	  'client_secret' => $line_client_secret
 	);
 
 	$url = "https://api.line.me/oauth2/v2.1/token";
@@ -84,15 +83,7 @@ if($uid){
 	$tmp=base64_decode($id_decode[1]);
 	$reg_chk=json_decode($tmp,true);
 
-	foreach($reg_chk as $a1 => $a2){
-	print("<!--".$a1."□".$a2."-->");
-	}
-
-	foreach($e_login as $a1 => $a2){
-	print("<!--".$a1."■".$a2."-->");
-	}
-
-	if($reg_chk["iss"] =="https://access.line.me" && $reg_chk["aud"] ==1653949496){
+	if($reg_chk["iss"] =="https://access.line.me" && $reg_chk["aud"] ==$line_client_id){
 
 
 //■友達チェック------------------

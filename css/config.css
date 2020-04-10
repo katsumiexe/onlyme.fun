@@ -425,6 +425,7 @@
 }
 
 .set_line{
+	display		:inline-block;
 	width		:80vw;
 	height		:12vw;
 	margin		:2vw auto;
@@ -434,6 +435,7 @@
 	line-height	:12vw;
 	background:linear-gradient(#00e000,#00c000);
 	cursor		:pointer;
+	text-decoration:none;
 }
 
 .set_btn{
@@ -441,11 +443,11 @@
 	height:12vw;
 	margin:2vw auto;
 	font-size:5vw;
-	font-weight:600;
-	color:#ffffff;
-	background	:linear-gradient(#a0a0ff,#3030ff);
+	color:#fafafa;
+	background	:linear-gradient(#ffb060,#ff9000);
 	line-height:12vw;
 	cursor:pointer;
+	font-weight:800;
 }
 
 .remove_comm{
