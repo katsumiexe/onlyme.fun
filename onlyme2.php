@@ -90,6 +90,7 @@ $(function(){
 	<div style="background:#fafafa">
 		<H1 class="h1"><span class="h1_title">写真名刺作成サイト★OnlyMe</span></h1>
 
+
 		<div class="top_img">
 			<img src="./img/top_image.jpg" style="width:100%;" alt="onlyme_top">
 			<a href="./regist.php" class="regist_in_n" id="beacon">

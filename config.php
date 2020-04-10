@@ -100,11 +100,11 @@ $line_qr=$dir3.$tmp_enc[2]."s".$tmp_enc[3].".png";
 }
 
 <?if($user["reg_line"]){?>
-#line_face2, #line_submit1{
+#line_face2, #line_submit2{
 	display:none;
 }
 <?}else{?>
-#line_face1, #line_submit2{
+#line_face1, #line_submit1{
 	display:none;
 }
 <?}?>
@@ -434,10 +434,11 @@ $(function(){
 		登録用のQRコードはLINEのサイトよりダウンロードできます。
 		登録できるのは自身のもののみです。違う登録のID、ビジネスアカウントは登録出来ません。
 	</div>
+<?}?>
 </div>
 
 <div id="line_submit2" style="padding-bottom:5vw;text-align:center;">
-	<div id="set6" class="set_btn"><span class="icon_img" style="font-weight:400;"></span>LINEと連携する</div>
+	<div id="set6" class="set_line"><span class="icon_img" style="font-weight:400;"></span>LINEと連携する</div>
 </div>
 <?}?>
 
