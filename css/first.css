@@ -899,18 +899,17 @@ table{
 }
 
 .ft{
-	position:relative;
-	display:inline-block;
-	width:78vw;
-	text-align:left;
-	color:#303030;
-	background:#fafafa;
-	height:7vw;
-	line-height:7vw;
-	padding-left:1vw;	
-	text-decoration:none;
-	border-bottom:1px solid #303030;
-	margin-top:1.5vw;
+	position		:relative;
+	display			:inline-block;
+	width			:78vw;
+	text-align		:left;
+	color			:#303030;
+	background		:#fafafa;
+	height			:6vw;
+	padding-left	:1vw;	
+	text-decoration	:none;
+	border-bottom	:1px solid #303030;
+	margin-top		:1.5vw;
 }
 
 .ft_ar{
@@ -921,9 +920,9 @@ table{
 	margin		:auto;
 	display		:inline-block;
 	width		:9vw;
-	height		:7vw;
-	line-height	:7vw;
-	font-size	:6vw;
+	height		:6vw;
+	line-height	:6vw;
+	font-size	:5vw;
 	text-align	:center;
 }
 .ft_txt{
@@ -933,9 +932,9 @@ table{
 	left		:9vw;
 	margin		:auto;
 	display		:inline-block;
-	height		:7vw;
-	line-height	:7vw;
-	font-size	:5vw;
+	height		:6vw;
+	line-height	:6vw;
+	font-size	:4.5vw;
 	text-align	:left;
 
 }
