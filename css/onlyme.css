@@ -163,6 +163,24 @@
 	background		:#fff0f5;
 	font-weight		:600;
 }
+
+.top_msg_n{
+	position		:absolute;
+	bottom			:3vw;
+	left			:0;
+	right			:0;
+	margin			:auto;
+	width			:80vw;
+	line-height		:8vw;
+	font-size		:5vw;
+	border			:0.5vw solid #f17766;
+	text-align		:left;
+	padding			:1.5vw;
+	border-radius	:1.5vw;
+	background		:#fff0f5;
+	font-weight		:600;
+}
+
 .err_msg{
 	color:#d00000;
 	font-weight:600;
@@ -183,8 +201,7 @@
 	
 	position		:absolute;
 	bottom			:2vw;
-	right			:0;
-	left			:0;
+	right			:2vw;
 	margin			:auto;
 	border			:1vw solid #f17766;
 	border-radius	:1vw;
