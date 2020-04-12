@@ -1,19 +1,20 @@
 
-box_00_l
+.box_00_l{
+	margin		:0 auto ;
 	display		:block;
 	width		:80vw;
-	height		:8vw;
+	height		:6vw;
 	line-height	:10vw;
-	padding		:1vw 2vw;
-	font-size	:4.5vw;
+	padding		:0 2vw;
+	font-size	:5.5vw;
 	font-weight	:600;
 	text-align	:left;
-	color		:#00c000;
+	color		:#008000;
 }
 
 .box_01_l{
 	width		:80vw;
-	background	:#c0ffc0;
+	background	:#d0ffe0;
 	border-radius:2vw;
 	border		:2vw solid #ffffff;
 	padding		:1vw;
@@ -23,26 +24,27 @@ box_00_l
 }
 
 .box_00{
+	margin		:0 auto ;
 	display		:block;
 	width		:80vw;
-	height		:8vw;
+	height		:6vw;
 	line-height	:10vw;
-	padding		:1vw 2vw;
-	font-size	:4.5vw;
+	padding		:0 2vw;
+	font-size	:5.5vw;
 	font-weight	:600;
 	text-align	:left;
-	color		:#e5c5ff;
+	color		:#c040a0;
 }
 
 .box_01{
-	width:80vw;
-	background:#f5e5ff;
+	width		:80vw;
+	background	:#f5e5ff;
 	border-radius:2vw;
-	border:2vw solid #ffffff;
-	padding:1vw;
-	font-size:4vw;
-	margin:2vw auto ;
-	text-align:center;
+	border		:2vw solid #ffffff;
+	padding		:1vw;
+	font-size	:4vw;
+	margin		:2vw auto ;
+	text-align	:center;
 }
 
 
@@ -66,7 +68,6 @@ box_00_l
 	margin:2vw auto;
 	font-size:3.5vw;
 	line-height:6vw;
-
 }
 
 .title{
@@ -77,8 +78,6 @@ box_00_l
 	margin-left:1vw;
 	text-align:left;
 }
-
-
 
 .box_alert{
 	width:70vw;
@@ -103,16 +102,16 @@ box_00_l
 }
 
 .send_btn{
-	width:60vw;
-	height:8vw;
-	margin:0 auto;
-	font-size:4.5vw;
-	font-weight:600;
-	color:#ffffff;
-	background:linear-gradient(#d090b0,#c040a0);
-	line-height:8vw;
-	cursor:pointer;
-	border:none;
+	width		:60vw;
+	height		:8vw;
+	margin		:0 auto;
+	font-size	:4.5vw;
+	font-weight	:600;
+	color		:#ffffff;
+	background	:linear-gradient(#d090b0,#c040a0);
+	line-height	:8vw;
+	cursor		:pointer;
+	border		:none;
 }
 
 .send_btn_line{
@@ -127,6 +126,8 @@ box_00_l
 	cursor		:pointer;
 	border		:none;
 	background	:#00c000;
+	text-decoration:none;
+	text-align	:center;
 }
 
 .send_btn_line_ng{
@@ -141,6 +142,8 @@ box_00_l
 	cursor		:pointer;
 	border		:none;
 	background	:#c0c0c0;
+	text-decoration:none;
+	text-align	:center;
 }
 
 
