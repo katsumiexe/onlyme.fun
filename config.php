@@ -466,18 +466,18 @@ $(function(){
 
 <?if($user["reg_rank"] == 11){?>
 <div style="padding-bottom:1vw;">
-	<div id="set1" class="set_btn">変更する</div>
-	<div class="remove_comm">
-		※登録情報を変更されますと一旦ログアウトし、登録メールアドレスに認証メールが送信されます。<br>
-		変更を有効にするには、認証メールからのログインが必要となります。<br>
-	</div>
-</div>
-<?}else{ ?>
-<div style="padding-bottom:1vw;">
 	<div id="set11" class="set_btn">変更する</div>
 	<div class="remove_comm">
 		メールアドレスの変更は、LINE側で行う事ができます。<br>
 		PASSを設定することで、会員ID、メールアドレスでのログインが可能になります。<br>
+	</div>
+</div>
+<?}else{ ?>
+<div style="padding-bottom:1vw;">
+	<div id="set1" class="set_btn">変更する</div>
+	<div class="remove_comm">
+		※登録情報を変更されますと一旦ログアウトし、登録メールアドレスに認証メールが送信されます。<br>
+		変更を有効にするには、認証メールからのログインが必要となります。<br>
 	</div>
 </div>
 <? } ?>
