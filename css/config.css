@@ -75,6 +75,8 @@
 	line-height	:6vw;
 	color		:#fafafa;
 	font-size	:6vw;
+	font-weight	:400;
+
 }
 
 .text_line{
@@ -103,19 +105,19 @@
 }
 
 .img_btn1{
-	display:inline-block;
-	position:absolute;
-	top:0;
-	bottom:0;
-	margin:auto;
-	width:11vw;
-	height:10vw;
-	vertical-align:middle;
-	background:linear-gradient(#f5f5f5,#d6d6d6);
-	border:0.2vw solid #606060;
-	border-radius:0.5vw;
-	color:#999999;
-	cursor:pointer;
+	display			:inline-block;
+	position		:absolute;
+	top				:0;
+	bottom			:0;
+	margin			:auto;
+	width			:11vw;
+	height			:10vw;
+	vertical-align	:middle;
+	background		:linear-gradient(#f5f5f5,#d6d6d6);
+	border			:0.2vw solid #606060;
+	border-radius	:0.5vw;
+	color			:#999999;
+	cursor			:pointer;
 }
 
 
@@ -407,25 +409,28 @@
 	font-weight	:600;
 	color		:#fafafa;
 	text-align	:center;
-	background	:linear-gradient(#e0e0e0,#c0c0c0);
+	background	:#c0c0c0;
 	cursor		:pointer;
 }
 
 .set_qr{
-	width		:30vw;
+	position	:relative;
+	width		:27vw;
 	height		:10vw;
 	margin		:1vw auto;
 	font-size	:4.5vw;
 	font-weight	:600;
-	color		:#ffffff;
+	color		:#fafafa;
 	background	:#40c040;
 	line-height	:10vw;
 	cursor		:pointer;
-
+	text-align	:right;
+	padding-right:3vw;
 }
 
 .set_line{
 	display		:inline-block;
+	position	:relative;
 	width		:80vw;
 	height		:12vw;
 	margin		:2vw auto;
@@ -433,41 +438,43 @@
 	font-weight	:600;
 	color		:#fafafa;
 	line-height	:12vw;
-	background:linear-gradient(#00e000,#00c000);
+	background	:#00c000;
 	cursor		:pointer;
 	text-decoration:none;
 }
 
 .set_btn{
-	width:80vw;
-	height:12vw;
-	margin:2vw auto;
-	font-size:5vw;
-	color:#fafafa;
-	background	:linear-gradient(#ffb060,#ff9000);
-	line-height:12vw;
-	cursor:pointer;
-	font-weight:800;
+	width			:80vw;
+	height			:12vw;
+	margin			:2vw auto;
+	font-size		:5vw;
+	color			:#303030;
+	background		:linear-gradient(#f5f5f5,#d6d6d6);
+	line-height		:12vw;
+	cursor			:pointer;
+	text-shadow		:1px 1px 0px #fafafa;
+	font-weight		:1000;
+
 }
 
 .remove_comm{
-	background:#ffffff;
-	padding:1vw;
-	text-align:left;
-	font-size:3vw;
-	width:70vw;
-	margin:1vw auto;
+	background		:#ffffff;
+	padding			:1vw;
+	text-align		:left;
+	font-size		:3vw;
+	width			:80vw;
+	margin			:1vw auto;
 }
 
 .switch{
-	line-height    : 5vw;
-	letter-spacing : 0;
-	text-align     : right;
-	font-size      : 3vw;
-	position       : relative;
-	width          : 14vw;
-	margin-right:0;
-	margin-left:auto;
+	line-height		:5vw;
+	letter-spacing	:0;
+	text-align		:right;
+	font-size		:3vw;
+	position		:relative;
+	width			:14vw;
+	margin-right	:0;
+	margin-left		:auto;
 }
 
 .switch_ck{

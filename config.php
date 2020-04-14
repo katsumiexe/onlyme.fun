@@ -482,22 +482,23 @@ $(function(){
 </div>
 <? } ?>
 
-<?if($user["id"]<10002014){?>
+
+<?if($user["reg_line"]){?>
 <H2 class="h1"><span class="h1_title">LINE</span></h2>
 <div id="line_submit1" style="padding-bottom:5vw;text-align:center;">
-	<div id="set7" class="set_line"><span class="icon_img" style="font-weight:400;"></span>LINE連携解除</div>
+	<div id="set7" class="set_line"><span class="icon_img icon_line"></span>LINE連携解除</div>
 	<label for="line_qr" class="qr_imgfile icon_img"></label>
 	<input id="line_qr" type="file" name="qr_files" accept="image" style="display:none;">
 <?if($exp>=100){?>
-	<div id="set4" class="set_qr"><span class="icon_img"></span>QR登録</div>
+	<div id="set4" class="set_qr"><span class="icon_img icon_line"></span>QR登録</div>
 	<div class="line_err"></div>
 	<div class="remove_comm">
-		登録用のQRコードはLINEのサイトよりダウンロードできます。
-		登録できるのは自身のもののみです。違う登録のID、ビジネスアカウントは登録出来ません。
+		登録用のQRコードはLINEのサイトよりダウンロードできます。<br>
+		登録できるのは自身のもののみです。違う登録のID、ビジネスアカウントは登録出来ません。<br>
 	</div>
 <?}?>
 </div>
-
+<?}else{?>
 <div id="line_submit2" style="padding-bottom:5vw;text-align:center;">
 	<a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1654068401&redirect_uri=https%3a%2f%2fonlyme.fun%2fconfig.php&state=1sdf&scope=profile%20openid%20email" class="set_line"><span class="icon_img" style="font-weight:400;"></span>LINEと連携する</a>
 
