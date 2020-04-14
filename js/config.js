@@ -471,7 +471,17 @@ $(function(){
 		);
 	});
 
-    $( "#set4" ).on('click',function(){     
+    $('#line_qr').on('change',function(){
+		if($('#line_qr').val()==''){
+			$('.qr_imgfile').css({'background':'#c0c0c0','color':'#fafafa'});
+
+		}else{
+			$('.qr_imgfile').css({'background':'#ffd0e0','color':'#ff90a0'});
+
+		}
+	});
+
+    $( "#set4" ).on('click',function(){
 
 		if($('#line_qr').val()==''){
 			$('.line_err').text("QRコードが登録されていません");

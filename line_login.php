@@ -1,5 +1,6 @@
 <?
-include_once("./library/session.php");
+include_once("./library/lib.php");
+include_once("./library/no_session.php");
 /*
 https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=profile%20openid%20email
 */
@@ -34,6 +35,7 @@ if($uid){
 	$url = 'https://onlyme.fun';
 	header('Location: ' . $url, true, 301);
 	exit;
+
 
 }elseif(!$out){
 	$dat_e = array(
