@@ -181,6 +181,9 @@ $(function(){
 </div>
 <input type="hidden" value="<?=$reg_code?>" name="reg_code">
 </form>
+
+
+
 <!--
 <div class="box_00_l"><span class="icon_img" style="font-weight:400;"></span>LINEアカウントで登録</div>
 <div class="box_01_l">
@@ -198,5 +201,3 @@ $(function(){
 <?include_once("./x_foot.php")?>
 </body>
 </html>
-
-
