@@ -89,7 +89,7 @@ $(function(){
 <div class="sp_only">
 	<div style="background:#fafafa">
 		<H1 class="h1"><span class="h1_title">写真名刺作成サイト★OnlyMe</span></h1>
-
+		<span class="err_msg"><?=$msg?></span>
 		<div class="top_img">
 			<img src="./img/top_0411.jpg" style="width:100%;" alt="onlyme_top">
 			<a href="./regist.php" class="regist_in_n" id="beacon">
@@ -110,7 +110,6 @@ $(function(){
 				<span class="icon_img check"></span> コンビニで印刷<br>
 				<span class="icon_img check"></span> 写真名刺を簡単作成<br>
 			</div>
-		<span class="err_msg"><?=$msg?></span><br>
 		<div class="div_lp_roll">
 			<?for($h=0;$h<$cnt;$h++){?>
 				<img id="img<?=$h?>" src="<?=$roll_img[$h]?>?t=<?=time()?>" class="lp_roll">

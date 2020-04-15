@@ -32,12 +32,12 @@ for($y=0;$y<35;$y++){
 		}
 
 		if($pixel>500000 && $pixel<510000 ){
-			$ck=1;
+			$qr_check++;
 		} 
 	}
 }
 
-if($ck == 1){
+if($qr_check > 5){
 for($y=0;$y<35;$y++){
 	for($x=0;$x<35;$x++){
 		$code_ck=substr($s_code,$ck,1);
@@ -54,7 +54,7 @@ for($y=0;$y<35;$y++){
 }
 imagepng($base,$line_qr);
 }
-echo $ck+0;
+echo $qr_check+0;
 exit();
 ?>
 

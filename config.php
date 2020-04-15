@@ -7,6 +7,7 @@ $nowpage=4;
 
 
 if($_GET['code']){
+
 	$dat_e = array(
 	  'grant_type'    => 'authorization_code',
 	  'code'          => $_GET['code'],
@@ -14,7 +15,6 @@ if($_GET['code']){
 	  'client_id'     => $line_client_id_c,
 	  'client_secret' => $line_client_secret_c
 	);
-
 
 
 	$url = "https://api.line.me/oauth2/v2.1/token";
@@ -25,11 +25,15 @@ if($_GET['code']){
 			'method' =>'POST',
 			'content'=>$content
 		)
-	);	
+	);
 
 	$e_token	= file_get_contents($url,false, stream_context_create($dat_e2));
 	$e_login	=json_decode($e_token,true);
 	$id_token	=$e_login["id_token"];
+
+print($e_token);
+var_dump($e_login);
+
 
 	$id_decode=explode(".",$id_token);
 	$tmp=base64_decode($id_decode[1]);
@@ -157,7 +161,7 @@ $line_qr=$dir3.$tmp_enc[2]."s".$tmp_enc[3].".png";
 	<?if($prof["quality"] == 1){?>display:none;<?}?>
 }
 
-<?if($err_msg){?>
+<?if($errmsg){?>
 alert('<?=$errmsg?>');
 <?}?>
 <?if($user["reg_line"]){?>
@@ -165,7 +169,7 @@ alert('<?=$errmsg?>');
 	display:none;
 }
 <?}else{?>
-#line_face1, #line_submit1{
+#line_face1, #line_submit1,#line_h1{
 	display:none;
 }
 <?}?>
@@ -231,7 +235,7 @@ $(function(){
 	<span style="font-weight:600;">性別:</span><?=$l_sex[$user["reg_sex"]]?>　
 	<span style="font-weight:600;">誕生日:</span><?=substr($user["reg_birth"],0,4)?>年<?=substr($user["reg_birth"],5,2)?>月<?=substr($user["reg_birth"],8,2)?>日
 </div>
-
+<?=$err_msg?>
 <table class="config_img">
 	<tr>
 		<td class="config_img_a" rowspan="3"><img src="<?=$user_face?>?t=<?=time()?>" class="config_img_a1"></td>
@@ -464,7 +468,7 @@ $(function(){
 </table>
 
 
-<?if($user["reg_rank"] == 11){?>
+<?if($user["reg_line"]){?>
 <div style="padding-bottom:1vw;">
 	<div id="set11" class="set_btn">変更する</div>
 	<div class="remove_comm">
@@ -483,8 +487,7 @@ $(function(){
 <? } ?>
 
 
-<?if($user["reg_line"]){?>
-<H2 class="h1"><span class="h1_title">LINE</span></h2>
+<H2 id="line_h1" class="h1"><span class="h1_title">LINE</span></h2>
 <div id="line_submit1" style="padding-bottom:5vw;text-align:center;">
 	<div id="set7" class="set_line"><span class="icon_img icon_line"></span>LINE連携解除</div>
 	<label for="line_qr" class="qr_imgfile icon_img"></label>
@@ -498,12 +501,12 @@ $(function(){
 	</div>
 <?}?>
 </div>
-<?}else{?>
+
+<!--
 <div id="line_submit2" style="padding-bottom:5vw;text-align:center;">
 	<a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1654068401&redirect_uri=https%3a%2f%2fonlyme.fun%2fconfig.php&state=1sdf&scope=profile%20openid%20email" class="set_line"><span class="icon_img" style="font-weight:400;"></span>LINEと連携する</a>
-
 </div>
-<?}?>
+-->
 
 <H2 class="h1"><span class=h1_title>退会</span></h2>
 <div style="padding-bottom:5vw;text-align:center;">
@@ -590,7 +593,7 @@ $(function(){
 </div>
 
 <div class="pop07">
-	LINE連携を解除します<br>
+	<span style="font-weight:600">LINE連携を解除します</span><br>
 	<?if($user["reg_pass"]){?>
 		LINEでのログインはできなくなります。<br>
 		会員ID、もしくはメールアドレスとPASSでのログインは可能です。
@@ -601,7 +604,7 @@ $(function(){
 		（退会されますと、自動的にLINE連携も解除されます）<br>
 	<?}?>
 	<div class="pop_notice">
-		<div id="yes_7" class="btn c2">LINE連携解除</div>　
+		<div id="yes_7" class="btn c2">連携解除</div>　
 		<div class="btn c1">戻る</div>
 	</div>
 </div>

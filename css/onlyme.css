@@ -182,8 +182,25 @@
 }
 
 .err_msg{
-	color:#d00000;
-	font-weight:600;
+	position	:absolute;
+	bottom		:53vw;
+	left		:30vw;
+	color		:#d00000;
+	font-size:4vw;
+	font-weight	:1000;
+	text-shadow:
+	-2px -2px 2px #fafafa,
+	 0px -2px 2px #fafafa,
+	 2px -2px 2px #fafafa,
+
+	-2px  0px 2px #fafafa,
+	 2px  0px 2px #fafafa,
+
+	-2px  2px 2px #fafafa,
+	 0px  2px 2px #fafafa,
+	 2px  2px 2px #fafafa
+	;
+
 }
 
 .top_login{
@@ -234,22 +251,8 @@
 	width		:40vw;
 }
 
-.btn_login{
-	display		:inline-block;
-	margin		:1vw 0.5vw;
-	font-size	:4.5vw;
-	width		:40vw;
-	height		:8vw;
-	line-height	:8vw;
-	text-align	:center;
-	border		:0.5vw solid #f17766;
-	background	:#ffffff;
-	color		:#f17766;
-	font-weight	:800;
-	cursor		:pointer;
-}
 
-.btn_login_n{
+.btn_login{
 	display		:inline-block;
 	margin		:1vw 0.5vw;
 	font-size	:4.5vw;
