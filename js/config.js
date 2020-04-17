@@ -314,7 +314,7 @@ $(function(){
 	});
 
 	$('.pop00,.c1').on('click',function(){
-		$('.pop00,.pop01,.pop02,.pop03,.pop04,.pop05,.err00').fadeOut(150);
+		$('.pop00,.pop01,.pop02,.pop03,.pop04,.pop05,.pop07,.err00').fadeOut(150);
 		var cvs = document.getElementById('cvs1');
 		var ctx = cvs.getContext('2d');
 		ctx.clearRect(0, 0, cvs_A,cvs_A);
@@ -491,7 +491,7 @@ $(function(){
 			$('.line_err').text();
 			$('#line_qr').upload('post_config_line_qr.php', function(data){
 				console.log(data);
-				if(data == 1){
+				if(data > 5){
 					$('.line_err').text("登録されました");
 					$('.qr_imgfile').css({'color':'#003000'});
 
@@ -515,10 +515,11 @@ $(function(){
 			url:'post_config_line_remove.php',
 
 		}).done(function(data, textStatus, jqXHR){
+			console.log(data);
 			if(data ==1){
 				$('#err').text('解除されました');
-				$('.pop00,.err00').fadeIn(100);
-				$('#line_face1,#line_submit1').hide();
+				$('.pop00,.err00').fadeOut(100);
+				$('#line_face1,#line_submit1,#line_h1').hide();
 				$('#line_face2,#line_submit2').show();
 		
 			}else if(data==2){
