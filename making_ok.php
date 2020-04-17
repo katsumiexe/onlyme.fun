@@ -252,6 +252,7 @@ if($dat_tmpl['name_p']==2 ||$dat_tmpl['name_p']==5){
 	$name_x		+=$dat_tmpl['name_shadow_size']+$dat_tmpl['name_line_size'];
 }
 
+
 //■orgin-------------------------------
 for($n=0;$n<mb_strlen($orgin);$n++){
     $t_orgin[].=mb_substr($orgin,$n,1,"UTF-8");

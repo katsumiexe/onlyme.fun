@@ -3,6 +3,16 @@ include_once("./library/lib.php");
 include_once("./library/lib_me.php");
 include_once("./library/no_session.php");
 
+require_once("./library/twitteroauth/autoload.php");
+use Abraham\TwitterOAuth\TwitterOAuth;
+
+$c_key	="GzrPhtQWHEIppfuMd2ncdluDb";
+$c_sec	="WY4P1sGmPauStgfuIgWWrCKqDa5bw3vcyxjRNc1uHPmHuOPhdZ";
+$s_tok	="1145915557620768768-MVV335sWkO88NVed1dBuUBw2veDm7v";	
+$s_sec	="DrgnDGj7JN1MdzBPNxepqwq97ECpELdWfDB1QsGVs6Xq5";
+
+$obj = new TwitterOAuth($c_key, $c_sec, $s_tok, $s_sec); 
+
 $sql ="SELECT * FROM me_thanks";
 $sql .=" WHERE del=0";
 $sql .=" ORDER BY sort ASC";
@@ -12,10 +22,10 @@ if($result = mysqli_query($mysqli,$sql)){
 		$thanks[$dat2["sort"]]=$dat2;
 	}
 }
+
 /*https://syncer.jp/Web/API/Twitter/REST_API/GET/users/lookup/*/
-
-
 ?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ja">
 <head>
@@ -163,7 +173,6 @@ if($result = mysqli_query($mysqli,$sql)){
 </div>
 
 <div class="thanks_icon" style="color:#303030"></div>
-
 <?foreach($thanks as $a1 =>$a2){?>
 <div class="thanks_box">
 	<span class="thanks_box_name"><?=$thanks[$a1]["name"]?></span>
@@ -177,12 +186,10 @@ if($result = mysqli_query($mysqli,$sql)){
 		<?if($thanks[$a1]["cosp"]){?><a href="https://sp.cosp.jp/prof.aspx?id=<?=$thanks[$a1]["cosp"]?>" class="thanks_icon p_cosp"></a><?}?>
 		<?if($thanks[$a1]["github"]){?><a href="https://github.com/<?=$thanks[$a1]["github"]?>" class="thanks_icon p_github"></a><?}?>
 	</span>
-
 	<img src="<?=$thanks[$a1]["img"]?>" class="thanks_box_img">
 	<span class="thanks_box_comm"><?=$thanks[$a1]["comm"]?></span>
 </div>
 <?}?>
-
 <?include_once("./x_foot.php")?>
 </body>
 </html>

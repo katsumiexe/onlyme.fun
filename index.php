@@ -11,6 +11,7 @@ if($_POST["img_url1"] && $_POST["img_url2"]){
 	unlink($dir.'print.php');
 	unlink($dir.$_POST["img_url1"]);
 	unlink($dir2.$_POST["img_url2"]);
+
 }
 
 if($user["tuto"] == 0){
@@ -18,6 +19,7 @@ if($user["tuto"] == 0){
 	$sql="UPDATE reg SET tuto=1 WHERE id='{$user["id"]}'";
 	mysqli_query($mysqli,$sql);
 }
+
 
 if($list+0<1) $list=0;
 $chg=$_POST["chg"]+0;
@@ -58,6 +60,7 @@ if($chg == 1){//■イイネ数順
 	$sql.=" ORDER BY cheer_new DESC";
 	$sql.=" LIMIT 21";
 
+
 }else{
 	$sql ="SELECT *, sum(me_iine.pritty)+sum(me_iine.smart)+sum(me_iine.funny)+sum(me_iine.sexy)  as iine, max(me_cheer.cheer_date) as cheer_new FROM `me_making`";
 	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
@@ -69,6 +72,8 @@ if($chg == 1){//■イイネ数順
 	$sql.=" ORDER BY me_making.making_id DESC";
 	$sql.=" LIMIT 21";
 }
+
+//print($sql);
 
 $result = mysqli_query($mysqli,$sql);
 while($dat2 = mysqli_fetch_assoc($result)){
@@ -93,7 +98,10 @@ while($dat2 = mysqli_fetch_assoc($result)){
 		$tag_id[$d]		="tag".$dat2["use_tmpl"];
 		$tag_code[$d]	=$dat2["tmpl_code"];
 
+//print($dat[$d]["cate01"]."◇".$dat[$d]["cate"]."<br>\n");
+
 		$dat[$d]=$dat2;
+
 
 		$dat[$d]["mdate"]=substr($dat2["makedate"],5,2)."/".substr($dat2["makedate"],8,2)." ".substr($dat2["makedate"],11,2).":".substr($dat2["makedate"],14,2);
 		$dat[$d]["img_url"]	=$sub_img;
@@ -178,6 +186,7 @@ while($dat2 = mysqli_fetch_assoc($result)){
 		$sql4.=" WHERE al_card_id='{$dat2["making_id"]}'";
 		$sql4.=" AND al_user_id='{$user["id"]}'";
 		$sql4.=" LIMIT 1";
+
 
 		$result4 = mysqli_query($mysqli,$sql4);
 		if($dat4 = mysqli_fetch_assoc($result4)){
