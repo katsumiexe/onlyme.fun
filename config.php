@@ -4,8 +4,6 @@ include_once("./library/lib_me.php");
 include_once("./library/session.php");
 $nowpage=4;
 
-
-
 if($_GET['code']){
 
 	$dat_e = array(
@@ -15,7 +13,6 @@ if($_GET['code']){
 	  'client_id'     => $line_client_id_c,
 	  'client_secret' => $line_client_secret_c
 	);
-
 
 	$url = "https://api.line.me/oauth2/v2.1/token";
 	$content = http_build_query($dat_e);
