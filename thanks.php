@@ -2,7 +2,7 @@
 include_once("./library/lib.php");
 include_once("./library/lib_me.php");
 include_once("./library/no_session.php");
-
+/*
 require_once("./library/twitteroauth/autoload.php");
 use Abraham\TwitterOAuth\TwitterOAuth;
 
@@ -22,7 +22,7 @@ if($result = mysqli_query($mysqli,$sql)){
 		$thanks[$dat2["sort"]]=$dat2;
 	}
 }
-
+*/
 /*https://syncer.jp/Web/API/Twitter/REST_API/GET/users/lookup/*/
 ?>
 
