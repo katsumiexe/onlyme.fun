@@ -5,7 +5,6 @@ include_once("./library/session.php");
 $nowpage=4;
 
 if($_GET['code']){
-
 	$dat_e = array(
 	  'grant_type'    => 'authorization_code',
 	  'code'          => $_GET['code'],
@@ -20,7 +19,7 @@ if($_GET['code']){
 		'http' => array(
 			'header' =>"Content-Type: application/x-www-form-urlencoded",
 			'method' =>'POST',
-			'content'=>$content
+			'content'=>$content	
 		)
 	);
 
