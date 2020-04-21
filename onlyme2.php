@@ -89,10 +89,7 @@ $(function(){
 <div class="sp_only">
 	<div style="background:#fafafa">
 		<H1 class="h1"><span class="h1_title">写真名刺作成サイト★OnlyMe</span></h1>
-<<<<<<< HEAD
-=======
 		<span class="err_msg"><?=$msg?></span>
->>>>>>> 6de457917f336f27027e0e4e272c8ba933b5ee48
 		<div class="top_img">
 			<img src="./img/top_0411.jpg" style="width:100%;" alt="onlyme_top">
 			<a href="./regist.php" class="regist_in_n" id="beacon">

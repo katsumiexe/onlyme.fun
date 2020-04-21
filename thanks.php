@@ -149,7 +149,6 @@ if($result = mysqli_query($mysqli,$sql)){
 	border:0.5vw solid #c000c0;
 	background:linear-gradient(#e060e0,#c000c0);
 }
-
 .p_github{
 	border:0.5vw solid #666666;
 	background:linear-gradient(#999999,#666666);
