@@ -3,6 +3,7 @@ $page_index="top";
 include_once("./library/lib.php");
 include_once("./library/lib_me.php");
 include_once("./library/session.php");
+include_once("./library/api.php");
 $nowpage=1;
 $ex=8;
 $d=0;

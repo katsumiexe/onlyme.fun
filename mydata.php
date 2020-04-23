@@ -2,6 +2,7 @@
 include_once("./library/lib.php");
 include_once("./library/lib_me.php");
 include_once("./library/session.php");
+include_once("./library/api.php");
 
 $cheer	=$_POST["cheer"];
 $n_cheer=$_POST["n_cheer"];

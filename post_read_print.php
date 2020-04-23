@@ -2,6 +2,7 @@
 include_once("./library/lib.php");
 include_once("./library/lib_me.php");
 include_once("./library/session.php");
+include_once("./library/api.php");
 if(!$mysqli){
 	$msg="接続エラー";
 	die("接続エラー");
