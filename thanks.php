@@ -94,6 +94,8 @@ for($n=0;$n<count($obj);$n++){
 		$dat[$n]["name"]=$obj[$n]->name."様";
 	}
 	$dat[$n]["img"]=str_replace("_normal","",$obj[$n]->profile_image_url_https);
+	$dat[$n]["screen_name"]=$obj[$n]->screen_name;
+
 }
 ?>
 <!DOCTYPE HTML>
@@ -183,17 +185,27 @@ for($n=0;$n<count($obj);$n++){
 
 .thanks_icon{
 	display		:inline-block;
-	margin		:1vw;
+	margin		:0.5vw;
+	width		:8vw;
+	height		:8vw;	
+	line-height	:8vw;
+	text-align	:center;
+	border-radius:50%;
+}
+
+.thanks_icon_in{
+	display		:inline-block;
 	width		:6vw;
 	height		:6vw;	
 	line-height	:6vw;
-	font-size	:4.5vw;
+	font-size	:6vw;
 	text-align	:center;
 	color		:#fafafa;
 	font-family	:at_icon;
 	text-decoration:none;
-	border-radius:50%;
+	margin:1vw;
 }
+
 
 .p_twitter{
 	border:0.5vw solid #55ACEE;
@@ -228,7 +240,6 @@ for($n=0;$n<count($obj);$n++){
 	border:0.5vw solid #666666;
 	background:linear-gradient(#999999,#666666);
 }
-
 </style>
 </head>
 <body class="body">
@@ -248,18 +259,18 @@ for($n=0;$n<count($obj);$n++){
 <?for($a1=0;$a1<count($dat);$a1++){?>
 <div class="thanks_box">
 	<span class="thanks_box_name"><?=$dat[$a1]["name"]?></span>
-	<span class="thanks_box_link">
-		<?if($dat[$a1]["url"]){?><a href="<?=$dat[$a1]["url"]?>" class="thanks_icon p_url"></a><?}?>
-		<?if($dat[$a1]["twitter"]){?><a href="https://twitter.com/<?=$dat[$a1]["twitter"]?>" class="thanks_icon p_twitter"></a><?}?>
-		<?if($dat[$a1]["insta"]){?><a href="https://instagram.com/<?=$dat[$a1]["insta"]?>" class="thanks_icon p_insta"></a><?}?>
-		<?if($dat[$a1]["facebook"]){?><a href="https://facebook.com/<?=$dat[$a1]["facebook"]?>" class="thanks_icon p_facebook"></a><?}?>
-		<?if($dat[$a1]["blog"]){?><a href="<?=$dat[$a1]["blog"]?>" class="thanks_icon p_blog"></a><?}?>
-		<?if($dat[$a1]["photo"]){?><a href="<?=$dat[$a1]["photo"]?>" class="thanks_icon p_photo"></a><?}?>
-		<?if($dat[$a1]["cosp"]){?><a href="https://sp.cosp.jp/prof.aspx?id=<?=$dat[$a1]["cosp"]?>" class="thanks_icon p_cosp"></a><?}?>
-		<?if($dat[$a1]["github"]){?><a href="https://github.com/<?=$dat[$a1]["github"]?>" class="thanks_icon p_github"></a><?}?>
-	</span>
 	<img src="<?=$dat[$a1]["img"]?>" class="thanks_box_img">
 	<span class="thanks_box_comm"><?=$dat[$a1]["comm"]?></span>
+	<span class="thanks_box_link">
+		<?if($dat[$a1]["url"]){?><span class="thanks_icon p_url"><a href="<?=$dat[$a1]["url"]?>" class="thanks_icon_in"></a></span><?}?>
+		<?if($dat[$a1]["screen_name"]){?><span class="thanks_icon p_twitter"><a href="https://twitter.com/<?=$dat[$a1]["screen_name"]?>" class="thanks_icon_in"></a></span><?}?>
+		<?if($dat[$a1]["insta"]){?><span class="thanks_icon p_insta"><a href="https://instagram.com/<?=$dat[$a1]["insta"]?>" class="thanks_icon_in"></a></span><?}?>
+		<?if($dat[$a1]["facebook"]){?><span class="thanks_icon p_facebook"><a href="https://facebook.com/<?=$dat[$a1]["facebook"]?>" class="thanks_icon_in"></a></span><?}?>
+		<?if($dat[$a1]["blog"]){?><span class="thanks_icon p_blog"><a href="<?=$dat[$a1]["blog"]?>" class="thanks_icon_in"></a></span><?}?>
+		<?if($dat[$a1]["photo"]){?><span class="thanks_icon p_photo"><a href="<?=$dat[$a1]["photo"]?>" class="thanks_icon_in"></a></span><?}?>
+		<?if($dat[$a1]["cosp"]){?><span class="thanks_icon p_cosp"><a href="https://sp.cosp.jp/prof.aspx?id=<?=$dat[$a1]["cosp"]?>" class="thanks_icon_in"></a></span><?}?>
+		<?if($dat[$a1]["github"]){?><span class="thanks_icon p_github"><a href="https://github.com/<?=$dat[$a1]["github"]?>" class="thanks_icon_in"></a></span><?}?>
+	</span>
 </div>
 <?}?>
 <?include_once("./x_foot.php")?>
