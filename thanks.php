@@ -8,6 +8,7 @@ $sql ="SELECT * FROM me_thanks";
 $sql.=" WHERE del=0"; 
 $sql.=" ORDER BY sort ASC"; 
 
+
 $c=0;
 $res = mysqli_query($mysqli,$sql);
 while($row = mysqli_fetch_assoc($res)){

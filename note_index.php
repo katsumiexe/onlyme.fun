@@ -34,7 +34,6 @@ if($dat_list = mysqli_fetch_assoc($result)){
 <link rel="stylesheet" href="./css/set_icon.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/first.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/note.css?_<?=date("YmdHi")?>">
-
 <script src="./js/jquery-3.2.1.min.js"></script>
 <script src="./js/first.js"></script>
 <script src="./js/note.js"></script>
