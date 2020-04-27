@@ -43,7 +43,7 @@ if($me_pass && $me_mail){
 	$mailer->Password	= $mail_pass;
 	$mailer->SMTPSecure = 'tls';
 	$mailer->Port		= 587;
-//	$mailer->SMTPDebug = 2;
+	$mailer->SMTPDebug = 2;
 
 	$mailer->From     = $mail_from;
 	$mailer->FromName = mb_convert_encoding("写真名刺作成サイト★OnlyMe","UTF-8","AUTO");
