@@ -91,7 +91,7 @@ $(function(){
 		<H1 class="h1"><span class="h1_title">写真名刺作成サイト★OnlyMe</span></h1>
 		<div class="top_img">
 			<img src="./img/top_0411.jpg" style="width:100%;" alt="onlyme_top">
-			<a href="./error.php" class="regist_in_n" id="beacon">
+			<a href="./regist.php" class="regist_in_n" id="beacon">
 			<span class="regist_in_a">新規</span>
 			<span class="regist_in_b">登録</span>
 			</a>
