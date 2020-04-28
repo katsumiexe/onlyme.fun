@@ -292,10 +292,6 @@ $(function(){
 				}
 			);
 
-console.log(TMP1);
-console.log(TMP);
-console.log(Minus);
-console.log(iine_Pt);
 		}
 
 
