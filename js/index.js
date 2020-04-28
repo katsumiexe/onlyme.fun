@@ -227,6 +227,7 @@ $(function(){
 
 			TMP1=$(this).children('.p_page_msg_c').text();
 			TMP=parseFloat(TMP1)+0 - parseFloat(Minus);
+
 			$('#e_'+Name).val(TMP);
 			$(this).removeClass('ii_'+Name);
 			$(this).children('.p_page_msg_c').text(TMP).removeClass('iine_my_c1');
@@ -246,21 +247,19 @@ $(function(){
 			$('#mm'+Img_id).val('');
 			$('#mi'+Img_id).val('0');
 
-		}else{
-
-			if(MySel){//■　OFF→ON
+		}else{//■　OFF→ON
+			if(MySel){
 				$('#'+MySel).removeClass('ii_'+MySel);
 				TMP1=$('#'+MySel).children('.p_page_msg_c').text();
 
 				Minus=$('#mi'+Img_id).val();
 
-
-
 				TMP2=parseFloat(TMP1) - parseFloat(Minus);
-
 				$('#'+MySel).children('.p_page_msg_c').text(TMP2).removeClass('iine_my_c1');
 				$('#f'+Img_id).children('input:hidden[name="'+ MySel +'"]').val(TMP2);
 			}
+
+			Minus=iine_Pt;
 
 			$(this).addClass('ii_'+Name);
 
@@ -269,6 +268,7 @@ $(function(){
 			$(this).children('.p_page_msg_c').text(TMP).addClass('iine_my_c1');
 
 			$('#f'+Img_id).children('input:hidden[name="'+ Name +'"]').val(TMP);
+
 			$('#mi'+Img_id).val(iine_Pt);
 
 			MySel=Name;
@@ -291,12 +291,13 @@ $(function(){
 					}
 				}
 			);
-		}
 
 console.log(TMP1);
 console.log(TMP);
 console.log(Minus);
-console.log(MySel);
+console.log(iine_Pt);
+		}
+
 
 	});
 
