@@ -57,6 +57,7 @@ $(function(){
 
 		MySel	= $(this).children('input:hidden[name="mysel"]').val();
 		Minus	= $(this).children('input:hidden[name="minus"]').val();
+		Minus	=parseFloat(Minus)+0;
 
 		Alert	= $(this).children('input:hidden[name="alert"]').val();
 
@@ -221,11 +222,12 @@ $(function(){
 		}
 
 		Name=$(this).attr('id');
-		if($(this).hasClass('ii_'+Name)){//■　ON→OFF
-			TMP=$(this).children('.p_page_msg_c').text();
-			TMP=parseFloat(TMP)+0 - parseFloat(Minus);
-			$('#e_'+Name).val(TMP);
 
+		if($(this).hasClass('ii_'+Name)){//■　ON→OFF
+
+			TMP1=$(this).children('.p_page_msg_c').text();
+			TMP=parseFloat(TMP1)+0 - parseFloat(Minus);
+			$('#e_'+Name).val(TMP);
 			$(this).removeClass('ii_'+Name);
 			$(this).children('.p_page_msg_c').text(TMP).removeClass('iine_my_c1');
 
@@ -243,12 +245,17 @@ $(function(){
 			MySel="";
 			$('#mm'+Img_id).val('');
 			$('#mi'+Img_id).val('0');
+
 		}else{
 
 			if(MySel){//■　OFF→ON
 				$('#'+MySel).removeClass('ii_'+MySel);
 				TMP1=$('#'+MySel).children('.p_page_msg_c').text();
+
 				Minus=$('#mi'+Img_id).val();
+
+
+
 				TMP2=parseFloat(TMP1) - parseFloat(Minus);
 
 				$('#'+MySel).children('.p_page_msg_c').text(TMP2).removeClass('iine_my_c1');
@@ -285,6 +292,12 @@ $(function(){
 				}
 			);
 		}
+
+console.log(TMP1);
+console.log(TMP);
+console.log(Minus);
+console.log(MySel);
+
 	});
 
 	$('#p_page_out').on('click',function () {
