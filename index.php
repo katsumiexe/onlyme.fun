@@ -288,7 +288,6 @@ twq('init','o32ga');
 twq('track','PageView');
 </script>
 <!-- End Twitter universal website tag code -->
-
 <style>
 </style>
 </head>
@@ -299,7 +298,7 @@ twq('track','PageView');
 <?}else{?>
 <?include_once("./x_head.php")?>
 <div class="main">
-<div style="height:0.5vw">　</div/>
+<div style="height:0.5vw;width:90vw">　</div/>
 	<div class="index_info">
 		<p class="p_toi">印刷の仕様が変更になりました。詳細は<a href="./note_index.php?note=42">HELP</a>をご参照下さい</p>
 		<p class="p_toi">お問い合わせ、不具合報告は<a href="./inpost.php">ご意見メール</a>よりお願いします</p>

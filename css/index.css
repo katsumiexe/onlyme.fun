@@ -144,8 +144,8 @@
 
 .p_page{
 	position:fixed;
-	top:0vh;
-	left:105vw;
+	top:0;
+	left:0;
 	width:99vw;
 	height:120vh;
 	background: #ffe0d0;

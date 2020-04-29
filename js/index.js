@@ -2,6 +2,7 @@ var Direction="";
 var Position="";
 var TopNow="";
 var TopNow2="";
+$('.p_page').css('left','105vw');
 
 $(function(){ 
 	$('.p_cheer_com').hide();
@@ -204,12 +205,12 @@ $(function(){
 		stop: function( event, ui ) {
 			if(ui.position.left < 100){
 				$('.pop10').animate({'left':'0.5vw'},200);
+
 			}else{
 				$('.pop10').animate({'left': '105vw'},100);
 				$(window).scrollTop(TopNow);
 				$('.info_list').hide();	
 				$('.info').animate({'top':'7vw'},100);
-
 			}
 		}
 	});
@@ -291,10 +292,7 @@ $(function(){
 					}
 				}
 			);
-
 		}
-
-
 	});
 
 	$('#p_page_out').on('click',function () {
@@ -350,7 +348,6 @@ $(function(){
 		if($('.info_list').css('display')=='none'){
 			$('.info_list').slideDown(300);
 			$('.info').animate({'top':'18vw'},300);
-
 
 		}else{
 			$('.info_list').slideUp(100);	
