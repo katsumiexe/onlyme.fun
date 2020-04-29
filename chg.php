@@ -13,8 +13,8 @@ require 'PHPMailer/language/phpmailer.lang-ja.php';
 
 include_once("./library/lib.php");
 include_once("./library/lib_me.php");
-include_once("./library/session.php");
 include_once("./library/lib_regist.php");
+include_once("./library/session.php");
 
 $t_date=date("Y-m-d H:i:s");
 $p_name		=$_POST["p_name"];
@@ -34,8 +34,8 @@ mysqli_query($mysqli,$sql);
 	$msg=str_replace("[name]",$p_name,$msg);
 
 	$mailer = new PHPMailer();
-	$mailer->IsSMTP();
 
+	$mailer->IsSMTP();
 	$mailer->Host		= $host;
 	$mailer->CharSet	= 'utf-8';
 	$mailer->SMTPAuth	= TRUE;
@@ -47,10 +47,10 @@ mysqli_query($mysqli,$sql);
 
 	$mailer->From     = $mail_from;
 	$mailer->FromName = mb_convert_encoding("写真名刺作成サイト★OnlyMe","UTF-8","AUTO");
-	$mailer->Subject  = mb_convert_encoding('会員登録変更',"UTF-8","AUTO");
+	$mailer->Subject  = mb_convert_encoding('登録情報変更',"UTF-8","AUTO");
 	$mailer->Body     = mb_convert_encoding($msg,"UTF-8","AUTO");
-	$mailer->AddAddress($me_mail);
-
+	$mailer->AddAddress($p_mail);
+	$mailer->Send();
 /*
 $to      = $p_mail;
 $subject = "写真名刺簡単作成★OnlyMe";
