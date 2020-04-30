@@ -1,11 +1,24 @@
 <?
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+mb_language("Japanese");
+mb_internal_encoding("UTF-8");
+
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+require 'PHPMailer/src/POP3.php';
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/OAuth.php';
+require 'PHPMailer/language/phpmailer.lang-ja.php';
+
 include_once("./library/lib.php");
 include_once("./library/lib_me.php");
 include_once("./library/no_session.php");
+include_once("./library/lib_regist.php");
+
 
 $me_mail	=$_REQUEST["me_mail"];	//■アドレス
 $send		=$_REQUEST["send"];
-$nowpage=4;
 
 $date		=date("Y-m-d H:i:s");
 $date_lim	=date("Y-m-d H:i:s",time()-86400);
@@ -25,18 +38,35 @@ if($me_mail){
 		$code=time()+$dat["id"];
 		$p_code=substr("0000000000".$code,-12);
 
-		$sql_up	 ="INSERT INTO me_config_chg(`date`,`user_id`, `name`, `mail`, `pass`, `state`, `code`)";
-		$sql_up	.="VALUES('{$date}', '{$dat["id"]}', '{$dat["reg_name"]}', '{$me_mail}', '{$dat["reg_pass"]}', '{$dat["reg_state"]}', '{$p_code}')";
-		mysqli_query ($mysqli,$sql_up);
 
-		mb_language("Japanese");
-		mb_internal_encoding("UTF-8");
+		$msg=file_get_contents("./mail/mail_3.txt");
+		$msg=str_replace("[code]",$p_code,$msg);
 
-		$to      = $me_mail;
-		$subject = "写真名刺簡単作成★OnlyMe";
-		$message = "下記リンクよりアクセスし、変更を完了させてください\n\nhttps://onlyme.fun/regist_again2.php?code=".$p_code."\n\n※登録後30分以上経過しますと無効となります。";
-		$headers = 'From: staff@onlyme.fun' . "\r\n";
-		mb_send_mail($to, $subject, $message, $headers);
+		$mailer = new PHPMailer();
+		$mailer->IsSMTP();
+
+		$mailer->Host		= $host;
+		$mailer->CharSet	= 'utf-8';
+		$mailer->SMTPAuth	= TRUE;
+		$mailer->Username	= $mail_from;
+		$mailer->Password	= $mail_pass;
+		$mailer->SMTPSecure = 'tls';
+		$mailer->Port		= 587;
+	//	$mailer->SMTPDebug = 2;
+
+		$mailer->From     = $mail_from;
+		$mailer->FromName = mb_convert_encoding("写真名刺作成サイト★OnlyMe","UTF-8","AUTO");
+		$mailer->Subject  = mb_convert_encoding('会員再登録',"UTF-8","AUTO");
+		$mailer->Body     = mb_convert_encoding($msg,"UTF-8","AUTO");
+		$mailer->AddAddress($me_mail);
+
+		if($mailer->Send()){
+		}else{
+			$sql="INSERT INTO mail_error_log (`date`,`log_no`,`to_mail`)";
+			$sql.=" VALUES('{$date}','regist_again.php','{$me_mail}');";
+			mysqli_query($mysqli,$sql);
+		}
+
 	}else{
 		$mode=2;	
 	}
