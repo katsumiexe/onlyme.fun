@@ -158,7 +158,6 @@ $line_qr=$dir3.$tmp_enc[2]."s".$tmp_enc[3].".png";
 	background:linear-gradient(#9000a0,#600090);
 	<?if($prof["quality"] == 1){?>display:none;<?}?>
 }
-
 <?if($errmsg){?>
 alert('<?=$errmsg?>');
 <?}?>
