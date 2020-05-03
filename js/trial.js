@@ -97,7 +97,11 @@ $(function(){
 		Cate4	= $(this).children('input:hidden[name="cate3"]').val();
 		Cate_id	= $(this).children('input:hidden[name="cate_id"]').val();
 		Code	= $(this).children('input:hidden[name="cate_code"]').val();
-
+		Designer= $(this).children('input:hidden[name="cate_designer"]').val();
+		if(Degigner ==''){
+		Degigner='非公開';
+		}
+		
 		if(Cate1){
 			Cate+="<span class='info_list_tag'>"+Cate1+"</span>";
 		}
@@ -115,6 +119,11 @@ $(function(){
 		}
 		$('.info_list_code').html(Code);
 		$('.info_list_flex').html(Cate);
+
+		$('#count').text(Cnt[Cate_id]);
+		$('#signet').text(Designer);
+
+
 
 	});
 
@@ -138,12 +147,12 @@ $(function(){
 	$('.fsample_if').on('click',function(){
 		if($('.fsample_if').hasClass("if_on")){
 			$('.fsample_if').removeClass("if_on");
-
 			$('.fsample_md_com').animate({'height':'0vw'},100);
 
 		}else{
 			$('.fsample_if').addClass("if_on");
-			$('.fsample_md_com').animate({'height':'35vw'},400);
+			$('.fsample_md_com').animate({'height':'25vw'},400);
+
 		}
 	});
 

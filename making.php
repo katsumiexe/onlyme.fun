@@ -43,17 +43,13 @@ if($result = mysqli_query($mysqli,$sql)){
 			if($row["cate07"] == 1) $tag[].="限定";
 			$tag_c			=count($tag);
 
-			$sql="SELECT count(making_id) as cnt FROM me_making";
-			$sql.=" WHERE user_id>10002014";
-			$sql.=" AND use_tmpl='{$row["tmpl_id"]}'";
-			$sql.=" LIMIT 1";
-
 			$res3 = mysqli_query($mysqli,$sql);
 			$dat3 = mysqli_fetch_assoc($res3);
 
 			$tmpl_id[$cnt]=$row["tmpl_id"];
 			$list_n["l"].="<div id=\"p{$tmpl_id[$cnt]}\" class=\"fsample\"><img src=\"./img/sample/s{$tmpl_id[$cnt]}.jpg\" class=\"fsample_img {$img_off}\">";
 			$list_n["l"].="<input type=\"hidden\" name=\"cate_code\" value=\"{$row["tmpl_code"]}\">";
+			$list_n["l"].="<input type=\"hidden\" name=\"cate_designer\" value=\"{$row["designer"]}\">";
 			
 for($t=0;$t<$tag_c;$t++){
 			$list_n["l"].="<input type=\"hidden\" name=\"cate{$t}\" value=\"{$tag[$t]}\">";
@@ -65,6 +61,18 @@ for($t=0;$t<$tag_c;$t++){
 		$cnt++;
 	}
 }
+
+$sql="SELECT count(making_id) as cnt, use_tmpl FROM me_making";
+$sql.=" WHERE user_id>10002014";
+$sql.=" GROUP BY use_tmpl";
+
+if($cnt = mysqli_query($mysqli,$sql)){
+	while($cnt2 = mysqli_fetch_assoc($cnt)){
+		$making_count[$cnt2["use_tmpl"]]=$cnt2["cnt"];
+	}
+}
+
+
 
 $list_n["p"]="<span class=\"card_box_n card_prev\"></span>";
 $list_n["n"].="<span id=\"pg_n2\" class=\"card_box card_next\"></span>";
@@ -133,6 +141,12 @@ var Rote	= '';
 
 var Clr1=0;
 var Clr2=1;
+
+var Cnt=[];
+
+<?foreach($making_count as $a1 => $a2){?>
+	Cnt[<?=$a1?>]='<?=$a2+0?>';
+<?}?>
 
 $(function(){ 
 	$('#p<?=$tmpl_id[0]?>').css({'border-color':'#ee0000'});
@@ -262,12 +276,14 @@ $(function(){
 </div>
 <div class="fsample_md">
 <img class="fsample_md_img">
+
 <div class="fsample_md_com">
-<div class="info_list_code">T00001</div>
+<div class="info_list_code"></div>
 <div class="info_list_flex"></div>
-<br>
-利用数<br>
+<div class="info_list_count">利用<span id="count"></span></div>
+<div class="info_list_signet"><span class="icon_img"></span><span id="signet"></span></div>
 </div>
+
 <div class="fsample_md_btn">
 <div class="fsample_ok btn c2">使用</div>
 <div class="fsample_ng btn c1">取消</div>
