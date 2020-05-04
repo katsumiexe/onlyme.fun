@@ -95,13 +95,14 @@ $(function(){
 		Cate2	= $(this).children('input:hidden[name="cate1"]').val();
 		Cate3	= $(this).children('input:hidden[name="cate2"]').val();
 		Cate4	= $(this).children('input:hidden[name="cate3"]').val();
-		Cate_id	= $(this).children('input:hidden[name="cate_id"]').val();
+/*		Cate_id	= $(this).children('input:hidden[name="cate_id"]').val();*/
 		Code	= $(this).children('input:hidden[name="cate_code"]').val();
 		Designer= $(this).children('input:hidden[name="cate_designer"]').val();
-		if(Degigner ==''){
-		Degigner='非公開';
+
+		if(Designer ==''){
+		Designer='非公開';
 		}
-		
+
 		if(Cate1){
 			Cate+="<span class='info_list_tag'>"+Cate1+"</span>";
 		}
@@ -117,14 +118,14 @@ $(function(){
 		if(Cate4){
 			Cate+="<span class='info_list_tag'>"+Cate4+"</span>";
 		}
+
+		console.log(Designer);
+		console.log(Cate1);
+
 		$('.info_list_code').html(Code);
 		$('.info_list_flex').html(Cate);
-
-		$('#count').text(Cnt[Cate_id]);
+		$('#count').text(Cnt[Clr3]);
 		$('#signet').text(Designer);
-
-
-
 	});
 
 	$('.fsample_ok').on('click',function(){

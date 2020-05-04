@@ -113,8 +113,8 @@ if($prof["qr"] ==0) $prof["qr"]=1;
 
 <script src="./js/jquery-3.4.1.min.js"></script>
 <script src="./js/jquery.exif.js"></script>
-<script src="./js/first.js"></script>
-<script src="./js/trial.js"></script>
+<script src="./js/first.js?_<?=date("YmdHi")?>"></script>
+<script src="./js/trial.js?_<?=date("YmdHi")?>"></script>
 <script src="https://katsumiexe.github.io/wait/ide_loading.js"></script>
 
 <script>
@@ -294,6 +294,7 @@ $(function(){
 </div>
 </form>
 </div>
+<div class="trim_img2"></div>
 <input id="upd" type="file" accept="image/*" style="display:none;">
 <canvas id="cvs1" style=" background:#fff0e0; display:none;"></canvas>
 <?include_once("./x_foot.php")?>
