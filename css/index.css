@@ -253,15 +253,24 @@
 	text-shadow		:1px 1px 0px #f0f0f0;
 }
 
+.info_icon_signet{
+	display			:inline-block;
+	height			:5vw;
+	line-height		:5vw;
+	width			:6vw;
+	text-align		:center;
+	font-size		:4vw;
+}
+
 .info_list_signet{
 	display			:inline-block;
 	position		:absolute;
 	top				:20vw;
-	left			:1vw;
+	right			:1vw;
 	height			:5vw;
 	line-height		:5vw;
 	color			:#303030;
-	font-size		:3.8vw;
+	font-size		:3.5vw;
 }
 
 

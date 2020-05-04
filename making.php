@@ -277,7 +277,7 @@ $(function(){
 <div class="info_list_code"></div>
 <div class="info_list_flex"></div>
 <div class="info_list_count">利用<span id="count"></span></div>
-<div class="info_list_signet"><span class="icon_img"></span><span id="signet"></span></div>
+<div class="info_list_signet"><span class="icon_img info_icon_signet"></span><span id="signet"></span></div>
 </div>
 
 <div class="fsample_md_btn">
