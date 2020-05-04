@@ -5,7 +5,6 @@
 const uA = window.navigator.userAgent.toLowerCase();
 const Width = window.screen.width;
 const Height = window.screen.height;
-
 if(uA.indexOf("edge") !== -1 || uA.indexOf("edga") !== -1 || uA.indexOf("edgios") !== -1) {
 bW="Edge";
 } else if (uA.indexOf("opera") !== -1 || uA.indexOf("opr") !== -1) {
@@ -31,11 +30,7 @@ bW="IE";
 
 } else {
 bW="None";
-
-
 }
-
-
 
 $(function(){ 
 let P=0;
@@ -130,6 +125,14 @@ td{
 	padding:3px 5px;
 }
 
+.td_l{
+	width:120px;
+}
+
+.td_r{
+	width:400px;
+}
+
 </style>
 </head>
 <body>
@@ -139,19 +142,19 @@ td{
 </div>
 </div>
 <button type="button" class="start">Start</button>
-■
+
 
 <table>
 <tr>
-<td>Bench Mark</td><td id="box"></td>
+<td class="td_l">Bench Mark</td><td id="box" class="td_r"></td>
 </tr><tr>
-<td>Browser</td><td id="browse"></td>
+<td class="td_l">Browser</td><td id="browse" class="td_r"></td>
 </tr><tr>
-<td>UA</td><td id="ua"></td>
+<td class="td_l">UA</td><td id="ua" class="td_r"></td>
 </tr><tr>
-<td>Width</td><td id="width"></td>
+<td class="td_l">Width</td><td id="width" class="td_r"></td>
 </tr><tr>
-<td>Height</td><td id="height"></td>
+<td class="td_l">Height</td><td id="height" class="td_r"></td>
 </tr>
 </table>
 
