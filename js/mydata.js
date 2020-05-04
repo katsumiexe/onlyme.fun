@@ -1,5 +1,3 @@
-
-
 $(function(){ 
 	$('.album_box, .fav_b_box, .fav_c_box, .print_box, .print_box_out').hide();
 

@@ -306,8 +306,8 @@ if($user_ck){
 <script src="./js/jquery-3.4.1.min.js"></script>
 <script src="./js/jquery-ui.min.js"></script>
 <script src="./js/jquery.ui.touch-punch.min.js"></script>
-<script src="./js/first.js"></script>
-<script src="./js/index.js"></script>
+<script src="./js/first.js?_<?=date("YmdHi")?>"></script>
+<script src="./js/index.js?_<?=date("YmdHi")?>"></script>
 
 <script>
 var VwBase =$(window).width()/100;

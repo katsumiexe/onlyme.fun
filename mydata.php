@@ -108,7 +108,6 @@ $result = mysqli_query($mysqli,$sql);
 if($dat_list = mysqli_fetch_assoc($result)){	
 	$code=$dat_list["p_api_code"];
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -155,7 +154,6 @@ $(function(){
 	$('.album_tag').removeClass('album_tag_sel');
 	$('#id_print').addClass('album_tag_sel');
 
-
 	if(Maintenance>0){
 		$('.print_box_out').fadeIn(100);
 		$('.notice_box,.fav_b_box,.fav_c_box,.album_box,.print_box').hide();
@@ -188,15 +186,11 @@ $(function(){
 		);
 	}
 });
-
 <?}?>
 </script>
-
 <style>
 <?if($prof['net_kiyaku']!='0000-00-00 00:00:00'){?>
-
 <?}?>
-
 </style>
 </head>
 <body class="body">
@@ -207,7 +201,6 @@ $(function(){
 	<div id="fav_b" class="album_tag">フォロー</div>
 	<div id="fav_c" class="album_tag">フォロワー</div>
 	<div id="id_print" class="album_tag">プリント</div>
-
 <!--■■■■■■■■■■■■■■■■■■■■■■■■-->
 	<div class="notice_box">
 		<div id="notice_in">

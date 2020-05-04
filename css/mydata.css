@@ -1,45 +1,41 @@
 
-.p_page{
-	left:105vw;
-}
-
 .notice_box{
 	text-align:center;
 }
 
 .notice_list_1{
-	position:relative;
-	width:90vw;
-	height:12vw;
-	border:0.3px solid #303030;
-	background:#ffffff;
-	margin:1vw auto;
+	position	:relative;
+	width		:90vw;
+	height		:12vw;
+	border		:0.3px solid #303030;
+	background	:#ffffff;
+	margin		:1vw auto;
 }
 
 .notice_yet{
-	background:#ffffd0;
-	border:0.3px solid #d0d000;
+	background	:#ffffd0;
+	border		:0.3px solid #d0d000;
 }
 
 .notice_list_2{
-	position:absolute;
-	top:0;
-	left:0;
-	width:12vw;
-	height:12vw;
+	position	:absolute;
+	top			:0;
+	left		:0;
+	width		:12vw;
+	height		:12vw;
 }
 
 .notice_list_3{
-	position:absolute;
-	top:0;
-	left:15vw;
-	width:70vw;
-	height:4.5vw;
-	line-height:4.5vw;
-	font-size:3vw;
-	font-weight:600;
+	position	:absolute;
+	top			:0;
+	left		:15vw;
+	width		:70vw;
+	height		:4.5vw;
+	line-height	:4.5vw;
+	font-size	:3vw;
+	font-weight	:600;
 	border-bottom:0.2vw solid #666666; 
-	text-align:left;
+	text-align	:left;
 }
 
 .notice_list_4{

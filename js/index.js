@@ -2,9 +2,8 @@ var Direction="";
 var Position="";
 var TopNow="";
 var TopNow2="";
-$('.p_page').css('left','105vw');
-
 $(function(){ 
+	$('.p_page').css('left','105vw');
 	$('.p_cheer_com').hide();
 	$('.btn_login').on('click',function () {
 		$('#user_login').submit();	
