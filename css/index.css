@@ -240,6 +240,31 @@
 	text-shadow		:1px 1px 0px #f0f0f0;
 }
 
+.info_list_count{
+	display			:inline-block;
+	position		:absolute;
+	top				:0.5vw;
+	left			:40vw;
+	height			:8vw;
+	line-height		:8vw;
+	color			:#6090ff;
+	font-weight		:700;
+	font-size		:5vw;
+	text-shadow		:1px 1px 0px #f0f0f0;
+}
+
+.info_list_signet{
+	display			:inline-block;
+	position		:absolute;
+	top				:18vw;
+	left			:1vw;
+	height			:5vw;
+	line-height		:5vw;
+	color			:#609060;
+	font-size		:4.5vw;
+}
+
+
 .info_list_tag{
 	display			:inline-block;
 	width			:10vw;

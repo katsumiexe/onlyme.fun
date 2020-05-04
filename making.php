@@ -72,8 +72,6 @@ if($cnt = mysqli_query($mysqli,$sql)){
 	}
 }
 
-
-
 $list_n["p"]="<span class=\"card_box_n card_prev\"></span>";
 $list_n["n"].="<span id=\"pg_n2\" class=\"card_box card_next\"></span>";
 
@@ -94,7 +92,6 @@ $img_url2.=".jpg";
 
 if($prof["qr"] ==0) $prof["qr"]=1;
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -276,7 +273,6 @@ $(function(){
 </div>
 <div class="fsample_md">
 <img class="fsample_md_img">
-
 <div class="fsample_md_com">
 <div class="info_list_code"></div>
 <div class="info_list_flex"></div>
