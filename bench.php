@@ -36,7 +36,7 @@ $(function(){
 let P=0;
 let St=$.now();
 	$('.start').on('click',function () {
-		$('.start').prop("disabled", true).css('background','#d00000'),
+		$('.start').prop("disabled", true).css('background','#ffa090'),
 		$('#wait').show()
 
 		$.post("post_bench.php",function(dat){
@@ -48,6 +48,9 @@ let St=$.now();
 			$('#width').text(Width);
 			$('#height').text(Height);
 			$('#browse').text(bW);
+
+			$('.start').hide();
+			$('.send').show();
 
 		});
 	});
@@ -79,21 +82,27 @@ let St=$.now();
 	font-size:20px;
 }
 
+.send{
+	display			:none;
+	height:30px;
+	width:80px;
+	font-size:20px;
+}
+
 #wait{
-	display		:none;
-	position	:fixed;
-	top			:0;
-	left		:0;
-	right		:0;
-	bottom		:0;
-	margin		:auto;
-	width		:100px;
-	height		:100px;
-	line-height	:100px;
-/*	background	:rgba(255,200,225,0.6);-*/
-	text-align	:center;
-	border-radius:50%;
-	z-index		:100;
+	display			:none;
+	position		:fixed;
+	top				:200px;
+	left			:0;
+	right			:0;
+	margin			:auto;
+	width			:100px;
+	height			:100px;
+	line-height		:100px;
+/*	background		:rgba(255,200,225,0.6);-*/
+	text-align		:center;
+	border-radius	:50%;
+	z-index			:100;
 }
 
 #wait_in{
@@ -135,8 +144,8 @@ td{
 
 </style>
 </head>
-<body>
-<div style="text-align:center; width:100%; max-width:600px;">
+<body style="text-align:center;background:#f0f0f0;">
+<div style="text-align:center; width:100%; max-width:600px;background:#fafafa;margin:0 auto;height:100vh;">
 <table>
 <tr>
 <td class="td_l">Bench Mark</td><td id="box" class="td_r"></td>
@@ -151,6 +160,7 @@ td{
 </tr>
 </table>
 <button type="button" class="start">Start</button>
+<button type="button" class="send">情報送信</button>
 <div id="wait"><span id="wait_in"></span></div>
 </div>
 </body>
