@@ -90,7 +90,7 @@ let St=$.now();
 	width		:100px;
 	height		:100px;
 	line-height	:100px;
-	background	:rgba(255,200,225,0.6);
+/*	background	:rgba(255,200,225,0.6);-*/
 	text-align	:center;
 	border-radius:50%;
 	z-index		:100;
@@ -103,10 +103,10 @@ let St=$.now();
 	right			:0;
 	bottom			:0;
 	margin			:auto;
-	border-top		:1vw solid #ffffff;
-	border-left		:1vw solid #ffffff;
-	border-right	:1vw solid #ffffff;
-	border-bottom	:1vw solid #f17766;
+	border-top		:1vw solid #ffe0f0;
+	border-left		:1vw solid #ffe0f0;
+	border-right	:1vw solid #ffe0f0;
+	border-bottom	:1vw solid #ff3030;
 	border-radius	:50%;
 	animation		:r1 2s linear infinite;
 	display			:inline-block;
@@ -136,14 +136,7 @@ td{
 </style>
 </head>
 <body>
-<div style="text-align:center;">
-<div class="box">
-<div id="gage" class="gage">
-</div>
-</div>
-<button type="button" class="start">Start</button>
-
-
+<div style="text-align:center; width:100%; max-width:600px;">
 <table>
 <tr>
 <td class="td_l">Bench Mark</td><td id="box" class="td_r"></td>
@@ -157,8 +150,7 @@ td{
 <td class="td_l">Height</td><td id="height" class="td_r"></td>
 </tr>
 </table>
-
-
+<button type="button" class="start">Start</button>
 <div id="wait"><span id="wait_in"></span></div>
 </div>
 </body>
