@@ -75,12 +75,8 @@ if($result = mysqli_query($mysqli,$sql)){
 				$ch_list	.="<div class=\"notice_list_3\">{$notice_date}</div>";
 				$ch_list	.="<div class=\"notice_list_4\">{$notice_log}</div>";
 				$ch_list	.="</div>";
-			}
 
-
-		}else{
-
-
+			}else{
 				if($dat2['check_date'] == '0000-00-00 00:00:00'){
 					$notice_yet="notice_yet";
 				}
@@ -94,15 +90,12 @@ if($result = mysqli_query($mysqli,$sql)){
 				$check_date=$dat2['check_date'];
 				
 				$ch_list	.="<div class=\"notice_list_1 {$notice_yet}\">";
-				$ch_list	.="<img src=\"./img/remove.jpg\">";
+				$ch_list	.="<img src=\"./img/remove.jpg\" class=\"notice_list_2\">";
 				$ch_list	.="<div class=\"notice_list_3\">{$notice_date}</div>";
 				$ch_list	.="<div class=\"notice_list_4\">{$notice_log}</div>";
 				$ch_list	.="</div>";
 			}
-
-
 		}
-
 	}
 }
 
