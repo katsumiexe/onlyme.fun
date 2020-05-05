@@ -144,7 +144,6 @@ $(function(){
 		$('.fsample_bk').hide;
 		$('.fsample_md_com').css('height',0);
 		$('.fsample_if').removeClass("if_on");
-
 	});
 
 

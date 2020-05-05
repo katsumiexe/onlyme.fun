@@ -39,40 +39,70 @@ if($result = mysqli_query($mysqli,$sql)){
 		$last_id=$dat2['notice_id'];
 		if($cnt<20){
 			$cnt++;
-			for($n=0;$n<4;$n++){
-				$tmp_key=substr($dat2['id'],$n*2,2);
-				$tmp_enc[$n]=$enc[$tmp_key];
+
+			if($dat2['reg_rank']>10){
+
+				for($n=0;$n<4;$n++){
+					$tmp_key=substr($dat2['id'],$n*2,2);
+					$tmp_enc[$n]=$enc[$tmp_key];
+				}
+		
+				$list_enc=$tmp_enc[0].$tmp_enc[3].$tmp_enc[1].$tmp_enc[2].$tmp_enc[3].$tmp_enc[2];
+				$tmp=substr("0".$tmp_key+$dat2["reg_pic"],-2,2);
+				$prof_1=$enc[$tmp].".jpg";
+		
+				if($dat2['reg_pic']>0){
+					$notice_face="./myalbum/{$tmp_enc[3]}/{$list_enc}/{$tmp_enc[3]}{$tmp_enc[2]}/".$prof_1;
+		
+				}else{
+					$notice_face="./img/noimage{$dat2['reg_sex']}.jpg";
+				}
+		
+				if($dat2['check_date'] == '0000-00-00 00:00:00'){
+					$notice_yet="notice_yet";
+				}
+		
+				$tmp="<span id=\"p{$dat2['notice_id']}\" class=\"prof_jump\">{$dat2['reg_name']}さん</span>";
+				$tmp2="<span id=\"c{$dat2['use_id']}\" class=\"prof_jump2\">応援されました。</span>";
+		
+				$notice_date=substr($dat2["date"],5,2)."/".substr($dat2["date"],8,2)."　".substr($dat2["date"],11,2).":".substr($dat2["date"],14,2);
+				$notice_log=str_replace("■target■",$tmp,$dat2['notice_log']);
+				$notice_log=str_replace("■act■",$tmp2,$notice_log);
+				$check_date=$dat2['check_date'];
+				
+				$ch_list	.="<div class=\"notice_list_1 {$notice_yet}\">";
+				$ch_list	.="<img src=\"{$notice_face}\" class=\"notice_list_2\">";
+				$ch_list	.="<div class=\"notice_list_3\">{$notice_date}</div>";
+				$ch_list	.="<div class=\"notice_list_4\">{$notice_log}</div>";
+				$ch_list	.="</div>";
 			}
-	
-			$list_enc=$tmp_enc[0].$tmp_enc[3].$tmp_enc[1].$tmp_enc[2].$tmp_enc[3].$tmp_enc[2];
-			$tmp=substr("0".$tmp_key+$dat2["reg_pic"],-2,2);
-			$prof_1=$enc[$tmp].".jpg";
-	
-			if($dat2['reg_pic']>0){
-				$notice_face="./myalbum/{$tmp_enc[3]}/{$list_enc}/{$tmp_enc[3]}{$tmp_enc[2]}/".$prof_1;
-	
-			}else{
-				$notice_face="./img/noimage{$dat2['reg_sex']}.jpg";
+
+
+		}else{
+
+
+				if($dat2['check_date'] == '0000-00-00 00:00:00'){
+					$notice_yet="notice_yet";
+				}
+		
+				$tmp="<span id=\"p{$dat2['notice_id']}\">{$dat2['reg_name']}さん</span>";
+				$tmp2="<span id=\"c{$dat2['use_id']}\">応援されました</span>";
+		
+				$notice_date=substr($dat2["date"],5,2)."/".substr($dat2["date"],8,2)."　".substr($dat2["date"],11,2).":".substr($dat2["date"],14,2);
+				$notice_log=str_replace("■target■",$tmp,$dat2['notice_log']);
+				$notice_log=str_replace("■act■",$tmp2,$notice_log);
+				$check_date=$dat2['check_date'];
+				
+				$ch_list	.="<div class=\"notice_list_1 {$notice_yet}\">";
+				$ch_list	.="<img src=\"./img/remove.jpg\">";
+				$ch_list	.="<div class=\"notice_list_3\">{$notice_date}</div>";
+				$ch_list	.="<div class=\"notice_list_4\">{$notice_log}</div>";
+				$ch_list	.="</div>";
 			}
-	
-			if($dat2['check_date'] == '0000-00-00 00:00:00'){
-				$notice_yet="notice_yet";
-			}
-	
-			$tmp="<span id=\"p{$dat2['notice_id']}\" class=\"prof_jump\">{$dat2['reg_name']}さん</span>";
-			$tmp2="<span id=\"c{$dat2['use_id']}\" class=\"prof_jump2\">応援されました</span>";
-	
-			$notice_date=substr($dat2["date"],5,2)."/".substr($dat2["date"],8,2)."　".substr($dat2["date"],11,2).":".substr($dat2["date"],14,2);
-			$notice_log=str_replace("■target■",$tmp,$dat2['notice_log']);
-			$notice_log=str_replace("■act■",$tmp2,$notice_log);
-			$check_date=$dat2['check_date'];
-			
-			$ch_list	.="<div class=\"notice_list_1 {$notice_yet}\">";
-			$ch_list	.="<img src=\"{$notice_face}\" class=\"notice_list_2\">";
-			$ch_list	.="<div class=\"notice_list_3\">{$notice_date}</div>";
-			$ch_list	.="<div class=\"notice_list_4\">{$notice_log}</div>";
-			$ch_list	.="</div>";
+
+
 		}
+
 	}
 }
 
