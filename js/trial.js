@@ -142,6 +142,9 @@ $(function(){
 	$('.fsample_ng').on('click',function(){
 		$('.fsample_md').animate({'top':'-100vh'},100);
 		$('.fsample_bk').hide;
+		$('.fsample_md_com').css('height',0);
+		$('.fsample_if').removeClass("if_on");
+
 	});
 
 
