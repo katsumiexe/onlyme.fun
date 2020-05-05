@@ -497,7 +497,6 @@ $(function(){
 				<?}?>
 
 
-
 				<div class="album_prof">
 				<span class="album_time"><?=$dat[$n]["tl"]?></span>
 				<span class="album_iine"><span class="album_iine_i"></span><?=$dat[$n]["iine"]+0?></span>
@@ -532,7 +531,6 @@ $(function(){
 		<span class="p_icon icon_img"></span>
 	</div>
 	<img id="tmpl" class="p_page_img">
-
 	<div class="box_iine">
 	<img id="p_pict" class="box_iine_face">
 	<div id="p_page_prof" class="box_name"><span class="p_name"></span></div>
