@@ -226,11 +226,25 @@
 	width			:43vw;
 }
 
+.info_icon{
+	display			:inline-block;
+	position		:absolute;
+	top				:0.5vw;
+	left			:1vw;
+	height			:8vw;
+	line-height		:8vw;
+	width			:6vw;
+	color			:#f17766;
+	font-weight		:700;
+	font-size		:5vw;
+	text-shadow		:1px 1px 0px #f0f0f0;
+}
+
 .info_list_code{
 	display			:inline-block;
 	position		:absolute;
 	top				:0.5vw;
-	left			:10vw;
+	left			:8vw;
 	height			:8vw;
 	line-height		:8vw;
 
@@ -253,13 +267,14 @@
 	text-shadow		:1px 1px 0px #f0f0f0;
 }
 
+
 .info_icon_signet{
 	display			:inline-block;
 	height			:5vw;
 	line-height		:5vw;
-	width			:6vw;
+	width			:15vw;
 	text-align		:center;
-	font-size		:4vw;
+	font-size		:3.5vw;
 }
 
 .info_list_signet{
@@ -269,7 +284,7 @@
 	right			:1vw;
 	height			:5vw;
 	line-height		:5vw;
-	color			:#303030;
+	color			:#666666;
 	font-size		:3.5vw;
 }
 

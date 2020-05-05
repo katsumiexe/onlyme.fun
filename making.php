@@ -274,10 +274,11 @@ $(function(){
 <div class="fsample_md">
 <img class="fsample_md_img">
 <div class="fsample_md_com">
+<div class="info_icon icon_img"></div>
 <div class="info_list_code"></div>
 <div class="info_list_flex"></div>
 <div class="info_list_count">利用<span id="count"></span></div>
-<div class="info_list_signet"><span class="icon_img info_icon_signet"></span><span id="signet"></span></div>
+<div class="info_list_signet"><span class="info_icon_signet">Design:</span><span id="signet"></span></div>
 </div>
 
 <div class="fsample_md_btn">
