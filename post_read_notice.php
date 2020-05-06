@@ -27,12 +27,6 @@ $sql.=$app;
 $sql.=" ORDER BY notice_id DESC";
 $sql.=" LIMIT 21";
 
-
-
-
-
-
-
 $cnt=0;
 if($result = mysqli_query($mysqli,$sql)){
 	while ($dat2 = mysqli_fetch_assoc($result)) {
@@ -57,11 +51,11 @@ if($result = mysqli_query($mysqli,$sql)){
 				}else{
 					$notice_face="./img/noimage{$dat2['reg_sex']}.jpg";
 				}
-		
+
 				if($dat2['check_date'] == '0000-00-00 00:00:00'){
 					$notice_yet="notice_yet";
 				}
-		
+
 				$tmp="<span id=\"p{$dat2['notice_id']}\" class=\"prof_jump\">{$dat2['reg_name']}さん</span>";
 				$tmp2="<span id=\"c{$dat2['use_id']}\" class=\"prof_jump2\">応援されました。</span>";
 		
@@ -107,8 +101,3 @@ if($cnt==0){
 }
 echo($ch_list);
 ?>
-
-
-
-
-

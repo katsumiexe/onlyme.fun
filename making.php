@@ -8,16 +8,6 @@ if(!$_SESSION["id"]){
 	exit;
 }
 $nowpage=3;
-
-$cnt0=0;
-$cnt1=0;
-$cnt2=0;
-$cnt3=0;
-$cnt4=0;
-$cnt5=0;
-$cnt6=0;
-$cnt7=0;
-$pg=1;
 $cnt=0;
 
 $c=str_replace("tag","",$_REQUEST["c"]);
@@ -33,7 +23,6 @@ if($result = mysqli_query($mysqli,$sql)){
 	while($row = mysqli_fetch_assoc($result)){
 		if($cnt<8){
 			$tag=array();
-
 			if($row["cate01"] == 1) $tag[].="女子";
 			if($row["cate02"] == 1) $tag[].="男子";
 			if($row["cate03"] == 1) $tag[].="和風";
@@ -41,8 +30,8 @@ if($result = mysqli_query($mysqli,$sql)){
 			if($row["cate05"] == 1) $tag[].="季節";
 			if($row["cate06"] == 1) $tag[].="厨二";
 			if($row["cate07"] == 1) $tag[].="限定";
-			$tag_c			=count($tag);
 
+			$tag_c	=count($tag);
 			$res3 = mysqli_query($mysqli,$sql);
 			$dat3 = mysqli_fetch_assoc($res3);
 
@@ -56,7 +45,6 @@ for($t=0;$t<$tag_c;$t++){
 }
 			$list_n["l"].="</div>";
 			$img_off="img_off";
-
 		}
 		$cnt++;
 	}
@@ -66,8 +54,8 @@ $sql="SELECT count(making_id) as cnt, use_tmpl FROM me_making";
 $sql.=" WHERE user_id>10002014";
 $sql.=" GROUP BY use_tmpl";
 
-if($cnt = mysqli_query($mysqli,$sql)){
-	while($cnt2 = mysqli_fetch_assoc($cnt)){
+if($m_cnt = mysqli_query($mysqli,$sql)){
+	while($cnt2 = mysqli_fetch_assoc($m_cnt)){
 		$making_count[$cnt2["use_tmpl"]]=$cnt2["cnt"];
 	}
 }
@@ -142,7 +130,7 @@ var Clr2=1;
 var Cnt=[];
 
 <?foreach($making_count as $a1 => $a2){?>
-	Cnt[<?=$a1?>]='<?=$a2+0?>';
+	Cnt[<?=$a1?>]=<?=$a2+0?>+0;
 <?}?>
 
 $(function(){ 

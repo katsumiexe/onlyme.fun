@@ -40,7 +40,7 @@ if($result = mysqli_query($mysqli,$sql)){
 		if($cnt<20){
             $cnt++;
 	
-			if($dat2['reg_rank']>10){
+			if($ch_c['reg_rank']>10){
 				$sql ="SELECT `date` FROM `log`";
 				$sql.=" WHERE user_id='{$ch_c["you"]}'";
 				$sql.=" ORDER BY `date` DESC";
@@ -124,20 +124,14 @@ if($result = mysqli_query($mysqli,$sql)){
 
 			}else{
 				$ch_list	.="<div id=\"mb_{$cheer_enc_id}\" class=\"fav_remove\">";
-				$ch_list	.="<img src=\"./img/remove.jpg\" class=\"notice_list_2\">";
-
+				$ch_list	.="<img src=\"./img/remove.jpg\" class=\"fav_pic\">";
 				$ch_list	.="<div class=\"fav_msg\">";
-				$ch_list	.="<span >{$ch_c["reg_name"]}</span>";
+				$ch_list	.="<span class=\"fav_name\">{$ch_c["reg_name"]}</span>";
 				$ch_list	.="<span class=\"fav_last\">最終ログイン:----</span>";
 				$ch_list	.="<span class=\"fav_last\">最終作成日:----</span>";
 				$ch_list	.="<span id=\"fv_{$cheer_enc_id}\" class=\"fav_fan\">★</span>";
 				$ch_list	.="</div>";
 				$ch_list	.="</div>";
-
-			
-
-			
-			
 			}
 		}
 	}
@@ -151,5 +145,3 @@ if($cnt==0){
 }
 echo($ch_list);
 ?>
-
-
