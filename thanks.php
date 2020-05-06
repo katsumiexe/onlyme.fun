@@ -8,7 +8,6 @@ $sql ="SELECT * FROM me_thanks";
 $sql.=" WHERE del=0"; 
 $sql.=" ORDER BY sort ASC"; 
 
-
 $c=0;
 $res = mysqli_query($mysqli,$sql);
 while($row = mysqli_fetch_assoc($res)){
@@ -107,7 +106,6 @@ for($n=0;$n<count($obj);$n++){
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <link rel="stylesheet" href="./css/set_icon.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/first.css?_<?=date("YmdHi")?>">
-
 <script src="./js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 </script>
