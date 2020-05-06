@@ -287,8 +287,6 @@ $(function(){
 	<div class="info_list_flex"></div>
 	<a href="" class="info_list_btn">このデザインを使う</a>
 	</div>
-
-
 	<span class="p_date" style="left:32.5vw;"></span>
 	<img id="tmpl" class="p_page_img">
 	<div class="box_iine">
@@ -326,11 +324,9 @@ $(function(){
 	</div>
 </div>
 </div>
-
 <div class="pop06">
 	一度に選択できるのは10個までです。
 </div>
-
 <div class="pop07">
 	<div class="pop07_a">
 		<div class="pop01_d1">

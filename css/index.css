@@ -257,16 +257,43 @@
 .info_list_count{
 	display			:inline-block;
 	position		:absolute;
-	top				:0.5vw;
-	left			:40vw;
-	height			:8vw;
-	line-height		:8vw;
-	color			:#6090ff;
+	top				:2vw;
+	right			:1vw;
+	height			:6vw;
+	line-height		:6vw;
+	width			:8vw;
+	color			:#3040ff;
 	font-weight		:700;
-	font-size		:5vw;
+	font-size		:4vw;	
 	text-shadow		:1px 1px 0px #f0f0f0;
+	border			:1vw solid #3040ff;
+	border-radius	:3vw 1vw 1vw 3vw;
+	text-align		:right;
+	padding-right:0.5vw;
 }
 
+.info_icon_count{
+	display			:inline-block;
+	position		:absolute;
+	top				:1.5vw;
+	right			:9.5vw;
+	height			:4vw;
+	line-height		:4vw;
+	width			:4vw;
+	font-size		:4vw;
+	text-shadow		:
+	-2px -2px 0px #3040ff,
+	0px -2px 0px #3040ff,
+	2px -2px 0px #3040ff,
+	2px 0px 0px #3040ff,
+	-2px 0px 0px #3040ff,
+	-2px 2px 0px #3040ff,
+	0px 2px 0px #3040ff,
+	2px 2px 0px #3040ff;
+
+	color			:#fafafa;
+	font-weight		:600;
+}
 
 .info_icon_signet{
 	display			:inline-block;
