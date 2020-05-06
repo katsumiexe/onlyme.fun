@@ -12,6 +12,17 @@ $cnt=0;
 
 $c=str_replace("tag","",$_REQUEST["c"]);
 
+$sql="SELECT count(making_id) as cnt, use_tmpl FROM me_making";
+$sql.=" WHERE user_id>10002014";
+$sql.=" GROUP BY use_tmpl";
+
+if($m_cnt = mysqli_query($mysqli,$sql)){
+	while($cnt2 = mysqli_fetch_assoc($m_cnt)){
+		$making_count[$cnt2["use_tmpl"]]=$cnt2["cnt"];
+	}
+}
+
+
 $sql ="SELECT * FROM me_tmpl";
 $sql.=" WHERE del<>1";
 if($c){
@@ -35,10 +46,13 @@ if($result = mysqli_query($mysqli,$sql)){
 			$res3 = mysqli_query($mysqli,$sql);
 			$dat3 = mysqli_fetch_assoc($res3);
 
+			$tmp_cnt=$making_count[$row["tmpl_id"]]+0;
+
 			$tmpl_id[$cnt]=$row["tmpl_id"];
 			$list_n["l"].="<div id=\"p{$tmpl_id[$cnt]}\" class=\"fsample\"><img src=\"./img/sample/s{$tmpl_id[$cnt]}.jpg\" class=\"fsample_img {$img_off}\">";
 			$list_n["l"].="<input type=\"hidden\" name=\"cate_code\" value=\"{$row["tmpl_code"]}\">";
 			$list_n["l"].="<input type=\"hidden\" name=\"cate_designer\" value=\"{$row["designer"]}\">";
+			$list_n["l"].="<input type=\"hidden\" name=\"cate_count\" value=\"{$tmp_cnt}\">";
 			
 for($t=0;$t<$tag_c;$t++){
 			$list_n["l"].="<input type=\"hidden\" name=\"cate{$t}\" value=\"{$tag[$t]}\">";
@@ -50,15 +64,7 @@ for($t=0;$t<$tag_c;$t++){
 	}
 }
 
-$sql="SELECT count(making_id) as cnt, use_tmpl FROM me_making";
-$sql.=" WHERE user_id>10002014";
-$sql.=" GROUP BY use_tmpl";
 
-if($m_cnt = mysqli_query($mysqli,$sql)){
-	while($cnt2 = mysqli_fetch_assoc($m_cnt)){
-		$making_count[$cnt2["use_tmpl"]]=$cnt2["cnt"];
-	}
-}
 
 $list_n["p"]="<span class=\"card_box_n card_prev\"></span>";
 $list_n["n"].="<span id=\"pg_n2\" class=\"card_box card_next\"></span>";
@@ -128,10 +134,6 @@ var Clr1=0;
 var Clr2=1;
 
 var Cnt=[];
-
-<?foreach($making_count as $a1 => $a2){?>
-	Cnt[<?=$a1?>]=<?=$a2+0?>+0;
-<?}?>
 
 $(function(){ 
 	$('#p<?=$tmpl_id[0]?>').css({'border-color':'#ee0000'});
@@ -260,23 +262,20 @@ $(function(){
 	</div>
 </div>
 <div class="fsample_md">
-<img class="fsample_md_img">
-<div class="fsample_md_com">
-<div class="info_icon icon_img"></div>
-<div class="info_list_code"></div>
-<div class="info_list_flex"></div>
-<div span id="count" class="info_list_count"></div>
-<div class="info_icon_count icon_img"></div>
-<div class="info_list_signet"><span class="info_icon_signet">Design:</span><span id="signet"></span></div>
-</div>
-
-<div class="fsample_md_btn">
-<div class="fsample_ok btn c2">使用</div>
-<div class="fsample_ng btn c1">取消</div>
-<?if($user["id"]<10002014){?>
-<div class="fsample_if btn icon_img"></div>
-</div>
-<?}?>
+	<img class="fsample_md_img">
+	<div class="fsample_md_com">
+		<div class="info_icon icon_img"></div>
+		<div class="info_list_code"></div>
+		<div class="info_list_flex"></div>
+		<div span id="count" class="info_list_count"></div>
+		<div class="info_icon_count icon_img"></div>
+		<div class="info_list_signet"><span class="info_icon_signet">Design:</span><span id="signet"></span></div>
+	</div>
+	<div class="fsample_md_btn">
+		<div class="fsample_ok btn c2">使用</div>
+		<div class="fsample_ng btn c1">取消</div>
+		<div class="fsample_if btn icon_img"></div>
+	</div>
 </div>
 </form>
 </div>

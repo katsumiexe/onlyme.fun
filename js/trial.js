@@ -98,9 +98,14 @@ $(function(){
 /*		Cate_id	= $(this).children('input:hidden[name="cate_id"]').val();*/
 		Code	= $(this).children('input:hidden[name="cate_code"]').val();
 		Designer= $(this).children('input:hidden[name="cate_designer"]').val();
+		Count	= $(this).children('input:hidden[name="cate_count"]').val();
 
 		if(Designer ==''){
 		Designer='非公開';
+		}
+
+		if(Cnt[Clr3] ==''){
+		Cnt[Clr3]='0';
 		}
 
 		if(Cate1){
@@ -124,7 +129,7 @@ $(function(){
 
 		$('.info_list_code').html(Code);
 		$('.info_list_flex').html(Cate);
-		$('#count').text(Cnt[Clr3]);
+		$('#count').text(Count);
 		$('#signet').text(Designer);
 	});
 
@@ -379,9 +384,6 @@ $(function(){
 		$('.main_slide5').toggleClass("main_ck");
 		$('.trim').toggleClass("dark");
 	});
-
-
-
 	$('.close1,.close2').on('click',function(){
 		$('.sub_slide,.sub_slide2').slideUp(5);
 		$('.main_slide, .main_slide2').removeClass("main_ck");
@@ -391,7 +393,6 @@ $(function(){
 		$(this).toggleClass('text_on');
 		$('.word').toggle();
 	});
-
 
 	$('#reset_all').on('click',function(){
 	    setTimeout(function(){
@@ -471,8 +472,6 @@ $(function(){
 		$('#lxs').text(Bright);
 		$('#input_lxs,#id_bright').val(Bright);
 	});
-
-
 
 	$('.zoom_mi').on( 'click', function () {
 		Zoom--;
