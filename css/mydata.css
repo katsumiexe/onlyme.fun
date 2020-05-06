@@ -161,14 +161,25 @@
 }
 
 .fav_member{
-	display:flex;
-	position:relative;
-	height:10vw;
-	width:90vw;
-	border:0.2vw solid #303030;
-	margin:2vw auto;
-	background:#ffffff;
-	cursor:pointer;
+	display			:flex;
+	position		:relative;
+	height			:10vw;
+	width			:90vw;
+	border			:0.2vw solid #303030;
+	margin			:2vw auto;
+	background		:#fafafa;
+	cursor			:pointer;
+}
+
+.fav_remove{
+	display			:flex;
+	position		:relative;
+	height			:10vw;
+	width			:90vw;
+	border			:0.2vw solid #303030;
+	margin			:2vw auto;
+	background		:#d0d0d0;
+	cursor			:pointer;
 }
 
 .fav_pic{
