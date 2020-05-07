@@ -100,13 +100,14 @@ if($prof["qr"] ==0) $prof["qr"]=1;
 <link rel="stylesheet" href="./css/first.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/making.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="./css/index.css?_<?=date("YmdHi")?>">
-<link rel="stylesheet" href="https://katsumiexe.github.io/wait/ide_loading.css">
+<link rel="stylesheet" href="https://katsumiexe.github.io/pages/ide/ide_loading.css">
+
 
 <script src="./js/jquery-3.4.1.min.js"></script>
 <script src="./js/jquery.exif.js"></script>
 <script src="./js/first.js?_<?=date("YmdHi")?>"></script>
 <script src="./js/trial.js?_<?=date("YmdHi")?>"></script>
-<script src="https://katsumiexe.github.io/wait/ide_loading.js"></script>
+<script src="https://katsumiexe.github.io/pages/ide/ide_loading.js"></script>
 
 <script>
 var VwBase =$(window).width()/100;
