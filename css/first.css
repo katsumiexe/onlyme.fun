@@ -62,15 +62,15 @@ select:focus {
 }
 
 .body {
-	margin: 0;
-	padding: 0;
-	line-height:1.2;
-	color:#333;
-	background:#f17766;
-	font-size:3.2vw;
-	font-family:Verdana, "ＭＳ Ｐゴシック", sans-serif;
-	text-align:center;
-	width:100vw;
+	margin		: 0;
+	padding		: 0;
+	line-height	:1.2;
+	color		:#333;
+	background	:#f17766;
+	font-size	:3.2vw;
+	font-family	:Verdana, "ＭＳ Ｐゴシック", sans-serif;
+	text-align	:center;
+	width		:100vw;
 }
 
 .top_head{
