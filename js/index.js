@@ -3,7 +3,8 @@ var Position="";
 var TopNow="";
 var TopNow2="";
 $(function(){ 
-	$('.p_page').css('left','105vw');
+	$('.p_page').show().css('left','105vw');
+
 	$('.p_cheer_com').hide();
 	$('.btn_login').on('click',function () {
 		$('#user_login').submit();	

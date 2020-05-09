@@ -143,15 +143,16 @@
 }
 
 .p_page{
-	position:fixed;
-	top:0;
-	left:0;
-	width:99vw;
-	height:120vh;
-	background: #ffe0d0;
-	margin-top:6vh;
+	display		:none;	
+	position	:fixed;
+	top			:0;
+	left		:0;
+	width		:99vw;
+	height		:120vh;
+	background	:#ffe0d0;
+	margin-top	:6vh;
 	margin-bottom:2.5vh;
-	z-index:12;
+	z-index		:12;
 }
 
 .p_page_size{
