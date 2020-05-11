@@ -64,8 +64,6 @@ for($t=0;$t<$tag_c;$t++){
 	}
 }
 
-
-
 $list_n["p"]="<span class=\"card_box_n card_prev\"></span>";
 $list_n["n"].="<span id=\"pg_n2\" class=\"card_box card_next\"></span>";
 
@@ -102,13 +100,11 @@ if($prof["qr"] ==0) $prof["qr"]=1;
 <link rel="stylesheet" href="./css/index.css?_<?=date("YmdHi")?>">
 <link rel="stylesheet" href="https://katsumiexe.github.io/pages/ide/ide_loading.css">
 
-
 <script src="./js/jquery-3.4.1.min.js"></script>
 <script src="./js/jquery.exif.js"></script>
 <script src="./js/first.js?_<?=date("YmdHi")?>"></script>
 <script src="./js/trial.js?_<?=date("YmdHi")?>"></script>
 <script src="https://katsumiexe.github.io/pages/ide/ide_loading.js"></script>
-
 <script>
 var VwBase =$(window).width()/100;
 $('#vw_set').val(VwBase);
@@ -227,7 +223,6 @@ $(function(){
 		<label for="upd" class="upload_btn"><span class="icon_img icon_upd"></span>画像選択</label>　<span class="img_rote icon_img icon_6"></span><br>
 	</div>
 </div>
-
 <div class="folder_all3">
 	<div class="fbox3">
 		<?if($exp>=100){?>
