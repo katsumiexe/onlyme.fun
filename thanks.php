@@ -95,7 +95,6 @@ for($n=0;$n<count($obj);$n++){
 	}
 	$dat[$n]["img"]=str_replace("_normal","",$obj[$n]->profile_image_url_https);
 	$dat[$n]["screen_name"]=$obj[$n]->screen_name;
-
 }
 ?>
 <!DOCTYPE HTML>
