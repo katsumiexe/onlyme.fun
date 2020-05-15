@@ -683,11 +683,13 @@ $dat0 =".word1{";
 			<img src="<?=$img_url?>" alt="" class="trim_img">
 			<div class="word1 word1_1 word1_2"><?=$name?></div>
 			<div class="word1"><?=$name?></div>
+<?if($twitter || $insta || $cosp){?>
 			<div class="word2">
 				<span class="word2_twitter"><span class="icons3"></span><span class="contact_twitter"><?=$twitter?></span><br></span>
 				<span class="word2_insta"><span class="icons3"></span><span class="contact_insta"><?=$insta?></span><br></span>
 				<span class="word2_cosp"><span class="icons3"></span><span class="contact_cosp"><?=$cosp?></span><br></span>
 			</div>
+<?}?>
 			<div class="word3 word3_1"><?=$orgin?></div>
 			<div class="word3"><?=$orgin?></div>
 

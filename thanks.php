@@ -59,10 +59,8 @@ $tmp_id=substr($tmp_id,0,-1);
 
 	$context = array(
 		'http' => array(
-			'method' => $request_method , // リクエストメソッド
-			'header' => array(			  // ヘッダー
-				'Authorization: OAuth ' . $header_params ,
-			) ,
+			'method' => $request_method ,
+			'header' => array('Authorization: OAuth ' . $header_params ,) ,
 		) ,
 	) ;
 
