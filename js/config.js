@@ -14,7 +14,6 @@ $(function(){
 	$('#upd').on('change', function(e){
 		var file = e.target.files[0];
 		var reader = new FileReader();
-
 		//画像でない場合は処理終了
 		if(file.type.indexOf("image") < 0){
 			alert("NO IMAGE FILES");
@@ -252,7 +251,6 @@ $(function(){
 	});
 
 	$('#yes_5').on('click',function(){
-
 		if($('#upd').val() == '') {
 			$('#err').text('画像の登録がありません');
 			$('#err').fadeIn(100).delay(500).fadeOut(500);
