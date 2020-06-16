@@ -16,6 +16,7 @@ texture {
 	font-size:4.5vw;
 	border: 0.2vw solid #cccccc;
 	background:#ffffff;
+
 }
 
 input[type="text"]:focus,

@@ -334,11 +334,11 @@ $(function(){
 
 <div class="item1"><span class="icon_img icon_9" style="margin:0 1.5vw"></span>ハンドル</div>
 <div class="item3">10字まで</div>
-<div class="item2"><input id="ck_name" type="text" name="name" value="<?=$prof["name"]?>" class="item2_box" maxlength="10"></div>
+<div class="item2"><input id="ck_name" type="text" name="name" value="<?=$prof["name"]?>" class="item2_box" maxlength="10" autocomplete="off"></div>
 
 <div class="item1"><span class="icon_img icon_9" style="margin:0 1.5vw"></span>作品名</div>
 <div class="item3">12字まで</div>
-<div class="item2"><input id="ck_orgin" type="text" name="orgin" value="<?=$prof["orgin"]?>" class="item2_box" maxlength="12"></div>
+<div class="item2"><input id="ck_orgin" type="text" name="orgin" value="<?=$prof["orgin"]?>" class="item2_box" maxlength="12" autocomplete="off"></div>
 
 
 <div class="item1"><span class="icon_img icon_9" style="margin:0 1.5vw"></span>Twitter</div>
@@ -349,7 +349,7 @@ $(function(){
 		<div class="sw_img"></div>
 	</div>
 </div>
-<div class="item2"><input id="ck_twitter" type="text" name="twitter" value="<?=$prof["twitter"]?>" class="item2_box"></div>
+<div class="item2"><input id="ck_twitter" type="text" name="twitter" value="<?=$prof["twitter"]?>" class="item2_box" autocomplete="off"></div>
 
 <div class="item1"><span class="icon_img icon_9" style="margin:0 1.5vw"></span>Instagram</div>
 <div class="item3">

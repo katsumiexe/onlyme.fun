@@ -98,8 +98,8 @@ $(function(){
 			<span class="err_msg"><?=$msg?></span>
 			<div class="top_login_n">
 				<form id="user_login" action="./index.php" method="post">
-					<input type="text" name="log_in" placeholder="ID or ADDRESS" class="top_input_n"><br>
-					<input type="password" name="log_pass" placeholder="PASSWORD" class="top_input_n"><br>
+					<input type="text" name="log_in" placeholder="ID or ADDRESS" class="top_input_n"  autocomplete="off"><br>
+					<input type="password" name="log_pass" placeholder="PASSWORD" class="top_input_n" autocomplete="off"><br>
 					<span class="btn_login"><span class="icon_img mail_in"></span>LOGIN</span>
 				</form>
 <a href="https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1653949496&redirect_uri=https%3a%2f%2fonlyme.fun%2fline_login.php&state=1sdf&scope=profile%20openid%20email" class="btn_line_login_n"><span class="icon_img line_in"></span>LOGIN</a>
