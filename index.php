@@ -271,6 +271,7 @@ $(function(){
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146438289-2"></script>
+<script data-ad-client="ca-pub-8647163255903836" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
