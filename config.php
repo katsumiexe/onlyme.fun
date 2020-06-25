@@ -90,6 +90,7 @@ var_dump($e_login);
 	$cosp=mb_convert_kana($cosp,'rans');
 	$cosp=str_replace(" ","",$cosp);
 
+
 	$sql ="UPDATE me_prof SET";
 	$sql.=" `name`='{$name}',";
 	$sql.=" `orgin`='{$orgin}',";
