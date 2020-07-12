@@ -342,7 +342,7 @@ twq('track','PageView');
 <?}?>
 				<table class="index_frame_ttl">
 					<tr>
-						<td rowspan="2" class="ttl_1"><img id="h_face<?=$n?>" src="<?=$dat[$n]["face"]?>" class="ttl_img"></td>
+						<td rowspan="2" class="ttl_1"><img id="h_face<?=$n?>" src="<?=$dat[$n]["face"]?>" class="ttl_img" alt="face"></td>
 						<td class="ttl_2"><?=$dat[$n]["tl"]?></td>
 						<td class="ttl_3">
 						<div class="ttl_comm">
