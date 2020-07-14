@@ -103,7 +103,6 @@ while($dat2 = mysqli_fetch_assoc($result)){
 
 		$dat[$d]=$dat2;
 
-
 		$dat[$d]["mdate"]=substr($dat2["makedate"],5,2)."/".substr($dat2["makedate"],8,2)." ".substr($dat2["makedate"],11,2).":".substr($dat2["makedate"],14,2);
 		$dat[$d]["img_url"]	=$sub_img;
 		$dat[$d]["tl"]	=get_after($dat2["makedate"]);
