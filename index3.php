@@ -61,23 +61,37 @@ if($chg == 1){//■イイネ数順
 	$sql.=" ORDER BY cheer_new DESC";
 	$sql.=" LIMIT 21";
 
-
 }else{
-	$sql ="SELECT *, sum(me_iine.pritty)+sum(me_iine.smart)+sum(me_iine.funny)+sum(me_iine.sexy)  as iine, max(me_cheer.cheer_date) as cheer_new FROM `me_making`";
-	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
-	$sql.=" LEFT JOIN `me_iine` ON me_making.making_id=i_card_id";
-	$sql.=" LEFT JOIN `me_cheer` ON me_making.making_id=me_cheer.c_card_id";
-	$sql.=" LEFT JOIN `me_tmpl` ON me_making.use_tmpl=me_tmpl.tmpl_id";
+
+	$sql ="SELECT  
+		sum(me_iine.pritty)+sum(me_iine.smart)+sum(me_iine.funny)+sum(me_iine.sexy)  as iine, 
+		max(me_cheer.cheer_date) as cheer_new, 
+		max(me_making.user_id) as uid, 
+		max(me_making.making_id) as mid 
+		FROM `me_making`";
+
+	$sql.=" LEFT JOIN `reg` ON uid=reg.id";
+	$sql.=" LEFT JOIN `me_iine` ON mid=i_card_id";
+	$sql.=" LEFT JOIN `me_cheer` ON mid=me_cheer.c_card_id";
+//	$sql.=" LEFT JOIN `me_tmpl` ON me_making.use_tmpl=me_tmpl.tmpl_id";
 	$sql.=" WHERE `me_making`.`del`='0'";
-	$sql.=" GROUP BY me_making.making_id";
+//	$sql.=" GROUP BY me_making.making_id";
+	$sql.=" GROUP BY me_making.user_id";
 	$sql.=" ORDER BY me_making.making_id DESC";
 	$sql.=" LIMIT 21";
 }
 
 //print($sql);
 
+
+誕生日が良い思い出の日になれますように！　微力ながらお祝いさせて頂きました♪
+アイスや衣装は他の人とかぶると悲しいので、消耗品にさせていただきます。
+
+
+
 $result = mysqli_query($mysqli,$sql);
 while($dat2 = mysqli_fetch_assoc($result)){
+
 	for($n=0;$n<4;$n++){
 		$tmp_key=substr($dat2["user_id"],$n*2,2);
 		$tmp_enc[$n]=$enc[$tmp_key];
@@ -102,7 +116,6 @@ while($dat2 = mysqli_fetch_assoc($result)){
 //print($dat[$d]["cate01"]."◇".$dat[$d]["cate"]."<br>\n");
 
 		$dat[$d]=$dat2;
-
 
 		$dat[$d]["mdate"]=substr($dat2["makedate"],5,2)."/".substr($dat2["makedate"],8,2)." ".substr($dat2["makedate"],11,2).":".substr($dat2["makedate"],14,2);
 		$dat[$d]["img_url"]	=$sub_img;
@@ -342,7 +355,7 @@ twq('track','PageView');
 <?}?>
 				<table class="index_frame_ttl">
 					<tr>
-						<td rowspan="2" class="ttl_1"><img id="h_face<?=$n?>" src="<?=$dat[$n]["face"]?>" class="ttl_img"></td>
+						<td rowspan="2" class="ttl_1"><img id="h_face<?=$n?>" src="<?=$dat[$n]["face"]?>" class="ttl_img" alt="face"></td>
 						<td class="ttl_2"><?=$dat[$n]["tl"]?></td>
 						<td class="ttl_3">
 						<div class="ttl_comm">
