@@ -140,7 +140,6 @@ $(function(){
 				<div class="q2"><span class="q4">▲</span></div>
 				<div class="q3">印刷所に頼むと時間がかかる。自宅に送られてくるのも嫌</div>
 			</div>
-
 			<div id="tl4" class="flex_a">
 				<div class="a1"><img src="./img/lp/lp_a2.png" class="tl_face" alt="icon2"></div>
 				<div class="a2"><span class="a4">▲</span></div>

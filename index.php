@@ -61,7 +61,6 @@ if($chg == 1){//■イイネ数順
 	$sql.=" ORDER BY cheer_new DESC";
 	$sql.=" LIMIT 21";
 
-
 }else{
 	$sql ="SELECT *, sum(me_iine.pritty)+sum(me_iine.smart)+sum(me_iine.funny)+sum(me_iine.sexy)  as iine, max(me_cheer.cheer_date) as cheer_new FROM `me_making`";
 	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
