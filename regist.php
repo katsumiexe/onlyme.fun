@@ -149,7 +149,7 @@ $(function(){
 <?if($mode == 3){?>
 
 <div class="box_01">
-<span style="font-weight:600;width:100%;text-align:center;">仮登録受付完了</span><br>
+<span style="font-weight:600;width:99%;text-align:center;">仮登録受付完了</span><br>
 <div class="box_02">
 入力されたメールアドレスに登録メールを送信しました。<br>
 ※30分を過ぎますと仮登録は無効となります。その際は再度仮登録申請を行ってください。<br>
