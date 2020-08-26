@@ -258,7 +258,7 @@ $(function(){
 				<span class="img_btn_txt">登録</span>
 			</div>
 			<div id="d1" class="img_btn1<?if(strpos($prof_img[1],"noimage") === FALSE){?> btn_del<?}?>">
-				<span class="icon_img icon_5s img_btn_icon"></span>
+				<span class="icon_img icon_5s img_btn_icon"></span>
 				<span class="img_btn_txt">削除</span>
 			</div>
 		</td>
@@ -276,7 +276,7 @@ $(function(){
 				<span class="img_btn_txt">登録</span>
 			</div>
 			<div id="d2" class="img_btn1<?if(strpos($prof_img[2],"noimage") === FALSE){?> btn_del<?}?>">
-				<span class="icon_img icon_5s img_btn_icon"></span>
+				<span class="icon_img icon_5s img_btn_icon"></span>
 				<span class="img_btn_txt">削除</span>
 			</div>
 		</td>
@@ -293,7 +293,7 @@ $(function(){
 				<span class="img_btn_txt">登録</span>
 			</div>
 			<div id="d3" class="img_btn1<?if(strpos($prof_img[3],"noimage") === FALSE){?> btn_del<?}?>">
-				<span class="icon_img icon_5s img_btn_icon"></span>
+				<span class="icon_img icon_5s img_btn_icon"></span>
 				<span class="img_btn_txt">削除</span>
 			</div>
 		</td>
