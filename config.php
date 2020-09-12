@@ -29,10 +29,6 @@ if($_GET['code']){
 	$e_login	=json_decode($e_token,true);
 	$id_token	=$e_login["id_token"];
 
-print($e_token);
-var_dump($e_login);
-
-
 	$id_decode=explode(".",$id_token);
 	$tmp=base64_decode($id_decode[1]);
 	$reg_chk=json_decode($tmp,true);
