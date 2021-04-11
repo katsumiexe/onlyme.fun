@@ -284,6 +284,7 @@ $(function(){
 		</div>
 		<br><br><br>
 	</div>
+
 <!--■■■■■■■■■■■■■■■■■■■■■■■■-->
 	<div class="print_box_out">
 		<div class="print_err">
@@ -452,6 +453,7 @@ $(function(){
 <?}else{?>		
 		※ユーザー番号は<a href="./mydata.php?tag=print"><span class="exp_code">プリントリスト作成</span></a>のページに表示されます。
 <?}?>
+
 	</div>
 </div>
 

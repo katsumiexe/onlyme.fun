@@ -70,6 +70,7 @@ if($chg == 1){//■イイネ数順
 		max(me_making.making_id) as mid 
 		FROM `me_making`";
 
+
 	$sql.=" LEFT JOIN `reg` ON uid=reg.id";
 	$sql.=" LEFT JOIN `me_iine` ON mid=i_card_id";
 	$sql.=" LEFT JOIN `me_cheer` ON mid=me_cheer.c_card_id";
@@ -82,12 +83,6 @@ if($chg == 1){//■イイネ数順
 }
 
 //print($sql);
-
-
-誕生日が良い思い出の日になれますように！　微力ながらお祝いさせて頂きました♪
-アイスや衣装は他の人とかぶると悲しいので、消耗品にさせていただきます。
-
-
 
 $result = mysqli_query($mysqli,$sql);
 while($dat2 = mysqli_fetch_assoc($result)){

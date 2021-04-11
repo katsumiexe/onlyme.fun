@@ -24,7 +24,10 @@ $reg_code	=$_REQUEST["reg_code"];
 $date		=date("Y-m-d H:i:s");
 $date_code	=date(mYsdHi).$me_pass;
 
-if($me_pass && $me_mail){
+if(strlen($me_mail)>60 && $me_mail){
+	$mode=99;
+
+}elseif($me_pass && $me_mail){
 	$mode=3;
 	$sql_up	 ="INSERT INTO reg_try(`date`,`date_code`, `mail`, `pass`, `reg_code`)";
 	$sql_up	.="VALUES('{$date}', '{$date_code}', '{$me_mail}', '{$me_pass}', '{$reg_code}')";
@@ -132,9 +135,12 @@ $(function(){
 		}
 	});
 });
+
+
 </script>
 </head>
 <body class="body">
+<?if($mode != 99){?>
 <div class="pc_only">
 	<img src="./img/top.png" style="width:700px;"><br>
 	<div class="pc_box" style="font-size:14px;">
@@ -146,8 +152,8 @@ $(function(){
 <a href="./index.php" class="irr_top">写真名刺作成サイト★OnlyMe</a>
 <h1 class="h1_irr"><span class="h1_title">新規登録(無料)</span></h1>
 
-<?if($mode == 3){?>
 
+<?if($mode == 3){?>
 <div class="box_01">
 <span style="font-weight:600;width:99%;text-align:center;">仮登録受付完了</span><br>
 <div class="box_02">
@@ -195,7 +201,6 @@ $(function(){
 </div>
 </div>
 <?include_once("./x_foot.php")?>
+<?}?>
 </body>
 </html>
-
-

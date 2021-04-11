@@ -1,7 +1,3 @@
-<?
-
-
-?>
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -53,21 +49,14 @@ let St=$.now();
 			$('#height').text(Height);
 			$('#browse').text(bW);
 
-			$('#f_bench').val(Tm);
-			$('#f_ua').val(uA);
-			$('#f_width').val(Width);
-			$('#f_height').val(Height);
-			$('#f_browse').val(bW);
-
 			$('.start').hide();
 			$('.send').show();
+
 		});
-	});
-	$('.send').on('click',function () {
-		$('.form').submit();
 	});
 });
 </script>
+
 <style>
 .gage{
 	display		:inline-block;
@@ -176,15 +165,5 @@ td{
 <button type="button" class="send">情報送信</button>
 <div id="wait"><span id="wait_in"></span></div>
 </div>
-
-<form class="form" method="post" action="bench.php"> 
-<input type="hidden" id="f_bench" name="bench">
-<input type="hidden" id="f_browse" name="browse">
-<input type="hidden" id="f_ua" name="ua">
-<input type="hidden" id="f_width" name="width">
-<input type="hidden" id="f_height" name="height">
-<input type="hidden" id="f_idcode" name="idcode">
-<input type="hidden" id="f_time" name="time">
-</form>
 </body>
 </html>

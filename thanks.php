@@ -59,8 +59,10 @@ $tmp_id=substr($tmp_id,0,-1);
 
 	$context = array(
 		'http' => array(
-			'method' => $request_method ,
-			'header' => array('Authorization: OAuth ' . $header_params ,) ,
+			'method' => $request_method , // リクエストメソッド
+			'header' => array(			  // ヘッダー
+				'Authorization: OAuth ' . $header_params ,
+			) ,
 		) ,
 	) ;
 
@@ -93,6 +95,7 @@ for($n=0;$n<count($obj);$n++){
 	}
 	$dat[$n]["img"]=str_replace("_normal","",$obj[$n]->profile_image_url_https);
 	$dat[$n]["screen_name"]=$obj[$n]->screen_name;
+
 }
 ?>
 <!DOCTYPE HTML>

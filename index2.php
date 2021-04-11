@@ -75,7 +75,7 @@ if($chg == 1){//■イイネ数順
 	$sql.=" ORDER BY me_making.making_id DESC";
 	$sql.=" LIMIT 21";
 */
-	$sql ="SELECT max(makedate) as mdate, user_id, max(making_id) as mid, FROM `me_making`";
+	$sql ="SELECT max(makedate) as mdate, user_id, max(making_id) as mid FROM `me_making`";
 	$sql.=" WHERE `del`='0'";
 //	$sql.=" GROUP BY me_making.making_id";
 	$sql.=" GROUP BY user_id";
@@ -90,6 +90,16 @@ while($dat2 = mysqli_fetch_assoc($result)){
 
 	$sql ="SELECT * FROM `reg`";
 	$sql.=" WHERE `id='{$dat2["user_id"]}'";
+
+	$sql.=" LEFT JOIN `reg` ON me_making.user_id=reg.id";
+	$sql.=" LEFT JOIN `me_iine` ON me_making.making_id=i_card_id";
+	$sql.=" LEFT JOIN `me_cheer` ON me_making.making_id=me_cheer.c_card_id";
+	$sql.=" LEFT JOIN `me_tmpl` ON me_making.use_tmpl=me_tmpl.tmpl_id";
+	$sql.=" WHERE `me_making`.`del`='0'";
+//	$sql.=" GROUP BY me_making.making_id";
+	$sql.=" GROUP BY me_making.user_id";
+	$sql.=" ORDER BY me_making.making_id DESC";
+	$sql.=" LIMIT 21";
 
 	$sql ="SELECT sum(me_iine.pritty)+sum(me_iine.smart)+sum(me_iine.funny)+sum(me_iine.sexy)  as iine, max(me_cheer.cheer_date) as cheer_new FROM `me_iine`";
 	$sql.=" WHERE `i_card_id='{$dat2["making_id"]}'";
