@@ -211,7 +211,6 @@ $log_date = date("Y-m-d H:i:s");
 $sql="INSERT INTO me_alllog(`log_date`,`log_ref`,`log_ua`,`log_ip`) VALUES('{$log_date}','{$t_re}','{$t_ua}','{$t_ip}')";
 mysqli_query($mysqli,$sql);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
